@@ -20,13 +20,36 @@ import {
 } from 'lucide-react';
 
 const ProfilePage = () => {
-  const { user, logout } = useAuth();
+  const { user, login } = useAuth(); // Need login to update context
   
   const [activeTab, setActiveTab] = useState('profile');
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: user?.firstName || '',
+    lastName: user?.lastName || '',
+    email: user?.email || '',
+    phone: user?.phone || '',
+    currentPassword: '',
+    newPassword: ''
+  });
 
-  const handleLogout = () => {
-    logout();
-    window.location.href = '/';
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.put('/auth/profile', formData);
+      // Mettre à jour le contexte utilisateur via login (simulé ou update direct si context supportait)
+      // Ici on va juste recharger la page ou idéalement le contexte devrait avoir une méthode updateUser
+      alert('Profile updated successfully');
+      setIsEditing(false);
+      window.location.reload(); // Simple refresh to fetch new data
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      alert('Failed to update profile');
+    }
   };
 
   const menuItems = [
