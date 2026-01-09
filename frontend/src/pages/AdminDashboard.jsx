@@ -152,6 +152,12 @@ const AdminDashboard = () => {
                 📸 Gérer les Images
               </div>
             </Link>
+            <Link to="/admin/orders" className="block">
+              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium shadow-lg">
+                <ShoppingCart size={20} />
+                📦 Gérer les Commandes
+              </div>
+            </Link>
             {[
               { id: 'overview', label: 'Overview', icon: BarChart3 },
               { id: 'orders', label: 'Orders', icon: ShoppingCart },
