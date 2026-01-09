@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
+import AdminLayout from '@/widgets/layout/AdminLayout';
 
 import Home from '@/pages/Home';
 import Auth from '@/pages/Auth';
@@ -18,6 +20,9 @@ import AdminDashboard from '@/pages/AdminDashboard';
 import AdminAnalytics from '@/pages/AdminAnalytics';
 import AdminImagesPage from '@/pages/AdminImagesPage';
 import AdminOrdersManagement from '@/pages/AdminOrdersManagement';
+import AdminUsers from '@/pages/AdminUsers';
+import AdminProducts from '@/pages/AdminProducts';
+import UserDashboard from '@/pages/UserDashboard';
 import RecommendationsPage from '@/pages/RecommendationsPage';
 import GiftCardPage from '@/pages/GiftCardPage';
 import StoresPage from '@/pages/StoresPage';
@@ -34,7 +39,14 @@ const AnimatedRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/auth" element={<Auth />} />
+      <Route 
+        path="/auth" 
+        element={
+          <PublicRoute>
+            <Auth />
+          </PublicRoute>
+        } 
+      />
       <Route path="/glasses" element={<GlassesPage />} />
       <Route path="/glasses/:id" element={<GlassDetailPage />} />
       <Route path="/brands" element={<BrandsPage />} />
@@ -50,6 +62,15 @@ const AnimatedRoutes = () => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/reviews" element={<ReviewsPage />} />
       
+      {/* Routes User Protégées */}
+      <Route
+        path="/user/dashboard"
+        element={
+          <ProtectedRoute>
+            <UserDashboard />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/favorites"
         element={
@@ -106,22 +127,42 @@ const AnimatedRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+      {/* Routes Admin Protégées */}
+import AdminLayout from '@/widgets/layout/AdminLayout';
+
+// ... (imports existants)
+
+const AnimatedRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      {/* ... (routes publiques existantes) */}
+      
+      {/* ... (routes user existantes) */}
+
+      {/* Routes Admin Protégées - Nested Routes */}
       <Route
         path="/admin"
         element={
           <ProtectedRoute adminOnly>
-            <AdminDashboard />
+            <AdminLayout />
           </ProtectedRoute>
         }
-      />
-      <Route
-        path="/admin/analytics"
-        element={
-          <ProtectedRoute adminOnly>
-            <AdminAnalytics />
-          </ProtectedRoute>
-        }
-      />
+      >
+        <Route index element={<AdminDashboard />} />
+        <Route path="analytics" element={<AdminAnalytics />} />
+        <Route path="images" element={<AdminImagesPage />} />
+        <Route path="orders" element={<AdminOrdersManagement />} />
+        <Route path="users" element={<AdminUsers />} />
+        <Route path="products" element={<AdminProducts />} />
+      </Route>
+      
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+};
+      
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

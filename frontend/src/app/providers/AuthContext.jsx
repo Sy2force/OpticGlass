@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
       storage.setItem('user', JSON.stringify(userData));
       storage.setItem('loginTime', Date.now().toString());
 
-      return { success: true };
+      return { success: true, role: userData.role };
     } catch (error) {
       return {
         success: false,
@@ -106,13 +106,11 @@ export const AuthProvider = ({ children }) => {
       setToken(newToken);
       setUser(userData);
       
-      // Default to localStorage for registration (or sessionStorage if preferred, but usually persistent)
-      // Let's use persistent for new registrations for better UX
       localStorage.setItem('token', newToken);
       localStorage.setItem('user', JSON.stringify(userData));
       localStorage.setItem('loginTime', Date.now().toString());
 
-      return { success: true };
+      return { success: true, role: userData.role };
     } catch (error) {
       return {
         success: false,

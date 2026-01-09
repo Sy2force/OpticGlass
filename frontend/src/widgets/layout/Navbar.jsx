@@ -174,6 +174,9 @@ const Navbar = () => {
                       <p className="text-white font-light text-sm tracking-wide">{user?.name || 'User'}</p>
                       <p className="text-white/40 text-xs">{user?.email}</p>
                     </div>
+                    <Link to="/user/dashboard" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                      My Dashboard
+                    </Link>
                     <Link to="/profile" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
                       My Profile
                     </Link>

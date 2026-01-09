@@ -61,24 +61,17 @@ const Auth = () => {
       return;
     }
 
-    let result;
-    if (isLogin) {
-      result = await login(formData.email, formData.password, rememberMe);
-    } else {
-      result = await register(
-        formData.firstName,
-        formData.lastName,
-        formData.email,
-        formData.password
-      );
-    }
-
-    setLoading(false);
+    const result = isLogin
+      ? await login(formData.email, formData.password, formData.remember)
+      : await register(formData.firstName, formData.lastName, formData.email, formData.password);
 
     if (result.success) {
-      navigate('/glasses');
+      // Redirection automatique vers le dashboard approprié
+      const targetPath = result.role === 'admin' ? '/admin' : '/user/dashboard';
+      navigate(targetPath);
     } else {
       setError(result.message);
+      setLoading(false);
     }
   };
 
