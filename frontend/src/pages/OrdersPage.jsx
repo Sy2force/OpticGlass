@@ -83,7 +83,7 @@ const OrdersPage = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await api.get('/cart/orders');
+      const response = await api.get('/orders/my-orders');
       setOrders(response.data.data || []);
     } catch (error) {
       console.error('Erreur chargement commandes:', error);
