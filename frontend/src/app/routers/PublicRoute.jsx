@@ -15,7 +15,7 @@ const PublicRoute = ({ children }) => {
 
   if (isAuthenticated) {
     // Redirection basée sur le rôle
-    const from = location.state?.from?.pathname || (isAdmin ? '/admin' : '/profile');
+    const from = location.state?.from?.pathname || (isAdmin ? '/admin' : '/user/dashboard');
     return <Navigate to={from} replace />;
   }
 
