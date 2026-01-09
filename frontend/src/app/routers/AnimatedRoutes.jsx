@@ -16,6 +16,7 @@ import BrandDetailPage from '@/pages/BrandDetailPage';
 import CategoriesPage from '@/pages/CategoriesPage';
 import AdminDashboard from '@/pages/AdminDashboard';
 import AdminAnalytics from '@/pages/AdminAnalytics';
+import AdminImagesPage from '@/pages/AdminImagesPage';
 import RecommendationsPage from '@/pages/RecommendationsPage';
 import GiftCardPage from '@/pages/GiftCardPage';
 import StoresPage from '@/pages/StoresPage';
@@ -117,14 +118,6 @@ const AnimatedRoutes = () => {
         element={
           <ProtectedRoute adminOnly>
             <AdminAnalytics />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/admin/images"
-        element={
-          <ProtectedRoute adminOnly>
-            <AdminImagesPage />
           </ProtectedRoute>
         }
       />
