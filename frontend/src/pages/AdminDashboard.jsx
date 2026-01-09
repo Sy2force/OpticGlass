@@ -146,6 +146,12 @@ const AdminDashboard = () => {
           </div>
           
           <nav className="p-4 space-y-2">
+            <Link to="/admin/images" className="block">
+              <div className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all bg-gradient-to-r from-[#c9a227] to-amber-600 text-black font-medium shadow-lg">
+                <Package size={20} />
+                📸 Gérer les Images
+              </div>
+            </Link>
             {[
               { id: 'overview', label: 'Overview', icon: BarChart3 },
               { id: 'orders', label: 'Orders', icon: ShoppingCart },

@@ -120,6 +120,14 @@ const AnimatedRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/admin/images"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminImagesPage />
+          </ProtectedRoute>
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
