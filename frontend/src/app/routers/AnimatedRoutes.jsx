@@ -17,6 +17,7 @@ import CategoriesPage from '@/pages/CategoriesPage';
 import AdminDashboard from '@/pages/AdminDashboard';
 import AdminAnalytics from '@/pages/AdminAnalytics';
 import AdminImagesPage from '@/pages/AdminImagesPage';
+import AdminOrdersManagement from '@/pages/AdminOrdersManagement';
 import RecommendationsPage from '@/pages/RecommendationsPage';
 import GiftCardPage from '@/pages/GiftCardPage';
 import StoresPage from '@/pages/StoresPage';
