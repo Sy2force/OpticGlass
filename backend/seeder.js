@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import colors from 'colors';
 import User from './models/User.js';
 import connectDB from './config/db.js';
 
@@ -17,11 +16,7 @@ const importData = async () => {
         firstName: 'Admin',
         lastName: 'User',
         email: 'shayaco@gmail.com',
-        password: 'Qwerty2121@', // sera hashé par le hook pre-save si on passait par create, mais ici insertMany ne trigger pas save middleware.
-        // Wait, insertMany DOES NOT trigger pre('save') hooks in Mongoose by default unless specified or loop used.
-        // Actually, seeders usually use create or need hashed passwords directly.
-        // Let's fix this logic to use a loop or provide hashed password if we knew it, 
-        // OR better: use user.create inside a loop.
+        password: 'Qwerty2121@', 
         role: 'admin',
       },
       {
@@ -32,17 +27,11 @@ const importData = async () => {
         role: 'user',
       },
     ]);
-
-    // NB: InsertMany with mongoose documents bypasses middleware? 
-    // Mongoose docs: "Note that save() middleware is not executed on insertMany()"
-    // So passwords won't be hashed! 
-    // We should use create or manually hash.
-    // Let's rewrite to use loop with create/save.
     
-    console.log('Data Imported!'.green.inverse);
+    console.log('Data Imported!');
     process.exit();
   } catch (error) {
-    console.error(`${error}`.red.inverse);
+    console.error(`${error}`);
     process.exit(1);
   }
 };
@@ -51,10 +40,10 @@ const destroyData = async () => {
   try {
     await User.deleteMany();
 
-    console.log('Data Destroyed!'.red.inverse);
+    console.log('Data Destroyed!');
     process.exit();
   } catch (error) {
-    console.error(`${error}`.red.inverse);
+    console.error(`${error}`);
     process.exit(1);
   }
 };
@@ -62,7 +51,6 @@ const destroyData = async () => {
 if (process.argv[2] === '-d') {
   destroyData();
 } else {
-  // Better implementation for hashing
   const seedUsers = async () => {
     try {
       await User.deleteMany();
@@ -89,10 +77,10 @@ if (process.argv[2] === '-d') {
 
       console.log('User created: user@example.com / password123');
       
-      console.log('Data Imported!'.green.inverse);
+      console.log('Data Imported!');
       process.exit();
     } catch (error) {
-      console.error(`${error}`.red.inverse);
+      console.error(`${error}`);
       process.exit(1);
     }
   }

@@ -170,7 +170,7 @@ const AdminOrdersManagement = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="bg-[#111] border border-white/10 rounded-xl p-6 mb-6">
