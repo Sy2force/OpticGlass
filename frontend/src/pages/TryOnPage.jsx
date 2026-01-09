@@ -12,7 +12,7 @@ import {
   ScanFace
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { luxuryProducts } from '@/shared/data/luxuryProducts';
+import { products } from '@/shared/data/products';
 
 const TryOnPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -28,7 +28,7 @@ const TryOnPage = () => {
   const streamRef = useRef(null);
 
   // Filter products for try-on (those with images)
-  const glassesCollection = luxuryProducts.filter(p => p.images && p.images.length > 0).slice(0, 20);
+  const glassesCollection = products.filter(p => p.images && p.images.length > 0).slice(0, 20);
 
   useEffect(() => {
     return () => {

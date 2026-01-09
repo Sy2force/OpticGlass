@@ -8,7 +8,6 @@ import {
 import api from '@/shared/api/api';
 import Glass3DCard from '@/entities/product/ui/Glass3DCard';
 import { products as mockProducts } from '@/shared/data/products';
-import { luxuryProducts } from '@/shared/data/luxuryProducts';
 
 const SunglassesPage = () => {
   
@@ -74,7 +73,7 @@ const SunglassesPage = () => {
         // Patch images if missing
         const patchedProducts = response.data.data.map(p => {
             if (!p.images || p.images.length === 0) {
-                const localMatch = luxuryProducts.find(lp => 
+                const localMatch = mockProducts.find(lp => 
                     lp._id === p._id || lp.name.toLowerCase() === p.name.toLowerCase()
                 );
                 if (localMatch && localMatch.images) {
@@ -87,7 +86,7 @@ const SunglassesPage = () => {
         setTotalPages(response.data.pagination?.pages || 1);
       } else {
         // Utiliser les données enrichies de lunettes de soleil
-        let sunglasses = luxuryProducts.filter(p => p.type === 'sunglasses');
+        let sunglasses = mockProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
         
         // Filtrer par collection si sélectionnée
         if (selectedCollection !== 'all') {
@@ -99,7 +98,7 @@ const SunglassesPage = () => {
       }
     } catch (error) {
       console.error('Erreur chargement produits:', error);
-      let filtered = luxuryProducts.filter(p => p.type === 'sunglasses');
+      let filtered = mockProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
       
       // Filtrer par collection
       if (selectedCollection !== 'all') {

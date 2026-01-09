@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import api from '@/shared/api/api';
 import Glass3DCard from '@/entities/product/ui/Glass3DCard';
-import { luxuryProducts } from '@/shared/data/luxuryProducts';
+import { products as mockProducts } from '@/shared/data/products';
 
 const GlassesPage = () => {
   const [products, setProducts] = useState([]);
@@ -58,7 +58,7 @@ const GlassesPage = () => {
          await new Promise(resolve => setTimeout(resolve, 500));
       }
       
-      let filtered = luxuryProducts.filter(p => p.type === 'glasses' || p.category === 'optical');
+      let filtered = mockProducts.filter(p => p.category === 'glasses' || p.category === 'optique');
 
       if (filters.brand) filtered = filtered.filter(p => p.brand === filters.brand);
       if (filters.gender) filtered = filtered.filter(p => p.gender === filters.gender);
