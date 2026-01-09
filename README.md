@@ -1,294 +1,487 @@
-# 🕶️ Optic Glass - E-commerce de Lunettes de Luxe
+# 🕶️ Optic Glass - Site E-Commerce de Lunettes de Luxe
 
-![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Stack](https://img.shields.io/badge/Stack-MERN-purple)
+Site e-commerce moderne pour la vente de lunettes de luxe, développé avec React + Vite (frontend) et Express.js (backend).
 
-> **Une expérience e-commerce immersive et premium pour l'achat de lunettes de luxe, alliant design glassmorphism, essayage virtuel et intelligence artificielle.**
-
----
-
-## 📑 Table des Matières
-
-- [📖 À propos](#-à-propos)
-- [✨ Fonctionnalités](#-fonctionnalités)
-- [📊 Statistiques du Projet](#-statistiques-du-projet)
-- [🏗️ Architecture & Stack Technique](#-architecture--stack-technique)
-- [📂 Structure du Projet](#-structure-du-projet)
-- [🚀 Installation et Démarrage](#-installation-et-démarrage)
-- [🔐 Variables d'Environnement](#-variables-denvironnement)
-- [📡 Documentation API](#-documentation-api)
-- [🧪 Tests](#-tests)
-- [🎨 Design System & Refonte](#-design-system--refonte)
-- [👥 Auteurs](#-auteurs)
+[![GitHub](https://img.shields.io/badge/GitHub-Sy2force%2FOpticGlass-blue)](https://github.com/Sy2force/OpticGlass)
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](https://vercel.com)
+[![Render](https://img.shields.io/badge/API-Render-46E3B7)](https://render.com)
 
 ---
 
-## 📖 À propos
+## 📋 Table des Matières
 
-**Optic Glass** est une plateforme e-commerce full-stack (MERN) conçue pour offrir une expérience utilisateur haut de gamme. Le projet se distingue par son design soigné inspiré du "Glassmorphism", ses animations fluides et ses fonctionnalités avancées comme l'essayage virtuel par webcam et les recommandations personnalisées.
+- [Aperçu](#aperçu)
+- [Technologies](#technologies)
+- [Fonctionnalités](#fonctionnalités)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Déploiement](#déploiement)
+- [Structure du Projet](#structure-du-projet)
+- [API](#api)
+- [Tests](#tests)
+- [Contributing](#contributing)
 
-L'objectif est de simuler une véritable boutique de luxe en ligne, avec une gestion complète : du catalogue produits à l'administration, en passant par le panier, les favoris et le paiement sécurisé.
+---
+
+## 🎯 Aperçu
+
+**Optic Glass** est une plateforme e-commerce complète dédiée aux lunettes de luxe. Le site offre une expérience utilisateur premium avec un design moderne et élégant inspiré du glassmorphism.
+
+### Caractéristiques Principales
+
+- 🛒 **E-Commerce Complet** : Catalogue produits, panier, checkout
+- 👤 **Authentification JWT** : Inscription, connexion, profil utilisateur
+- 🔐 **Espace Admin** : Dashboard, analytics, gestion produits
+- 💎 **70+ Produits de Luxe** : Ray-Ban, Gucci, Prada, Dior, Tom Ford
+- 🎨 **Design Premium** : Glassmorphism, animations Framer Motion
+- 📱 **100% Responsive** : Mobile-first design
+- ⚡ **Performance Optimisée** : Vite build, lazy loading, code splitting
+- 🔍 **SEO Optimisé** : Meta tags, Open Graph, sitemap
+
+---
+
+## 🚀 Technologies
+
+### Frontend
+- **React 18** - Bibliothèque UI
+- **Vite 5** - Build tool ultra-rapide
+- **TailwindCSS** - Framework CSS utility-first
+- **Framer Motion** - Animations fluides
+- **React Router v6** - Routing SPA
+- **Axios** - HTTP client
+- **Recharts** - Graphiques analytics
+- **Lucide React** - Icônes modernes
+
+### Backend
+- **Node.js 18+** - Runtime JavaScript
+- **Express.js** - Framework web
+- **MongoDB** - Base de données NoSQL
+- **Mongoose** - ODM MongoDB
+- **JWT** - Authentification
+- **Helmet** - Sécurité HTTP headers
+- **Morgan** - Logger HTTP
+- **Bcrypt** - Hash passwords
+
+### DevOps & Tools
+- **Vercel** - Hébergement frontend
+- **Render** - Hébergement backend
+- **MongoDB Atlas** - Base de données cloud
+- **GitHub** - Versioning
+- **ESLint** - Linter JavaScript
 
 ---
 
 ## ✨ Fonctionnalités
 
-### 🛍️ E-commerce & Catalogue
-- **Catalogue complet** : Filtrage avancé (marque, prix, forme, couleur, matériau, saison).
-- **Recherche temps réel** : Barre de recherche intuitive avec debounce.
-- **Détail Produit** : Galerie d'images, zoom, avis clients, produits similaires.
-- **Essayage Virtuel** : Utilisation de la webcam pour tester les lunettes (Overlay AR).
-- **Panier & Commande** : Gestion dynamique, codes promo (ex: `WELCOME10`), checkout en plusieurs étapes.
-- **Paiement** : Simulation de paiement sécurisé.
+### Pour les Visiteurs
+- ✅ Navigation intuitive par catégorie (Optique / Solaire)
+- ✅ Filtres avancés (marque, prix, couleur, forme)
+- ✅ Recherche en temps réel
+- ✅ Comparateur de produits
+- ✅ Liste de favoris
+- ✅ Détail produit complet avec images 3D
+- ✅ Panier avec gestion des quantités
+- ✅ Checkout sécurisé
 
-### 👤 Espace Utilisateur
-- **Authentification** : Inscription, Connexion (JWT), Mot de passe oublié.
-- **Profil** : Gestion des informations personnelles et adresses.
-- **Commandes** : Historique et suivi de statut (En cours, Expédié, Livré).
-- **Favoris** : Liste de souhaits persistante.
+### Pour les Utilisateurs Connectés
+- ✅ Profil utilisateur éditable
+- ✅ Historique des commandes
+- ✅ Gestion des favoris synchronisée
+- ✅ Adresses de livraison sauvegardées
+- ✅ Wishlist persistante
 
-### 👑 Espace Administrateur
-- **Dashboard** : Vue d'ensemble des KPIs (Ventes, Utilisateurs, Commandes).
-- **Gestion Produits** : CRUD complet (Ajout, Modif, Suppression).
-- **Gestion Utilisateurs** : Liste, modification de rôle, bannissement.
-- **Gestion Commandes** : Mise à jour des statuts de livraison.
-- **Analytics** : Statistiques détaillées.
+### Pour les Administrateurs
+- ✅ Dashboard avec statistiques
+- ✅ Analytics avancés (graphiques recharts)
+- ✅ Gestion des produits (CRUD)
+- ✅ Gestion des commandes
+- ✅ Gestion des utilisateurs
+- ✅ Gestion des marques
 
-### 🌐 Contenu & Services
-- **Blog / Actualités** : Articles sur les tendances.
-- **Marques** : Pages dédiées par marque avec histoire et collections.
-- **Contact** : Formulaire de contact fonctionnel.
-- **Magasins** : Localisateur de boutiques physiques.
-- **ChatBot** : Assistant virtuel intelligent pour le support.
-
----
-
-## 📊 Statistiques du Projet
-
-| Métrique | Valeur | Détails |
-|----------|--------|---------|
-| **Pages Frontend** | 28 | Publiques, Privées, Admin |
-| **Composants React** | 47+ | UI, Layout, Métier |
-| **Routes API** | 10 | RESTful endpoints |
-| **Modèles DB** | 5 | User, Product, Order, Brand, Contact |
-| **Produits** | 70+ | Lunettes de vue, soleil, sport |
-| **Marques** | 30+ | Ray-Ban, Gucci, Prada, Dior... |
-| **Tests** | 160 | 86 E2E (Playwright) + 74 Unit (Jest) |
-
----
-
-## 🏗️ Architecture & Stack Technique
-
-Le projet repose sur une architecture **MERN** avec une séparation claire entre le client et le serveur.
-
-### 🎨 Frontend (Client)
-- **Framework** : React 18
-- **Build Tool** : Vite 5
-- **Langage** : JavaScript (ES6+)
-- **Styling** : TailwindCSS 3, Glassmorphism UI
-- **Animations** : Framer Motion
-- **Routing** : React Router v6
-- **État Global** : React Context API (Auth, Cart, Favorites, Theme)
-- **HTTP Client** : Axios
-- **Icônes** : Lucide React
-
-### ⚙️ Backend (Serveur)
-- **Runtime** : Node.js
-- **Framework** : Express.js
-- **Base de données** : MongoDB (via Mongoose ODM)
-- **Authentification** : JWT (JSON Web Tokens)
-- **Sécurité** : Bcrypt (hashing), Helmet, CORS, Rate Limiting, Input Sanitization
-- **Validation** : Express-validator / Joi
-
-### 🛠️ DevOps & Outils
-- **Tests E2E** : Playwright
-- **Tests Unitaires** : Jest
-- **Versionning** : Git
-- **Qualité de code** : ESLint, Prettier
+### Pages Disponibles (19)
+1. **Home** (`/`) - Page d'accueil premium
+2. **Glasses** (`/glasses`) - Catalogue lunettes de vue
+3. **Sunglasses** (`/sunglasses`) - Catalogue lunettes de soleil
+4. **Product Detail** (`/product/:id`) - Détail produit
+5. **Login** (`/login`) - Connexion
+6. **Register** (`/register`) - Inscription
+7. **Profile** (`/profile`) - Profil utilisateur
+8. **Cart** (`/cart`) - Panier
+9. **Checkout** (`/checkout`) - Tunnel d'achat
+10. **Favorites** (`/favorites`) - Favoris
+11. **Compare** (`/compare`) - Comparateur
+12. **Brands** (`/brands`) - Liste des marques
+13. **Contact** (`/contact`) - Formulaire de contact
+14. **Stores** (`/stores`) - Localisation magasins
+15. **FAQ** (`/faq`) - Questions fréquentes
+16. **Gift Card** (`/giftcard`) - Cartes cadeaux
+17. **Reviews** (`/reviews`) - Avis clients
+18. **Admin Dashboard** (`/admin/dashboard`) - Tableau de bord admin
+19. **Admin Analytics** (`/admin/analytics`) - Statistiques avancées
 
 ---
 
-## 📂 Structure du Projet
-
-```bash
-Optic-Glass/
-├── frontend/                # Application React (Vite)
-│   ├── src/
-│   │   ├── components/      # Composants UI réutilisables (Button, Card, etc.)
-│   │   ├── context/         # Contextes (Auth, Cart, Favorites, Theme)
-│   │   ├── hooks/           # Hooks personnalisés (useAuth, useCart...)
-│   │   ├── pages/           # Pages de l'application (Home, GlassDetail...)
-│   │   ├── services/        # Services API (authService, productService...)
-│   │   └── utils/           # Utilitaires
-│   └── public/              # Assets statiques
-│
-├── backend/                 # API Node.js (Express)
-│   ├── config/              # Config DB et env
-│   ├── controllers/         # Logique métier
-│   ├── middlewares/         # Auth, Validation, Error handling
-│   ├── models/              # Schémas Mongoose (User, Product, Order...)
-│   ├── routes/              # Définition des endpoints API
-│   └── utils/               # Scripts (Seeding, Helpers)
-│
-└── README.md                # Documentation unique
-```
-
----
-
-## 🚀 Installation et Démarrage
+## 📦 Installation
 
 ### Prérequis
-- Node.js (v18+)
-- MongoDB (Local ou Atlas)
-- npm ou yarn
+- Node.js 18+ et npm
+- MongoDB Atlas compte (gratuit)
+- Git
 
-### 1. Installation des dépendances
-
-À la racine du projet :
+### 1. Cloner le Repository
 
 ```bash
-# Installation Backend
+git clone https://github.com/Sy2force/OpticGlass.git
+cd OpticGlass
+```
+
+### 2. Installation Backend
+
+```bash
 cd backend
 npm install
-
-# Installation Frontend
-cd ../frontend
-npm install
 ```
 
-### 2. Configuration
-
-Créez les fichiers `.env` dans les dossiers `backend` et `frontend` (voir section Variables d'Environnement).
-
-### 3. Initialisation de la Base de Données
-
-Pour remplir la base de données avec des produits, marques et utilisateurs de test :
-
-```bash
-cd backend
-npm run seed
-# Ou pour un seed complet :
-node utils/comprehensiveSeed.js
-```
-
-### 4. Lancement
-
-**Backend (Port 3005)**
-```bash
-cd backend
-npm run dev
-```
-
-**Frontend (Port 3006)**
-```bash
-cd frontend
-npm run dev
-```
-
-L'application sera accessible sur `http://localhost:3006`.
-
-### Comptes de Démonstration
-
-| Rôle | Email | Mot de passe |
-|------|-------|--------------|
-| **Admin** | admin@opticglass.com | admin123 |
-| **User** | user@test.com | user123 |
-
----
-
-## 🔐 Variables d'Environnement
-
-### Backend (`backend/.env`)
+Créer `.env` dans `backend/` :
 
 ```env
-PORT=3005
-MONGO_URI=mongodb://localhost:27017/optic_glass
-JWT_SECRET=votre_secret_jwt_tres_securise
 NODE_ENV=development
-CLIENT_URL=http://localhost:3006
+PORT=3005
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/optic_glass?retryWrites=true&w=majority
+JWT_SECRET=votre_secret_jwt_minimum_32_caracteres
+FRONTEND_URL=http://localhost:3006
 ```
 
-### Frontend (`frontend/.env`)
+Seeding de la base de données :
+
+```bash
+npm run seed
+```
+
+Démarrer le serveur :
+
+```bash
+npm start
+# ou en dev
+npm run dev
+```
+
+Backend accessible sur `http://localhost:3005`
+
+### 3. Installation Frontend
+
+```bash
+cd frontend
+npm install
+```
+
+Créer `.env` dans `frontend/` :
 
 ```env
 VITE_API_URL=http://localhost:3005/api
 ```
 
+Démarrer le dev server :
+
+```bash
+npm run dev
+```
+
+Frontend accessible sur `http://localhost:3006`
+
 ---
 
-## 📡 Documentation API
+## ⚙️ Configuration
 
-Quelques endpoints principaux disponibles :
+### Variables d'Environnement
 
-| Méthode | Endpoint | Description | Accès |
-|---------|----------|-------------|-------|
-| **Auth** | | | |
-| POST | `/api/auth/login` | Connexion utilisateur | Public |
-| POST | `/api/auth/register` | Inscription | Public |
-| GET | `/api/auth/me` | Profil utilisateur | Privé |
-| **Produits** | | | |
-| GET | `/api/products` | Liste produits (filtres, pagination) | Public |
-| GET | `/api/products/:id` | Détail produit | Public |
-| POST | `/api/products` | Créer produit | Admin |
-| **Commandes** | | | |
-| POST | `/api/orders` | Créer une commande | Privé |
-| GET | `/api/orders/my-orders` | Mes commandes | Privé |
+#### Backend (`backend/.env`)
+
+| Variable | Description | Exemple |
+|----------|-------------|---------|
+| `NODE_ENV` | Environnement d'exécution | `development` ou `production` |
+| `PORT` | Port du serveur | `3005` |
+| `MONGO_URI` | Connexion MongoDB | `mongodb+srv://...` |
+| `JWT_SECRET` | Clé secrète JWT (32+ chars) | `abc123...` |
+| `FRONTEND_URL` | URL frontend pour CORS | `http://localhost:3006` |
+
+#### Frontend (`frontend/.env`)
+
+| Variable | Description | Exemple |
+|----------|-------------|---------|
+| `VITE_API_URL` | URL de l'API backend | `http://localhost:3005/api` |
+
+---
+
+## 🚀 Déploiement
+
+Le projet est configuré pour un déploiement sur **Vercel** (frontend) et **Render** (backend).
+
+### Déploiement Frontend sur Vercel
+
+**Guides détaillés disponibles dans `/docs/`**
+
+#### Étapes Rapides
+
+1. Push le code sur GitHub
+2. Aller sur [vercel.com/import](https://vercel.com/import)
+3. Importer le repository **Sy2force/OpticGlass**
+4. Configuration :
+   - **Root Directory** : `frontend`
+   - **Framework** : `Vite`
+   - **Build Command** : `npm run build`
+   - **Output Directory** : `dist`
+5. Ajouter variable d'environnement :
+   - `VITE_API_URL` = `https://votre-backend.onrender.com/api`
+6. Deploy
+
+**Fichiers de configuration** :
+- `frontend/vercel.json` - Configuration Vercel (SPA routing, cache, headers)
+- `frontend/verify-deploy.sh` - Script de vérification pré-déploiement
+
+### Déploiement Backend sur Render
+
+#### Étapes Rapides
+
+1. Aller sur [dashboard.render.com](https://dashboard.render.com/)
+2. **New +** → **Web Service**
+3. Connecter GitHub → **Sy2force/OpticGlass**
+4. Configuration :
+   - **Name** : `optic-glass-backend`
+   - **Root Directory** : `backend`
+   - **Environment** : `Node`
+   - **Build Command** : `npm install`
+   - **Start Command** : `npm start`
+5. Ajouter variables d'environnement (voir section Configuration)
+6. Deploy
+7. Seeder la base : `npm run seed` (via Render Shell)
+
+### 📚 Guides Complets
+
+Consultez `/docs/` pour les guides détaillés :
+- `VERCEL_DEPLOY.md` - Guide complet Vercel
+- `RENDER_DEPLOY.md` - Guide complet Render
+- `DEPLOY_CHECKLIST.md` - Checklist interactive
+
+---
+
+## 📁 Structure du Projet
+
+```
+OpticGlass/
+├── backend/                 # API Express.js
+│   ├── config/             # Configuration DB
+│   ├── controllers/        # Logique métier
+│   ├── data/              # Données produits
+│   ├── middlewares/       # Auth, erreurs, validation
+│   ├── models/            # Schémas Mongoose
+│   ├── routes/            # Routes API
+│   ├── utils/             # Utilitaires
+│   ├── .env.example       # Template variables env
+│   ├── package.json
+│   └── server.js          # Point d'entrée
+│
+├── frontend/              # Application React
+│   ├── public/           # Assets statiques
+│   │   ├── brands/      # 50+ logos SVG
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── app/         # Configuration app
+│   │   │   ├── providers/  # Contexts (Auth, Cart)
+│   │   │   └── routers/    # Routing
+│   │   ├── entities/    # Composants entités
+│   │   ├── features/    # Fonctionnalités
+│   │   ├── pages/       # 19 pages
+│   │   ├── shared/      # Utilitaires partagés
+│   │   ├── widgets/     # Composants layout
+│   │   └── main.jsx     # Point d'entrée
+│   ├── .env.example
+│   ├── index.html       # HTML + meta tags SEO
+│   ├── package.json
+│   ├── vercel.json      # Config Vercel
+│   ├── vite.config.js
+│   └── verify-deploy.sh # Script vérification
+│
+├── docs/                # Documentation déploiement
+│   ├── VERCEL_DEPLOY.md
+│   ├── RENDER_DEPLOY.md
+│   └── DEPLOY_CHECKLIST.md
+│
+├── .gitignore
+├── package.json         # Scripts workspace (optionnel)
+└── README.md           # Ce fichier
+```
+
+---
+
+## 🔌 API
+
+### Endpoints Backend
+
+Base URL : `http://localhost:3005/api` (dev) ou `https://votre-backend.onrender.com/api` (prod)
+
+#### Authentification
+- `POST /auth/register` - Inscription
+- `POST /auth/login` - Connexion
+- `GET /auth/me` - Profil utilisateur (protégé)
+
+#### Produits
+- `GET /products` - Liste produits (filtres, pagination, recherche)
+- `GET /products/:id` - Détail produit
+- `POST /products` - Créer produit (admin)
+- `PUT /products/:id` - Modifier produit (admin)
+- `DELETE /products/:id` - Supprimer produit (admin)
+
+#### Favoris
+- `GET /favorites` - Liste favoris (protégé)
+- `POST /favorites/:productId` - Ajouter favori (protégé)
+- `DELETE /favorites/:productId` - Retirer favori (protégé)
+
+#### Panier
+- `GET /cart` - Panier utilisateur (protégé)
+- `POST /cart` - Ajouter au panier (protégé)
+- `PUT /cart/:itemId` - Modifier quantité (protégé)
+- `DELETE /cart/:itemId` - Retirer du panier (protégé)
+
+#### Commandes
+- `GET /orders` - Historique commandes (protégé)
+- `POST /orders` - Créer commande (protégé)
+- `GET /orders/:id` - Détail commande (protégé)
+
+#### Marques
+- `GET /brands` - Liste marques
+- `GET /brands/:id` - Détail marque
+
+#### Admin
+- `GET /admin/analytics` - Statistiques (admin)
+- `GET /admin/users` - Liste utilisateurs (admin)
+- `GET /admin/orders` - Toutes les commandes (admin)
+
+#### Contact
+- `POST /contact` - Envoyer message
+- `GET /contact` - Liste messages (admin)
 
 ---
 
 ## 🧪 Tests
 
-Le projet inclut une suite de tests complète (160 tests au total).
-
-### Backend (Unitaires & Intégration)
-Utilise **Jest** et Supertest.
-
-```bash
-cd backend
-npm test
-```
-
-### Frontend (End-to-End)
-Utilise **Playwright**.
+### Frontend
 
 ```bash
 cd frontend
+
+# Linter
+npm run lint
+
+# Build de production
+npm run build
+
+# Preview du build
+npm run preview
+
+# Script de vérification déploiement
+./verify-deploy.sh
+```
+
+### Backend
+
+```bash
+cd backend
+
+# Tests (si configurés)
 npm test
-# Ou pour l'interface visuelle
-npm run test:ui
+
+# Linter
+npm run lint
+
+# Seeding DB
+npm run seed
 ```
 
 ---
 
-## 🎨 Design System & Refonte
+## 🛡️ Sécurité
 
-Une refonte complète du Design System a été initiée pour aligner l'interface sur les standards "Luxe" & "Apple-style".
+### Mesures Implémentées
 
-### Progression Refonte
-- **Phase 1 (Design System)** : ✅ 100% Terminé
-  - Tailwind Config Premium (Couleurs luxe, Typographie, Ombres)
-  - Animations personnalisées
-- **Phase 2 (Composants UI)** : 🔄 En cours
-  - Composants réalisés : Button.jsx
-  - À faire : Input, Card, Modal, Toast, Badge, Dropdown...
-
-### Identité Visuelle
-- **Couleurs** : Rouge Optic Glass (`#C4151C`), Noir Profond, Or Accent.
-- **Effets** : Glassmorphism (`backdrop-blur-xl bg-white/10`), Dégradés subtils.
-- **Typographie** : Playfair Display (Titres), Inter (Corps).
+- ✅ **JWT Authentication** - Tokens sécurisés
+- ✅ **Bcrypt** - Hash passwords (10 rounds)
+- ✅ **Helmet.js** - Headers HTTP sécurisés
+- ✅ **Rate Limiting** - 100 req/15min par IP
+- ✅ **CORS** - Origines restreintes
+- ✅ **Input Sanitization** - Protection XSS
+- ✅ **MongoDB Injection Protection** - Validation Mongoose
+- ✅ **HTTPS** - Certificats Let's Encrypt (Vercel/Render)
+- ✅ **Environment Variables** - Secrets non versionnés
 
 ---
 
-## 👥 Auteurs
+## 📊 Performance
 
-Projet réalisé par **Optic Glass Team**.
+### Frontend Build
 
-- **Rôle** : Full Stack Developer
-- **Stack** : MERN
-- **Année** : 2026
+```
+✓ 2482 modules transformed in 2.32s
+dist/index.html                     0.62 kB (0.37 kB gzip)
+dist/assets/index-V3f_sq18.css    112.52 kB (16.39 kB gzip)
+dist/assets/index-Bc31KL2v.js   1,112.78 kB (309.33 kB gzip)
+```
+
+### Optimisations
+
+- ⚡ Code splitting automatique (Vite)
+- ⚡ Lazy loading des routes (React)
+- ⚡ Assets minifiés et gzippés
+- ⚡ Cache long terme (1 an pour assets)
+- ⚡ Preconnect fonts Google
+- ⚡ Images optimisées (CDN externe)
 
 ---
 
-*Fait avec ❤️ et beaucoup de ☕ pour une vision plus claire.*
+## 🤝 Contributing
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Fork le projet
+2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
+3. Commit les changements (`git commit -m 'Add AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrir une Pull Request
+
+---
+
+## 📝 License
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+---
+
+## 👨‍💻 Auteur
+
+**Sy2force**
+- GitHub : [@Sy2force](https://github.com/Sy2force)
+- Repository : [OpticGlass](https://github.com/Sy2force/OpticGlass)
+
+---
+
+## 🙏 Remerciements
+
+- **Marques de Luxe** : Ray-Ban, Gucci, Prada, Dior, Tom Ford (logos utilisés à titre éducatif)
+- **Icônes** : Lucide React
+- **Fonts** : Google Fonts
+- **Inspiration** : Sites e-commerce modernes
+
+---
+
+## 📞 Support
+
+Pour toute question ou problème :
+- Ouvrir une [Issue](https://github.com/Sy2force/OpticGlass/issues)
+- Consulter la [Documentation](https://github.com/Sy2force/OpticGlass/tree/main/docs)
+- Contacter via GitHub
+
+---
+
+**Made with ❤️ by Sy2force**
+
+*Optic Glass - Premium Eyewear E-Commerce Platform*
