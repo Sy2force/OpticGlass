@@ -7,6 +7,6 @@
     </linearGradient>
   </defs>
   <circle cx="100" cy="30" r="24" fill="none" stroke="url(#mkGold)" stroke-width="1.5"/>
-  <text x="100" y="26" font-family="'Times New Roman', Georgia, serif" font-size="8" fill="#1a1a1a" text-anchor="middle" font-weight="300" letter-spacing="3">MICHAEL</text>
-  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="6">KORS</text>
+  <text x="100" y="26" font-family="'Times New Roman', Georgia, serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="300" letter-spacing="3">MICHAEL</text>
+  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="6">KORS</text>
 </svg>

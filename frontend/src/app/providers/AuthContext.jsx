@@ -15,14 +15,17 @@ export const AuthProvider = ({ children }) => {
   const performLogout = useCallback(() => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    localStorage.removeItem('loginTime');
+    
+    // Clear both storages to be safe
+    ['token', 'user', 'loginTime'].forEach(key => {
+      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
+    });
   }, []);
 
   // Vérification de l'expiration de session
   const checkSessionExpiry = useCallback(() => {
-    const loginTime = localStorage.getItem('loginTime');
+    const loginTime = localStorage.getItem('loginTime') || sessionStorage.getItem('loginTime');
     if (loginTime) {
       const elapsed = Date.now() - parseInt(loginTime, 10);
       if (elapsed > SESSION_DURATION) {
@@ -34,8 +37,8 @@ export const AuthProvider = ({ children }) => {
   }, [performLogout]);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('user');
+    const storedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
+    const storedUser = localStorage.getItem('user') || sessionStorage.getItem('user');
 
     if (storedToken && storedUser) {
       // Vérifier si la session a expiré
@@ -48,15 +51,11 @@ export const AuthProvider = ({ children }) => {
       try {
         setUser(JSON.parse(storedUser));
       } catch {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        localStorage.removeItem('loginTime');
-        setToken(null);
-        setUser(null);
+        performLogout();
       }
     }
     setLoading(false);
-  }, [checkSessionExpiry]);
+  }, [checkSessionExpiry, performLogout]);
 
   // Auto-logout après 4h - Vérification périodique toutes les minutes
   useEffect(() => {
@@ -72,16 +71,18 @@ export const AuthProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, [token, checkSessionExpiry]);
 
-  const login = async (email, password) => {
+  const login = async (email, password, remember = false) => {
     try {
       const response = await api.post('/auth/login', { email, password });
       const { token: newToken, ...userData } = response.data.data;
 
       setToken(newToken);
       setUser(userData);
-      localStorage.setItem('token', newToken);
-      localStorage.setItem('user', JSON.stringify(userData));
-      localStorage.setItem('loginTime', Date.now().toString()); // To auto-logout 4h
+      
+      const storage = remember ? localStorage : sessionStorage;
+      storage.setItem('token', newToken);
+      storage.setItem('user', JSON.stringify(userData));
+      storage.setItem('loginTime', Date.now().toString());
 
       return { success: true };
     } catch (error) {
@@ -104,9 +105,12 @@ export const AuthProvider = ({ children }) => {
 
       setToken(newToken);
       setUser(userData);
+      
+      // Default to localStorage for registration (or sessionStorage if preferred, but usually persistent)
+      // Let's use persistent for new registrations for better UX
       localStorage.setItem('token', newToken);
       localStorage.setItem('user', JSON.stringify(userData));
-      localStorage.setItem('loginTime', Date.now().toString()); // To auto-logout 4h
+      localStorage.setItem('loginTime', Date.now().toString());
 
       return { success: true };
     } catch (error) {

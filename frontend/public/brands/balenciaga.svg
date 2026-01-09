@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
-  <text x="100" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#1a1a1a" text-anchor="middle" font-weight="600" letter-spacing="5">BALENCIAGA</text>
-  <line x1="30" y1="44" x2="170" y2="44" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="100" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="600" letter-spacing="5">BALENCIAGA</text>
+  <line x1="30" y1="44" x2="170" y2="44" stroke="#ffffff" stroke-width="2"/>
   <text x="100" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6" fill="#888888" text-anchor="middle" letter-spacing="8">PARIS</text>
 </svg>

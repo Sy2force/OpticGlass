@@ -6,33 +6,33 @@ const AboutPage = () => {
   
 
   const timeline = [
-    { year: '2018', title: 'Fondation', description: 'Création d\'Optic Glass avec une vision : rendre le luxe accessible.' },
-    { year: '2019', title: 'Première boutique', description: 'Ouverture de notre première boutique à Paris.' },
-    { year: '2020', title: 'E-commerce', description: 'Lancement de notre plateforme en ligne.' },
-    { year: '2021', title: 'Expansion', description: 'Ouverture de 5 nouvelles boutiques en France.' },
-    { year: '2022', title: 'Innovation', description: 'Introduction de l\'essayage virtuel.' },
-    { year: '2023', title: 'Excellence', description: 'Plus de 100 000 clients satisfaits.' },
+    { year: '2018', title: 'Foundation', description: 'Creation of Optic Glass with a vision: making luxury accessible.' },
+    { year: '2019', title: 'First Boutique', description: 'Opening of our first boutique in Paris.' },
+    { year: '2020', title: 'E-commerce', description: 'Launch of our online platform.' },
+    { year: '2021', title: 'Expansion', description: 'Opening of 5 new boutiques in France.' },
+    { year: '2022', title: 'Innovation', description: 'Introduction of virtual try-on.' },
+    { year: '2023', title: 'Excellence', description: 'Over 100,000 satisfied customers.' },
   ];
 
   const values = [
-    { icon: Eye, title: 'Excellence', description: 'Nous sélectionnons uniquement les meilleures marques.' },
-    { icon: Heart, title: 'Passion', description: 'L\'optique est notre passion depuis toujours.' },
-    { icon: Shield, title: 'Confiance', description: 'Garantie 2 ans sur tous nos produits.' },
-    { icon: Truck, title: 'Service', description: 'Livraison gratuite et retours sous 30 jours.' },
+    { icon: Eye, title: 'Excellence', description: 'We select only the best brands.' },
+    { icon: Heart, title: 'Passion', description: 'Optics has always been our passion.' },
+    { icon: Shield, title: 'Trust', description: '2-year warranty on all our products.' },
+    { icon: Truck, title: 'Service', description: 'Free delivery and 30-day returns.' },
   ];
 
   const team = [
-    { name: 'Sophie Martin', role: 'Fondatrice & CEO', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300' },
-    { name: 'Marc Dubois', role: 'Directeur Artistique', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300' },
-    { name: 'Claire Pandit', role: 'Opticienne en Chef', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300' },
-    { name: 'Thomas Laurent', role: 'Responsable E-commerce', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300' },
+    { name: 'Sophie Martin', role: 'Founder & CEO', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300' },
+    { name: 'Marc Dubois', role: 'Artistic Director', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300' },
+    { name: 'Claire Pandit', role: 'Chief Optician', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300' },
+    { name: 'Thomas Laurent', role: 'E-commerce Manager', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300' },
   ];
 
   const stats = [
-    { value: '100K+', label: 'Clients satisfaits' },
-    { value: '50+', label: 'Marques partenaires' },
-    { value: '15', label: 'Boutiques en France' },
-    { value: '98%', label: 'Taux de satisfaction' },
+    { value: '100K+', label: 'Satisfied Customers' },
+    { value: '50+', label: 'Partner Brands' },
+    { value: '15', label: 'Stores in France' },
+    { value: '98%', label: 'Satisfaction Rate' },
   ];
 
   return (
@@ -59,14 +59,14 @@ const AboutPage = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a227] rounded-full mb-6"
           >
             <Sparkles className="w-5 h-5" />
-            <span className="font-semibold">Notre Histoire</span>
+            <span className="font-semibold">Our History</span>
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
-            L'Excellence Pour Votre Regard
+            Excellence For Your Vision
           </h1>
           <p className="text-xl text-white/90">
-            Depuis 2018, nous révolutionnons l'optique de luxe
+            Since 2018, we have been revolutionizing luxury eyewear
           </p>
         </motion.div>
       </section>
@@ -101,21 +101,19 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold mb-6">Notre Mission</h2>
+              <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Chez Optic Glass, nous croyons que chaque personne mérite de voir le monde avec style. 
-                Notre mission est de rendre les lunettes de luxe accessibles tout en offrant une expérience 
-                d'achat exceptionnelle.
+                At Optic Glass, we believe that everyone deserves to see the world with style.
+                Our mission is to make luxury eyewear accessible while offering an exceptional shopping experience.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                Nous travaillons directement avec les plus grandes maisons de lunetterie pour vous proposer 
-                des collections exclusives à des prix justes, accompagnées d'un service client irréprochable.
+                We work directly with the greatest eyewear houses to offer you exclusive collections at fair prices, accompanied by impeccable customer service.
               </p>
               <Link
                 to="/glasses"
                 className="inline-block px-8 py-4 bg-[#c9a227] text-white font-semibold rounded-xl hover:bg-[#d4af37] transition-all shadow-lg"
               >
-                Découvrez nos collections
+                Discover our collections
               </Link>
             </motion.div>
             
@@ -134,8 +132,8 @@ const AboutPage = () => {
                 <div className="flex items-center gap-3">
                   <Award className="w-10 h-10 text-[#c9a227]" />
                   <div>
-                    <div className="font-bold">Certifié Excellence</div>
-                    <div className="text-sm text-gray-500">Service Premium</div>
+                    <div className="font-bold">Certified Excellence</div>
+                    <div className="text-sm text-gray-500">Premium Service</div>
                   </div>
                 </div>
               </div>
@@ -153,8 +151,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Nos Valeurs</h2>
-            <p className="text-xl text-gray-600">Ce qui nous guide au quotidien</p>
+            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
+            <p className="text-xl text-gray-600">What guides us every day</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -191,8 +189,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Notre Parcours</h2>
-            <p className="text-xl text-gray-600">Une histoire d'excellence et d'innovation</p>
+            <h2 className="text-4xl font-bold mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600">A story of excellence and innovation</p>
           </motion.div>
 
           <div className="relative">
@@ -233,8 +231,8 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold mb-4">Notre Équipe</h2>
-            <p className="text-xl text-gray-600">Des experts passionnés à votre service</p>
+            <h2 className="text-4xl font-bold mb-4">Our Team</h2>
+            <p className="text-xl text-gray-600">Passionate experts at your service</p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -274,22 +272,22 @@ const AboutPage = () => {
             viewport={{ once: true }}
           >
             <Globe className="w-16 h-16 mx-auto mb-6 opacity-80" />
-            <h2 className="text-4xl font-bold mb-4">Rejoignez l'aventure Optic Glass</h2>
+            <h2 className="text-4xl font-bold mb-4">Join the Optic Glass Adventure</h2>
             <p className="text-xl text-white/90 mb-8">
-              Découvrez nos collections et trouvez les lunettes parfaites pour vous
+              Discover our collections and find the perfect glasses for you
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/glasses"
                 className="px-8 py-4 bg-white text-[#c9a227] font-semibold rounded-xl hover:bg-gray-100 transition-all shadow-xl"
               >
-                Voir les collections
+                View collections
               </Link>
               <Link
                 to="/contact"
                 className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-[#c9a227] transition-all"
               >
-                Nous contacter
+                Contact us
               </Link>
             </div>
           </motion.div>

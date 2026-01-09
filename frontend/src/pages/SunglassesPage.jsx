@@ -46,9 +46,8 @@ const SunglassesPage = () => {
   
   const specialCollections = [
     { id: 'summer2026', name: 'Summer 2026', color: 'from-orange-500 to-red-600', badge: 'New' },
-    { id: 'polarized', name: 'Premium Polarized', color: 'from-blue-500 to-cyan-600', badge: 'Exclusive' },
     { id: 'luxury', name: 'Luxury Collection', color: 'from-[#c9a227] to-[#d4af37]', badge: 'Prestige' },
-    { id: 'sport', name: 'Sport Elite', color: 'from-green-500 to-emerald-600', badge: 'Performance' },
+    { id: 'sport', name: 'Sport Elite Collection', color: 'from-green-500 to-emerald-600', badge: 'Performance' },
   ];
   
   const uvProtections = ['UV400', 'UV100%', 'Category 3', 'Category 4'];
@@ -64,7 +63,7 @@ const SunglassesPage = () => {
       const params = new URLSearchParams({
         page,
         limit: 12,
-        category: 'sun',
+        category: 'sunglasses',
         ...Object.fromEntries(
           Object.entries(filters).filter(([_, v]) => v !== '')
         ),
@@ -72,7 +71,19 @@ const SunglassesPage = () => {
 
       const response = await api.get(`/products?${params}`);
       if (response.data.data && response.data.data.length > 0) {
-        setProducts(response.data.data);
+        // Patch images if missing
+        const patchedProducts = response.data.data.map(p => {
+            if (!p.images || p.images.length === 0) {
+                const localMatch = luxuryProducts.find(lp => 
+                    lp._id === p._id || lp.name.toLowerCase() === p.name.toLowerCase()
+                );
+                if (localMatch && localMatch.images) {
+                    return { ...p, images: localMatch.images };
+                }
+            }
+            return p;
+        });
+        setProducts(patchedProducts);
         setTotalPages(response.data.pagination?.pages || 1);
       } else {
         // Utiliser les données enrichies de lunettes de soleil
@@ -481,13 +492,13 @@ const SunglassesPage = () => {
               className="text-center py-20"
             >
               <Sun className="w-20 h-20 text-white/20 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-2">Aucun produit trouvé</h3>
-              <p className="text-white/60 mb-6">Essayez d'ajuster vos filtres</p>
+              <h3 className="text-2xl font-bold text-white mb-2">No products found</h3>
+              <p className="text-white/60 mb-6">Try adjusting your filters</p>
               <button
                 onClick={resetFilters}
                 className="px-6 py-3 bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-black font-medium rounded-lg hover:shadow-lg transition-all"
               >
-                Réinitialiser les filtres
+                Reset Filters
               </button>
             </motion.div>
           ) : (

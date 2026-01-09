@@ -15,6 +15,7 @@ import BrandsPage from '@/pages/BrandsPage';
 import BrandDetailPage from '@/pages/BrandDetailPage';
 import CategoriesPage from '@/pages/CategoriesPage';
 import AdminDashboard from '@/pages/AdminDashboard';
+import AdminAnalytics from '@/pages/AdminAnalytics';
 import RecommendationsPage from '@/pages/RecommendationsPage';
 import GiftCardPage from '@/pages/GiftCardPage';
 import StoresPage from '@/pages/StoresPage';
@@ -25,6 +26,7 @@ import SunglassesPage from '@/pages/SunglassesPage';
 import ContactPage from '@/pages/ContactPage';
 import AboutPage from '@/pages/AboutPage';
 import TryOnPage from '@/pages/TryOnPage';
+import ReviewsPage from '@/pages/ReviewsPage';
 
 const AnimatedRoutes = () => {
   return (
@@ -44,6 +46,7 @@ const AnimatedRoutes = () => {
       <Route path="/sunglasses" element={<SunglassesPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/reviews" element={<ReviewsPage />} />
       
       <Route
         path="/favorites"
@@ -106,6 +109,14 @@ const AnimatedRoutes = () => {
         element={
           <ProtectedRoute adminOnly>
             <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/analytics"
+        element={
+          <ProtectedRoute adminOnly>
+            <AdminAnalytics />
           </ProtectedRoute>
         }
       />

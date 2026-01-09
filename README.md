@@ -1,404 +1,294 @@
 # 🕶️ Optic Glass - E-commerce de Lunettes de Luxe
 
-![Status](https://img.shields.io/badge/Status-Architecture%20Complete-success)
-![Version](https://img.shields.io/badge/Version-1.0-blue)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-success)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![Stack](https://img.shields.io/badge/Stack-MERN-purple)
 
-## 📖 Description
-
-**Optic Glass** est une plateforme e-commerce haut de gamme dédiée aux lunettes de luxe. Le site propose une expérience utilisateur immersive et premium, inspirée du design Apple, avec une collection de lunettes de vue, soleil et éditions limitées.
-
-### 🎯 Objectifs du projet
-
-- ✅ **50+ produits** de lunettes premium
-- ✅ **50+ marques** de luxe avec logos
-- ✅ **15 pages** fonctionnelles
-- ✅ **Authentification sécurisée** (JWT + bcrypt)
-- ✅ **Design immersif** avec effets glassmorphism
-- ✅ **Expérience utilisateur** fluide et élégante
+> **Une expérience e-commerce immersive et premium pour l'achat de lunettes de luxe, alliant design glassmorphism, essayage virtuel et intelligence artificielle.**
 
 ---
 
-## 🏗️ Architecture
+## 📑 Table des Matières
 
-### Stack technique
-
-#### Frontend
-- **Framework**: React 18 + Vite
-- **Routing**: React Router v6
-- **State Management**: Context API + localStorage
-- **Styling**: TailwindCSS + CSS custom
-- **Icons**: Lucide React
-- **HTTP Client**: Axios
-- **Forms**: React Hook Form + Zod
-
-#### Backend
-- **Runtime**: Node.js 18+
-- **Framework**: Express.js
-- **Database**: MongoDB + Mongoose
-- **Authentication**: JWT + bcrypt
-- **Validation**: Joi / Express-validator
-- **Security**: Helmet, CORS, Rate limiting
-
-#### DevOps
-- **Frontend Hosting**: Vercel
-- **Backend Hosting**: Render
-- **Database**: MongoDB Atlas
-- **Version Control**: Git + GitHub
+- [📖 À propos](#-à-propos)
+- [✨ Fonctionnalités](#-fonctionnalités)
+- [📊 Statistiques du Projet](#-statistiques-du-projet)
+- [🏗️ Architecture & Stack Technique](#-architecture--stack-technique)
+- [📂 Structure du Projet](#-structure-du-projet)
+- [🚀 Installation et Démarrage](#-installation-et-démarrage)
+- [🔐 Variables d'Environnement](#-variables-denvironnement)
+- [📡 Documentation API](#-documentation-api)
+- [🧪 Tests](#-tests)
+- [🎨 Design System & Refonte](#-design-system--refonte)
+- [👥 Auteurs](#-auteurs)
 
 ---
 
-## 📄 Pages (23 au total)
+## 📖 À propos
 
-### Pages publiques (17)
-| Route | Description |
-|-------|-------------|
-| `/` | Accueil avec hero immersif et carrousel saisonnier |
-| `/auth` | Connexion / Inscription (JWT) avec design moderne |
-| `/glasses` | Catalogue complet avec filtres avancés |
-| `/glasses/:id` | Détail produit avec galerie, avis, spécifications |
-| `/sunglasses` | Collection lunettes de soleil |
-| `/brands` | Showcase de 50+ marques de luxe |
-| `/brands/:slug` | Page détaillée d'une marque avec ses produits |
-| `/categories` | Catégories (vue, soleil, saisons) |
-| `/collections` | Collections exclusives et saisonnières |
-| `/compare` | Comparateur de produits (jusqu'à 3) |
-| `/recommendations` | Recommandations personnalisées |
-| `/gift-card` | Cartes cadeaux personnalisables |
-| `/newsletter` | Inscription newsletter avec préférences |
-| `/faq` | FAQ interactive avec catégories |
-| `/stores` | Localisateur de magasins avec carte |
-| `/news` | Actualités et tendances |
-| `/contact` | Formulaire de contact + infos |
-| `/about` | À propos avec timeline et équipe |
+**Optic Glass** est une plateforme e-commerce full-stack (MERN) conçue pour offrir une expérience utilisateur haut de gamme. Le projet se distingue par son design soigné inspiré du "Glassmorphism", ses animations fluides et ses fonctionnalités avancées comme l'essayage virtuel par webcam et les recommandations personnalisées.
 
-### Pages protégées - Utilisateur (6)
-| Route | Description |
-|-------|-------------|
-| `/favorites` | 🔒 Liste personnelle de favoris |
-| `/cart` | 🔒 Panier avec codes promo |
-| `/checkout` | 🔒 Processus de paiement en 2 étapes |
-| `/success` | 🔒 Confirmation avec confettis |
-| `/profile` | 🔒 Profil avec onglets (adresses, paiements, paramètres) |
-| `/orders` | 🔒 Historique des commandes détaillé |
-| `/try-on` | 🔒 Essayage virtuel (webcam/upload) |
-
-### Pages admin (2)
-| Route | Description |
-|-------|-------------|
-| `/admin` | 🔒👑 Dashboard avec stats, commandes, top produits |
-| `/admin/analytics` | 🔒👑 Analytics avancées (revenus, conversions, stocks) |
+L'objectif est de simuler une véritable boutique de luxe en ligne, avec une gestion complète : du catalogue produits à l'administration, en passant par le panier, les favoris et le paiement sécurisé.
 
 ---
 
-## 👥 Rôles utilisateurs
+## ✨ Fonctionnalités
 
-### 1. Visiteur (non authentifié)
-- ✅ Navigation libre sur le site
-- ✅ Consultation des produits et marques
-- ❌ Pas d'accès au panier/favoris
-- Redirection vers `/auth` pour actions protégées
+### 🛍️ E-commerce & Catalogue
+- **Catalogue complet** : Filtrage avancé (marque, prix, forme, couleur, matériau, saison).
+- **Recherche temps réel** : Barre de recherche intuitive avec debounce.
+- **Détail Produit** : Galerie d'images, zoom, avis clients, produits similaires.
+- **Essayage Virtuel** : Utilisation de la webcam pour tester les lunettes (Overlay AR).
+- **Panier & Commande** : Gestion dynamique, codes promo (ex: `WELCOME10`), checkout en plusieurs étapes.
+- **Paiement** : Simulation de paiement sécurisé.
 
-### 2. Utilisateur (User)
-- ✅ Toutes les fonctionnalités visiteur
-- ✅ Gestion du panier et favoris
-- ✅ Passage de commandes
-- ✅ Historique des achats
-- ✅ Essayage virtuel
-- ❌ Pas d'accès admin
+### 👤 Espace Utilisateur
+- **Authentification** : Inscription, Connexion (JWT), Mot de passe oublié.
+- **Profil** : Gestion des informations personnelles et adresses.
+- **Commandes** : Historique et suivi de statut (En cours, Expédié, Livré).
+- **Favoris** : Liste de souhaits persistante.
 
-### 3. Administrateur (Admin)
-- ✅ Toutes les fonctionnalités utilisateur
-- ✅ CRUD produits, marques, catégories
-- ✅ Gestion des utilisateurs
-- ✅ Gestion des commandes
-- ✅ Accès aux statistiques
+### 👑 Espace Administrateur
+- **Dashboard** : Vue d'ensemble des KPIs (Ventes, Utilisateurs, Commandes).
+- **Gestion Produits** : CRUD complet (Ajout, Modif, Suppression).
+- **Gestion Utilisateurs** : Liste, modification de rôle, bannissement.
+- **Gestion Commandes** : Mise à jour des statuts de livraison.
+- **Analytics** : Statistiques détaillées.
+
+### 🌐 Contenu & Services
+- **Blog / Actualités** : Articles sur les tendances.
+- **Marques** : Pages dédiées par marque avec histoire et collections.
+- **Contact** : Formulaire de contact fonctionnel.
+- **Magasins** : Localisateur de boutiques physiques.
+- **ChatBot** : Assistant virtuel intelligent pour le support.
 
 ---
 
-## 🗄️ Modèles de données
+## 📊 Statistiques du Projet
 
-### User
-```javascript
-{
-  firstName, lastName, email, password (hashed),
-  role: "user" | "admin",
-  favorites: [ProductId],
-  orders: [OrderId]
-}
-```
+| Métrique | Valeur | Détails |
+|----------|--------|---------|
+| **Pages Frontend** | 28 | Publiques, Privées, Admin |
+| **Composants React** | 47+ | UI, Layout, Métier |
+| **Routes API** | 10 | RESTful endpoints |
+| **Modèles DB** | 5 | User, Product, Order, Brand, Contact |
+| **Produits** | 70+ | Lunettes de vue, soleil, sport |
+| **Marques** | 30+ | Ray-Ban, Gucci, Prada, Dior... |
+| **Tests** | 160 | 86 E2E (Playwright) + 74 Unit (Jest) |
 
-### Product
-```javascript
-{
-  name, description, price,
-  brand: BrandId,
-  category: CategoryId,
-  images: [String],
-  colors, sizes, stock,
-  isNewArrival, isFeatured, season
-}
-```
+---
 
-### Brand
-```javascript
-{
-  name, logo, description,
-  country, isLuxury,
-  products: [ProductId]
-}
-```
+## 🏗️ Architecture & Stack Technique
 
-### Order
-```javascript
-{
-  orderNumber, user: UserId,
-  items: [{ product, quantity, price, color, size }],
-  totalAmount, status, paymentStatus,
-  shippingAddress
-}
+Le projet repose sur une architecture **MERN** avec une séparation claire entre le client et le serveur.
+
+### 🎨 Frontend (Client)
+- **Framework** : React 18
+- **Build Tool** : Vite 5
+- **Langage** : JavaScript (ES6+)
+- **Styling** : TailwindCSS 3, Glassmorphism UI
+- **Animations** : Framer Motion
+- **Routing** : React Router v6
+- **État Global** : React Context API (Auth, Cart, Favorites, Theme)
+- **HTTP Client** : Axios
+- **Icônes** : Lucide React
+
+### ⚙️ Backend (Serveur)
+- **Runtime** : Node.js
+- **Framework** : Express.js
+- **Base de données** : MongoDB (via Mongoose ODM)
+- **Authentification** : JWT (JSON Web Tokens)
+- **Sécurité** : Bcrypt (hashing), Helmet, CORS, Rate Limiting, Input Sanitization
+- **Validation** : Express-validator / Joi
+
+### 🛠️ DevOps & Outils
+- **Tests E2E** : Playwright
+- **Tests Unitaires** : Jest
+- **Versionning** : Git
+- **Qualité de code** : ESLint, Prettier
+
+---
+
+## 📂 Structure du Projet
+
+```bash
+Optic-Glass/
+├── frontend/                # Application React (Vite)
+│   ├── src/
+│   │   ├── components/      # Composants UI réutilisables (Button, Card, etc.)
+│   │   ├── context/         # Contextes (Auth, Cart, Favorites, Theme)
+│   │   ├── hooks/           # Hooks personnalisés (useAuth, useCart...)
+│   │   ├── pages/           # Pages de l'application (Home, GlassDetail...)
+│   │   ├── services/        # Services API (authService, productService...)
+│   │   └── utils/           # Utilitaires
+│   └── public/              # Assets statiques
+│
+├── backend/                 # API Node.js (Express)
+│   ├── config/              # Config DB et env
+│   ├── controllers/         # Logique métier
+│   ├── middlewares/         # Auth, Validation, Error handling
+│   ├── models/              # Schémas Mongoose (User, Product, Order...)
+│   ├── routes/              # Définition des endpoints API
+│   └── utils/               # Scripts (Seeding, Helpers)
+│
+└── README.md                # Documentation unique
 ```
 
 ---
 
-## 🔌 API Endpoints (10 routes)
-
-### Authentification `/api/auth`
-```
-POST   /register          - Inscription utilisateur
-POST   /login             - Connexion
-GET    /me 🔒             - Profil utilisateur connecté
-```
-
-### Produits `/api/products`
-```
-GET    /                  - Liste avec pagination et filtres
-GET    /:id               - Détail produit
-GET    /featured          - Produits mis en avant
-GET    /new-arrivals      - Nouveautés
-POST   / 🔒👑             - Créer un produit
-PUT    /:id 🔒👑          - Modifier un produit
-DELETE /:id 🔒👑          - Supprimer un produit
-```
-
-### Marques `/api/brands`
-```
-GET    /                  - Liste des marques
-GET    /:id               - Détail marque
-POST   / 🔒👑             - Créer une marque
-PUT    /:id 🔒👑          - Modifier une marque
-DELETE /:id 🔒👑          - Supprimer une marque
-```
-
-### Favoris `/api/favorites`
-```
-GET    / 🔒               - Liste des favoris
-POST   / 🔒               - Ajouter aux favoris
-DELETE /:productId 🔒     - Retirer des favoris
-```
-
-### Panier `/api/cart`
-```
-POST   /checkout 🔒       - Valider la commande
-GET    /my-orders 🔒      - Mes commandes
-GET    /:id 🔒            - Détail commande
-```
-
-### Commandes `/api/orders`
-```
-POST   / 🔒               - Créer une commande
-GET    /my-orders 🔒      - Historique commandes
-GET    /:id 🔒            - Détail commande
-```
-
-### Recommandations `/api/recommendations`
-```
-GET    /                  - Liste des recommandations
-POST   / 🔒👑             - Créer une recommandation
-PUT    /:id 🔒👑          - Modifier
-DELETE /:id 🔒👑          - Supprimer
-```
-
-### Admin `/api/admin`
-```
-GET    /users 🔒👑        - Liste utilisateurs
-DELETE /users/:id 🔒👑    - Supprimer utilisateur
-GET    /orders 🔒👑       - Toutes les commandes
-PUT    /orders/:id 🔒👑   - Modifier statut commande
-GET    /stats 🔒👑        - Statistiques globales
-GET    /analytics 🔒👑    - Analytics avancées
-```
-
-### Contact `/api/contact`
-```
-POST   /                  - Envoyer un message
-```
-
-### News `/api/news`
-```
-GET    /                  - Liste des actualités
-```
-
----
-
-## 🎨 Design System
-
-### Palette de couleurs
-- **Noir**: `#000000` (principal)
-- **Blanc**: `#FFFFFF` (principal)
-- **Rouge Ferrari**: `#DC0000` (accent)
-- **Bleu ciel**: `#87CEEB` (accent)
-- **Or luxe**: `#D4AF37` (premium)
-- **Argent**: `#C0C0C0` (premium)
-
-### Typographie
-- **Primary**: Inter, -apple-system, sans-serif
-- **Display**: Satoshi, SF Pro Display, sans-serif
-
-### Effets
-- **Glassmorphism**: Blur + transparence
-- **Animations**: Fade-in, slide-up, scale
-- **Transitions**: 300ms ease-in-out
-- **Shadows**: Ombres douces et élégantes
-
----
-
-## 🔒 Sécurité
-
-- ✅ Passwords hashés avec **bcrypt** (10 rounds)
-- ✅ Authentification **JWT** (expire 7 jours)
-- ✅ Protection routes avec middlewares
-- ✅ Validation côté client et serveur
-- ✅ **CORS** configuré
-- ✅ **Rate limiting** (100 req/15min)
-- ✅ **Helmet** pour headers sécurisés
-
----
-
-## 📁 Documentation
-
-- [`ARCHITECTURE.md`](./ARCHITECTURE.md) - Architecture complète du projet
-- [`PROJECT_STRUCTURE.md`](./PROJECT_STRUCTURE.md) - Arborescence détaillée
-- [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md) - Système de design complet
-
----
-
-## 🚀 Installation et Lancement
+## 🚀 Installation et Démarrage
 
 ### Prérequis
-- Node.js 18+
-- MongoDB (local ou Atlas)
+- Node.js (v18+)
+- MongoDB (Local ou Atlas)
 - npm ou yarn
 
-### Backend
+### 1. Installation des dépendances
+
+À la racine du projet :
+
 ```bash
+# Installation Backend
 cd backend
 npm install
-# Configurer le fichier .env (copier .env.example)
-node utils/comprehensiveSeed.js  # Seed complet (55 produits, 50 marques, 10 recos)
-npm run dev                       # Démarre sur http://localhost:3005
+
+# Installation Frontend
+cd ../frontend
+npm install
 ```
 
-### Frontend
+### 2. Configuration
+
+Créez les fichiers `.env` dans les dossiers `backend` et `frontend` (voir section Variables d'Environnement).
+
+### 3. Initialisation de la Base de Données
+
+Pour remplir la base de données avec des produits, marques et utilisateurs de test :
+
+```bash
+cd backend
+npm run seed
+# Ou pour un seed complet :
+node utils/comprehensiveSeed.js
+```
+
+### 4. Lancement
+
+**Backend (Port 3005)**
+```bash
+cd backend
+npm run dev
+```
+
+**Frontend (Port 3006)**
 ```bash
 cd frontend
-npm install
-npm run dev  # Démarre sur http://localhost:3006
+npm run dev
 ```
 
-### Compte Admin par défaut
-- **Email**: `admin@opticglass.com`
-- **Mot de passe**: `admin123`
+L'application sera accessible sur `http://localhost:3006`.
+
+### Comptes de Démonstration
+
+| Rôle | Email | Mot de passe |
+|------|-------|--------------|
+| **Admin** | admin@opticglass.com | admin123 |
+| **User** | user@test.com | user123 |
 
 ---
 
-## ✅ Fonctionnalités Complètes
+## 🔐 Variables d'Environnement
 
-### Pages (28 au total)
-- **17 pages publiques**: Home, Glasses, GlassDetail, Brands, Categories, Sunglasses, Compare, GiftCard, Newsletter, FAQ, Stores, Reviews, News, Contact, About, Recommendations, Audience
-- **7 pages protégées**: Favorites, Cart, Checkout, Success, Profile, Orders, TryOn
-- **2 pages admin**: AdminDashboard, AdminAnalytics
-- **1 page 404**: NotFoundPage
+### Backend (`backend/.env`)
 
-### Composants (25 au total)
-- Navbar, Footer, FloatingCart, FloatingCTA
-- BrandSlider, BrandFilter, Glass3DCard, RotatingGlassCard
-- LensRecommender, SeasonCarousel, ParallaxHero
-- Loader, GradientBackground, RedGradientBackground
-- UI Components: Button, Card, Input, Modal, Badge, Dropdown, Skeleton, Toast
+```env
+PORT=3005
+MONGO_URI=mongodb://localhost:27017/optic_glass
+JWT_SECRET=votre_secret_jwt_tres_securise
+NODE_ENV=development
+CLIENT_URL=http://localhost:3006
+```
 
-### Backend
-- ✅ 5 modèles: User, Product, Brand, Order, Recommendation
-- ✅ 10 routes API: auth, products, brands, orders, favorites, cart, admin, recommendations, news, contact
-- ✅ 4 middlewares: authMiddleware, isAdmin, errorMiddleware, validateMiddleware
-- ✅ Sécurité: JWT, bcrypt, Helmet, CORS, rate-limiting, sanitization
+### Frontend (`frontend/.env`)
 
-### Données Seedées
-- ✅ **55 produits** (11 marques × 5 produits)
-- ✅ **50 marques** de luxe avec descriptions et logos
-- ✅ **10 recommandations** éditoriales
-- ✅ **1 admin** par défaut
+```env
+VITE_API_URL=http://localhost:3005/api
+```
+
+---
+
+## 📡 Documentation API
+
+Quelques endpoints principaux disponibles :
+
+| Méthode | Endpoint | Description | Accès |
+|---------|----------|-------------|-------|
+| **Auth** | | | |
+| POST | `/api/auth/login` | Connexion utilisateur | Public |
+| POST | `/api/auth/register` | Inscription | Public |
+| GET | `/api/auth/me` | Profil utilisateur | Privé |
+| **Produits** | | | |
+| GET | `/api/products` | Liste produits (filtres, pagination) | Public |
+| GET | `/api/products/:id` | Détail produit | Public |
+| POST | `/api/products` | Créer produit | Admin |
+| **Commandes** | | | |
+| POST | `/api/orders` | Créer une commande | Privé |
+| GET | `/api/orders/my-orders` | Mes commandes | Privé |
 
 ---
 
 ## 🧪 Tests
 
-### Tests E2E Frontend (Playwright)
-```bash
-cd frontend
-npm test              # 86 tests
-npm run test:ui       # Interface graphique
-npm run test:report   # Rapport HTML
-```
+Le projet inclut une suite de tests complète (160 tests au total).
 
-### Tests Unitaires Backend (Jest)
+### Backend (Unitaires & Intégration)
+Utilise **Jest** et Supertest.
+
 ```bash
 cd backend
-npm test              # 74 tests
-npm run test:coverage # Avec couverture
+npm test
 ```
 
-### Résultats des Tests
-| Suite | Tests | Status |
-|-------|-------|--------|
-| Frontend E2E | 86/86 | ✅ |
-| Backend Unit | 74/74 | ✅ |
-| **TOTAL** | **160** | ✅ |
+### Frontend (End-to-End)
+Utilise **Playwright**.
+
+```bash
+cd frontend
+npm test
+# Ou pour l'interface visuelle
+npm run test:ui
+```
 
 ---
 
-## 📝 Notes importantes
+## 🎨 Design System & Refonte
 
-### Contraintes respectées
-- ✅ Minimum 50 produits
-- ✅ Minimum 50 marques avec logos
-- ✅ Au moins 15 pages réelles
-- ✅ Auth 100% fonctionnelle
-- ✅ Backend indépendant (Express + MongoDB)
-- ✅ Routes protégées côté backend
-- ✅ Paiement simulé uniquement
+Une refonte complète du Design System a été initiée pour aligner l'interface sur les standards "Luxe" & "Apple-style".
 
-### Données de seed prévues
-- **Produits**: 50+ (vue, soleil, éditions limitées)
-- **Marques**: 50+ (Ray-Ban, Oakley, Gucci, Prada, Dior, etc.)
-- **Catégories**: 10+ (vue homme/femme, soleil, sport, saisons)
-- **Prix**: 100€ - 1500€
+### Progression Refonte
+- **Phase 1 (Design System)** : ✅ 100% Terminé
+  - Tailwind Config Premium (Couleurs luxe, Typographie, Ombres)
+  - Animations personnalisées
+- **Phase 2 (Composants UI)** : 🔄 En cours
+  - Composants réalisés : Button.jsx
+  - À faire : Input, Card, Modal, Toast, Badge, Dropdown...
 
----
-
-## 📧 Contact
-
-**Projet**: Optic Glass  
-**Type**: E-commerce de lunettes de luxe  
-**Statut**: Architecture complète ✅  
-**Date**: Janvier 2026
+### Identité Visuelle
+- **Couleurs** : Rouge Optic Glass (`#C4151C`), Noir Profond, Or Accent.
+- **Effets** : Glassmorphism (`backdrop-blur-xl bg-white/10`), Dégradés subtils.
+- **Typographie** : Playfair Display (Titres), Inter (Corps).
 
 ---
 
-## 📜 Licence
+## 👥 Auteurs
 
-MIT License - Voir le fichier LICENSE pour plus de détails.
+Projet réalisé par **Optic Glass Team**.
+
+- **Rôle** : Full Stack Developer
+- **Stack** : MERN
+- **Année** : 2026
 
 ---
 
-**Créé avec 🧠 et ❤️ pour une expérience utilisateur premium**
+*Fait avec ❤️ et beaucoup de ☕ pour une vision plus claire.*

@@ -6,6 +6,6 @@
       <stop offset="100%" style="stop-color:#004d40"/>
     </linearGradient>
   </defs>
-  <text x="100" y="38" font-family="'Times New Roman', Georgia, serif" font-size="26" fill="url(#lacosteGreen)" text-anchor="middle" font-weight="400" letter-spacing="8">LACOSTE</text>
-  <line x1="45" y1="46" x2="155" y2="46" stroke="#006847" stroke-width="2"/>
+  <text x="100" y="38" font-family="'Times New Roman', Georgia, serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="8">LACOSTE</text>
+  <line x1="45" y1="46" x2="155" y2="46" stroke="#ffffff" stroke-width="2"/>
 </svg>

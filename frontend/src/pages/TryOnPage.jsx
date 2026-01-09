@@ -65,8 +65,8 @@ const TryOnPage = () => {
       setShowCamera(true);
       setSelectedImage(null);
     } catch (error) {
-      console.error('Erreur accès caméra:', error);
-      alert('Impossible d\'accéder à la caméra. Veuillez vérifier les permissions.');
+      console.error('Error accessing camera:', error);
+      alert('Unable to access camera. Please check permissions.');
     }
   };
 
@@ -144,7 +144,7 @@ const TryOnPage = () => {
               to="/glasses"
               className="px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full transition text-sm font-medium"
             >
-              Catalogue
+              Catalog
             </Link>
           </div>
         </div>
@@ -227,7 +227,7 @@ const TryOnPage = () => {
                       >
                         <Sparkles className="w-12 h-12 text-[#c9a227]" />
                       </motion.div>
-                      <p className="mt-4 text-white/80 font-medium">Ajustement en cours...</p>
+                      <p className="mt-4 text-white/80 font-medium">Fitting in progress...</p>
                     </div>
                   )}
 
@@ -312,9 +312,9 @@ const TryOnPage = () => {
                     <div className="w-24 h-24 bg-gradient-to-br from-[#c9a227] to-amber-700 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-amber-900/40">
                       <ScanFace size={48} className="text-white" />
                     </div>
-                    <h2 className="text-3xl font-bold mb-4">Essayez avant d'acheter</h2>
+                    <h2 className="text-3xl font-bold mb-4">Try before you buy</h2>
                     <p className="text-white/60 mb-10 text-lg leading-relaxed">
-                      Utilisez notre technologie d'essayage virtuel pour voir comment nos montures s'adaptent à votre visage en temps réel.
+                      Use our virtual try-on technology to see how our frames fit your face in real-time.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <button
@@ -322,14 +322,14 @@ const TryOnPage = () => {
                         className="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-100 transition shadow-lg flex items-center justify-center gap-3"
                       >
                         <Camera size={20} />
-                        Utiliser la caméra
+                        Use Camera
                       </button>
                       <button
                         onClick={() => fileInputRef.current?.click()}
                         className="px-8 py-4 bg-white/10 border border-white/20 text-white font-bold rounded-xl hover:bg-white/20 transition flex items-center justify-center gap-3"
                       >
                         <Upload size={20} />
-                        Télécharger une photo
+                        Upload Photo
                       </button>
                       <input
                         ref={fileInputRef}
@@ -348,8 +348,8 @@ const TryOnPage = () => {
           {/* Sidebar - Product Selection */}
           <div className="bg-[#1a1a1a] rounded-3xl border border-white/10 flex flex-col h-full overflow-hidden">
             <div className="p-6 border-b border-white/10">
-              <h2 className="text-xl font-bold">Sélectionnez une monture</h2>
-              <p className="text-sm text-white/50 mt-1">Cliquez pour essayer</p>
+              <h2 className="text-xl font-bold">Select a frame</h2>
+              <p className="text-sm text-white/50 mt-1">Click to try on</p>
             </div>
             
             <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
@@ -392,7 +392,7 @@ const TryOnPage = () => {
                   to={`/glasses/${selectedGlasses._id}`}
                   className="block w-full py-4 bg-[#c9a227] text-black font-bold text-center rounded-xl hover:bg-[#d4af37] transition shadow-lg"
                 >
-                  Voir les détails du produit
+                  View Product Details
                 </Link>
               </div>
             )}

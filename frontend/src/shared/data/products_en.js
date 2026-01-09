@@ -1,0 +1,338 @@
+// Product Data - Authentic Glasses
+export const products = [
+  // Ray-Ban - Complete Collection
+  {
+    _id: '1',
+    name: 'Aviator RB3025',
+    brand: 'Ray-Ban',
+    category: 'sunglasses',
+    season: 'summer',
+    price: 890,
+    originalPrice: 1100,
+    description: 'The iconic Ray-Ban Aviator sunglasses created in 1937 for US Air Force pilots. G-15 mineral glass lenses and gold metal frame.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/805289602057__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['gold', 'silver', 'black'],
+    frameShape: 'aviator',
+    material: 'metal',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.8,
+    reviews: 245,
+    isNew: false,
+    isBestseller: true,
+  },
+  {
+    _id: '2',
+    name: 'Wayfarer RB2140',
+    brand: 'Ray-Ban',
+    category: 'sunglasses',
+    season: 'summer',
+    price: 750,
+    description: 'The Original Wayfarer model created in 1956. Black acetate frame with green G-15 lenses. Pop culture icon.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/805289126577__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['black', 'tortoise'],
+    frameShape: 'square',
+    material: 'acetate',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.7,
+    reviews: 189,
+    isBestseller: true,
+  },
+  {
+    _id: '3',
+    name: 'Clubmaster RB3016',
+    brand: 'Ray-Ban',
+    category: 'sunglasses',
+    season: 'spring',
+    price: 820,
+    description: 'The Clubmaster inspired by the 50s. Unique combination of acetate and metal with G-15 lenses.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/805289653653__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['black/gold', 'tortoise/gold'],
+    frameShape: 'browline',
+    material: 'acetate/metal',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.9,
+    reviews: 312,
+    isNew: false,
+    isBestseller: true,
+  },
+  {
+    _id: '4',
+    name: 'Round Metal RB3447',
+    brand: 'Ray-Ban',
+    category: 'sunglasses',
+    season: 'autumn',
+    price: 720,
+    description: 'Vintage round metal frame inspired by John Lennon style. Timeless retro design.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/805289439899__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['gold', 'silver', 'gunmetal'],
+    frameShape: 'round',
+    material: 'metal',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.6,
+    reviews: 156,
+  },
+  {
+    _id: '5',
+    name: 'Erika RB4171',
+    brand: 'Ray-Ban',
+    category: 'sunglasses',
+    season: 'spring',
+    price: 680,
+    description: 'Feminine design with oversize round frame. Rubberized finish for optimal comfort.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/805289742463__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['matte black', 'havana', 'burgundy'],
+    frameShape: 'round',
+    material: 'nylon',
+    gender: 'women',
+    inStock: true,
+    rating: 4.8,
+    reviews: 92,
+  },
+  {
+    _id: '6',
+    name: 'DiorSoReal',
+    brand: 'Dior',
+    category: 'sunglasses',
+    season: 'spring',
+    price: 1680,
+    description: 'Avant-garde design with metal bridge and mirrored lenses. Fashion icon.',
+    images: [
+      'https://media.dior.com/img/en_us/sku/couture/SOREAL_RMR1I_tu?imwidth=460',
+    ],
+    colors: ['rose gold', 'silver'],
+    frameShape: 'round',
+    material: 'metal',
+    gender: 'women',
+    inStock: true,
+    rating: 4.9,
+    reviews: 134,
+    isNew: true,
+    isBestseller: true,
+  },
+  {
+    _id: '7',
+    name: 'Medusa Biggie',
+    brand: 'Versace',
+    category: 'sunglasses',
+    season: 'summer',
+    price: 1350,
+    description: 'Oversize glasses with golden Medusa head. Italian glamour.',
+    images: [
+      'https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw12345678/images/original/90_O4361-O40187_ONUL_20_BiggieSunglasses-Sunglasses-versace-online-store_0_0.jpg',
+    ],
+    colors: ['black/gold', 'white/gold'],
+    frameShape: 'butterfly',
+    material: 'acetate',
+    gender: 'women',
+    inStock: true,
+    rating: 4.7,
+    reviews: 67,
+  },
+  {
+    _id: '8',
+    name: 'Champion Racing',
+    brand: 'Carrera',
+    category: 'sport',
+    season: 'summer',
+    price: 680,
+    description: 'Inspired by the automotive world. Sporty design and optimal protection.',
+    images: [
+      'https://www.carreraworld.com/images/products/202105/202105_0DL5_H9_00.jpg',
+    ],
+    colors: ['matte black', 'red'],
+    frameShape: 'aviator',
+    material: 'metal',
+    gender: 'men',
+    inStock: true,
+    rating: 4.5,
+    reviews: 112,
+  },
+  {
+    _id: '9',
+    name: 'PO0714 Steve McQueen',
+    brand: 'Persol',
+    category: 'sunglasses',
+    season: 'autumn',
+    price: 890,
+    description: 'The iconic folding model worn by Steve McQueen. Patented Meflecto hinge.',
+    images: [
+      'https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO0714SM__24_S3/0PO0714SM__24_S3_fr.png',
+    ],
+    colors: ['havana', 'black'],
+    frameShape: 'round',
+    material: 'acetate',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.9,
+    reviews: 203,
+    isBestseller: true,
+  },
+  {
+    _id: '10',
+    name: 'Holbrook',
+    brand: 'Oakley',
+    category: 'sport',
+    season: 'summer',
+    price: 580,
+    description: 'Lifestyle design with Prizm technology. Perfect for active daily life.',
+    images: [
+      'https://assets.oakley.com/is/image/Oakley/888392238126__STD__shad__qt.png?impolicy=OO_product_page_preview',
+    ],
+    colors: ['matte black', 'olive'],
+    frameShape: 'square',
+    material: 'O-Matter',
+    gender: 'men',
+    inStock: true,
+    rating: 4.6,
+    reviews: 178,
+  },
+  {
+    _id: '11',
+    name: 'Round Metal',
+    brand: 'Ray-Ban',
+    category: 'optical',
+    season: 'winter',
+    price: 720,
+    description: 'Vintage round metal frame. Timeless retro style.',
+    images: [
+      'https://images.ray-ban.com/is/image/RayBan/8053672357004__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    ],
+    colors: ['gold', 'silver', 'bronze'],
+    frameShape: 'round',
+    material: 'metal',
+    gender: 'unisex',
+    inStock: true,
+    rating: 4.7,
+    reviews: 156,
+    isNew: true,
+  },
+  {
+    _id: '12',
+    name: 'Cat Eye Vintage',
+    brand: 'Celine',
+    category: 'vintage',
+    season: 'autumn',
+    price: 1280,
+    description: 'Elegant cat-eye glasses. Parisian femininity and timeless chic.',
+    images: [
+      'https://www.celine.com/content/dam/celine/images/large/4S019CPLB.38NO_1_L.jpg',
+    ],
+    colors: ['black', 'burgundy'],
+    frameShape: 'cat-eye',
+    material: 'acetate',
+    gender: 'women',
+    inStock: true,
+    rating: 4.8,
+    reviews: 89,
+  },
+  // Ray-Ban - 10 products
+  { _id: '13', name: 'Clubmaster Classic', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 820, description: 'The iconic Clubmaster with its distinctive browline frame.', images: ['https://images.ray-ban.com/is/image/RayBan/805289653653__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['black/gold', 'tortoise/gold'], frameShape: 'browline', material: 'acetate/metal', gender: 'unisex', inStock: true, rating: 4.8, reviews: 312 },
+  { _id: '14', name: 'New Wayfarer', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 780, description: 'Modernized version of the classic Wayfarer, smaller and lighter.', images: ['https://images.ray-ban.com/is/image/RayBan/805289048527__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['matte black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.7, reviews: 267 },
+  { _id: '15', name: 'Erika Metal', brand: 'Ray-Ban', category: 'sunglasses', season: 'spring', price: 690, description: 'Oversize round design with elegant metal bridge.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672565393__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold', 'silver', 'gunmetal'], frameShape: 'round', material: 'metal', gender: 'women', inStock: true, rating: 4.6, reviews: 189, isNew: true },
+  { _id: '16', name: 'Justin Classic', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 650, description: 'Modern rectangular style with rubberized finish.', images: ['https://images.ray-ban.com/is/image/RayBan/805289526575__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['matte black', 'matte havana'], frameShape: 'rectangular', material: 'nylon', gender: 'men', inStock: true, rating: 4.5, reviews: 234 },
+  { _id: '17', name: 'Hexagonal Flat', brand: 'Ray-Ban', category: 'sunglasses', season: 'autumn', price: 850, description: 'Unique hexagonal shape with flat lenses.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672611649__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold', 'silver'], frameShape: 'hexagonal', material: 'metal', gender: 'unisex', inStock: true, rating: 4.8, reviews: 145 },
+  { _id: '18', name: 'Aviator Gradient', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 920, description: 'Classic Aviator with elegant gradient lenses.', images: ['https://images.ray-ban.com/is/image/RayBan/805289305033__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold/blue', 'silver/gray'], frameShape: 'aviator', material: 'metal', gender: 'unisex', inStock: true, rating: 4.9, reviews: 456, isBestseller: true },
+  { _id: '19', name: 'RB5154 Optical', brand: 'Ray-Ban', category: 'optical', season: 'winter', price: 580, description: 'Clubmaster optical frame for an intellectual look.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672195736__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['black/gold', 'tortoise/silver'], frameShape: 'browline', material: 'acetate/metal', gender: 'unisex', inStock: true, rating: 4.7, reviews: 178 },
+  // Gucci - 10 products
+  { _id: '20', name: 'GG0396S', brand: 'Gucci', category: 'sunglasses', season: 'spring', price: 1580, description: 'Oversize glasses with gold GG logo on temples.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1541436905/563276_J0740_1012_001_100_0000_Light-Metal-round-sunglasses.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 89, isNew: true },
+  { _id: '21', name: 'GG0061S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1350, description: 'Luxurious aviator style with gold details.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1476118826/450587_J0740_1112_001_100_0000_Light-Round-frame-metal-sunglasses.jpg'], colors: ['gold/green', 'gold/brown'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.8, reviews: 67 },
+  { _id: '22', name: 'GG0516S', brand: 'Gucci', category: 'sunglasses', season: 'autumn', price: 1680, description: 'Glamorous cat-eye with Swarovski crystals.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1550595604/584365_J0740_1012_001_100_0000_Light-Rectangular-frame-sunglasses.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 112, isBestseller: true },
+  { _id: '23', name: 'GG0341O', brand: 'Gucci', category: 'optical', season: 'winter', price: 980, description: 'Rectangular optical frame with web stripe.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1528218006/550262_J0740_1056_001_100_0000_Light-Rectangular-optical-frame.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', inStock: true, rating: 4.7, reviews: 78 },
+  { _id: '24', name: 'GG0225S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1420, description: 'Oversize rounds with gold metal details.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1515776405/500263_J0740_1091_001_100_0000_Light-Round-frame-sunglasses.jpg'], colors: ['black/gold', 'havana/gold'], frameShape: 'round', material: 'acetate', gender: 'women', inStock: true, rating: 4.8, reviews: 95 },
+  { _id: '25', name: 'GG0062S', brand: 'Gucci', category: 'sunglasses', season: 'spring', price: 1290, description: 'Pilot style with double metal bridge.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1476118833/450588_J0740_2312_001_100_0000_Light-Aviator-metal-sunglasses.jpg'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'unisex', inStock: true, rating: 4.6, reviews: 54 },
+  { _id: '26', name: 'GG0584O', brand: 'Gucci', category: 'optical', season: 'autumn', price: 890, description: 'Vintage round frame with GG logo.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1570726804/600673_J0740_1012_001_100_0000_Light-Square-optical-frame.jpg'], colors: ['black', 'tortoise'], frameShape: 'round', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.7, reviews: 67 },
+  { _id: '27', name: 'GG0435S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1550, description: 'Sporty mask with elastic band.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1544115605/563353_J0740_1012_001_100_0000_Light-Square-frame-sunglasses.jpg'], colors: ['black', 'white'], frameShape: 'mask', material: 'nylon', gender: 'unisex', inStock: true, rating: 4.5, reviews: 34, isNew: true },
+  // Prada - 10 products
+  { _id: '28', name: 'PR 01OS', brand: 'Prada', category: 'sunglasses', season: 'summer', price: 1380, description: 'Oversize baroque with sculpted details.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR01O/2AU1E0/0PR01O_2AU1E0_C_055_SLF.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 123, isBestseller: true },
+  { _id: '29', name: 'PR 17WS', brand: 'Prada', category: 'sunglasses', season: 'spring', price: 1250, description: 'Modern and bold geometric style.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR17W/1AB5S0/0PR17W_1AB5S0_C_049_SLF.jpg'], colors: ['black', 'white'], frameShape: 'geometric', material: 'acetate', gender: 'women', inStock: true, rating: 4.8, reviews: 89 },
+  { _id: '30', name: 'PR 56VS', brand: 'Prada', category: 'sunglasses', season: 'summer', price: 1150, description: 'Minimalist aviator with double bridge.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672922130__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.7, reviews: 78 },
+  { _id: '31', name: 'PR 08YV', brand: 'Prada', category: 'optical', season: 'autumn', price: 780, description: 'Elegant rectangular optical frame.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR08Y/1AB1O1/0PR08Y_1AB1O1_C_051_SLF.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', inStock: true, rating: 4.6, reviews: 56 },
+  { _id: '32', name: 'PR 14WS', brand: 'Prada', category: 'sunglasses', season: 'winter', price: 1320, description: 'Sophisticated cat-eye with triangle logo.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR14W/1AB5S0/0PR14W_1AB5S0_C_052_SLF.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.8, reviews: 92, isNew: true },
+  { _id: '33', name: 'PS 01TS', brand: 'Prada', category: 'sport', season: 'summer', price: 980, description: 'Linea Rossa sport with mirrored lenses.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672852233__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['matte black', 'blue'], frameShape: 'sport', material: 'nylon', gender: 'men', inStock: true, rating: 4.7, reviews: 145 },
+  { _id: '34', name: 'PS 05VS', brand: 'Prada', category: 'sport', season: 'summer', price: 890, description: 'Running style with non-slip grip.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8056597155632__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['black', 'red'], frameShape: 'sport', material: 'nylon', gender: 'unisex', inStock: true, rating: 4.5, reviews: 67 },
+  // Dior - 10 products
+  { _id: '35', name: 'DiorSoStellaire1', brand: 'Dior', category: 'sunglasses', season: 'spring', price: 1750, description: 'Futuristic design with geometric lenses.', images: ['https://media.dior.com/img/en_us/sku/couture/SOSTELAIR1_8071I_tu?imwidth=460'], colors: ['black', 'rose gold'], frameShape: 'geometric', material: 'metal', gender: 'women', inStock: true, rating: 4.9, reviews: 156, isBestseller: true },
+  { _id: '36', name: 'DiorBlackSuit', brand: 'Dior', category: 'sunglasses', season: 'autumn', price: 1450, description: 'Masculine aviator style with CD details.', images: ['https://media.dior.com/img/en_us/sku/couture/SUITRIR_10A0_tu?imwidth=460'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.8, reviews: 89 },
+  { _id: '37', name: 'DiorSignature', brand: 'Dior', category: 'optical', season: 'winter', price: 980, description: 'Optical frame with CD logo on temples.', images: ['https://media.dior.com/img/en_us/sku/couture/DSIGNO1_10A0_tu?imwidth=460'], colors: ['black', 'tortoise'], frameShape: 'rectangular', material: 'acetate', gender: 'women', inStock: true, rating: 4.7, reviews: 78 },
+  { _id: '38', name: 'DiorMidnight', brand: 'Dior', category: 'sunglasses', season: 'summer', price: 1580, description: 'Dramatic cat-eye with crystals.', images: ['https://media.dior.com/img/en_us/sku/couture/DMNGS1IXR_10A0_tu?imwidth=460'], colors: ['black', 'midnight blue'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 112, isNew: true },
+  { _id: '39', name: 'DiorEssential', brand: 'Dior', category: 'sunglasses', season: 'spring', price: 1350, description: 'Oversize rounds with fine frame.', images: ['https://media.dior.com/img/en_us/sku/couture/ESTLA2UR_10A0_tu?imwidth=460'], colors: ['gold', 'silver'], frameShape: 'round', material: 'metal', gender: 'women', inStock: true, rating: 4.8, reviews: 95 },
+  { _id: '40', name: 'DiorClub', brand: 'Dior', category: 'sunglasses', season: 'summer', price: 1680, description: 'Sporty mask with logo band.', images: ['https://media.dior.com/img/en_us/sku/couture/CLUBM1UXT_31B8_tu?imwidth=460'], colors: ['black', 'white'], frameShape: 'mask', material: 'nylon', gender: 'unisex', inStock: true, rating: 4.6, reviews: 67 },
+  // Tom Ford - 10 products
+  { _id: '41', name: 'FT0237 Snowdon', brand: 'Tom Ford', category: 'sunglasses', season: 'autumn', price: 1150, description: 'The model worn by James Bond in Spectre.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0237/FT0237_05B_F/Tom-Ford-Snowdon-Sunglasses'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', inStock: true, rating: 4.9, reviews: 234, isBestseller: true },
+  { _id: '42', name: 'FT0058 Cary', brand: 'Tom Ford', category: 'sunglasses', season: 'summer', price: 980, description: 'Retro style with the iconic T.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0058/FT0058_01A_F/Tom-Ford-Cary-Sunglasses'], colors: ['shiny black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', inStock: true, rating: 4.8, reviews: 178 },
+  { _id: '43', name: 'FT0009 Whitney', brand: 'Tom Ford', category: 'sunglasses', season: 'spring', price: 1080, description: 'Glamorous oversize for women.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0009/FT0009_01B_F/Tom-Ford-Whitney-Sunglasses'], colors: ['black', 'burgundy'], frameShape: 'square', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 156 },
+  { _id: '44', name: 'FT5178', brand: 'Tom Ford', category: 'optical', season: 'winter', price: 780, description: 'Classic rectangular optical frame.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT5178/FT5178_001_F/Tom-Ford-Soft-Square-Optical-Frame'], colors: ['black', 'dark havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', inStock: true, rating: 4.7, reviews: 89 },
+  { _id: '45', name: 'FT0821 Gerrard', brand: 'Tom Ford', category: 'sunglasses', season: 'summer', price: 1250, description: 'Modern aviator with double bridge.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0821/FT0821_28A_F/Tom-Ford-Gerrard-Sunglasses'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.8, reviews: 112, isNew: true },
+  { _id: '46', name: 'FT0871 Gia', brand: 'Tom Ford', category: 'sunglasses', season: 'autumn', price: 1180, description: 'Sophisticated and feminine cat-eye.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0871/FT0871_01B_F/Tom-Ford-Gia-Sunglasses'], colors: ['black', 'champagne'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 78 },
+  // Versace - 10 products
+  { _id: '47', name: 'VE4361', brand: 'Versace', category: 'sunglasses', season: 'summer', price: 1280, description: 'Oversize with golden Medusa.', images: ['https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw12345678/images/original/90_O4361-O40187_ONUL_20_BiggieSunglasses-Sunglasses-versace-online-store_0_0.jpg'], colors: ['black/gold', 'white/gold'], frameShape: 'square', material: 'acetate', gender: 'women', inStock: true, rating: 4.8, reviews: 145, isBestseller: true },
+  { _id: '48', name: 'VE2150Q', brand: 'Versace', category: 'sunglasses', season: 'spring', price: 1150, description: 'Aviator with Greek details.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672186789__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.7, reviews: 89 },
+  { _id: '49', name: 'VE4394', brand: 'Versace', category: 'sunglasses', season: 'summer', price: 1380, description: 'Glamorous cat-eye with crystals.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8056597223782__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 112, isNew: true },
+  { _id: '50', name: 'VE3264B', brand: 'Versace', category: 'optical', season: 'autumn', price: 780, description: 'Optical frame with Medusa logo.', images: ['https://www.ezcontacts.com/data/specs/582326-582327/582327_1.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.6, reviews: 67 },
+  // Oakley - 10 products
+  { _id: '51', name: 'Radar EV Path', brand: 'Oakley', category: 'sport', season: 'summer', price: 780, description: 'Ultimate performance with Prizm technology.', images: ['https://assets.oakley.com/is/image/Oakley/888392101789__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'white'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', inStock: true, rating: 4.9, reviews: 345, isBestseller: true },
+  { _id: '52', name: 'Sutro', brand: 'Oakley', category: 'sport', season: 'summer', price: 650, description: 'Lifestyle style with large screen.', images: ['https://assets.oakley.com/is/image/Oakley/888392404770__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'olive'], frameShape: 'mask', material: 'O-Matter', gender: 'unisex', inStock: true, rating: 4.8, reviews: 234 },
+  { _id: '53', name: 'Jawbreaker', brand: 'Oakley', category: 'sport', season: 'summer', price: 890, description: 'Designed for professional cycling.', images: ['https://assets.oakley.com/is/image/Oakley/888392105121__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['black', 'red'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', inStock: true, rating: 4.9, reviews: 189, isNew: true },
+  { _id: '54', name: 'Frogskins', brand: 'Oakley', category: 'sunglasses', season: 'summer', price: 520, description: 'Retro style from the 80s.', images: ['https://assets.oakley.com/is/image/Oakley/888392243687__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'crystal'], frameShape: 'square', material: 'O-Matter', gender: 'unisex', inStock: true, rating: 4.7, reviews: 267 },
+  { _id: '55', name: 'Flight Jacket', brand: 'Oakley', category: 'sport', season: 'spring', price: 720, description: 'Advancer ventilation for trail running.', images: ['https://assets.oakley.com/is/image/Oakley/888392342317__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['black', 'blue'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', inStock: true, rating: 4.8, reviews: 156 },
+  // Carrera - 8 products
+  { _id: '56', name: 'Carrera 1001/S', brand: 'Carrera', category: 'sunglasses', season: 'summer', price: 580, description: 'Racing aviator with double bridge.', images: ['https://www.carreraworld.com/images/products/2016597/2016597_080S_9O_00.jpg'], colors: ['matte black', 'gold'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.7, reviews: 145, isBestseller: true },
+  { _id: '57', name: 'Carrera 5003', brand: 'Carrera', category: 'sunglasses', season: 'summer', price: 450, description: 'Vintage style inspired by the 70s.', images: ['https://m.media-amazon.com/images/I/51+66+66+L._AC_UL1500_.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.6, reviews: 112 },
+  { _id: '58', name: 'Carrera 8035/S', brand: 'Carrera', category: 'sport', season: 'summer', price: 520, description: 'Lightweight sport with polarized lenses.', images: ['https://www.carreraworld.com/images/products/202722/202722_003_AO_00.jpg'], colors: ['matte black', 'blue'], frameShape: 'sport', material: 'nylon', gender: 'men', inStock: true, rating: 4.5, reviews: 89 },
+  // Persol - 8 products
+  { _id: '59', name: 'PO3019S', brand: 'Persol', category: 'sunglasses', season: 'autumn', price: 780, description: 'Typewriter Edition with Meflecto hinge.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO3019S__96_56/0PO3019S__96_56_fr.png'], colors: ['havana', 'black'], frameShape: 'square', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.9, reviews: 178, isBestseller: true },
+  { _id: '60', name: 'PO0649', brand: 'Persol', category: 'sunglasses', season: 'summer', price: 720, description: 'The iconic model since 1957.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO0649__24_31/0PO0649__24_31_fr.png'], colors: ['havana', 'black'], frameShape: 'aviator', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.8, reviews: 234 },
+  { _id: '61', name: 'PO3152V', brand: 'Persol', category: 'optical', season: 'winter', price: 580, description: 'Elegant rectangular optical frame.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/opt/0PO3152V__9014/0PO3152V__9014_fr.png'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', inStock: true, rating: 4.7, reviews: 89 },
+  // Chanel - 8 products
+  { _id: '62', name: 'CH5414', brand: 'Chanel', category: 'sunglasses', season: 'spring', price: 1850, description: 'Oversize with pearl CC logo.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-black-beige-acetate-acetate-packshot-default-a71371x08101s0114-8848366534686.jpg'], colors: ['black', 'white'], frameShape: 'square', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 156, isBestseller: true },
+  { _id: '63', name: 'CH4244', brand: 'Chanel', category: 'sunglasses', season: 'summer', price: 1650, description: 'Pilot with gold chain.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-silver-metal-calfskin-glass-pearls-metal-calfskin-glass-pearls-packshot-default-a71292x06081l2412-8848365453342.jpg'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'women', inStock: true, rating: 4.8, reviews: 112 },
+  { _id: '64', name: 'CH5408', brand: 'Chanel', category: 'sunglasses', season: 'autumn', price: 1780, description: 'Cat-eye with signature quilting.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-black-acetate-acetate-packshot-default-a71355x02569s0116-8848366141470.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.9, reviews: 89, isNew: true },
+  // Armani - 8 products
+  { _id: '65', name: 'AR8090', brand: 'Armani', category: 'sunglasses', season: 'summer', price: 680, description: 'Classic Italian style.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672613131__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['matte black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', inStock: true, rating: 4.7, reviews: 145 },
+  { _id: '66', name: 'AR6048', brand: 'Armani', category: 'sunglasses', season: 'spring', price: 580, description: 'Elegant minimalist aviator.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672706321__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', inStock: true, rating: 4.6, reviews: 89 },
+  { _id: '67', name: 'AR7125', brand: 'Armani', category: 'optical', season: 'winter', price: 450, description: 'Sober rectangular optical frame.', images: ['https://www.ezcontacts.com/data/specs/464565-464573/464573_1.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', inStock: true, rating: 4.5, reviews: 67 },
+  // Saint Laurent - 6 products
+  { _id: '68', name: 'SL 1', brand: 'Saint Laurent', category: 'sunglasses', season: 'summer', price: 1250, description: 'Iconic rock\'n\'roll mask.', images: ['https://www.ysl.com/624407Y99011000/624407Y99011000_A1.jpg'], colors: ['black', 'havana'], frameShape: 'mask', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.9, reviews: 178, isBestseller: true },
+  { _id: '69', name: 'SL 181 Lor', brand: 'Saint Laurent', category: 'sunglasses', season: 'autumn', price: 980, description: 'Dramatic and glamorous cat-eye.', images: ['https://www.ysl.com/534852Y99011000/534852Y99011000_A1.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', inStock: true, rating: 4.8, reviews: 112 },
+  { _id: '70', name: 'SL 28', brand: 'Saint Laurent', category: 'sunglasses', season: 'spring', price: 850, description: 'Classic square with YSL logo.', images: ['https://www.ysl.com/419691Y99011000/419691Y99011000_A1.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', inStock: true, rating: 4.7, reviews: 89 },
+];
+
+export const getProductById = (id) => products.find(p => p._id === id);
+
+export const getProductsByCategory = (category) => 
+  products.filter(p => p.category === category);
+
+export const getProductsByBrand = (brand) => 
+  products.filter(p => p.brand.toLowerCase() === brand.toLowerCase());
+
+export const getProductsBySeason = (season) => 
+  products.filter(p => p.season === season);
+
+export const getNewArrivals = () => products.filter(p => p.isNew);
+
+export const getBestsellers = () => products.filter(p => p.isBestseller);
+
+export const searchProducts = (query) => {
+  const q = query.toLowerCase();
+  return products.filter(p => 
+    p.name.toLowerCase().includes(q) || 
+    p.brand.toLowerCase().includes(q) ||
+    p.category.toLowerCase().includes(q)
+  );
+};
+
+export default products;

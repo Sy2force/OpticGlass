@@ -40,9 +40,9 @@ const BrandDetailPage = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center text-white">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Marque introuvable</h1>
+          <h1 className="text-4xl font-bold mb-4">Brand not found</h1>
           <Link to="/brands" className="text-[#c9a227] hover:underline">
-            Retour aux marques
+            Back to brands
           </Link>
         </div>
       </div>
@@ -110,7 +110,7 @@ const BrandDetailPage = () => {
           {/* Sidebar Info */}
           <div className="lg:col-span-1 space-y-8">
             <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
-              <h2 className="text-xl font-bold mb-4 text-[#c9a227]">À propos</h2>
+              <h2 className="text-xl font-bold mb-4 text-[#c9a227]">About</h2>
               <p className="text-white/70 leading-relaxed mb-6">
                 {brand.description}
               </p>
@@ -119,16 +119,16 @@ const BrandDetailPage = () => {
                   to="/glasses" 
                   className="flex items-center gap-2 text-white hover:text-[#c9a227] transition-colors"
                 >
-                  Voir toute la collection <ArrowRight size={16} />
+                  View full collection <ArrowRight size={16} />
                 </Link>
               </div>
             </div>
 
             <div className="bg-gradient-to-br from-[#c9a227]/20 to-transparent rounded-2xl p-8 border border-[#c9a227]/20">
               <Globe size={32} className="text-[#c9a227] mb-4" />
-              <h3 className="text-lg font-bold mb-2">Heritage & Savoir-faire</h3>
+              <h3 className="text-lg font-bold mb-2">Heritage & Craftsmanship</h3>
               <p className="text-white/60 text-sm">
-                Découvrez l'excellence et la tradition qui font la renommée de {brand.name} à travers le monde.
+                Discover the excellence and tradition that make {brand.name} renowned worldwide.
               </p>
             </div>
           </div>
@@ -136,13 +136,13 @@ const BrandDetailPage = () => {
           {/* Products Grid */}
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">Collection {brand.name}</h2>
+              <h2 className="text-2xl font-bold">{brand.name} Collection</h2>
               <Link 
                 to={`/glasses?brand=${brand.name}`}
                 className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors text-sm"
               >
                 <Filter size={16} />
-                Voir tout le catalogue
+                View full catalog
               </Link>
             </div>
 
@@ -154,9 +154,9 @@ const BrandDetailPage = () => {
               </div>
             ) : (
               <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
-                <p className="text-white/50">Aucun produit disponible pour le moment.</p>
+                <p className="text-white/50">No products available at the moment.</p>
                 <Link to="/glasses" className="text-[#c9a227] hover:underline mt-2 inline-block">
-                  Voir toutes nos lunettes
+                  See all glasses
                 </Link>
               </div>
             )}

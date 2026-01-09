@@ -78,7 +78,7 @@ const CartPage = () => {
       setPromoDiscount(Math.round(getSubtotal() * 0.2));
       setPromoApplied(true);
     } else {
-      alert(t('invalidSaleCode'));
+      alert('Invalid promo code');
     }
   };
 
@@ -279,28 +279,28 @@ const CartPage = () => {
                   {promoApplied && (
                     <p className="text-green-600 text-sm mt-2 flex items-center gap-1">
                       <Gift size={14} />
-                      'discount' : -{promoDiscount} ₪
+                      Discount : -{promoDiscount} ₪
                     </p>
                   )}
                 </div>
 
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-gray-600">
-                    <span>'subtotal' ({getTotalItems()} {t('articles').toLowerCase()})</span>
+                    <span>Subtotal ({getTotalItems()} items)</span>
                     <span>{getSubtotal()} ₪</span>
                   </div>
                   {promoApplied && (
                     <div className="flex justify-between text-green-600">
-                      <span>'discount'</span>
+                      <span>Discount</span>
                       <span>-{promoDiscount} ₪</span>
                     </div>
                   )}
                   <div className="flex justify-between text-gray-600">
-                    <span>'shipping'</span>
-                    <span className="text-green-600 font-medium">'freeLivraisonLabel'</span>
+                    <span>Shipping</span>
+                    <span className="text-green-600 font-medium">Free</span>
                   </div>
                   <div className="border-t pt-4 flex justify-between">
-                    <span className="text-xl font-bold">'cartTotal'</span>
+                    <span className="text-xl font-bold">Total</span>
                     <span className="text-2xl font-bold">{getTotalPrice()} ₪</span>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ const CartPage = () => {
                   onClick={handleCheckout}
                   className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-amber-700 transition shadow-lg flex items-center justify-center gap-2"
                 >
-                  'checkout'
+                  Checkout
                   <ChevronRight size={20} />
                 </button>
 
@@ -317,7 +317,7 @@ const CartPage = () => {
                   to="/glasses"
                   className="block text-center mt-4 text-gray-600 hover:text-black transition"
                 >
-                  'continueShopping'
+                  Continue Shopping
                 </Link>
 
                 {/* Trust badges */}
@@ -327,7 +327,7 @@ const CartPage = () => {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 opacity-50" />
                   </div>
                   <p className="text-xs text-center text-gray-400 mt-3">
-                    'securePayment'
+                    Secure Payment
                   </p>
                 </div>
               </motion.div>

@@ -8,99 +8,99 @@ const FAQPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
-    { id: 'all', label: 'Tout', icon: HelpCircle },
-    { id: 'shipping', label: 'Livraison', icon: Truck },
-    { id: 'payment', label: 'Paiement', icon: CreditCard },
-    { id: 'returns', label: 'Retours', icon: RefreshCw },
-    { id: 'warranty', label: 'Garantie', icon: Shield },
-    { id: 'products', label: 'Produits', icon: Package }
+    { id: 'all', label: 'All', icon: HelpCircle },
+    { id: 'shipping', label: 'Shipping', icon: Truck },
+    { id: 'payment', label: 'Payment', icon: CreditCard },
+    { id: 'returns', label: 'Returns', icon: RefreshCw },
+    { id: 'warranty', label: 'Warranty', icon: Shield },
+    { id: 'products', label: 'Products', icon: Package }
   ];
 
   const faqs = [
     {
       category: 'shipping',
-      question: 'Quels sont les délais de livraison ?',
-      answer: 'Nous livrons en 2-4 jours ouvrés en France. Pour l\'international, comptez 5-10 jours ouvrés. La livraison est gratuite pour toute commande supérieure à 100€.'
+      question: 'What are the delivery times?',
+      answer: 'We deliver in 2-4 business days in France. For international orders, allow 5-10 business days. Shipping is free for all orders over €100.'
     },
     {
       category: 'shipping',
-      question: 'Puis-je suivre ma commande ?',
-      answer: 'Oui ! Une fois votre commande expédiée, vous recevrez un email avec un numéro de suivi. Vous pouvez suivre votre colis en temps réel depuis votre compte ou directement sur le site du transporteur.'
+      question: 'Can I track my order?',
+      answer: 'Yes! Once your order has shipped, you will receive an email with a tracking number. You can track your package in real-time from your account or directly on the carrier\'s website.'
     },
     {
       category: 'shipping',
-      question: 'Livrez-vous à l\'international ?',
-      answer: 'Oui, nous livrons dans plus de 50 pays. Les frais de livraison et les délais varient selon la destination. Consultez notre page Livraison pour plus de détails.'
+      question: 'Do you ship internationally?',
+      answer: 'Yes, we ship to over 50 countries. Shipping costs and times vary depending on the destination. Check our Shipping page for more details.'
     },
     {
       category: 'payment',
-      question: 'Quels moyens de paiement acceptez-vous ?',
-      answer: 'Nous acceptons les cartes de crédit (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, et le paiement en plusieurs fois via notre partenaire.'
+      question: 'What payment methods do you accept?',
+      answer: 'We accept credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and installment payments via our partner.'
     },
     {
       category: 'payment',
-      question: 'Le paiement est-il sécurisé ?',
-      answer: 'Absolument ! Toutes les transactions sont cryptées avec le protocole SSL 256 bits. Nous ne stockons aucune donnée bancaire. Vos paiements sont traités par des prestataires certifiés PCI-DSS.'
+      question: 'Is payment secure?',
+      answer: 'Absolutely! All transactions are encrypted with 256-bit SSL protocol. We do not store any banking data. Your payments are processed by PCI-DSS certified providers.'
     },
     {
       category: 'payment',
-      question: 'Puis-je payer en plusieurs fois ?',
-      answer: 'Oui, pour tout achat supérieur à 100€, vous pouvez payer en 3 ou 4 fois sans frais. Cette option vous est proposée automatiquement au moment du paiement.'
+      question: 'Can I pay in installments?',
+      answer: 'Yes, for any purchase over €100, you can pay in 3 or 4 installments free of charge. This option is automatically proposed to you at checkout.'
     },
     {
       category: 'returns',
-      question: 'Quelle est votre politique de retour ?',
-      answer: 'Vous disposez de 30 jours pour retourner vos lunettes si elles ne vous conviennent pas. Les retours sont gratuits et le remboursement est effectué sous 5-7 jours après réception.'
+      question: 'What is your return policy?',
+      answer: 'You have 30 days to return your glasses if they do not suit you. Returns are free and refunds are processed within 5-7 days after receipt.'
     },
     {
       category: 'returns',
-      question: 'Comment effectuer un retour ?',
-      answer: 'Connectez-vous à votre compte, sélectionnez la commande et cliquez sur "Retourner un article". Imprimez l\'étiquette de retour prépayée et déposez votre colis en point relais.'
+      question: 'How do I make a return?',
+      answer: 'Log in to your account, select the order, and click "Return an item". Print the prepaid return label and drop off your package at a relay point.'
     },
     {
       category: 'returns',
-      question: 'Puis-je échanger mes lunettes ?',
-      answer: 'Oui ! Si vous souhaitez un autre modèle, effectuez un retour et passez une nouvelle commande. Vous pouvez aussi contacter notre service client pour un échange direct.'
+      question: 'Can I exchange my glasses?',
+      answer: 'Yes! If you want another model, make a return and place a new order. You can also contact our customer service for a direct exchange.'
     },
     {
       category: 'warranty',
-      question: 'Quelle garantie offrez-vous ?',
-      answer: 'Toutes nos lunettes bénéficient d\'une garantie fabricant de 2 ans couvrant les défauts de fabrication. Nous offrons également une garantie casse de 6 mois avec preuve d\'achat.'
+      question: 'What warranty do you offer?',
+      answer: 'All our glasses benefit from a 2-year manufacturer\'s warranty covering manufacturing defects. We also offer a 6-month breakage warranty with proof of purchase.'
     },
     {
       category: 'warranty',
-      question: 'Les lunettes sont-elles authentiques ?',
-      answer: '100% authentiques ! Nous sommes revendeurs agréés pour toutes nos marques. Chaque paire est livrée avec son certificat d\'authenticité, son étui d\'origine et la garantie fabricant.'
+      question: 'Are the glasses authentic?',
+      answer: '100% authentic! We are authorized retailers for all our brands. Each pair comes with its certificate of authenticity, original case, and manufacturer\'s warranty.'
     },
     {
       category: 'warranty',
-      question: 'Que faire si mes lunettes cassent ?',
-      answer: 'Contactez notre service client avec votre numéro de commande et des photos. Si la casse est couverte par la garantie, nous procéderons à un échange ou une réparation gratuite.'
+      question: 'What if my glasses break?',
+      answer: 'Contact our customer service with your order number and photos. If the breakage is covered by the warranty, we will proceed with a free exchange or repair.'
     },
     {
       category: 'products',
-      question: 'Comment choisir la bonne taille ?',
-      answer: 'Chaque page produit indique les dimensions (largeur des verres, pont, branches). Comparez avec vos lunettes actuelles ou utilisez notre guide des tailles disponible sur chaque page produit.'
+      question: 'How do I choose the right size?',
+      answer: 'Each product page indicates dimensions (lens width, bridge, temples). Compare with your current glasses or use our size guide available on each product page.'
     },
     {
       category: 'products',
-      question: 'Les verres sont-ils polarisés ?',
-      answer: 'Cela dépend du modèle. Les lunettes avec verres polarisés sont clairement indiquées dans la description. Cette technologie réduit l\'éblouissement et améliore le confort visuel.'
+      question: 'Are the lenses polarized?',
+      answer: 'It depends on the model. Glasses with polarized lenses are clearly indicated in the description. This technology reduces glare and improves visual comfort.'
     },
     {
       category: 'products',
-      question: 'Puis-je commander des verres correcteurs ?',
-      answer: 'Oui ! Sélectionnez l\'option "Verres correcteurs" sur la page produit. Vous pourrez ensuite saisir votre ordonnance ou nous l\'envoyer par email après la commande.'
+      question: 'Can I order corrective lenses?',
+      answer: 'Yes! Select the "Corrective Lenses" option on the product page. You can then enter your prescription or send it to us by email after ordering.'
     },
     {
       category: 'products',
-      question: 'Comment entretenir mes lunettes ?',
-      answer: 'Nettoyez vos lunettes avec une chiffonnette microfibre et un spray nettoyant adapté. Évitez les produits abrasifs. Rangez-les toujours dans leur étui pour les protéger.'
+      question: 'How do I care for my glasses?',
+      answer: 'Clean your glasses with a microfiber cloth and suitable cleaning spray. Avoid abrasive products. Always store them in their case to protect them.'
     },
     {
       category: 'products',
-      question: 'Proposez-vous des étuis de protection ?',
-      answer: 'Chaque paire est livrée avec son étui de marque d\'origine. Nous proposons également des étuis et accessoires premium dans notre boutique.'
+      question: 'Do you offer protective cases?',
+      answer: 'Each pair is delivered with its original brand case. We also offer premium cases and accessories in our shop.'
     }
   ];
 
@@ -120,10 +120,10 @@ const FAQPage = () => {
             <HelpCircle size={40} className="text-primary" />
           </div>
           <h1 className="text-5xl font-display font-bold text-white mb-4">
-            Questions <span className="text-primary">Fréquentes</span>
+            Frequently Asked <span className="text-primary">Questions</span>
           </h1>
           <p className="text-gray-400 text-lg">
-            Trouvez rapidement des réponses à vos questions
+            Quickly find answers to your questions
           </p>
         </motion.div>
 
@@ -200,10 +200,10 @@ const FAQPage = () => {
           className="mt-12 bg-gradient-to-br from-primary/20 to-red-900/20 backdrop-blur-md rounded-2xl p-8 border border-primary/30 text-center"
         >
           <h3 className="text-2xl font-bold text-white mb-3">
-            Vous ne trouvez pas votre réponse ?
+            Can't find your answer?
           </h3>
           <p className="text-gray-300 mb-6">
-            Notre équipe est disponible 7j/7 pour répondre à toutes vos questions
+            Our team is available 7/7 to answer all your questions
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
@@ -211,18 +211,18 @@ const FAQPage = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-primary hover:bg-[#d4af37] text-white px-8 py-3 rounded-lg font-medium transition-colors"
             >
-              Contacter le Support
+              Contact Support
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-medium transition-colors border border-white/20"
             >
-              Chat en Direct
+              Live Chat
             </motion.button>
           </div>
           <p className="text-gray-400 text-sm mt-6">
-            📧 support@opticglass.com | 📞 +33 1 23 45 67 89 | ⏰ Lun-Dim 9h-20h
+            📧 support@opticglass.com | 📞 +33 1 23 45 67 89 | ⏰ Mon-Sun 9am-8pm
           </p>
         </motion.div>
       </div>

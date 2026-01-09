@@ -6,57 +6,57 @@ const CategoriesPage = () => {
 
   const categories = [
     {
-      name: 'Vue',
-      slug: 'vue',
-      description: 'Lunettes de vue élégantes et confortables',
+      name: 'Optical',
+      slug: 'optical',
+      description: 'Elegant and comfortable optical glasses',
       gradient: 'from-blue-600 to-blue-400',
     },
     {
-      name: 'Solaire',
+      name: 'Sun',
       slug: 'sun',
-      description: 'Protection UV et style incomparable',
+      description: 'UV protection and incomparable style',
       gradient: 'from-yellow-500 to-orange-500',
     },
     {
       name: 'Sport',
       slug: 'sport',
-      description: 'Performance et technologie avancée',
+      description: 'Performance and advanced technology',
       gradient: 'from-red-600 to-red-400',
     },
     {
       name: 'Vintage',
       slug: 'vintage',
-      description: 'Designs rétro et intemporels',
+      description: 'Retro and timeless designs',
       gradient: 'from-purple-600 to-pink-500',
     },
   ];
 
   const seasons = [
     {
-      name: 'Printemps',
-      slug: 'printemps',
-      description: 'Couleurs fraîches et légères',
+      name: 'Spring',
+      slug: 'spring',
+      description: 'Fresh and light colors',
       gradient: 'from-pink-400 to-green-400',
       emoji: '🌸',
     },
     {
-      name: 'Été',
+      name: 'Summer',
       slug: 'summer',
-      description: 'Protection solaire maximale',
+      description: 'Maximum sun protection',
       gradient: 'from-yellow-400 to-red-400',
       emoji: '☀️',
     },
     {
-      name: 'Automne',
-      slug: 'automne',
-      description: 'Tons chauds et élégants',
+      name: 'Autumn',
+      slug: 'autumn',
+      description: 'Warm and elegant tones',
       gradient: 'from-orange-600 to-amber-700',
       emoji: '🍂',
     },
     {
-      name: 'Hiver',
-      slug: 'hiver',
-      description: 'Styles sophistiqués',
+      name: 'Winter',
+      slug: 'winter',
+      description: 'Sophisticated styles',
       gradient: 'from-blue-600 to-cyan-400',
       emoji: '❄️',
     },
@@ -75,11 +75,11 @@ const CategoriesPage = () => {
             Categories
           </h1>
           <p className="text-xl text-gray-600">
-            Trouvez les lunettes parfaites pour chaque occasion
+            Find the perfect glasses for every occasion
           </p>
         </motion.div>
 
-        {/* Par type */}
+        {/* By type */}
         <section className="mb-20">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -87,7 +87,7 @@ const CategoriesPage = () => {
             viewport={{ once: true }}
             className="text-4xl font-display font-bold mb-10"
           >
-            Par type
+            By Type
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -127,7 +127,7 @@ const CategoriesPage = () => {
                       transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
                       className="text-6xl mb-4"
                     >
-                      {category.slug === 'vue' && '👓'}
+                      {category.slug === 'optical' && '👓'}
                       {category.slug === 'sun' && '🕶️'}
                       {category.slug === 'sport' && '⚡'}
                       {category.slug === 'vintage' && '✨'}
@@ -140,7 +140,7 @@ const CategoriesPage = () => {
                       className="mt-6 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold"
                       whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.3)' }}
                     >
-                      Découvrir →
+                      Discover →
                     </motion.div>
                   </div>
 
@@ -157,7 +157,7 @@ const CategoriesPage = () => {
           </div>
         </section>
 
-        {/* Par season */}
+        {/* By season */}
         <section className="mb-20">
           <motion.h2
             initial={{ opacity: 0, x: -20 }}
@@ -165,7 +165,7 @@ const CategoriesPage = () => {
             viewport={{ once: true }}
             className="text-4xl font-display font-bold mb-10"
           >
-            Par saison
+            By Season
           </motion.h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -226,12 +226,12 @@ const CategoriesPage = () => {
                       className="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-sm font-semibold border border-white/30"
                       whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.4)' }}
                     >
-                      Découvrir →
+                      Discover →
                     </motion.div>
                   </div>
 
-                  {/* Particules animées selon la saison */}
-                  {season.slug === 'hiver' && (
+                  {/* Animated particles for Winter */}
+                  {season.slug === 'winter' && (
                     <motion.div
                       className="absolute inset-0 pointer-events-none"
                       animate={{
@@ -288,17 +288,17 @@ const CategoriesPage = () => {
           
           <div className="relative p-12 text-white text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-              Besoin d'aide pour choisir ?
+              Need help choosing?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Découvrez toute notre collection de lunettes de luxe
+              Discover our entire luxury eyewear collection
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/glasses"
                 className="inline-block px-8 py-4 bg-white text-[#c9a227] font-semibold rounded-xl hover:bg-gray-100 transition-all shadow-xl"
               >
-                Voir tous les produits
+                View all products
               </Link>
             </motion.div>
           </div>

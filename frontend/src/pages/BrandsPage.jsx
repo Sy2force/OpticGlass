@@ -18,7 +18,7 @@ const BrandsPage = () => {
     { id: 'all', name: 'All', icon: Sparkles },
     { id: 'luxury', name: 'Luxury', icon: Crown },
     { id: 'sport', name: 'Sport', icon: Star },
-    { id: 'fashion', name: 'Mode', icon: Gem },
+    { id: 'fashion', name: 'Fashion', icon: Gem },
   ];
 
   // Brands premium mises en avant
@@ -69,23 +69,23 @@ const BrandsPage = () => {
               className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary/20 to-red-600/20 backdrop-blur-sm border border-primary/30 rounded-full mb-8"
             >
               <Crown className="w-5 h-5 text-primary" />
-              <span className="text-white font-semibold">'exclusiveCollection'</span>
+              <span className="text-white font-semibold">Exclusive Collection</span>
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-6">
-              <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent">'orrBrands'</span>
+              <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent">Our Brands</span>
             </h1>
             
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
-              Plus de {brands.length} marques prestigieuses sélectionnées pour leur excellence et leur savoir-faire
+              Over {brands.length} prestigious brands selected for their excellence and craftsmanship
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 mb-12">
               {[
                 { value: brands.length + '+', label: 'Brands' },
-                { value: brandsWithProducts.length, label: 'En Stock' },
-                { value: '100%', label: 'Authentique' },
+                { value: brandsWithProducts.length, label: 'In Stock' },
+                { value: '100%', label: 'Authentic' },
               ].map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -119,7 +119,7 @@ const BrandsPage = () => {
                 <Search className="ml-4 text-gray-400" size={24} />
                 <input
                   type="text"
-                  placeholder="Search une marque..."
+                  placeholder="Search for a brand..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-14 pr-6 text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-all"
@@ -149,7 +149,7 @@ const BrandsPage = () => {
               }`}
             >
               <Sparkles size={18} />
-              Tout ({brands.length})
+              All ({brands.length})
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -162,7 +162,7 @@ const BrandsPage = () => {
               }`}
             >
               <Check size={18} />
-              En Stock ({brandsWithProducts.length})
+              In Stock ({brandsWithProducts.length})
             </motion.button>
           </div>
 
@@ -233,7 +233,7 @@ const BrandsPage = () => {
                       <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full mb-3">
                         <Crown size={12} className="text-primary" />
                         <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                          {brand.category === 'luxury' ? 'Luxury' : brand.category === 'sport' ? 'Sport' : 'Mode'}
+                          {brand.category === 'luxury' ? 'Luxury' : brand.category === 'sport' ? 'Sport' : 'Fashion'}
                         </span>
                       </div>
 
@@ -250,7 +250,7 @@ const BrandsPage = () => {
                         </span>
                         <span className="flex items-center gap-1.5">
                           <Calendar size={14} />
-                          Depuis {brand.founded}
+                          Since {brand.founded}
                         </span>
                       </div>
 
@@ -262,7 +262,7 @@ const BrandsPage = () => {
                       {/* CTA Button */}
                       <span className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-semibold rounded-full group-hover:bg-primary group-hover:text-white transition-all duration-300 text-sm">
                         <Eye size={16} />
-                        Voir la Collection
+                        View Collection
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                       </span>
                     </div>
@@ -272,7 +272,7 @@ const BrandsPage = () => {
                   {brand.hasProducts && (
                     <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full">
                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-                      <span className="text-xs text-emerald-400 font-medium">En Stock</span>
+                      <span className="text-xs text-emerald-400 font-medium">In Stock</span>
                     </div>
                   )}
                 </div>
@@ -291,13 +291,13 @@ const BrandsPage = () => {
             <div className="w-24 h-24 mx-auto mb-6 bg-white/5 rounded-full flex items-center justify-center">
               <Search size={40} className="text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Noee marque trouvée</h3>
-            <p className="text-gray-400 mb-6">Essayez avec un autre terme de recherche</p>
+            <h3 className="text-2xl font-bold text-white mb-2">No brand found</h3>
+            <p className="text-gray-400 mb-6">Try another search term</p>
             <button
               onClick={() => setSearchTerm('')}
               className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-[#d4af37] transition-colors"
             >
-              Réinitialiser la recherche
+              Reset Search
             </button>
           </motion.div>
         )}
@@ -345,10 +345,10 @@ const BrandsPage = () => {
               </motion.div>
               
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
-                L'Excellence à Portée de Main
+                Excellence Within Reach
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-                Chaque marque représente le summum de l'artisanat et du design. Découvrez notre collection complète.
+                Each brand represents the pinnacle of craftsmanship and design. Discover our complete collection.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -356,14 +356,14 @@ const BrandsPage = () => {
                   to="/glasses"
                   className="group px-8 py-4 bg-gradient-to-r from-primary to-red-600 text-white font-semibold rounded-xl hover:shadow-2xl hover:shadow-primary/30 transition-all inline-flex items-center justify-center gap-2"
                 >
-                  Explorer la Collection
+                  Explore Collection
                   <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
                 </Link>
                 <Link
                   to="/try-on"
                   className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all border border-white/20"
                 >
-                  Essayage Virtuel
+                  Virtual Try-On
                 </Link>
               </div>
             </div>

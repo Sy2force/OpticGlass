@@ -37,7 +37,7 @@ const NotFoundPage = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl md:text-5xl font-display font-bold text-white mb-4"
           >
-            Page non trouvée
+            Page Not Found
           </motion.h1>
 
           <motion.p
@@ -46,7 +46,7 @@ const NotFoundPage = () => {
             transition={{ delay: 0.3 }}
             className="text-gray-400 text-lg mb-8"
           >
-            Désolé, la page que vous recherchez n'existe pas ou a été déplacée.
+            Sorry, the page you are looking for does not exist or has been moved.
           </motion.p>
 
           <motion.div
@@ -62,7 +62,7 @@ const NotFoundPage = () => {
               className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2 border border-white/20"
             >
               <ArrowLeft size={20} />
-              Retour
+              Back
             </motion.button>
 
             <Link to="/">
@@ -72,7 +72,7 @@ const NotFoundPage = () => {
                 className="bg-primary hover:bg-[#d4af37] text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2 shadow-lg shadow-primary/50"
               >
                 <Home size={20} />
-                Accueil
+                Home
               </motion.button>
             </Link>
 
@@ -83,7 +83,7 @@ const NotFoundPage = () => {
                 className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center gap-2 border border-white/20"
               >
                 <Search size={20} />
-                Voir les lunettes
+                Browse Glasses
               </motion.button>
             </Link>
           </motion.div>
@@ -96,20 +96,20 @@ const NotFoundPage = () => {
           >
             <Link to="/brands">
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 hover:border-primary/50 transition-all">
-                <p className="text-white font-medium">Marques</p>
-                <p className="text-gray-400 text-sm">Découvrir nos marques</p>
+                <p className="text-white font-medium">Brands</p>
+                <p className="text-gray-400 text-sm">Discover our brands</p>
               </div>
             </Link>
             <Link to="/categories">
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 hover:border-primary/50 transition-all">
-                <p className="text-white font-medium">Catégories</p>
-                <p className="text-gray-400 text-sm">Explorer les styles</p>
+                <p className="text-white font-medium">Categories</p>
+                <p className="text-gray-400 text-sm">Explore styles</p>
               </div>
             </Link>
             <Link to="/recommendations">
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 hover:border-primary/50 transition-all">
-                <p className="text-white font-medium">Tendances</p>
-                <p className="text-gray-400 text-sm">Nos recommandations</p>
+                <p className="text-white font-medium">Trends</p>
+                <p className="text-gray-400 text-sm">Our recommendations</p>
               </div>
             </Link>
           </motion.div>

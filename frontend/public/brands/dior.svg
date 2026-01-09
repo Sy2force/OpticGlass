@@ -6,7 +6,7 @@
       <stop offset="100%" style="stop-color:#2d2d2d"/>
     </linearGradient>
   </defs>
-  <text x="100" y="34" font-family="'Times New Roman', Georgia, serif" font-size="32" fill="url(#diorGrad)" text-anchor="middle" font-weight="400" letter-spacing="16" font-style="italic">Dior</text>
+  <text x="100" y="34" font-family="'Times New Roman', Georgia, serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="16" font-style="italic">Dior</text>
   <line x1="60" y1="44" x2="140" y2="44" stroke="#c9a227" stroke-width="1"/>
   <text x="100" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6" fill="#888888" text-anchor="middle" letter-spacing="8">PARIS</text>
 </svg>

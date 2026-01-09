@@ -24,22 +24,22 @@ const ContactPage = () => {
   const validate = () => {
     const nextErrors = {};
 
-    if (!formData.firstName.trim()) nextErrors.firstName = { message: 'Prénom requis' };
-    if (!formData.lastName.trim()) nextErrors.lastName = { message: 'Nom requis' };
+    if (!formData.firstName.trim()) nextErrors.firstName = { message: 'First name required' };
+    if (!formData.lastName.trim()) nextErrors.lastName = { message: 'Last name required' };
 
     if (!formData.email.trim()) {
-      nextErrors.email = { message: 'Email requis' };
+      nextErrors.email = { message: 'Email required' };
     } else {
       const emailOk = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email);
-      if (!emailOk) nextErrors.email = { message: 'Email invalide' };
+      if (!emailOk) nextErrors.email = { message: 'Invalid email' };
     }
 
-    if (!formData.subject) nextErrors.subject = { message: 'Sujet requis' };
+    if (!formData.subject) nextErrors.subject = { message: 'Subject required' };
 
     if (!formData.message.trim()) {
-      nextErrors.message = { message: 'Message requis' };
+      nextErrors.message = { message: 'Message required' };
     } else if (formData.message.trim().length < 10) {
-      nextErrors.message = { message: 'Minimum 10 caractères' };
+      nextErrors.message = { message: 'Minimum 10 characters' };
     }
 
     return nextErrors;
@@ -62,7 +62,7 @@ const ContactPage = () => {
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error('Erreur envoi contact:', error);
-      setErrors({ form: { message: "Une erreur est survenue lors de l'envoi." } });
+      setErrors({ form: { message: "An error occurred while sending." } });
     } finally {
       setLoading(false);
     }
@@ -79,27 +79,27 @@ const ContactPage = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Téléphone',
+      title: 'Phone',
       value: '+33 1 23 45 67 89',
-      description: 'Lun-Sam: 9h-19h',
+      description: 'Mon-Sat: 9am-7pm',
     },
     {
       icon: Mail,
       title: 'Email',
       value: 'contact@opticglass.fr',
-      description: 'Réponse sous 24h',
+      description: 'Response within 24h',
     },
     {
       icon: MapPin,
-      title: 'Adresse',
+      title: 'Address',
       value: '123 Avenue des Champs-Élysées',
       description: '75008 Paris, France',
     },
     {
       icon: Clock,
-      title: 'Horaires',
-      value: 'Lun-Sam: 9h-19h',
-      description: 'Dimanche : Fermé',
+      title: 'Hours',
+      value: 'Mon-Sat: 9am-7pm',
+      description: 'Sunday: Closed',
     },
   ];
 
@@ -128,14 +128,14 @@ const ContactPage = () => {
               className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6"
             >
               <MessageCircle className="w-5 h-5" />
-              <span className="font-semibold">Contactez-nous</span>
+              <span className="font-semibold">Contact Us</span>
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-4">
-              Nous sommes à votre écoute
+              We are here to listen
             </h1>
             <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Vous avez une question ? Besoin de conseils ? Notre équipe d'experts est là pour vous aider
+              Have a question? Need advice? Our team of experts is here to help you
             </p>
           </motion.div>
         </div>
@@ -150,7 +150,7 @@ const ContactPage = () => {
             transition={{ delay: 0.2 }}
           >
             <div className="bg-white rounded-2xl shadow-2xl p-8">
-              <h2 className="text-3xl font-bold mb-6">Envoyez-nous un message</h2>
+              <h2 className="text-3xl font-bold mb-6">Send us a message</h2>
               
               {isSubmitted ? (
                 <motion.div
@@ -166,8 +166,8 @@ const ContactPage = () => {
                   >
                     <CheckCircle className="w-10 h-10 text-green-600" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Message Envoyé !</h3>
-                  <p className="text-gray-600">Nous vous répondrons dans les plus brefs délais.</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+                  <p className="text-gray-600">We will reply to you as soon as possible.</p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -180,7 +180,7 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Prénom *
+                        First Name *
                       </label>
                       <input
                         value={formData.firstName}
@@ -188,7 +188,7 @@ const ContactPage = () => {
                         className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition ${
                           errors.firstName ? 'border-red-500' : 'border-gray-300'
                         }`}
-                        placeholder="Votre prénom"
+                        placeholder="Your first name"
                       />
                       {errors.firstName && (
                         <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
@@ -197,7 +197,7 @@ const ContactPage = () => {
                     
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Nom *
+                        Last Name *
                       </label>
                       <input
                         value={formData.lastName}
@@ -205,7 +205,7 @@ const ContactPage = () => {
                         className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition ${
                           errors.lastName ? 'border-red-500' : 'border-gray-300'
                         }`}
-                        placeholder="Votre nom"
+                        placeholder="Your last name"
                       />
                       {errors.lastName && (
                         <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
@@ -233,7 +233,7 @@ const ContactPage = () => {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Téléphone
+                      Phone
                     </label>
                     <input
                       type="tel"
@@ -246,7 +246,7 @@ const ContactPage = () => {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Sujet *
+                      Subject *
                     </label>
                     <select
                       value={formData.subject}
@@ -255,12 +255,12 @@ const ContactPage = () => {
                         errors.subject ? 'border-red-500' : 'border-gray-300'
                       }`}
                     >
-                      <option value="">Sélectionnez un sujet</option>
-                      <option value="info">Demande d'information</option>
-                      <option value="order">Question sur une commande</option>
-                      <option value="return">Retour / Échange</option>
-                      <option value="appointment">Prise de rendez-vous</option>
-                      <option value="other">Autre</option>
+                      <option value="">Select a subject</option>
+                      <option value="info">Information request</option>
+                      <option value="order">Question about an order</option>
+                      <option value="return">Return / Exchange</option>
+                      <option value="appointment">Appointment booking</option>
+                      <option value="other">Other</option>
                     </select>
                     {errors.subject && (
                       <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
@@ -278,7 +278,7 @@ const ContactPage = () => {
                       className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition resize-none ${
                         errors.message ? 'border-red-500' : 'border-gray-300'
                       }`}
-                      placeholder="Votre message..."
+                      placeholder="Your message..."
                     />
                     {errors.message && (
                       <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
@@ -297,7 +297,7 @@ const ContactPage = () => {
                     ) : (
                       <>
                         <Send size={20} />
-                        Envoyer le Message
+                        Send Message
                       </>
                     )}
                   </motion.button>
@@ -351,8 +351,8 @@ const ContactPage = () => {
                   <MessageCircle className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">Contactez-nous sur WhatsApp</h3>
-                  <p className="text-white/90">Réponse rapide garantie</p>
+                  <h3 className="text-xl font-bold">Contact us on WhatsApp</h3>
+                  <p className="text-white/90">Fast response guaranteed</p>
                 </div>
               </div>
             </motion.a>

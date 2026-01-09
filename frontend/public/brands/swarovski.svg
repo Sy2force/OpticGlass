@@ -6,6 +6,6 @@
       <stop offset="100%" style="stop-color:#87CEEB"/>
     </linearGradient>
   </defs>
-  <polygon points="100,8 108,24 100,20 92,24" fill="url(#swarovskiCrystal)" stroke="#1a1a1a" stroke-width="0.5"/>
-  <text x="100" y="42" font-family="'Times New Roman', Georgia, serif" font-size="18" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="6">SWAROVSKI</text>
+  <polygon points="100,8 108,24 100,20 92,24" fill="url(#swarovskiCrystal)" stroke="#ffffff" stroke-width="0.5"/>
+  <text x="100" y="42" font-family="'Times New Roman', Georgia, serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="6">SWAROVSKI</text>
 </svg>

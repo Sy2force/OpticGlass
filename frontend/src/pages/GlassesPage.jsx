@@ -40,8 +40,23 @@ const GlassesPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      // Simulate API delay for smooth transition
-      await new Promise(resolve => setTimeout(resolve, 800));
+      // Try API first
+      try {
+        const response = await api.get('/products?category=optical');
+        if (response.data && response.data.data && response.data.data.length > 0) {
+           setProducts(response.data.data);
+           setLoading(false);
+           return;
+        }
+      } catch (err) {
+        console.warn('API fetch failed, falling back to local data');
+      }
+
+      // Fallback to local data
+      // Simulate delay for smooth transition if we are falling back
+      if (products.length === 0) {
+         await new Promise(resolve => setTimeout(resolve, 500));
+      }
       
       let filtered = luxuryProducts.filter(p => p.type === 'glasses' || p.category === 'optical');
 
@@ -103,14 +118,14 @@ const GlassesPage = () => {
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#c9a227]" />
-              <span className="text-[#c9a227] uppercase tracking-[0.3em] text-xs font-medium">Collection Optique</span>
+              <span className="text-[#c9a227] uppercase tracking-[0.3em] text-xs font-medium">Optical Collection</span>
               <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#c9a227]" />
             </div>
             <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">
-              L'Art de la <span className="font-serif italic text-[#c9a227]">Vision</span>
+              The Art of <span className="font-serif italic text-[#c9a227]">Vision</span>
             </h1>
             <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
-              Découvrez notre sélection exclusive de montures optiques, alliant ingénierie de précision et esthétique raffinée.
+              Discover our exclusive selection of optical frames, combining precision engineering and refined aesthetics.
             </p>
           </motion.div>
         </div>
@@ -130,7 +145,7 @@ const GlassesPage = () => {
                 }`}
               >
                 <SlidersHorizontal size={16} />
-                <span className="text-sm font-medium">Filtres</span>
+                <span className="text-sm font-medium">Filters</span>
                 {activeFiltersCount > 0 && (
                   <span className="w-5 h-5 flex items-center justify-center bg-[#c9a227] text-black text-xs rounded-full font-bold">
                     {activeFiltersCount}
@@ -156,16 +171,16 @@ const GlassesPage = () => {
 
             <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-white/50">Trier par:</span>
+                <span className="text-sm text-white/50">Sort by:</span>
                 <select 
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className="bg-transparent text-sm text-white border-none focus:ring-0 cursor-pointer"
                 >
-                  <option value="featured" className="bg-[#1a1a1a]">Recommandé</option>
-                  <option value="newest" className="bg-[#1a1a1a]">Nouveautés</option>
-                  <option value="price-asc" className="bg-[#1a1a1a]">Prix croissant</option>
-                  <option value="price-desc" className="bg-[#1a1a1a]">Prix décroissant</option>
+                  <option value="featured" className="bg-[#1a1a1a]">Featured</option>
+                  <option value="newest" className="bg-[#1a1a1a]">New Arrivals</option>
+                  <option value="price-asc" className="bg-[#1a1a1a]">Price: Low to High</option>
+                  <option value="price-desc" className="bg-[#1a1a1a]">Price: High to Low</option>
                 </select>
               </div>
 
@@ -197,7 +212,7 @@ const GlassesPage = () => {
               >
                 <div className="py-8 grid grid-cols-1 md:grid-cols-4 gap-8">
                   <div>
-                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Marques</h3>
+                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Brands</h3>
                     <div className="space-y-2 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
                       {brands.map(brand => (
                         <label key={brand} className="flex items-center gap-3 cursor-pointer group">
@@ -221,7 +236,7 @@ const GlassesPage = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Matériaux</h3>
+                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Materials</h3>
                     <div className="space-y-2">
                       {materials.map(material => (
                         <label key={material} className="flex items-center gap-3 cursor-pointer group">
@@ -245,7 +260,7 @@ const GlassesPage = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Couleurs</h3>
+                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Colors</h3>
                     <div className="flex flex-wrap gap-2">
                       {colors.map(color => (
                         <button
@@ -264,7 +279,7 @@ const GlassesPage = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Prix</h3>
+                    <h3 className="text-[#c9a227] text-xs uppercase tracking-wider font-semibold mb-4">Price</h3>
                     <div className="flex items-center gap-4 mb-4">
                       <input
                         type="number"
@@ -286,7 +301,7 @@ const GlassesPage = () => {
                       onClick={clearFilters}
                       className="text-xs text-red-500 hover:text-red-400 underline decoration-1 underline-offset-4"
                     >
-                      Réinitialiser tous les filtres
+                      Reset all filters
                     </button>
                   </div>
                 </div>
@@ -298,7 +313,7 @@ const GlassesPage = () => {
         {/* Results Count */}
         <div className="flex items-center gap-2 mb-8 text-white/40 text-sm font-light">
           <span className="w-1.5 h-1.5 bg-[#c9a227] rounded-full" />
-          {products.length} {products.length === 1 ? 'résultat' : 'résultats'} trouvés
+          {products.length} {products.length === 1 ? 'result' : 'results'} found
         </div>
 
         {/* Products Grid */}
@@ -334,15 +349,15 @@ const GlassesPage = () => {
             <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6">
               <Glasses size={40} className="text-white/20" />
             </div>
-            <h3 className="text-2xl font-light text-white mb-2">Aucun résultat trouvé</h3>
+            <h3 className="text-2xl font-light text-white mb-2">No results found</h3>
             <p className="text-white/40 max-w-md mx-auto mb-8">
-              Nous n'avons pas trouvé de montures correspondant à vos critères. Essayez d'ajuster vos filtres.
+              We couldn't find any frames matching your criteria. Try adjusting your filters.
             </p>
             <button
               onClick={clearFilters}
               className="px-8 py-3 bg-[#c9a227] text-black font-medium rounded-full hover:bg-white transition-colors duration-300"
             >
-              Effacer les filtres
+              Clear filters
             </button>
           </div>
         )}
@@ -359,16 +374,16 @@ const GlassesPage = () => {
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
             </div>
             <div className="relative px-8 py-16 md:p-20 text-center text-black">
-              <h2 className="text-3xl md:text-5xl font-light mb-6">Besoin de conseils personnalisés ?</h2>
+              <h2 className="text-3xl md:text-5xl font-light mb-6">Need personal advice?</h2>
               <p className="text-xl md:text-2xl font-light mb-10 max-w-2xl mx-auto opacity-80">
-                Nos opticiens visagistes sont là pour vous aider à trouver la paire parfaite.
+                Our visage experts are here to help you find the perfect pair.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/contact" className="px-8 py-4 bg-black text-white font-medium rounded-full hover:scale-105 transition-transform duration-300 shadow-xl">
-                  Prendre Rendez-vous
+                  Book Appointment
                 </Link>
                 <Link to="/try-on" className="px-8 py-4 bg-white/20 border border-black/10 backdrop-blur-md text-black font-medium rounded-full hover:bg-white/30 transition-all duration-300">
-                  Essayage Virtuel
+                  Virtual Try-On
                 </Link>
               </div>
             </div>

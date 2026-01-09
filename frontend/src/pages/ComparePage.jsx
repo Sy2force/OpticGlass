@@ -57,14 +57,14 @@ const ComparePage = () => {
   );
 
   const features = [
-    { key: 'brand', label: 'Marque' },
-    { key: 'price', label: 'Prix', format: (v) => `${v}€` },
-    { key: 'category', label: 'Catégorie' },
+    { key: 'brand', label: 'Brand' },
+    { key: 'price', label: 'Price', format: (v) => `${v}€` },
+    { key: 'category', label: 'Category' },
     { key: 'type', label: 'Type' },
-    { key: 'gender', label: 'Genre' },
-    { key: 'color', label: 'Couleur' },
-    { key: 'material', label: 'Matériau' },
-    { key: 'stock', label: 'Stock', format: (v) => `${v} unités` }
+    { key: 'gender', label: 'Gender' },
+    { key: 'color', label: 'Color' },
+    { key: 'material', label: 'Material' },
+    { key: 'stock', label: 'Stock', format: (v) => `${v} units` }
   ];
 
   return (
@@ -76,10 +76,10 @@ const ComparePage = () => {
           className="text-center mb-12"
         >
           <h1 className="text-5xl font-display font-bold mb-4">
-            Comparer les <span className="text-[#c9a227]">Lunettes</span>
+            Compare <span className="text-[#c9a227]">Glasses</span>
           </h1>
           <p className="text-white/60 text-lg">
-            Comparez jusqu'à 3 modèles côte à côte pour faire le meilleur choix
+            Compare up to 3 models side by side to make the best choice
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ const ComparePage = () => {
                     <p className="text-[#c9a227] font-bold text-2xl mb-4">{product.price}€</p>
                     <button className="w-full bg-[#c9a227] hover:bg-[#d4af37] text-black py-3 rounded-lg font-bold transition-colors flex items-center justify-center gap-2">
                       <ShoppingCart size={20} />
-                      Ajouter au panier
+                      Add to Cart
                     </button>
                   </div>
                 </>
@@ -126,7 +126,7 @@ const ComparePage = () => {
                       <Plus size={32} className="text-white/40 group-hover:text-[#c9a227] transition-colors" />
                     </div>
                     <span className="text-white/40 group-hover:text-[#c9a227] font-medium transition-colors">
-                      Ajouter un produit
+                      Add a product
                     </span>
                   </button>
                 </div>
@@ -145,7 +145,7 @@ const ComparePage = () => {
               <table className="w-full">
                 <thead className="bg-white/5">
                   <tr>
-                    <th className="px-6 py-4 text-left font-bold text-white/50">Caractéristique</th>
+                    <th className="px-6 py-4 text-left font-bold text-white/50">Feature</th>
                     {compareProducts.map((product, index) => (
                       <th key={index} className="px-6 py-4 text-center font-bold">
                         {product ? product.name : '-'}
@@ -169,7 +169,7 @@ const ComparePage = () => {
                     </tr>
                   ))}
                   <tr>
-                    <td className="px-6 py-4 text-white/70 font-medium">Fonctionnalités</td>
+                    <td className="px-6 py-4 text-white/70 font-medium">Features</td>
                     {compareProducts.map((product, pIndex) => (
                       <td key={pIndex} className="px-6 py-4">
                         {product?.features ? (
@@ -205,7 +205,7 @@ const ComparePage = () => {
               className="bg-[#1a1a1a] rounded-2xl p-8 max-w-4xl w-full max-h-[80vh] overflow-y-auto border border-white/10"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold">Sélectionner un produit</h2>
+                <h2 className="text-2xl font-bold">Select a product</h2>
                 <button
                   onClick={() => setShowProductSelector(null)}
                   className="text-white/50 hover:text-white transition-colors"
@@ -218,7 +218,7 @@ const ComparePage = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Rechercher une lunette..."
+                placeholder="Search for glasses..."
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white mb-6 focus:outline-none focus:border-[#c9a227] transition-colors"
               />
 

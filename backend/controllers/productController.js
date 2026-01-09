@@ -6,12 +6,16 @@ export const getAllProducts = async (req, res) => {
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
 
-    const { category, season, brand, minPrice, maxPrice, search } = req.query;
+    const { category, season, brand, minPrice, maxPrice, search, gender, material, color, type } = req.query;
 
     let query = {};
 
     if (category) {
       query.category = category;
+    }
+
+    if (type) {
+      query.type = type;
     }
 
     if (season) {
@@ -20,6 +24,18 @@ export const getAllProducts = async (req, res) => {
 
     if (brand) {
       query.brand = brand;
+    }
+
+    if (gender) {
+      query.gender = { $regex: new RegExp(`^${gender}$`, 'i') };
+    }
+
+    if (material) {
+      query.material = { $regex: new RegExp(material, 'i') };
+    }
+
+    if (color) {
+      query.colors = { $regex: new RegExp(color, 'i') };
     }
 
     if (minPrice || maxPrice) {

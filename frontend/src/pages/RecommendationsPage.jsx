@@ -25,23 +25,23 @@ const RecommendationsPage = () => {
   });
 
   const categories = [
-    { id: 'all', label: 'Tout', icon: Sparkles },
-    { id: 'trend', label: 'Tendances', icon: TrendingUp },
-    { id: 'season', label: 'Saison', icon: Calendar },
+    { id: 'all', label: 'All', icon: Sparkles },
+    { id: 'trend', label: 'Trends', icon: TrendingUp },
+    { id: 'season', label: 'Season', icon: Calendar },
     { id: 'news', label: 'News', icon: Award },
-    { id: 'conseil', label: 'Conseils', icon: Sparkles }
+    { id: 'conseil', label: 'Tips', icon: Sparkles }
   ];
 
   useEffect(() => {
     fetchRecommendations();
   }, [selectedCategory]);
 
-  // Données mock pour les recommandations
+  // Mock data for recommendations
   const mockRecommendations = [
     {
       _id: '1',
-      title: 'Les lunettes oversize dominent 2024',
-      description: 'Les montures XXL sont la tendance phare de cette année. Découvrez comment les porter avec style et élégance pour un look audacieux.',
+      title: 'Oversize glasses dominate 2024',
+      description: 'XXL frames are the flagship trend of this year. Discover how to wear them with style and elegance for a bold look.',
       category: 'trend',
       imageUrl: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600',
       tags: ['oversize', 'trend', '2024'],
@@ -50,8 +50,8 @@ const RecommendationsPage = () => {
     },
     {
       _id: '2',
-      title: 'Collection Été : protégez vos yeux avec style',
-      description: 'Notre sélection de lunettes de soleil pour l\'été. Protection UV maximale et designs tendances pour profiter du soleil en toute sécurité.',
+      title: 'Summer Collection: protect your eyes with style',
+      description: 'Our selection of sunglasses for summer. Maximum UV protection and trendy designs to enjoy the sun safely.',
       category: 'season',
       imageUrl: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600',
       tags: ['summer', 'sun', 'protection'],
@@ -60,8 +60,8 @@ const RecommendationsPage = () => {
     },
     {
       _id: '3',
-      title: 'Nouveauté : Ray-Ban Stories 2024',
-      description: 'Les nouvelles lunettes connectées Ray-Ban arrivent avec des fonctionnalités révolutionnaires. Découvrez notre test complet.',
+      title: 'New: Ray-Ban Stories 2024',
+      description: 'The new Ray-Ban smart glasses arrive with revolutionary features. Discover our full review.',
       category: 'news',
       imageUrl: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600',
       tags: ['ray-ban', 'connected', 'innovation'],
@@ -70,31 +70,31 @@ const RecommendationsPage = () => {
     },
     {
       _id: '4',
-      title: 'Comment choisir ses lunettes selon son visage',
-      description: 'Guide complet pour trouver la monture parfaite. Visage rond, ovale, carré... Nos experts vous conseillent.',
+      title: 'How to choose glasses for your face shape',
+      description: 'Complete guide to finding the perfect frame. Round, oval, square face... Our experts advise you.',
       category: 'conseil',
       imageUrl: 'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600',
-      tags: ['conseil', 'morphologie', 'guide'],
+      tags: ['advice', 'morphology', 'guide'],
       priority: 7,
       isActive: true,
     },
     {
       _id: '5',
-      title: 'Le retour du vintage : style années 70',
-      description: 'Les montures rétro font leur grand retour. Découvrez notre sélection de lunettes vintage revisitées.',
+      title: 'Vintage comeback: 70s style',
+      description: 'Retro frames are making a big comeback. Discover our selection of revisited vintage glasses.',
       category: 'trend',
       imageUrl: 'https://images.unsplash.com/photo-1577803645773-f96470509666?w=600',
-      tags: ['vintage', 'rétro', '70s'],
+      tags: ['vintage', 'retro', '70s'],
       priority: 6,
       isActive: true,
     },
     {
       _id: '6',
-      title: 'Gucci x Optic Glass : collection exclusive',
-      description: 'En exclusivité chez Optic Glass, découvrez la nouvelle collection Gucci avec des modèles uniques et raffinés.',
+      title: 'Gucci x Optic Glass: exclusive collection',
+      description: 'Exclusively at Optic Glass, discover the new Gucci collection with unique and refined models.',
       category: 'news',
       imageUrl: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600',
-      tags: ['gucci', 'exclusive', 'luxe'],
+      tags: ['gucci', 'exclusive', 'luxury'],
       priority: 5,
       isActive: true,
     },
@@ -153,13 +153,13 @@ const RecommendationsPage = () => {
       resetForm();
       fetchRecommendations();
     } catch (error) {
-      console.error('Erreur lors de la sauvegarde:', error);
-      alert('Erreur lors de la sauvegarde de la recommandation');
+      console.error('Error saving:', error);
+      alert('Error saving recommendation');
     }
   };
 
   const handleSupprime = async (id) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer cette recommandation ?')) return;
+    if (!window.confirm('Are you sure you want to delete this recommendation?')) return;
     
     try {
       const token = localStorage.getItem('token');
@@ -168,8 +168,8 @@ const RecommendationsPage = () => {
       });
       fetchRecommendations();
     } catch (error) {
-      console.error('Erreur lors de la suppression:', error);
-      alert('Erreur lors de la suppression');
+      console.error('Error deleting:', error);
+      alert('Error deleting');
     }
   };
 
@@ -213,10 +213,10 @@ const RecommendationsPage = () => {
           className="text-center mb-12"
         >
           <h1 className="text-5xl font-display font-bold text-white mb-4">
-            Nos <span className="text-primary">Recommendations</span>
+            Our <span className="text-primary">Recommendations</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Découvrez nos sélections tendances, conseils d'experts et nouveautés de la saison
+            Discover our trendy selections, expert advice, and seasonal novelties
           </p>
         </motion.div>
 
@@ -257,7 +257,7 @@ const RecommendationsPage = () => {
               className="bg-primary hover:bg-[#d4af37] text-white px-6 py-3 rounded-lg font-medium inline-flex items-center gap-2 transition-colors"
             >
               <Plus size={20} />
-              Ajouter une recommandation
+              Add a recommendation
             </button>
           </motion.div>
         )}
@@ -273,7 +273,7 @@ const RecommendationsPage = () => {
             className="text-center py-20"
           >
             <Sparkles size={64} className="mx-auto text-gray-600 mb-4" />
-            <p className="text-gray-400 text-xl">Aucune recommandation disponible pour le moment</p>
+            <p className="text-gray-400 text-xl">No recommendations available at the moment</p>
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -326,14 +326,14 @@ const RecommendationsPage = () => {
                           className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors"
                         >
                           <Edit2 size={16} />
-                          Modifier
+                          Edit
                         </button>
                         <button
                           onClick={() => handleSupprime(reco._id)}
                           className="flex-1 bg-red-600 hover:bg-[#d4af37] text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors"
                         >
                           <Trash2 size={16} />
-                          Supprimer
+                          Delete
                         </button>
                       </div>
                     )}
@@ -363,7 +363,7 @@ const RecommendationsPage = () => {
             >
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-3xl font-bold text-white">
-                  {editingReco ? 'Modifier la recommandation' : 'Nouvelle recommandation'}
+                  {editingReco ? 'Edit Recommendation' : 'New Recommendation'}
                 </h2>
                 <button
                   onClick={() => setShowAdminModal(false)}
@@ -375,7 +375,7 @@ const RecommendationsPage = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-white font-medium mb-2">Titre</label>
+                  <label className="block text-white font-medium mb-2">Title</label>
                   <input
                     type="text"
                     value={formData.title}
@@ -397,22 +397,22 @@ const RecommendationsPage = () => {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-white font-medium mb-2">Catégorie</label>
+                    <label className="block text-white font-medium mb-2">Category</label>
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary"
                     >
-                      <option value="trend">Tendance</option>
-                      <option value="season">Saison</option>
+                      <option value="trend">Trend</option>
+                      <option value="season">Season</option>
                       <option value="style">Style</option>
                       <option value="news">News</option>
-                      <option value="conseil">Conseil</option>
+                      <option value="conseil">Tips</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-white font-medium mb-2">Priorité (0-10)</label>
+                    <label className="block text-white font-medium mb-2">Priority (0-10)</label>
                     <input
                       type="number"
                       min="0"
@@ -425,7 +425,7 @@ const RecommendationsPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2">URL de l'image</label>
+                  <label className="block text-white font-medium mb-2">Image URL</label>
                   <input
                     type="text"
                     value={formData.imageUrl}
@@ -436,7 +436,7 @@ const RecommendationsPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2">Tags (séparés par des virgules)</label>
+                  <label className="block text-white font-medium mb-2">Tags (separated by commas)</label>
                   <input
                     type="text"
                     value={formData.tags}
@@ -455,7 +455,7 @@ const RecommendationsPage = () => {
                     className="w-5 h-5 text-primary focus:ring-primary"
                   />
                   <label htmlFor="isActive" className="text-white font-medium">
-                    Recommandation active
+                    Active recommendation
                   </label>
                 </div>
 
@@ -465,13 +465,13 @@ const RecommendationsPage = () => {
                     onClick={() => setShowAdminModal(false)}
                     className="flex-1 bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                   >
-                    Annuler
+                    Cancel
                   </button>
                   <button
                     type="submit"
                     className="flex-1 bg-primary hover:bg-[#d4af37] text-white px-6 py-3 rounded-lg font-medium transition-colors"
                   >
-                    {editingReco ? 'Mettre à jour' : 'Créer'}
+                    {editingReco ? 'Update' : 'Create'}
                   </button>
                 </div>
               </form>

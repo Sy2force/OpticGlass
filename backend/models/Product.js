@@ -24,19 +24,25 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       required: [true, 'La catégorie est requise'],
-      enum: ['Solaire', 'Sport', 'Luxe', 'Enfant', 'Vue', 'vue', 'soleil', 'sport', 'vintage'],
+      enum: ['Solaire', 'Sport', 'Luxe', 'Enfant', 'Vue', 'vue', 'soleil', 'sport', 'vintage', 'sunglasses', 'optical'],
     },
     type: {
       type: String,
-      enum: ['Aviateur', 'Wayfarer', 'Clubmaster', 'Ronde', 'Carré', 'Papillon', 'Œil de chat', 'Masque', 'Pilote'],
+    },
+    frameShape: {
+      type: String,
     },
     gender: {
       type: String,
-      enum: ['Homme', 'Femme', 'Mixte', 'Enfant'],
+      enum: ['Homme', 'Femme', 'Mixte', 'Enfant', 'men', 'women', 'unisex'],
       default: 'Mixte',
     },
-    color: {
+    season: {
       type: String,
+    },
+    colors: {
+      type: [String],
+      default: [],
     },
     material: {
       type: String,

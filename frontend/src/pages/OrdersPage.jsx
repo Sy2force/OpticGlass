@@ -27,8 +27,8 @@ const OrdersPage = () => {
       status: 'shipped',
       totalAmount: 1250,
       items: [
-        { product: { name: 'Aviator Classic', brand: 'Ray-Ban' }, quantity: 1, price: 890, color: 'Or' },
-        { product: { name: 'Étui Premium', brand: 'Optic Glass' }, quantity: 1, price: 360, color: 'Noir' },
+        { product: { name: 'Aviator Classic', brand: 'Ray-Ban' }, quantity: 1, price: 890, color: 'Gold' },
+        { product: { name: 'Premium Case', brand: 'Optic Glass' }, quantity: 1, price: 360, color: 'Black' },
       ],
       shippingAddress: {
         firstName: 'Jean',
@@ -118,11 +118,11 @@ const OrdersPage = () => {
 
   const getStatusText = (status) => {
     const texts = {
-      pending: 'En attente',
-      validated: 'Validée',
-      shipped: 'Expédiée',
-      delivered: 'Livrée',
-      cancelled: 'Annulée',
+      pending: 'Pending',
+      validated: 'Validated',
+      shipped: 'Shipped',
+      delivered: 'Delivered',
+      cancelled: 'Cancelled',
     };
     return texts[status] || status;
   };
@@ -132,7 +132,7 @@ const OrdersPage = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4"></div>
-          <p className="text-gray-600">Chargement de vos commandes...</p>
+          <p className="text-gray-600">Loading your orders...</p>
         </div>
       </div>
     );
@@ -152,8 +152,8 @@ const OrdersPage = () => {
               <Package size={32} />
             </div>
             <div>
-              <h1 className="text-4xl font-bold">Mes commandes</h1>
-              <p className="text-gray-400 mt-1">{orders.length} commande{orders.length > 1 ? 's' : ''}</p>
+              <h1 className="text-4xl font-bold">My Orders</h1>
+              <p className="text-gray-400 mt-1">{orders.length} order{orders.length > 1 ? 's' : ''}</p>
             </div>
           </motion.div>
         </div>
@@ -169,15 +169,15 @@ const OrdersPage = () => {
             <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <Package size={40} className="text-gray-300" />
             </div>
-            <h2 className="text-2xl font-bold mb-2">Aucune commande</h2>
+            <h2 className="text-2xl font-bold mb-2">No orders</h2>
             <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              Vous n'avez pas encore passé de commande. Découvrez notre collection de lunettes de luxe.
+              You haven't placed any orders yet. Discover our luxury eyewear collection.
             </p>
             <Link
               to="/glasses"
               className="inline-block px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition shadow-lg"
             >
-              Découvrir la Collection
+              Discover Collection
             </Link>
           </motion.div>
         ) : (
@@ -197,11 +197,11 @@ const OrdersPage = () => {
                       <div className="flex items-center gap-2 mb-1">
                         <Package size={18} className="text-gray-400" />
                         <h3 className="text-xl font-bold">
-                          Commande n°{order.orderNumber}
+                          Order #{order.orderNumber}
                         </h3>
                       </div>
                       <p className="text-sm text-gray-500">
-                        {new Date(order.createdAt).toLocaleDateString('fr-FR', {
+                        {new Date(order.createdAt).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric',
@@ -226,10 +226,10 @@ const OrdersPage = () => {
                           <span className="text-2xl">👓</span>
                         </div>
                         <div className="flex-1">
-                          <p className="font-bold">{item.product?.name || 'Produit'}</p>
+                          <p className="font-bold">{item.product?.name || 'Product'}</p>
                           <p className="text-sm text-gray-500">
                             {item.product?.brand && `${item.product.brand} • `}
-                            Qté: {item.quantity}
+                            Qty: {item.quantity}
                             {item.color && ` • ${item.color}`}
                           </p>
                         </div>
@@ -251,7 +251,7 @@ const OrdersPage = () => {
                     <div className="p-4 bg-gray-50 rounded-xl flex items-start gap-3">
                       <MapPin size={18} className="text-gray-400 mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="font-semibold text-sm mb-1">Adresse de livraison</p>
+                        <p className="font-semibold text-sm mb-1">Shipping Address</p>
                         <p className="text-sm text-gray-600">
                           {order.shippingAddress.firstName} {order.shippingAddress.lastName}<br />
                           {order.shippingAddress.street}<br />
@@ -266,12 +266,12 @@ const OrdersPage = () => {
                 <div className="px-6 pb-6 flex gap-3">
                   <button className="flex-1 py-3 px-4 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 transition flex items-center justify-center gap-2">
                     <Eye size={18} />
-                    Voir les détails
+                    View Details
                   </button>
                   {order.status === 'shipped' && (
                     <button className="flex-1 py-3 px-4 bg-blue-100 text-blue-700 font-medium rounded-xl hover:bg-blue-200 transition flex items-center justify-center gap-2">
                       <Truck size={18} />
-                      Suivre le colis
+                      Track Package
                     </button>
                   )}
                 </div>
@@ -288,13 +288,13 @@ const OrdersPage = () => {
             transition={{ delay: 0.5 }}
             className="mt-12 bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-8 text-center text-white"
           >
-            <h3 className="text-2xl font-bold mb-2">Envie de nouvelles lunettes ?</h3>
-            <p className="text-white/80 mb-6">Découvrez nos dernières nouveautés et collections exclusives.</p>
+            <h3 className="text-2xl font-bold mb-2">Need new glasses?</h3>
+            <p className="text-white/80 mb-6">Discover our latest arrivals and exclusive collections.</p>
             <Link
               to="/glasses"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-amber-600 font-semibold rounded-xl hover:bg-gray-100 transition shadow-lg"
             >
-              Voir la Collection
+              View Collection
               <ChevronRight size={20} />
             </Link>
           </motion.div>

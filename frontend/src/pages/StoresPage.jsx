@@ -14,7 +14,7 @@ const StoresPage = () => {
       name: 'Optic Glass Paris Champs-Élysées',
       address: '75 Avenue des Champs-Élysées, 75008 Paris',
       phone: '+33 1 42 25 96 47',
-      heures: 'Lun-Sam: 10h-20h, Dim: 11h-19h',
+      hours: 'Mon-Sat: 10am-8pm, Sun: 11am-7pm',
       city: 'Paris',
       lat: 48.8698,
       lng: 2.3078,
@@ -25,7 +25,7 @@ const StoresPage = () => {
       name: 'Optic Glass Lyon Part-Dieu',
       address: '17 Rue du Docteur Borchut, 69003 Lyon',
       phone: '+33 4 78 60 12 34',
-      heures: 'Lun-Sam: 9h30-19h30',
+      hours: 'Mon-Sat: 9:30am-7:30pm',
       city: 'Lyon',
       lat: 45.7603,
       lng: 4.8517,
@@ -36,7 +36,7 @@ const StoresPage = () => {
       name: 'Optic Glass Marseille Vieux-Port',
       address: '45 Quai du Port, 13002 Marseille',
       phone: '+33 4 91 90 12 34',
-      heures: 'Lun-Sam: 10h-19h',
+      hours: 'Mon-Sat: 10am-7pm',
       city: 'Marseille',
       lat: 43.2965,
       lng: 5.3698,
@@ -47,7 +47,7 @@ const StoresPage = () => {
       name: 'Optic Glass Bordeaux Centre',
       address: '28 Cours de l\'Intendance, 33000 Bordeaux',
       phone: '+33 5 56 44 12 34',
-      heures: 'Lun-Sam: 10h-19h',
+      hours: 'Mon-Sat: 10am-7pm',
       city: 'Bordeaux',
       lat: 44.8378,
       lng: -0.5792,
@@ -58,7 +58,7 @@ const StoresPage = () => {
       name: 'Optic Glass Nice Promenade',
       address: '12 Promenade des Anglais, 06000 Nice',
       phone: '+33 4 93 87 12 34',
-      heures: 'Lun-Sam: 9h30-19h30, Dim: 10h-18h',
+      hours: 'Mon-Sat: 9:30am-7:30pm, Sun: 10am-6pm',
       city: 'Nice',
       lat: 43.6947,
       lng: 7.2659,
@@ -69,7 +69,7 @@ const StoresPage = () => {
       name: 'Optic Glass Toulouse Capitole',
       address: '8 Place du Capitole, 31000 Toulouse',
       phone: '+33 5 61 23 12 34',
-      heures: 'Lun-Sam: 10h-19h',
+      hours: 'Mon-Sat: 10am-7pm',
       city: 'Toulouse',
       lat: 43.6043,
       lng: 1.4437,
@@ -99,10 +99,10 @@ const StoresPage = () => {
             <MapPin size={40} className="text-primary" />
           </div>
           <h1 className="text-5xl font-display font-bold text-white mb-4">
-            Nos <span className="text-primary">Stores</span>
+            Our <span className="text-primary">Stores</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Trouvez la boutique Optic Glass la plus proche de chez vous
+            Find the Optic Glass boutique nearest you
           </p>
         </motion.div>
 
@@ -113,7 +113,7 @@ const StoresPage = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Rechercher une boutique..."
+              placeholder="Search for a store..."
               className="w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white focus:outline-none focus:border-primary transition-colors"
             />
           </div>
@@ -131,7 +131,7 @@ const StoresPage = () => {
                     : 'bg-white/10 text-gray-300 hover:bg-white/20 backdrop-blur-sm'
                 }`}
               >
-                {city === 'all' ? 'Toutes les villes' : city}
+                {city === 'all' ? 'All cities' : city}
               </motion.button>
             ))}
           </div>
@@ -146,7 +146,7 @@ const StoresPage = () => {
                 className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 text-center"
               >
                 <MapPin size={48} className="mx-auto text-gray-600 mb-4" />
-                <p className="text-gray-400 text-lg">Aucune boutique trouvée</p>
+                <p className="text-gray-400 text-lg">No store found</p>
               </motion.div>
             ) : (
               filteredStores.map((store, index) => (
@@ -194,7 +194,7 @@ const StoresPage = () => {
                     </div>
                     <div className="flex items-center gap-3 text-gray-300">
                       <Clock size={18} className="text-primary flex-shrink-0" />
-                      <span>{store.heures}</span>
+                      <span>{store.hours}</span>
                     </div>
                   </div>
 
@@ -233,12 +233,12 @@ const StoresPage = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  {activeStore ? activeStore.name : 'Carte interactive'}
+                  {activeStore ? activeStore.name : 'Interactive Map'}
                 </h3>
                 <p className="text-gray-400 mb-4">
                   {activeStore 
-                    ? `Retrouvez-nous au ${activeStore.address}. ${activeStore.heures}` 
-                    : 'Cliquez sur une boutique pour voir sa localisation exacte sur la carte.'}
+                    ? `Find us at ${activeStore.address}. ${activeStore.hours}` 
+                    : 'Click on a store to see its exact location on the map.'}
                 </p>
                 {activeStore && (
                   <motion.button
@@ -248,12 +248,12 @@ const StoresPage = () => {
                     onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${activeStore.lat},${activeStore.lng}`, '_blank')}
                   >
                     <Navigation size={18} />
-                    Itinéraire
+                    Itinerary
                   </motion.button>
                 )}
                 <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
                   <p className="text-primary font-medium text-sm">
-                    💡 Conseil : Appelez avant de venir pour vérifier la disponibilité des produits
+                    💡 Tip: Call before visiting to check product availability
                   </p>
                 </div>
               </div>
@@ -265,15 +265,15 @@ const StoresPage = () => {
               transition={{ delay: 0.5 }}
               className="mt-6 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10"
             >
-              <h3 className="text-xl font-bold text-white mb-4">Services en boutique</h3>
+              <h3 className="text-xl font-bold text-white mb-4">In-Store Services</h3>
               <ul className="space-y-3">
                 {[
-                  'Ajustement personnalisé',
-                  'Ajustement gratuit',
-                  'Examen de vue sur RDV',
-                  'Réparations express',
-                  'Conseils d\'experts',
-                  'Garantie 2 ans'
+                  'Personalized fitting',
+                  'Free adjustment',
+                  'Eye exam by appointment',
+                  'Express repairs',
+                  'Expert advice',
+                  '2-year warranty'
                 ].map((service, index) => (
                   <li key={index} className="flex items-center gap-3 text-gray-300">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>

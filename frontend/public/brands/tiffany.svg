@@ -6,7 +6,6 @@
       <stop offset="100%" style="stop-color:#0abab5"/>
     </linearGradient>
   </defs>
-  <rect x="25" y="12" width="150" height="36" fill="#0abab5" rx="2"/>
   <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="16" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="3">TIFFANY &amp; CO.</text>
   <text x="100" y="46" font-family="'Helvetica Neue', Arial, sans-serif" font-size="5" fill="#ffffff" text-anchor="middle" letter-spacing="6">NEW YORK</text>
 </svg>

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
-  <circle cx="100" cy="30" r="25" fill="none" stroke="#1a1a1a" stroke-width="1"/>
-  <text x="100" y="26" font-family="'Times New Roman', Georgia, serif" font-size="8" fill="#1a1a1a" text-anchor="middle" font-weight="300" letter-spacing="4">GIORGIO</text>
-  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="6">ARMANI</text>
+  <circle cx="100" cy="30" r="25" fill="none" stroke="#ffffff" stroke-width="1"/>
+  <text x="100" y="26" font-family="'Times New Roman', Georgia, serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="300" letter-spacing="4">GIORGIO</text>
+  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="6">ARMANI</text>
 </svg>

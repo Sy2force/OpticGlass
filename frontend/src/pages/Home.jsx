@@ -8,7 +8,7 @@ import LensRecommender from '@/features/products/ui/LensRecommender';
 import SeasonalCarousel from '@/widgets/home/SeasonalCarousel';
 import PromoBanner from '@/widgets/home/PromoBanner';
 import api from '@/shared/api/api';
-import { getBestsellers, getNewArrivals } from '@/shared/data/products';
+import { products as localProducts } from '@/shared/data/products_en';
 
 // Palette luxe avec touches de rouge
 const luxe = {
@@ -189,14 +189,14 @@ const Home = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={t('search') + '...'}
+                  placeholder="Search..."
                   className="flex-1 px-4 py-5 bg-transparent text-white placeholder-white/40 focus:outline-none text-sm tracking-wide"
                 />
                 <button
                   type="submit"
                   className="px-8 py-5 bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-black font-medium tracking-wider uppercase text-xs hover:shadow-[0_0_30px_rgba(201,162,39,0.3)] transition-all duration-500"
                 >
-                  'search'
+                  Search
                 </button>
               </div>
             </div>
@@ -210,10 +210,10 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <Link to="/glasses" className={styles.btnLuxury}>
-              Découvrir la collection
+              Discover Collection
             </Link>
             <Link to="/brands" className={styles.btnOutlineLuxury}>
-              Nos marques
+              Our Brands
             </Link>
           </motion.div>
         </motion.div>
@@ -226,7 +226,7 @@ const Home = () => {
           className="absolute bottom-12 left-1/2 -translate-x-1/2"
         >
           <div className="flex flex-col items-center gap-4">
-            <span className="text-[#c9a227] text-xs tracking-[0.3em] uppercase">Découvrir</span>
+            <span className="text-[#c9a227] text-xs tracking-[0.3em] uppercase">Discover</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -245,11 +245,11 @@ const Home = () => {
           <motion.div {...fadeInUp} className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-600/10 border border-red-600/30 rounded-full text-red-600 text-xs tracking-wider uppercase mb-4">
               <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
-              Meilleures Ventes
+              Best Sellers
             </span>
-            <h2 className={`${styles.title} text-white mb-3`}>Nos Pièces d'Exception</h2>
+            <h2 className={`${styles.title} text-white mb-3`}>Our Exceptional Pieces</h2>
             <p className="text-white/50 font-light text-sm max-w-xl mx-auto">
-              Découvrez nos créations les plus prisées
+              Discover our most prized creations
             </p>
           </motion.div>
           
@@ -288,7 +288,7 @@ const Home = () => {
           
           <motion.div {...fadeInUp} className="mt-12 text-center">
             <Link to="/glasses?sort=bestseller" className={styles.btnRed}>
-              Voir toute la sélection <ArrowRight size={16} className="ml-2 inline" />
+              View Full Selection <ArrowRight size={16} className="ml-2 inline" />
             </Link>
           </motion.div>
         </div>
@@ -301,14 +301,14 @@ const Home = () => {
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-full text-xs tracking-wider uppercase mb-3">
               Collections 2026
             </span>
-            <h2 className={`${styles.title} text-[#1a1a1a] mb-2`}>L'Art de Voir</h2>
+            <h2 className={`${styles.title} text-[#1a1a1a] mb-2`}>The Art of Seeing</h2>
             <div className={styles.dividerRed} />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { name: 'Sun', image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800', desc: 'Protection & Élégance' },
-              { name: 'Optique', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800', desc: 'Précision & Style' },
+              { name: 'Sun', image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800', desc: 'Protection & Elegance', link: '/sunglasses' },
+              { name: 'Optical', image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800', desc: 'Precision & Style', link: '/glasses' },
             ].map((col, index) => (
               <motion.div 
                 key={col.name} 
@@ -317,14 +317,14 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
               >
-                <Link to={`/glasses?category=${col.name.toLowerCase()}`} className="group relative block h-[400px] overflow-hidden rounded-lg">
+                <Link to={col.link} className="group relative block h-[400px] overflow-hidden rounded-lg">
                   <img src={col.image} alt={col.name} className="absolute inset-0 size-full object-cover group-hover:scale-105 transition-transform duration-1000" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <span className="text-red-400 text-xs tracking-wider uppercase">{col.desc}</span>
                     <h3 className="text-3xl font-light text-white mt-2 mb-3">{col.name}</h3>
                     <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white text-sm rounded-lg group-hover:bg-red-600 transition-all">
-                      Découvrir <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                      Discover <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </div>
                 </Link>
@@ -339,18 +339,18 @@ const Home = () => {
         <div className={styles.container}>
           <motion.div {...fadeInUp} className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-xs tracking-wider uppercase mb-3">
-              Nos Univers
+              Our Universes
             </span>
-            <h2 className={`${styles.title} text-white`}>Explorez Nos Collections</h2>
+            <h2 className={`${styles.title} text-white`}>Explore Our Collections</h2>
             <div className={styles.dividerRed} />
           </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {[
-              { name: 'Sun', icon: <Eye size={28} />, count: '200+' },
-              { name: 'Optique', icon: <Diamond size={28} />, count: '150+' },
-              { name: 'Sport', icon: <Shield size={28} />, count: '80+' },
-              { name: 'Prestige', icon: <Crown size={28} />, count: '120+' },
+              { name: 'Sun', icon: <Eye size={28} />, count: '200+', link: '/sunglasses' },
+              { name: 'Optical', icon: <Diamond size={28} />, count: '150+', link: '/glasses' },
+              { name: 'Sport', icon: <Shield size={28} />, count: '80+', link: '/sunglasses?category=sport' },
+              { name: 'Prestige', icon: <Crown size={28} />, count: '120+', link: '/brands' },
             ].map((cat, index) => (
               <motion.div 
                 key={cat.name} 
@@ -359,12 +359,12 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Link to={`/glasses?category=${cat.name.toLowerCase()}`} className="group block bg-[#1a1a1a] border border-white/10 rounded-lg p-6 text-center hover:border-red-600/50 hover:bg-[#1a1a1a] transition-all duration-300">
+                <Link to={cat.link} className="group block bg-[#1a1a1a] border border-white/10 rounded-lg p-6 text-center hover:border-red-600/50 hover:bg-[#1a1a1a] transition-all duration-300">
                   <div className="text-[#c9a227] mb-4 flex justify-center group-hover:text-red-600 group-hover:scale-110 transition-all duration-300">
                     {cat.icon}
                   </div>
                   <h3 className="text-lg font-light text-white tracking-wider mb-1">{cat.name}</h3>
-                  <p className="text-white/40 text-xs">{cat.count} pièces</p>
+                  <p className="text-white/40 text-xs">{cat.count} pieces</p>
                 </Link>
               </motion.div>
             ))}
@@ -379,11 +379,11 @@ const Home = () => {
             <motion.div {...fadeInUp}>
               <span className="text-[#c9a227] text-xs tracking-[0.3em] uppercase mb-4 block">Partners</span>
               <h2 className="text-5xl md:text-6xl font-light text-[#1a1a1a] mb-6 leading-tight">
-                Les Plus Grandes<br />
-                <span className="bg-gradient-to-r from-[#c9a227] to-[#d4af37] bg-clip-text text-transparent">Maisons</span>
+                The Greatest<br />
+                <span className="bg-gradient-to-r from-[#c9a227] to-[#d4af37] bg-clip-text text-transparent">Houses</span>
               </h2>
               <p className="text-lg text-gray-600 mb-10 font-light leading-relaxed">
-                Une sélection exclusive des maisons les plus prestigieuses. Chaque pièce incarne l'excellence et le savoir-faire d'artisans d'exception.
+                An exclusive selection of the most prestigious houses. Each piece embodies excellence and exceptional craftsmanship.
               </p>
               <div className="flex flex-wrap gap-3 mb-10">
                 {['Gucci', 'Prada', 'Dior', 'Chanel', 'Tom Ford', 'Versace'].map((brand) => (
@@ -391,7 +391,7 @@ const Home = () => {
                 ))}
               </div>
               <Link to="/brands" className={styles.btnLuxury}>
-                Découvrir nos Maisons
+                Discover our Brands
               </Link>
             </motion.div>
             <div className="grid grid-cols-3 gap-3">
@@ -417,17 +417,17 @@ const Home = () => {
         <div className={styles.container}>
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-[#c9a227] text-xs tracking-[0.3em] uppercase mb-4 block">Excellence</span>
-            <h2 className={`${styles.title} text-white`}>L'Expérience Optic Glass</h2>
+            <h2 className={`${styles.title} text-white`}>The Optic Glass Experience</h2>
             <div className={styles.dividerGold} />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
             {[
-              { icon: <Eye size={40} />, title: 'Expertise Optique', desc: 'Nos opticiens diplômés vous accompagnent avec un équipement de pointe.' },
-              { icon: <Truck size={40} />, title: 'Livraison Premium', desc: 'Livraison express offerte. Emballage luxe et suivi personnalisé.' },
-              { icon: <Shield size={40} />, title: 'Garantie Exclusive', desc: 'Garantie 2 ans et service après-vente dédié à votre satisfaction.' }
+              { icon: <Eye size={40} />, title: 'Optical Expertise', desc: 'Our qualified opticians accompany you with state-of-the-art equipment.' },
+              { icon: <Truck size={40} />, title: 'Premium Delivery', desc: 'Free express delivery. Luxury packaging and personalized tracking.' },
+              { icon: <Shield size={40} />, title: 'Exclusive Warranty', desc: '2-year warranty and after-sales service dedicated to your satisfaction.' }
             ].map((service, i) => (
-              <motion.div 
+              <motion.div  
                 key={service.title} 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -451,7 +451,7 @@ const Home = () => {
         <div className={styles.container}>
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-[#c9a227] text-xs tracking-[0.3em] uppercase mb-4 block">News</span>
-            <h2 className={`${styles.title} text-[#1a1a1a]`}>Dernières Arrivées</h2>
+            <h2 className={`${styles.title} text-[#1a1a1a]`}>New Arrivals</h2>
             <div className={styles.dividerGold} />
           </motion.div>
           
@@ -488,13 +488,13 @@ const Home = () => {
                 </motion.div>
               ))
             ) : (
-              <div className="col-span-4 text-center text-gray-400 py-12">Pas de nouveautés pour le moment</div>
+              <div className="col-span-4 text-center text-gray-400 py-12">No new arrivals at the moment</div>
             )}
           </div>
           
           <motion.div {...fadeInUp} className="mt-16 text-center">
             <Link to="/glasses" className={styles.btnLuxury}>
-              Explorer la Collection
+              Explore Collection
             </Link>
           </motion.div>
         </div>
@@ -518,23 +518,23 @@ const Home = () => {
           <motion.div {...fadeInUp}>
             <Diamond className="text-[#c9a227] mx-auto mb-6" size={32} />
             <h2 className="text-4xl md:text-5xl font-light text-white mb-6 tracking-tight">
-              Rejoignez le Cercle Privé
+              Join the Private Circle
             </h2>
             <p className="text-white/50 font-light mb-10 text-lg leading-relaxed">
-              Accédez en avant-première aux nouvelles collections, ventes privées et événements exclusives.
+              Get early access to new collections, private sales, and exclusive events.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
               <input
                 type="email"
-                placeholder="Votre adresse email"
+                placeholder="Your email address"
                 className="flex-1 px-6 py-4 bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#c9a227]/50 transition-colors text-sm tracking-wide"
               />
               <button className={styles.btnLuxury}>
-                S'inscrire
+                Subscribe
               </button>
             </div>
             <p className="text-white/30 text-xs mt-6 tracking-wide">
-              En vous inscrivant, vous acceptez notre politique de confidentialité
+              By subscribing, you agree to our privacy policy
             </p>
           </motion.div>
         </div>

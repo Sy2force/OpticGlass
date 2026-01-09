@@ -6,6 +6,5 @@
       <stop offset="100%" style="stop-color:#8B0000"/>
     </linearGradient>
   </defs>
-  <rect x="30" y="15" width="140" height="30" fill="url(#carreraRed)" rx="3"/>
   <text x="100" y="36" font-family="'Futura', 'Trebuchet MS', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700" letter-spacing="6">CARRERA</text>
 </svg>

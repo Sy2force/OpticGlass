@@ -22,16 +22,16 @@ const GiftCardPage = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.senderName.trim()) newErrors.senderName = 'Votre nom est requis';
+    if (!formData.senderName.trim()) newErrors.senderName = 'Your name is required';
     if (!formData.senderEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      newErrors.senderEmail = 'Email invalide';
+      newErrors.senderEmail = 'Invalid email';
     }
-    if (!formData.recipientName.trim()) newErrors.recipientName = 'Nom du destinataire requis';
+    if (!formData.recipientName.trim()) newErrors.recipientName = 'Recipient name required';
     if (!formData.recipientEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      newErrors.recipientEmail = 'Email du destinataire invalide';
+      newErrors.recipientEmail = 'Invalid recipient email';
     }
     if (!formData.amount || formData.amount < 10) {
-      newErrors.amount = 'Montant minimum : 10€';
+      newErrors.amount = 'Minimum amount: €10';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -48,7 +48,7 @@ const GiftCardPage = () => {
       
       const giftCardProduct = {
         _id: `gc-${Date.now()}`,
-        name: 'Carte Cadeau Optic Glass',
+        name: 'Optic Glass Gift Card',
         brand: 'Optic Glass',
         price: parseInt(formData.amount),
         image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop',
@@ -98,11 +98,11 @@ const GiftCardPage = () => {
             <Gift size={40} className="text-white" />
           </div>
           <h1 className="text-5xl md:text-6xl font-display font-bold mb-6">
-            L'Art d'Offrir
+            The Art of Gifting
           </h1>
           <p className="text-white/60 text-lg max-w-2xl mx-auto font-light">
-            Offrez le choix de l'excellence avec la Carte Cadeau Optic Glass.
-            Le présent idéal pour les amateurs de design et de qualité.
+            Give the choice of excellence with the Optic Glass Gift Card.
+            The perfect gift for lovers of design and quality.
           </p>
         </motion.div>
 
@@ -126,7 +126,7 @@ const GiftCardPage = () => {
                     <div className="flex justify-between items-start">
                         <div>
                             <h3 className="text-3xl font-display font-bold tracking-wide text-white">OPTIC GLASS</h3>
-                            <p className="text-[#c9a227] text-sm tracking-[0.2em] uppercase mt-1">Carte Cadeau</p>
+                            <p className="text-[#c9a227] text-sm tracking-[0.2em] uppercase mt-1">Gift Card</p>
                         </div>
                         <Sparkles className="text-[#c9a227]" size={32} />
                     </div>
@@ -134,11 +134,11 @@ const GiftCardPage = () => {
                     <div className="space-y-6">
                         <div className="flex justify-between items-end">
                             <div>
-                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Pour</p>
-                                <p className="text-xl font-medium text-white">{formData.recipientName || 'Destinataire'}</p>
+                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">For</p>
+                                <p className="text-xl font-medium text-white">{formData.recipientName || 'Recipient'}</p>
                             </div>
                             <div className="text-right">
-                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Montant</p>
+                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Amount</p>
                                 <p className="text-4xl font-bold text-[#c9a227]">{formData.amount} €</p>
                             </div>
                         </div>
@@ -151,8 +151,8 @@ const GiftCardPage = () => {
                         
                         <div className="flex justify-between items-end pt-4 border-t border-white/10">
                             <div>
-                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">De la part de</p>
-                                <p className="text-white font-medium">{formData.senderName || 'Vous'}</p>
+                                <p className="text-white/40 text-xs uppercase tracking-wider mb-1">From</p>
+                                <p className="text-white font-medium">{formData.senderName || 'You'}</p>
                             </div>
                             <div className="text-right">
                                 <p className="text-white/30 text-xs font-mono">XXXX-XXXX-XXXX-XXXX</p>
@@ -165,14 +165,14 @@ const GiftCardPage = () => {
             <div className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
                     <Check className="text-[#c9a227]" size={20} />
-                    Avantages exclusifs
+                    Exclusive Benefits
                 </h3>
                 <ul className="space-y-3">
                     {[
-                        'Valable sur toute la boutique en ligne',
-                        'Utilisable en une ou plusieurs fois',
-                        'Aucune date d\'expiration',
-                        'Livraison instantanée par email',
+                        'Valid on the entire online store',
+                        'Usable in one or more installments',
+                        'No expiration date',
+                        'Instant delivery by email',
                     ].map((item, i) => (
                         <li key={i} className="flex items-center gap-3 text-white/60 text-sm">
                             <div className="w-1.5 h-1.5 rounded-full bg-[#c9a227]" />
@@ -190,14 +190,14 @@ const GiftCardPage = () => {
             transition={{ delay: 0.3 }}
             className="bg-[#1a1a1a] rounded-3xl p-8 md:p-10 border border-white/10 shadow-2xl"
           >
-            <h2 className="text-2xl font-bold mb-8 text-white">Personnalisation</h2>
+            <h2 className="text-2xl font-bold mb-8 text-white">Customization</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Amount Selection */}
                 <div>
                     <label className="block text-sm font-medium text-white/70 mb-3 flex items-center gap-2">
                         <CreditCard size={16} className="text-[#c9a227]" />
-                        Montant du cadeau
+                        Gift Amount
                     </label>
                     <div className="grid grid-cols-3 gap-3 mb-4">
                         {amounts.map((amount) => (
@@ -223,7 +223,7 @@ const GiftCardPage = () => {
                             onChange={handleChange}
                             min="10"
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#c9a227] transition-colors pl-10"
-                            placeholder="Autre montant"
+                            placeholder="Other amount"
                         />
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">€</span>
                     </div>
@@ -232,7 +232,7 @@ const GiftCardPage = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium text-white/70 mb-2">De la part de</label>
+                        <label className="block text-sm font-medium text-white/70 mb-2">From</label>
                         <div className="relative">
                             <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                             <input
@@ -241,13 +241,13 @@ const GiftCardPage = () => {
                                 value={formData.senderName}
                                 onChange={handleChange}
                                 className={`w-full bg-white/5 border ${errors.senderName ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors`}
-                                placeholder="Votre nom"
+                                placeholder="Your name"
                             />
                         </div>
                         {errors.senderName && <p className="text-red-500 text-sm mt-1">{errors.senderName}</p>}
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-white/70 mb-2">Votre email</label>
+                        <label className="block text-sm font-medium text-white/70 mb-2">Your Email</label>
                         <div className="relative">
                             <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                             <input
@@ -256,7 +256,7 @@ const GiftCardPage = () => {
                                 value={formData.senderEmail}
                                 onChange={handleChange}
                                 className={`w-full bg-white/5 border ${errors.senderEmail ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors`}
-                                placeholder="votre@email.com"
+                                placeholder="your@email.com"
                             />
                         </div>
                         {errors.senderEmail && <p className="text-red-500 text-sm mt-1">{errors.senderEmail}</p>}
@@ -265,7 +265,7 @@ const GiftCardPage = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium text-white/70 mb-2">Pour</label>
+                        <label className="block text-sm font-medium text-white/70 mb-2">To</label>
                         <div className="relative">
                             <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                             <input
@@ -274,13 +274,13 @@ const GiftCardPage = () => {
                                 value={formData.recipientName}
                                 onChange={handleChange}
                                 className={`w-full bg-white/5 border ${errors.recipientName ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors`}
-                                placeholder="Nom du destinataire"
+                                placeholder="Recipient name"
                             />
                         </div>
                         {errors.recipientName && <p className="text-red-500 text-sm mt-1">{errors.recipientName}</p>}
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-white/70 mb-2">Email du destinataire</label>
+                        <label className="block text-sm font-medium text-white/70 mb-2">Recipient Email</label>
                         <div className="relative">
                             <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                             <input
@@ -289,7 +289,7 @@ const GiftCardPage = () => {
                                 value={formData.recipientEmail}
                                 onChange={handleChange}
                                 className={`w-full bg-white/5 border ${errors.recipientEmail ? 'border-red-500' : 'border-white/10'} rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors`}
-                                placeholder="son@email.com"
+                                placeholder="recipient@email.com"
                             />
                         </div>
                         {errors.recipientEmail && <p className="text-red-500 text-sm mt-1">{errors.recipientEmail}</p>}
@@ -297,7 +297,7 @@ const GiftCardPage = () => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">Message personnel</label>
+                    <label className="block text-sm font-medium text-white/70 mb-2">Personal Message</label>
                     <div className="relative">
                         <MessageSquare size={18} className="absolute left-4 top-4 text-white/30" />
                         <textarea
@@ -305,7 +305,7 @@ const GiftCardPage = () => {
                             value={formData.message}
                             onChange={handleChange}
                             className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors min-h-[120px] resize-none"
-                            placeholder="Écrivez un petit mot..."
+                            placeholder="Write a little note..."
                             maxLength={300}
                         />
                         <span className="absolute right-4 bottom-4 text-xs text-white/30">
@@ -315,7 +315,7 @@ const GiftCardPage = () => {
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-white/70 mb-2">Date d'envoi (optionnel)</label>
+                    <label className="block text-sm font-medium text-white/70 mb-2">Delivery Date (Optional)</label>
                     <div className="relative">
                         <Calendar size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
                         <input
@@ -327,7 +327,7 @@ const GiftCardPage = () => {
                             className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white focus:outline-none focus:border-[#c9a227] transition-colors [&::-webkit-calendar-picker-indicator]:invert"
                         />
                     </div>
-                    <p className="text-xs text-white/40 mt-1">Laissez vide pour un envoi immédiat</p>
+                    <p className="text-xs text-white/40 mt-1">Leave empty for immediate delivery</p>
                 </div>
 
                 <motion.button
@@ -346,12 +346,12 @@ const GiftCardPage = () => {
                     ) : submitted ? (
                         <>
                             <Check size={24} />
-                            Carte ajoutée au panier !
+                            Card added to cart!
                         </>
                     ) : (
                         <>
                             <ShoppingBag className="w-5 h-5" />
-                            Ajouter au panier - {formData.amount} €
+                            Add to Cart - {formData.amount} €
                         </>
                     )}
                 </motion.button>

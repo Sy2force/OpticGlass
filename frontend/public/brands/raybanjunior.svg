@@ -6,6 +6,5 @@
       <stop offset="100%" style="stop-color:#b91c1c"/>
     </linearGradient>
   </defs>
-  <rect x="25" y="18" width="150" height="24" rx="3" fill="url(#rbjrGrad)"/>
-  <text x="100" y="35" font-family="'Futura', 'Trebuchet MS', sans-serif" font-size="13" fill="#ffffff" text-anchor="middle" font-weight="700" letter-spacing="3">RAY-BAN JR</text>
+  <text x="100" y="35" font-family="'Futura', 'Trebuchet MS', sans-serif" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="700" letter-spacing="3">RAY-BAN JR</text>
 </svg>

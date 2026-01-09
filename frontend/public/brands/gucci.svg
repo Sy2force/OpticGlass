@@ -6,6 +6,6 @@
       <stop offset="100%" style="stop-color:#d4a574"/>
     </linearGradient>
   </defs>
-  <text x="100" y="35" font-family="'Times New Roman', Georgia, serif" font-size="28" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="12">GUCCI</text>
+  <text x="100" y="35" font-family="'Times New Roman', Georgia, serif" font-size="28" fill="#ffffff" text-anchor="middle" font-weight="400" letter-spacing="12">GUCCI</text>
   <rect x="55" y="42" width="90" height="2" fill="url(#gucciGold)" rx="1"/>
 </svg>

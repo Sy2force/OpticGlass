@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/app/providers/AuthContext';
 import { Eye, EyeOff, Mail, Lock, User, ArrowRight, Sparkles, Shield, Check } from 'lucide-react';
 
-// Regex Mot de passe HackerU: 1 majuscule + 1 minuscule + 4 chiffres + 1 special character + min 8 characters
+// Password Regex: 1 uppercase + 1 lowercase + 4 digits + 1 special character + min 8 characters
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d.*\d.*\d)(?=.*[!@%$#^&*\-_]).{8,}$/;
 
 const Auth = () => {
   const [searchParams] = useSearchParams();
-  // Par défaut registration, ou login si ?mode=login
+  // Default to registration, or login if ?mode=login
   const [isLogin, setIsLogin] = useState(searchParams.get('mode') === 'login');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -20,20 +20,21 @@ const Auth = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [passwordErrors, setPasswordErrors] = useState([]);
 
   const { login, register } = useAuth();
   
   const navigate = useNavigate();
 
-  // Validation du Mot de passe en temps réel
+  // Real-time password validation
   const validatePassword = (password) => {
     const errors = [];
-    if (password.length < 8) errors.push('Au moins 8 caractères');
-    if (!/[a-z]/.test(password)) errors.push('Au moins 1 minuscule');
-    if (!/[A-Z]/.test(password)) errors.push('Au moins 1 majuscule');
-    if (!/\d.*\d.*\d.*\d/.test(password)) errors.push('Au moins 4 chiffres');
-    if (!/[!@%$#^&*\-_]/.test(password)) errors.push('Au moins 1 caractère spécial (!@%$#^&*-_)');
+    if (password.length < 8) errors.push('At least 8 characters');
+    if (!/[a-z]/.test(password)) errors.push('At least 1 lowercase letter');
+    if (!/[A-Z]/.test(password)) errors.push('At least 1 uppercase letter');
+    if (!/\d.*\d.*\d.*\d/.test(password)) errors.push('At least 4 digits');
+    if (!/[!@%$#^&*\-_]/.test(password)) errors.push('At least 1 special character (!@%$#^&*-_)');
     return errors;
   };
 
@@ -42,7 +43,7 @@ const Auth = () => {
     setFormData({ ...formData, [name]: value });
     setError('');
     
-    // Validation Mot de passe en temps réel (registration uniquement)
+    // Real-time password validation (registration only)
     if (name === 'password' && !isLogin) {
       setPasswordErrors(validatePassword(value));
     }
@@ -53,16 +54,16 @@ const Auth = () => {
     setLoading(true);
     setError('');
 
-    // Validation Mot de passe à l'registration
+    // Password validation on registration
     if (!isLogin && !PASSWORD_REGEX.test(formData.password)) {
       setLoading(false);
-      setError('Le mot de passe ne respecte pas les critères de sécurité');
+      setError('Password does not meet security criteria');
       return;
     }
 
     let result;
     if (isLogin) {
-      result = await login(formData.email, formData.password);
+      result = await login(formData.email, formData.password, rememberMe);
     } else {
       result = await register(
         formData.firstName,
@@ -82,10 +83,10 @@ const Auth = () => {
   };
 
   const benefits = [
-    'Accès à vos commandes et favoris',
-    'Offres exclusives et promotions',
-    'Historique de vos achats',
-    'Livraison gratuite dès 100€',
+    'Access your orders and favorites',
+    'Exclusive offers and promotions',
+    'Purchase history',
+    'Free shipping over $100',
   ];
 
   return (
@@ -115,7 +116,7 @@ const Auth = () => {
                 isLogin ? 'bg-white shadow text-gray-900' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              Connexion
+              Sign In
             </button>
             <button
               onClick={() => {
@@ -126,7 +127,7 @@ const Auth = () => {
                 !isLogin ? 'bg-white shadow text-gray-900' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              Inscription
+              Sign Up
             </button>
           </div>
 
@@ -139,12 +140,12 @@ const Auth = () => {
               transition={{ duration: 0.2 }}
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                {isLogin ? 'Bon retour parmi nous' : 'Créer un compte'}
+                {isLogin ? 'Welcome Back' : 'Create Account'}
               </h2>
               <p className="text-gray-600 mb-6">
                 {isLogin
-                  ? 'Connectez-vous pour accéder à votre espace personnel'
-                  : 'Rejoignez-nous et profitez de tous les avantages'}
+                  ? 'Sign in to access your personal space'
+                  : 'Join us and enjoy all benefits'}
               </p>
 
               {error && (
@@ -163,7 +164,7 @@ const Auth = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Prénom
+                        First Name
                       </label>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
@@ -173,7 +174,7 @@ const Auth = () => {
                           value={formData.firstName}
                           onChange={handleChange}
                           required
-                          placeholder="Jean"
+                          placeholder="John"
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition"
                         />
                       </div>
@@ -181,7 +182,7 @@ const Auth = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Nom
+                        Last Name
                       </label>
                       <div className="relative">
                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
@@ -191,7 +192,7 @@ const Auth = () => {
                           value={formData.lastName}
                           onChange={handleChange}
                           required
-                          placeholder="Dupont"
+                          placeholder="Doe"
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition"
                         />
                       </div>
@@ -211,7 +212,7 @@ const Auth = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="jean@example.com"
+                      placeholder="john@example.com"
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#c9a227] focus:border-transparent transition"
                     />
                   </div>
@@ -219,7 +220,7 @@ const Auth = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Mot de passe
+                    Password
                   </label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
@@ -246,15 +247,15 @@ const Auth = () => {
                     </button>
                   </div>
                   
-                  {/* Indicateurs de validation Mot de passe (registration) */}
+                  {/* Password validation indicators (registration) */}
                   {!isLogin && formData.password && (
                     <div className="mt-2 space-y-1">
                       {[
-                        { test: formData.password.length >= 8, label: 'Au moins 8 caractères' },
-                        { test: /[a-z]/.test(formData.password), label: '1 minuscule' },
-                        { test: /[A-Z]/.test(formData.password), label: '1 majuscule' },
-                        { test: /\d.*\d.*\d.*\d/.test(formData.password), label: '4 chiffres' },
-                        { test: /[!@%$#^&*\-_]/.test(formData.password), label: '1 caractère spécial (!@%$#^&*-_)' },
+                        { test: formData.password.length >= 8, label: 'At least 8 characters' },
+                        { test: /[a-z]/.test(formData.password), label: '1 lowercase letter' },
+                        { test: /[A-Z]/.test(formData.password), label: '1 uppercase letter' },
+                        { test: /\d.*\d.*\d.*\d/.test(formData.password), label: '4 digits' },
+                        { test: /[!@%$#^&*\-_]/.test(formData.password), label: '1 special char (!@%$#^&*-_)' },
                       ].map((rule, i) => (
                         <div key={i} className={`flex items-center gap-2 text-xs ${rule.test ? 'text-green-600' : 'text-gray-400'}`}>
                           {rule.test ? <Check size={12} /> : <span className="w-3 h-3 rounded-full border border-gray-300" />}
@@ -268,11 +269,16 @@ const Auth = () => {
                 {isLogin && (
                   <div className="flex items-center justify-between">
                     <label className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-[#c9a227] focus:ring-[#c9a227]" />
-                      <span className="text-sm text-gray-600">Se souvenir de moi</span>
+                      <input 
+                        type="checkbox" 
+                        className="w-4 h-4 rounded border-gray-300 text-[#c9a227] focus:ring-[#c9a227]"
+                        checked={rememberMe}
+                        onChange={(e) => setRememberMe(e.target.checked)}
+                      />
+                      <span className="text-sm text-gray-600">Remember me</span>
                     </label>
                     <button type="button" className="text-sm text-[#c9a227] hover:underline">
-                      Mot de passe oublié ?
+                      Forgot Password?
                     </button>
                   </div>
                 )}
@@ -288,7 +294,7 @@ const Auth = () => {
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                   ) : (
                     <>
-                      {isLogin ? 'Connexion' : 'Inscription'}
+                      {isLogin ? 'Sign In' : 'Sign Up'}
                       <ArrowRight size={20} />
                     </>
                   )}
@@ -297,9 +303,9 @@ const Auth = () => {
 
               {!isLogin && (
                 <p className="mt-4 text-xs text-gray-500 text-center">
-                  En vous inscrivant, vous acceptez nos{' '}
-                  <a href="#" className="text-[#c9a227] hover:underline">CGV</a> et notre{' '}
-                  <a href="#" className="text-[#c9a227] hover:underline">politique de confidentialité</a>
+                  By signing up, you agree to our{' '}
+                  <a href="#" className="text-[#c9a227] hover:underline">Terms</a> and{' '}
+                  <a href="#" className="text-[#c9a227] hover:underline">Privacy Policy</a>
                 </p>
               )}
             </motion.div>
@@ -331,14 +337,14 @@ const Auth = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a227] rounded-full mb-6">
             <Sparkles size={18} />
-            <span className="font-semibold">Espace membre</span>
+            <span className="font-semibold">Member Area</span>
           </div>
 
           <h2 className="text-4xl font-bold mb-4">
-            Rejoignez la communauté Optic Glass
+            Join the Optic Glass Community
           </h2>
           <p className="text-gray-400 text-lg mb-8">
-            Créez votre compte et profitez d'avantages exclusifs sur nos lunettes de luxe.
+            Create your account and enjoy exclusive benefits on our luxury eyewear.
           </p>
 
           <div className="space-y-4">
@@ -362,8 +368,8 @@ const Auth = () => {
             <div className="flex items-center gap-4">
               <Shield className="text-[#c9a227]" size={24} />
               <div>
-                <p className="font-semibold">Payment 100% sécurisé</p>
-                <p className="text-sm text-gray-400">Vos données sont protégées</p>
+                <p className="font-semibold">100% Secure Payment</p>
+                <p className="text-sm text-gray-400">Your data is protected</p>
               </div>
             </div>
           </div>

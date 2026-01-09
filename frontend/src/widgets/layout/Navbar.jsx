@@ -50,9 +50,9 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/glasses', label: 'Collection' },
-    { to: '/sunglasses', label: 'Solaires' },
-    { to: '/brands', label: 'Marques' },
-    { to: '/about', label: 'À propos' },
+    { to: '/sunglasses', label: 'Sunglasses' },
+    { to: '/brands', label: 'Brands' },
+    { to: '/about', label: 'About' },
     { to: '/contact', label: 'Contact' },
   ];
 
@@ -131,7 +131,7 @@ const Navbar = () => {
 
             {isAuthenticated ? (
               <>
-                {/* Boîte de messagerie */}
+                {/* Message Box */}
                 <MessageBox />
                 
                 <Link
@@ -175,19 +175,28 @@ const Navbar = () => {
                       <p className="text-white/40 text-xs">{user?.email}</p>
                     </div>
                     <Link to="/profile" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      Mon profil
+                      My Profile
                     </Link>
                     <Link to="/orders" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      Mes commandes
+                      My Orders
                     </Link>
                     <Link to="/favorites" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      Mes favoris
+                      My Favorites
                     </Link>
                     {isAdmin && (
                       <Link to="/admin" className="block px-4 py-2 text-[#c9a227] hover:bg-[#c9a227]/10 transition-colors border-t border-white/10 mt-2 text-sm">
                         Administration
                       </Link>
                     )}
+                    <button
+                      onClick={() => {
+                        logout();
+                        window.location.href = '/';
+                      }}
+                      className="w-full text-left block px-4 py-2 text-red-500 hover:bg-red-500/10 transition-colors border-t border-white/10 mt-2 text-sm"
+                    >
+                      Sign Out
+                    </button>
                   </div>
                 </div>
               </>
@@ -198,7 +207,7 @@ const Navbar = () => {
                     ? 'bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-black hover:shadow-[0_0_20px_rgba(201,162,39,0.5)]'
                     : 'bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-black hover:shadow-[0_0_20px_rgba(201,162,39,0.3)]'
                 }`}>
-                  Connexion
+                  Sign In
                 </Link>
               </div>
             )}
@@ -235,7 +244,7 @@ const Navbar = () => {
             {!isAuthenticated && (
               <div className="pt-6 border-t border-white/10 mt-4 px-4 animate-slideDown" style={{ animationDelay: '250ms' }}>
                 <Link to="/auth?mode=login" className="block py-3 bg-gradient-to-r from-red-600 to-red-700 text-white text-center text-sm tracking-wider uppercase font-medium rounded-lg hover:shadow-lg transition-all duration-300">
-                  Connexion
+                  Sign In
                 </Link>
               </div>
             )}

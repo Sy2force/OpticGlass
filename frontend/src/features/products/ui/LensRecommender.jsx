@@ -11,42 +11,42 @@ const LensRecommender = () => {
   const questions = [
     {
       id: 'faceShape',
-      question: 'Quelle est la forme de votre visage ?',
+      question: 'What is your face shape?',
       options: [
-        { value: 'round', label: 'Rond', emoji: '🔵', description: 'Joues pleines, menton arrondi' },
-        { value: 'oval', label: 'Ovale', emoji: '🥚', description: 'Proportions équilibrées' },
-        { value: 'square', label: 'Carré', emoji: '⬜', description: 'Mâchoire marquée, front large' },
-        { value: 'heart', label: 'Cœur', emoji: '💜', description: 'Front large, menton fin' },
+        { value: 'round', label: 'Round', emoji: '🔵', description: 'Full cheeks, rounded chin' },
+        { value: 'oval', label: 'Oval', emoji: '🥚', description: 'Balanced proportions' },
+        { value: 'square', label: 'Square', emoji: '⬜', description: 'Strong jawline, broad forehead' },
+        { value: 'heart', label: 'Heart', emoji: '💜', description: 'Broad forehead, narrow chin' },
       ],
     },
     {
       id: 'style',
-      question: 'Quel style vous correspond le mieux ?',
+      question: 'Which style suits you best?',
       options: [
-        { value: 'classic', label: 'Classique', emoji: '👔', description: 'Élégant et intemporel' },
-        { value: 'trendy', label: 'Tendance', emoji: '✨', description: 'À la pointe de la mode' },
-        { value: 'sporty', label: 'Sportif', emoji: '⚡', description: 'Dynamique et actif' },
-        { value: 'bold', label: 'Audacieux', emoji: '🔥', description: 'Original et audacieux' },
+        { value: 'classic', label: 'Classic', emoji: '👔', description: 'Elegant and timeless' },
+        { value: 'trendy', label: 'Trendy', emoji: '✨', description: 'Fashion forward' },
+        { value: 'sporty', label: 'Sporty', emoji: '⚡', description: 'Dynamic and active' },
+        { value: 'bold', label: 'Bold', emoji: '🔥', description: 'Original and daring' },
       ],
     },
     {
       id: 'usage',
-      question: 'Quelle sera l\'utilisation principale ?',
+      question: 'What will be the main usage?',
       options: [
-        { value: 'everyday', label: 'Quotidien', emoji: '☀️', description: 'Usage polyvalent' },
-        { value: 'work', label: 'Travail', emoji: '💼', description: 'Bureau et réunions' },
-        { value: 'sport', label: 'Sport', emoji: '🏃', description: 'Activités physiques' },
-        { value: 'fashion', label: 'Mode', emoji: '👗', description: 'Accessoire de style' },
+        { value: 'everyday', label: 'Everyday', emoji: '☀️', description: 'Versatile use' },
+        { value: 'work', label: 'Work', emoji: '💼', description: 'Office and meetings' },
+        { value: 'sport', label: 'Sport', emoji: '🏃', description: 'Physical activities' },
+        { value: 'fashion', label: 'Fashion', emoji: '👗', description: 'Style accessory' },
       ],
     },
     {
       id: 'color',
-      question: 'Quelle couleur préférez-vous ?',
+      question: 'Which color do you prefer?',
       options: [
-        { value: 'black', label: 'Noir', emoji: '⚫', description: 'Classique et élégant' },
-        { value: 'brown', label: 'Écaille', emoji: '🟤', description: 'Chaleureux et naturel' },
-        { value: 'gold', label: 'Doré', emoji: '🟡', description: 'Luxueux et raffiné' },
-        { value: 'colorful', label: 'Coloré', emoji: '🌈', description: 'Fun et expressif' },
+        { value: 'black', label: 'Black', emoji: '⚫', description: 'Classic and elegant' },
+        { value: 'brown', label: 'Tortoise', emoji: '🟤', description: 'Warm and natural' },
+        { value: 'gold', label: 'Gold', emoji: '🟡', description: 'Luxurious and refined' },
+        { value: 'colorful', label: 'Colorful', emoji: '🌈', description: 'Fun and expressive' },
       ],
     },
   ];
@@ -130,13 +130,13 @@ const LensRecommender = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a227] rounded-full mb-4"
           >
             <Sparkles className="w-5 h-5" />
-            <span className="font-semibold">Quiz Personnalisé</span>
+            <span className="font-semibold">Personalized Quiz</span>
           </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Trouvez vos lunettes idéales
+            Find your ideal glasses
           </h2>
           <p className="text-gray-400">
-            Répondez à quelques questions pour découvrir les montures faites pour vous
+            Answer a few questions to discover the frames made for you
           </p>
         </div>
 
@@ -203,7 +203,7 @@ const LensRecommender = () => {
                   className="mt-8 flex items-center gap-2 text-gray-400 hover:text-white transition-colors mx-auto"
                 >
                   <ChevronLeft size={20} />
-                  Question précédente
+                  Previous question
                 </motion.button>
               )}
             </motion.div>
@@ -223,9 +223,9 @@ const LensRecommender = () => {
                 <Sparkles className="w-10 h-10" />
               </motion.div>
 
-              <h3 className="text-3xl font-bold mb-4">Vos recommandations</h3>
+              <h3 className="text-3xl font-bold mb-4">Your recommendations</h3>
               <p className="text-gray-400 mb-8">
-                Basé sur vos réponses, voici les montures parfaites pour vous
+                Based on your answers, here are the perfect frames for you
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
@@ -248,7 +248,7 @@ const LensRecommender = () => {
                   to="/glasses"
                   className="px-8 py-4 bg-[#c9a227] text-white font-semibold rounded-xl hover:bg-[#d4af37] transition-all inline-flex items-center justify-center gap-2"
                 >
-                  Voir la collection
+                  View Collection
                   <ChevronRight size={20} />
                 </Link>
                 <button
@@ -256,7 +256,7 @@ const LensRecommender = () => {
                   className="px-8 py-4 bg-gray-800 text-white font-semibold rounded-xl hover:bg-gray-700 transition-all inline-flex items-center justify-center gap-2"
                 >
                   <RotateCcw size={20} />
-                  Recommencer
+                  Restart
                 </button>
               </div>
             </motion.div>

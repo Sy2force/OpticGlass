@@ -117,17 +117,17 @@ const CheckoutPage = () => {
         <div className="max-w-5xl mx-auto px-4">
           <Link to="/cart" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition mb-4">
             <ChevronLeft size={20} />
-            Retour au panier
+            Back to Cart
           </Link>
-          <h1 className="text-3xl font-bold">Paiement</h1>
+          <h1 className="text-3xl font-bold">Checkout</h1>
           
-          {/* Étapes */}
+          {/* Steps */}
           <div className="flex items-center gap-4 mt-6">
             <div className={`flex items-center gap-2 ${step >= 1 ? 'text-white' : 'text-gray-500'}`}>
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 1 ? 'bg-amber-500' : 'bg-gray-700'}`}>
                 {step > 1 ? <CheckCircle size={18} /> : '1'}
               </div>
-              <span className="font-medium">Livraison</span>
+              <span className="font-medium">Delivery</span>
             </div>
             <div className="flex-1 h-0.5 bg-gray-700">
               <div className={`h-full bg-amber-500 transition-all ${step >= 2 ? 'w-full' : 'w-0'}`} />
@@ -136,7 +136,7 @@ const CheckoutPage = () => {
               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 2 ? 'bg-amber-500' : 'bg-gray-700'}`}>
                 2
               </div>
-              <span className="font-medium">Moyen de paiement</span>
+              <span className="font-medium">Payment Method</span>
             </div>
           </div>
         </div>
@@ -156,13 +156,13 @@ const CheckoutPage = () => {
                     <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
                       <MapPin className="text-amber-600" size={20} />
                     </div>
-                    <h2 className="text-2xl font-bold">Adresse de livraison</h2>
+                    <h2 className="text-2xl font-bold">Shipping Address</h2>
                   </div>
 
                   <div className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Prénom *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
                         <div className="relative">
                           <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                           <input
@@ -171,20 +171,20 @@ const CheckoutPage = () => {
                             value={formData.firstName}
                             onChange={handleChange}
                             required
-                            placeholder="Jean"
+                            placeholder="John"
                             className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Nom *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
                         <input
                           type="text"
                           name="lastName"
                           value={formData.lastName}
                           onChange={handleChange}
                           required
-                          placeholder="Dupont"
+                          placeholder="Doe"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                         />
                       </div>
@@ -200,14 +200,14 @@ const CheckoutPage = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          placeholder="jean@example.com"
+                          placeholder="john@example.com"
                           className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Adresse *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Address *</label>
                       <div className="relative">
                         <MapPin size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                         <input
@@ -216,7 +216,7 @@ const CheckoutPage = () => {
                           value={formData.street}
                           onChange={handleChange}
                           required
-                          placeholder="123 Rue de la Paix"
+                          placeholder="123 Peace Street"
                           className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                         />
                       </div>
@@ -224,7 +224,7 @@ const CheckoutPage = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Code postal *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Postal Code *</label>
                         <input
                           type="text"
                           name="postalCode"
@@ -236,7 +236,7 @@ const CheckoutPage = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Ville *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">City *</label>
                         <input
                           type="text"
                           name="city"
@@ -248,7 +248,7 @@ const CheckoutPage = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Pays *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Country *</label>
                         <select
                           name="country"
                           value={formData.country}
@@ -256,15 +256,17 @@ const CheckoutPage = () => {
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                         >
                           <option value="France">France</option>
-                          <option value="Belgique">Belgique</option>
-                          <option value="Suisse">Suisse</option>
+                          <option value="Belgique">Belgium</option>
+                          <option value="Suisse">Switzerland</option>
                           <option value="Israel">Israel</option>
+                          <option value="USA">USA</option>
+                          <option value="UK">UK</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Téléphone *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
                       <div className="relative">
                         <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                         <input
@@ -284,7 +286,7 @@ const CheckoutPage = () => {
                     type="submit"
                     className="w-full mt-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-amber-700 transition shadow-lg"
                   >
-                    Suivant
+                    Next
                   </button>
                 </motion.div>
               ) : (
@@ -297,12 +299,12 @@ const CheckoutPage = () => {
                     <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
                       <CreditCard className="text-amber-600" size={20} />
                     </div>
-                    <h2 className="text-2xl font-bold">Paiement sécurisé</h2>
+                    <h2 className="text-2xl font-bold">Secure Payment</h2>
                   </div>
 
                   <div className="space-y-5">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Numéro de carte *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Card Number *</label>
                       <div className="relative">
                         <CreditCard size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
                         <input
@@ -317,26 +319,26 @@ const CheckoutPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Nom sur la carte *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Cardholder Name *</label>
                       <input
                         type="text"
                         name="cardName"
                         value={paymentData.cardName}
                         onChange={handlePaymentChange}
-                        placeholder="JEAN DUPONT"
+                        placeholder="JOHN DOE"
                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent uppercase"
                       />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Date d'expiration *</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Expiry Date *</label>
                         <input
                           type="text"
                           name="expiry"
                           value={paymentData.expiry}
                           onChange={handlePaymentChange}
-                          placeholder="MM/AA"
+                          placeholder="MM/YY"
                           className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                         />
                       </div>
@@ -356,10 +358,10 @@ const CheckoutPage = () => {
                     <div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
                       <div className="flex items-center gap-2 text-amber-800">
                         <Lock size={18} />
-                        <span className="font-medium">Paiement 100% sécurisé</span>
+                        <span className="font-medium">100% Secure Payment</span>
                       </div>
                       <p className="text-sm text-amber-700 mt-1">
-                        Vos données sont protégées par un chiffrement SSL 256 bits.
+                        Your data is protected by 256-bit SSL encryption.
                       </p>
                     </div>
                   </div>
@@ -370,7 +372,7 @@ const CheckoutPage = () => {
                       onClick={() => setStep(1)}
                       className="flex-1 py-4 bg-gray-100 text-gray-700 font-bold rounded-xl hover:bg-gray-200 transition"
                     >
-                      Retour
+                      Back
                     </button>
                     <button
                       type="submit"
@@ -382,7 +384,7 @@ const CheckoutPage = () => {
                       ) : (
                         <>
                           <Lock size={18} />
-                          Payer {totalAmount} ₪
+                          Pay {totalAmount} ₪
                         </>
                       )}
                     </button>
@@ -399,7 +401,7 @@ const CheckoutPage = () => {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-2xl shadow-xl p-6 sticky top-24"
             >
-              <h2 className="text-xl font-bold mb-4">Résumé</h2>
+              <h2 className="text-xl font-bold mb-4">Summary</h2>
 
               <div className="space-y-4 mb-6">
                 {cart.map((item, index) => (
@@ -413,7 +415,7 @@ const CheckoutPage = () => {
                     </div>
                     <div className="flex-1">
                       <p className="font-medium text-sm">{item.name}</p>
-                      <p className="text-xs text-gray-500">Qté: {item.quantity}</p>
+                      <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
                     </div>
                     <p className="font-bold">{item.price * item.quantity} ₪</p>
                   </div>
@@ -422,12 +424,12 @@ const CheckoutPage = () => {
 
               <div className="border-t pt-4 space-y-2">
                 <div className="flex justify-between text-gray-600">
-                  <span>Sous-total ({totalItems} articles)</span>
+                  <span>Subtotal ({totalItems} items)</span>
                   <span>{totalAmount} ₪</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
-                  <span>Livraison</span>
-                  <span className="text-green-600 font-medium">Gratuite</span>
+                  <span>Shipping</span>
+                  <span className="text-green-600 font-medium">Free</span>
                 </div>
                 <div className="border-t pt-3 flex justify-between">
                   <span className="text-xl font-bold">Total</span>
@@ -439,15 +441,15 @@ const CheckoutPage = () => {
               <div className="mt-6 space-y-3">
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Truck size={18} className="text-amber-500" />
-                  <span>Livraison gratuite sous 2-3 jours</span>
+                  <span>Free delivery within 2-3 days</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Shield size={18} className="text-amber-500" />
-                  <span>Garantie 2 ans incluse</span>
+                  <span>2-year warranty included</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Lock size={18} className="text-amber-500" />
-                  <span>Paiement 100% sécurisé</span>
+                  <span>100% Secure Payment</span>
                 </div>
               </div>
             </motion.div>

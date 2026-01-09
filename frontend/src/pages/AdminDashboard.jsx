@@ -40,15 +40,15 @@ const AdminDashboard = () => {
     orderGrowth: 8.3,
     revenueGrowth: 15.2,
     recentOrders: [
-      { _id: '1', orderNumber: 'OG-2024-001', user: { firstName: 'Jean', lastName: 'Dupont' }, createdAt: new Date(), totalAmount: 1250, status: 'validated' },
-      { _id: '2', orderNumber: 'OG-2024-002', user: { firstName: 'Marie', lastName: 'Martin' }, createdAt: new Date(), totalAmount: 890, status: 'pending' },
-      { _id: '3', orderNumber: 'OG-2024-003', user: { firstName: 'Pierre', lastName: 'Bernard' }, createdAt: new Date(), totalAmount: 2100, status: 'shipped' },
-      { _id: '4', orderNumber: 'OG-2024-004', user: { firstName: 'Sophie', lastName: 'Petit' }, createdAt: new Date(), totalAmount: 750, status: 'validated' },
+      { _id: '1', orderNumber: 'OG-2024-001', user: { firstName: 'John', lastName: 'Doe' }, createdAt: new Date(), totalAmount: 1250, status: 'validated' },
+      { _id: '2', orderNumber: 'OG-2024-002', user: { firstName: 'Mary', lastName: 'Martin' }, createdAt: new Date(), totalAmount: 890, status: 'pending' },
+      { _id: '3', orderNumber: 'OG-2024-003', user: { firstName: 'Peter', lastName: 'Bernard' }, createdAt: new Date(), totalAmount: 2100, status: 'shipped' },
+      { _id: '4', orderNumber: 'OG-2024-004', user: { firstName: 'Sophie', lastName: 'Small' }, createdAt: new Date(), totalAmount: 750, status: 'validated' },
       { _id: '5', orderNumber: 'OG-2024-005', user: { firstName: 'Lucas', lastName: 'Moreau' }, createdAt: new Date(), totalAmount: 1680, status: 'pending' },
     ],
     recentUsers: [
-      { _id: '1', firstName: 'Jean', lastName: 'Dupont', email: 'jean@example.com', createdAt: new Date(), role: 'user' },
-      { _id: '2', firstName: 'Marie', lastName: 'Martin', email: 'marie@example.com', createdAt: new Date(), role: 'user' },
+      { _id: '1', firstName: 'John', lastName: 'Doe', email: 'john@example.com', createdAt: new Date(), role: 'user' },
+      { _id: '2', firstName: 'Mary', lastName: 'Martin', email: 'mary@example.com', createdAt: new Date(), role: 'user' },
       { _id: '3', firstName: 'Admin', lastName: 'Test', email: 'admin@opticglass.com', createdAt: new Date(), role: 'admin' },
     ],
     topProducts: [
@@ -88,13 +88,13 @@ const AdminDashboard = () => {
   };
 
   const handleSupprimeUser = async (userId) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) return;
+    if (!window.confirm('Are you sure you want to delete this user?')) return;
     setActionLoading(userId);
     try {
       await api.delete(`/admin/users/${userId}`);
       fetchStats();
     } catch {
-      // Erreur silencieuse
+      // Silent error
     } finally {
       setActionLoading(null);
     }
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
       <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#c9a227] mx-auto mb-4"></div>
-          <p className="text-white/60">Chargement du dashboard...</p>
+          <p className="text-white/60">Loading dashboard...</p>
         </div>
       </div>
     );
@@ -147,12 +147,12 @@ const AdminDashboard = () => {
           
           <nav className="p-4 space-y-2">
             {[
-              { id: 'overview', label: 'Vue d\'ensemble', icon: BarChart3 },
-              { id: 'orders', label: 'Commandes', icon: ShoppingCart },
-              { id: 'products', label: 'Produits', icon: Package },
-              { id: 'users', label: 'Utilisateurs', icon: Users },
+              { id: 'overview', label: 'Overview', icon: BarChart3 },
+              { id: 'orders', label: 'Orders', icon: ShoppingCart },
+              { id: 'products', label: 'Products', icon: Package },
+              { id: 'users', label: 'Users', icon: Users },
               { id: 'analytics', label: 'Analytics', icon: TrendingUp },
-              { id: 'settings', label: 'Paramètres', icon: Settings },
+              { id: 'settings', label: 'Settings', icon: Settings },
             ].map((item) => (
               <button
                 key={item.id}
@@ -172,7 +172,7 @@ const AdminDashboard = () => {
           <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors">
               <LogOut size={20} />
-              Déconnexion
+              Logout
             </button>
           </div>
         </aside>
@@ -190,7 +190,7 @@ const AdminDashboard = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" size={18} />
                 <input 
                   type="text" 
-                  placeholder="Rechercher..." 
+                  placeholder="Search..." 
                   className="w-full bg-white/5 border border-white/10 rounded-full py-2.5 pl-12 pr-4 text-white placeholder-white/40 focus:outline-none focus:border-[#c9a227] transition-colors"
                 />
               </div>
@@ -211,10 +211,10 @@ const AdminDashboard = () => {
             {/* KPI Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {[
-                { label: 'Utilisateurs', value: displayStats.totalUsers, growth: displayStats.userGrowth, icon: Users },
-                { label: 'Produits', value: displayStats.totalProducts, sub: 'En stock', icon: Package },
-                { label: 'Commandes', value: displayStats.totalOrders, growth: displayStats.orderGrowth, icon: ShoppingCart },
-                { label: 'Revenus', value: `${displayStats.totalRevenue.toLocaleString()} €`, growth: displayStats.revenueGrowth, icon: TrendingUp },
+                { label: 'Users', value: displayStats.totalUsers, growth: displayStats.userGrowth, icon: Users },
+                { label: 'Products', value: displayStats.totalProducts, sub: 'In stock', icon: Package },
+                { label: 'Orders', value: displayStats.totalOrders, growth: displayStats.orderGrowth, icon: ShoppingCart },
+                { label: 'Revenue', value: `${displayStats.totalRevenue.toLocaleString()} €`, growth: displayStats.revenueGrowth, icon: TrendingUp },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -244,16 +244,16 @@ const AdminDashboard = () => {
               {/* Recent Orders */}
               <div className="lg:col-span-2 bg-[#1a1a1a] rounded-2xl border border-white/10 overflow-hidden">
                 <div className="p-6 border-b border-white/10 flex justify-between items-center">
-                  <h3 className="text-lg font-bold">Commandes Récentes</h3>
-                  <Link to="#" className="text-sm text-[#c9a227] hover:underline">Voir tout</Link>
+                  <h3 className="text-lg font-bold">Recent Orders</h3>
+                  <Link to="#" className="text-sm text-[#c9a227] hover:underline">View All</Link>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-white/5">
                       <tr>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Commande</th>
+                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Order</th>
                         <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Client</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Montant</th>
+                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Amount</th>
                         <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Status</th>
                         <th className="px-6 py-4 text-right text-xs font-semibold text-white/60 uppercase">Action</th>
                       </tr>
@@ -291,7 +291,7 @@ const AdminDashboard = () => {
               {/* Top Products */}
               <div className="bg-[#1a1a1a] rounded-2xl border border-white/10 overflow-hidden">
                 <div className="p-6 border-b border-white/10">
-                  <h3 className="text-lg font-bold">Top Produits</h3>
+                  <h3 className="text-lg font-bold">Top Products</h3>
                 </div>
                 <div className="divide-y divide-white/10">
                   {displayStats.topProducts.map((product, i) => (
@@ -305,14 +305,14 @@ const AdminDashboard = () => {
                       </div>
                       <div className="text-right">
                         <p className="font-bold text-[#c9a227]">{product.revenue.toLocaleString()} €</p>
-                        <p className="text-xs text-white/40">{product.sales} ventes</p>
+                        <p className="text-xs text-white/40">{product.sales} sales</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="p-4 border-t border-white/10">
                   <button className="w-full py-3 bg-white/5 hover:bg-white/10 text-white/80 rounded-xl transition-colors text-sm font-medium">
-                    Voir le catalogue
+                    View Catalog
                   </button>
                 </div>
               </div>
@@ -326,12 +326,12 @@ const AdminDashboard = () => {
                 className="mt-8 bg-[#1a1a1a] rounded-2xl border border-white/10 overflow-hidden"
               >
                 <div className="p-6 border-b border-white/10 flex items-center justify-between">
-                  <h2 className="text-xl font-bold">Gestion des utilisateurs</h2>
+                  <h2 className="text-xl font-bold">User Management</h2>
                   <div className="relative">
                     <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
                     <input
                       type="text"
-                      placeholder="Rechercher..."
+                      placeholder="Search..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="pl-10 pr-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#c9a227]"
@@ -342,9 +342,9 @@ const AdminDashboard = () => {
                   <table className="w-full">
                     <thead className="bg-white/5">
                       <tr>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Utilisateur</th>
+                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">User</th>
                         <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Email</th>
-                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Rôle</th>
+                        <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Role</th>
                         <th className="px-6 py-4 text-left text-xs font-semibold text-white/60 uppercase">Date</th>
                         <th className="px-6 py-4 text-right text-xs font-semibold text-white/60 uppercase">Actions</th>
                       </tr>

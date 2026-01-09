@@ -404,7 +404,7 @@ Le site est entièrement responsive avec Tailwind CSS :
 
 ## 🚀 Déploiement
 
-### Build production
+### Build production local
 
 ```bash
 npm run build
@@ -412,21 +412,59 @@ npm run build
 
 Génère le dossier `dist/` prêt pour le déploiement.
 
-### Déploiement Vercel
+### Déploiement sur Vercel (Recommandé)
+
+**📖 Guide complet** : Voir `VERCEL_DEPLOY.md` pour instructions détaillées
+
+#### Méthode rapide - Interface Web
+
+1. Aller sur [vercel.com/import](https://vercel.com/import)
+2. Importer le repository GitHub
+3. **Root Directory** : `frontend`
+4. **Framework** : `Vite` (auto-détecté)
+5. Ajouter la variable d'environnement :
+   - `VITE_API_URL` = `https://optic-glass-backend.onrender.com/api`
+6. Cliquer sur **Deploy**
+
+#### Méthode CLI
 
 ```bash
 # Installer Vercel CLI
 npm i -g vercel
 
-# Déployer
+# Se connecter
+vercel login
+
+# Déployer depuis frontend/
+cd frontend
 vercel
+
+# Ajouter variable d'environnement
+vercel env add VITE_API_URL
+# Entrer: https://optic-glass-backend.onrender.com/api
+
+# Déployer en production
+vercel --prod
 ```
 
 ### Variables d'environnement production
 
-```env
-VITE_API_URL=https://optic-glass-api.onrender.com/api
-```
+Sur Vercel Dashboard → Settings → Environment Variables :
+
+| Variable | Value | Environnement |
+|----------|-------|---------------|
+| `VITE_API_URL` | `https://optic-glass-backend.onrender.com/api` | Production, Preview, Development |
+
+### Configuration Vercel (`vercel.json`)
+
+Le fichier `vercel.json` est déjà configuré avec :
+- ✅ Rewrites pour SPA routing
+- ✅ Cache optimisé (assets: 1 an)
+- ✅ Headers de sécurité (XSS, clickjacking)
+
+### Déploiement automatique
+
+Vercel redéploie automatiquement à chaque **push** sur `main`.
 
 ---
 
