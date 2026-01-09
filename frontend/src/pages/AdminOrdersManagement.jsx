@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Package, 
-  Truck, 
   CheckCircle, 
   Clock, 
   XCircle,
   MessageCircle,
   Send,
-  Eye,
   Filter,
   Search,
-  Download
+  Download,
+  Truck
 } from 'lucide-react';
 import api from '@/shared/api/api';
 
