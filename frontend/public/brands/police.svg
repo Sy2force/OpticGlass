@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="policeSilver" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#808080"/>
+      <stop offset="50%" style="stop-color:#C0C0C0"/>
+      <stop offset="100%" style="stop-color:#808080"/>
+    </linearGradient>
+  </defs>
+  <rect x="30" y="15" width="140" height="30" fill="#1a1a1a" rx="3"/>
+  <text x="100" y="36" font-family="'Futura', 'Trebuchet MS', sans-serif" font-size="22" fill="url(#policeSilver)" text-anchor="middle" font-weight="700" letter-spacing="6">POLICE</text>
+</svg>

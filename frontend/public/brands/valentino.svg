@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="valentinoRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B0000"/>
+      <stop offset="50%" style="stop-color:#c41e3a"/>
+      <stop offset="100%" style="stop-color:#8B0000"/>
+    </linearGradient>
+  </defs>
+  <text x="100" y="34" font-family="'Times New Roman', Georgia, serif" font-size="20" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="8">VALENTINO</text>
+  <rect x="35" y="42" width="130" height="3" fill="url(#valentinoRed)" rx="1"/>
+  <text x="100" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6" fill="#888888" text-anchor="middle" letter-spacing="6">ROMA</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="mkGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355"/>
+      <stop offset="50%" style="stop-color:#c9a227"/>
+      <stop offset="100%" style="stop-color:#8B7355"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="30" r="24" fill="none" stroke="url(#mkGold)" stroke-width="1.5"/>
+  <text x="100" y="26" font-family="'Times New Roman', Georgia, serif" font-size="8" fill="#1a1a1a" text-anchor="middle" font-weight="300" letter-spacing="3">MICHAEL</text>
+  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="6">KORS</text>
+</svg>

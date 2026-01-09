@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="versaceGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#b8860b"/>
+      <stop offset="50%" style="stop-color:#ffd700"/>
+      <stop offset="100%" style="stop-color:#b8860b"/>
+    </linearGradient>
+  </defs>
+  <text x="100" y="34" font-family="'Times New Roman', Georgia, serif" font-size="22" fill="#1a1a1a" text-anchor="middle" font-weight="400" letter-spacing="8">VERSACE</text>
+  <rect x="40" y="42" width="120" height="3" fill="url(#versaceGold)" rx="1"/>
+  <circle cx="40" cy="43.5" r="3" fill="url(#versaceGold)"/>
+  <circle cx="160" cy="43.5" r="3" fill="url(#versaceGold)"/>
+</svg>

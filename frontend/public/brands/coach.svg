@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="coachBrown" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5c4033"/>
+      <stop offset="50%" style="stop-color:#8B4513"/>
+      <stop offset="100%" style="stop-color:#5c4033"/>
+    </linearGradient>
+  </defs>
+  <text x="100" y="36" font-family="'Times New Roman', Georgia, serif" font-size="28" fill="url(#coachBrown)" text-anchor="middle" font-weight="400" letter-spacing="8">COACH</text>
+  <line x1="50" y1="44" x2="150" y2="44" stroke="#c9a227" stroke-width="1"/>
+  <text x="100" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6" fill="#888888" text-anchor="middle" letter-spacing="8">NEW YORK</text>
+</svg>
