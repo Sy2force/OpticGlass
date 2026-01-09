@@ -18,14 +18,22 @@ import newsRoutes from './routes/news.routes.js';
 import contactRoutes from './routes/contact.routes.js';
 import ordersRoutes from './routes/orders.routes.js';
 import brandsRoutes from './routes/brands.routes.js';
+import uploadRoutes from './routes/upload.routes.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 connectDB();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: false, // Important pour servir les images
+}));
 
 // Logger HTTP Morgan - Exigence HackerU
 app.use(morgan('dev'));
@@ -83,6 +91,10 @@ app.use('/api/news', newsRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/brands', brandsRoutes);
+app.use('/api/upload', uploadRoutes);
+
+// Servir le dossier uploads comme statique
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(notFound);
 app.use(errorHandler);
