@@ -38,10 +38,11 @@ const ProfilePage = () => {
     { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
+  // Placeholder stats - Ideally fetch from API
   const stats = [
-    { label: 'Orders', value: '12', icon: Package },
-    { label: 'Favorites', value: '8', icon: Heart },
-    { label: 'Loyalty Points', value: '2,450', icon: Eye },
+    { label: 'Role', value: user?.role === 'admin' ? 'Admin' : 'Member', icon: Shield },
+    { label: 'Member Since', value: user?.createdAt ? new Date(user.createdAt).getFullYear() : '2024', icon: Calendar },
+    { label: 'Status', value: 'Active', icon: Eye },
   ];
 
   return (
