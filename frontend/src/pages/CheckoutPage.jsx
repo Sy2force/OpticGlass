@@ -14,21 +14,26 @@ import {
   Mail
 } from 'lucide-react';
 import api from '@/shared/api/api';
+import { useCart } from '@/app/providers/CartContext';
+import { useAuth } from '@/app/providers/AuthContext';
 
 const CheckoutPage = () => {
   
   const navigate = useNavigate();
+  const { cart, getCartTotal, getCartCount, clearCart } = useCart();
+  const { user } = useAuth();
+  
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    firstName: user?.firstName || '',
+    lastName: user?.lastName || '',
+    email: user?.email || '',
     street: '',
     city: '',
     postalCode: '',
     country: 'France',
-    phone: '',
+    phone: user?.phone || '',
   });
   const [paymentData, setPaymentData] = useState({
     cardNumber: '',
@@ -37,9 +42,8 @@ const CheckoutPage = () => {
     cvv: '',
   });
 
-  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalAmount = getCartTotal();
+  const totalItems = getCartCount();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -86,14 +90,13 @@ const CheckoutPage = () => {
         shippingAddress: formData,
       });
 
-      localStorage.removeItem('cart');
-      window.dispatchEvent(new Event('cartUpdated'));
+      clearCart();
+      // window.dispatchEvent(new Event('cartUpdated')); // clearCart handles this if needed or relies on state
       navigate('/success');
     } catch (error) {
       console.error('Erreur paiement:', error);
       // Simuler le success pour la démo
-      localStorage.removeItem('cart');
-      window.dispatchEvent(new Event('cartUpdated'));
+      clearCart();
       navigate('/success');
     } finally {
       setLoading(false);
