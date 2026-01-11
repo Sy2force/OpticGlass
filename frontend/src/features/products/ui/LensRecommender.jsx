@@ -1,90 +1,98 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, Sparkles, RotateCcw } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Sparkles, RotateCcw, Glasses, Eye, Diamond } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@/app/providers/ThemeContext';
 
 const LensRecommender = () => {
+  const { isDarkMode } = useTheme();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
 
   const questions = [
     {
       id: 'faceShape',
       question: 'What is your face shape?',
       options: [
-        { value: 'round', label: 'Round', emoji: '🔵', description: 'Full cheeks, rounded chin' },
-        { value: 'oval', label: 'Oval', emoji: '🥚', description: 'Balanced proportions' },
-        { value: 'square', label: 'Square', emoji: '⬜', description: 'Strong jawline, broad forehead' },
-        { value: 'heart', label: 'Heart', emoji: '💜', description: 'Broad forehead, narrow chin' },
+        { value: 'round', label: 'Round', icon: '○', description: 'Full cheeks, rounded chin' },
+        { value: 'oval', label: 'Oval', icon: '◯', description: 'Balanced proportions' },
+        { value: 'square', label: 'Square', icon: '□', description: 'Strong jawline, broad forehead' },
+        { value: 'heart', label: 'Heart', icon: '♡', description: 'Broad forehead, narrow chin' },
       ],
     },
     {
       id: 'style',
       question: 'Which style suits you best?',
       options: [
-        { value: 'classic', label: 'Classic', emoji: '👔', description: 'Elegant and timeless' },
-        { value: 'trendy', label: 'Trendy', emoji: '✨', description: 'Fashion forward' },
-        { value: 'sporty', label: 'Sporty', emoji: '⚡', description: 'Dynamic and active' },
-        { value: 'bold', label: 'Bold', emoji: '🔥', description: 'Original and daring' },
+        { value: 'classic', label: 'Classic', icon: '◈', description: 'Elegant and timeless' },
+        { value: 'trendy', label: 'Trendy', icon: '✦', description: 'Fashion forward' },
+        { value: 'sporty', label: 'Sporty', icon: '◇', description: 'Dynamic and active' },
+        { value: 'bold', label: 'Bold', icon: '◆', description: 'Original and daring' },
       ],
     },
     {
       id: 'usage',
       question: 'What will be the main usage?',
       options: [
-        { value: 'everyday', label: 'Everyday', emoji: '☀️', description: 'Versatile use' },
-        { value: 'work', label: 'Work', emoji: '💼', description: 'Office and meetings' },
-        { value: 'sport', label: 'Sport', emoji: '🏃', description: 'Physical activities' },
-        { value: 'fashion', label: 'Fashion', emoji: '👗', description: 'Style accessory' },
+        { value: 'everyday', label: 'Everyday', icon: '☼', description: 'Versatile use' },
+        { value: 'work', label: 'Work', icon: '▣', description: 'Office and meetings' },
+        { value: 'sport', label: 'Sport', icon: '△', description: 'Physical activities' },
+        { value: 'fashion', label: 'Fashion', icon: '✧', description: 'Style accessory' },
       ],
     },
     {
       id: 'color',
       question: 'Which color do you prefer?',
       options: [
-        { value: 'black', label: 'Black', emoji: '⚫', description: 'Classic and elegant' },
-        { value: 'brown', label: 'Tortoise', emoji: '🟤', description: 'Warm and natural' },
-        { value: 'gold', label: 'Gold', emoji: '🟡', description: 'Luxurious and refined' },
-        { value: 'colorful', label: 'Colorful', emoji: '🌈', description: 'Fun and expressive' },
+        { value: 'black', label: 'Black', icon: '●', description: 'Classic and elegant' },
+        { value: 'brown', label: 'Tortoise', icon: '◉', description: 'Warm and natural' },
+        { value: 'gold', label: 'Gold', icon: '◎', description: 'Luxurious and refined' },
+        { value: 'colorful', label: 'Colorful', icon: '❖', description: 'Fun and expressive' },
       ],
     },
   ];
 
   const recommendations = {
     round: {
-      classic: ['Ray-Ban Clubmaster', 'Persol PO3019S'],
-      trendy: ['Gucci GG0061S', 'Prada PR 01OS'],
-      sporty: ['Oakley Holbrook', 'Carrera Champion'],
-      bold: ['Tom Ford Snowdon', 'Versace VE4361'],
+      classic: ['Soléra Browline', 'Artis Classic'],
+      trendy: ['Aurélia GG-Style', 'Vespera Minimal'],
+      sporty: ['Zenith Holbrook', 'Apex Champion'],
+      bold: ['Equinox Snowdon', 'Orion Bold'],
     },
     oval: {
-      classic: ['Ray-Ban Aviator', 'Persol PO0714'],
-      trendy: ['Dior DiorSoReal', 'Celine CL40061I'],
-      sporty: ['Oakley Radar EV', 'Carrera 1001/S'],
-      bold: ['Gucci GG0053S', 'Versace VE2150Q'],
+      classic: ['Soléra Aviator', 'Artis Foldable'],
+      trendy: ['Lumina SoReal', 'Ethereal Chic'],
+      sporty: ['Zenith Radar', 'Apex Speed'],
+      bold: ['Aurélia Oversize', 'Orion Medusa'],
     },
     square: {
-      classic: ['Ray-Ban Round Metal', 'Persol PO3152S'],
-      trendy: ['Prada PR 17WS', 'Dior DiorSoLight'],
-      sporty: ['Oakley Sutro', 'Polaroid PLD 2066/S'],
-      bold: ['Tom Ford FT0752', 'Celine CL40187I'],
+      classic: ['Soléra Round Metal', 'Artis PO-Style'],
+      trendy: ['Vespera Geometric', 'Lumina Light'],
+      sporty: ['Zenith Sutro', 'Nova Polarized'],
+      bold: ['Equinox FT-Style', 'Ethereal Bold'],
     },
     heart: {
-      classic: ['Ray-Ban Wayfarer', 'Persol PO3059S'],
-      trendy: ['Gucci GG0327S', 'Prada PR 14WS'],
-      sporty: ['Oakley Flak 2.0', 'Carrera 8035/S'],
-      bold: ['Dior DiorClub', 'Versace VE4353'],
+      classic: ['Soléra Classic Square', 'Artis Retro'],
+      trendy: ['Aurélia Chic', 'Vespera Cat-Eye'],
+      sporty: ['Zenith Flak', 'Apex Active'],
+      bold: ['Lumina Club', 'Orion Statement'],
     },
   };
-
   const handleAnswer = (value) => {
-    setAnswers({ ...answers, [questions[currentStep].id]: value });
+    const newAnswers = { ...answers, [questions[currentStep].id]: value };
+    setAnswers(newAnswers);
     
     if (currentStep < questions.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
       setShowResults(true);
+      // Get recommendations based on face shape and style
+      const faceShape = newAnswers.faceShape || 'oval';
+      const style = newAnswers.style || 'classic';
+      const recommended = recommendations[faceShape]?.[style] || recommendations.oval.classic;
+      setRecommendedProducts(recommended);
     }
   };
 
@@ -98,44 +106,39 @@ const LensRecommender = () => {
     setCurrentStep(0);
     setAnswers({});
     setShowResults(false);
-  };
-
-  const getRecommendations = () => {
-    const faceShape = answers.faceShape || 'oval';
-    const style = answers.style || 'classic';
-    return recommendations[faceShape]?.[style] || recommendations.oval.classic;
+    setRecommendedProducts([]);
   };
 
   const progress = ((currentStep + 1) / questions.length) * 100;
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-8 md:p-12 text-white overflow-hidden relative">
-      {/* Background Pattern */}
-      <motion.div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '30px 30px',
-        }}
-        animate={{ backgroundPosition: ['0px 0px', '30px 30px'] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-      />
+    <div className={`relative overflow-hidden rounded-2xl ${
+      isDarkMode 
+        ? 'bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] border border-white/10' 
+        : 'bg-gradient-to-br from-gray-50 via-white to-gray-50 border border-gray-200'
+    }`}>
+      {/* Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
+      <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#c9a227]/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[#c9a227]/5 rounded-full blur-3xl" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 p-8 md:p-12">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#c9a227] rounded-full mb-4"
+            className="w-16 h-16 mx-auto mb-6 bg-[#c9a227]/10 rounded-full flex items-center justify-center"
           >
-            <Sparkles className="w-5 h-5" />
-            <span className="font-semibold">Personalized Quiz</span>
+            <Glasses className="w-8 h-8 text-[#c9a227]" />
           </motion.div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Find your ideal glasses
+          <p className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-3">Personalized Quiz</p>
+          <h2 className={`text-3xl md:text-4xl font-serif mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            Find your <span className="italic text-[#c9a227]">ideal</span> glasses
           </h2>
-          <p className="text-gray-400">
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto mb-4" />
+          <p className={`${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
             Answer a few questions to discover the frames made for you
           </p>
         </div>
@@ -150,14 +153,14 @@ const LensRecommender = () => {
               transition={{ duration: 0.3 }}
             >
               {/* Progress Bar */}
-              <div className="mb-8">
-                <div className="flex justify-between text-sm text-gray-400 mb-2">
-                  <span>Question {currentStep + 1}/{questions.length}</span>
-                  <span>{Math.round(progress)}%</span>
+              <div className="mb-10 max-w-md mx-auto">
+                <div className={`flex justify-between text-sm mb-3 ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`}>
+                  <span className="tracking-wider">Step {currentStep + 1} of {questions.length}</span>
+                  <span className="text-[#c9a227] font-medium">{Math.round(progress)}%</span>
                 </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                <div className={`h-1 rounded-full overflow-hidden ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`}>
                   <motion.div
-                    className="h-full bg-gradient-to-r from-[#c9a227] to-red-500"
+                    className="h-full bg-gradient-to-r from-[#c9a227] to-[#d4af37]"
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.5 }}
@@ -166,30 +169,36 @@ const LensRecommender = () => {
               </div>
 
               {/* Question */}
-              <h3 className="text-2xl font-bold text-center mb-8">
+              <h3 className={`text-xl md:text-2xl font-serif text-center mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 {questions[currentStep].question}
               </h3>
 
               {/* Options */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 gap-3 max-w-2xl mx-auto">
                 {questions[currentStep].options.map((option, index) => (
                   <motion.button
                     key={option.value}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.02, y: -5 }}
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => handleAnswer(option.value)}
-                    className={`p-6 rounded-2xl border-2 transition-all text-left ${
+                    className={`p-5 rounded-xl border transition-all text-left group ${
                       answers[questions[currentStep].id] === option.value
-                        ? 'border-[#c9a227] bg-[#c9a227]/20'
-                        : 'border-gray-700 bg-gray-800/50 hover:border-gray-500'
+                        ? 'border-[#c9a227] bg-[#c9a227]/10'
+                        : isDarkMode 
+                          ? 'border-white/10 bg-white/5 hover:border-[#c9a227]/50 hover:bg-white/10' 
+                          : 'border-gray-200 bg-white hover:border-[#c9a227]/50 hover:bg-gray-50'
                     }`}
                   >
-                    <div className="text-3xl mb-2">{option.emoji}</div>
-                    <div className="font-bold text-lg mb-1">{option.label}</div>
-                    <div className="text-sm text-gray-400">{option.description}</div>
+                    <div className={`text-2xl mb-2 ${
+                      answers[questions[currentStep].id] === option.value 
+                        ? 'text-[#c9a227]' 
+                        : isDarkMode ? 'text-white/60' : 'text-gray-400'
+                    } group-hover:text-[#c9a227] transition-colors`}>{option.icon}</div>
+                    <div className={`font-serif text-base mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{option.label}</div>
+                    <div className={`text-xs ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{option.description}</div>
                   </motion.button>
                 ))}
               </div>
@@ -200,9 +209,11 @@ const LensRecommender = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   onClick={goBack}
-                  className="mt-8 flex items-center gap-2 text-gray-400 hover:text-white transition-colors mx-auto"
+                  className={`mt-8 flex items-center gap-2 transition-colors mx-auto text-sm ${
+                    isDarkMode ? 'text-white/40 hover:text-[#c9a227]' : 'text-gray-400 hover:text-[#c9a227]'
+                  }`}
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={16} />
                   Previous question
                 </motion.button>
               )}
@@ -218,45 +229,59 @@ const LensRecommender = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', delay: 0.2 }}
-                className="w-20 h-20 bg-[#c9a227] rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-20 h-20 bg-[#c9a227]/10 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <Sparkles className="w-10 h-10" />
+                <Sparkles className="w-10 h-10 text-[#c9a227]" />
               </motion.div>
 
-              <h3 className="text-3xl font-bold mb-4">Your recommendations</h3>
-              <p className="text-gray-400 mb-8">
+              <p className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-3">Results</p>
+              <h3 className={`text-2xl md:text-3xl font-serif mb-3 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Your <span className="italic text-[#c9a227]">Recommendations</span>
+              </h3>
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto mb-4" />
+              <p className={`mb-8 ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>
                 Based on your answers, here are the perfect frames for you
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-8">
-                {getRecommendations().map((rec, index) => (
+              <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto mb-10">
+                {recommendedProducts.map((rec, index) => (
                   <motion.div
                     key={rec}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
-                    className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700"
+                    className={`rounded-xl p-5 border ${
+                      isDarkMode 
+                        ? 'bg-white/5 border-white/10' 
+                        : 'bg-gray-50 border-gray-200'
+                    }`}
                   >
-                    <div className="text-4xl mb-3">🕶️</div>
-                    <div className="font-bold">{rec}</div>
+                    <div className="w-10 h-10 mx-auto mb-3 bg-[#c9a227]/10 rounded-full flex items-center justify-center">
+                      <Glasses className="w-5 h-5 text-[#c9a227]" />
+                    </div>
+                    <div className={`font-serif text-sm ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{rec}</div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
                   to="/glasses"
-                  className="px-8 py-4 bg-[#c9a227] text-white font-semibold rounded-xl hover:bg-[#d4af37] transition-all inline-flex items-center justify-center gap-2"
+                  className="px-8 py-4 bg-[#c9a227] text-black font-semibold tracking-wider uppercase text-sm hover:bg-[#d4af37] transition-all inline-flex items-center justify-center gap-2"
                 >
                   View Collection
-                  <ChevronRight size={20} />
+                  <ChevronRight size={16} />
                 </Link>
                 <button
                   onClick={restart}
-                  className="px-8 py-4 bg-gray-800 text-white font-semibold rounded-xl hover:bg-gray-700 transition-all inline-flex items-center justify-center gap-2"
+                  className={`px-8 py-4 border font-semibold tracking-wider uppercase text-sm transition-all inline-flex items-center justify-center gap-2 ${
+                    isDarkMode 
+                      ? 'border-white/20 text-white hover:border-[#c9a227] hover:text-[#c9a227]' 
+                      : 'border-gray-300 text-gray-700 hover:border-[#c9a227] hover:text-[#c9a227]'
+                  }`}
                 >
-                  <RotateCcw size={20} />
-                  Restart
+                  <RotateCcw size={16} />
+                  Restart Quiz
                 </button>
               </div>
             </motion.div>

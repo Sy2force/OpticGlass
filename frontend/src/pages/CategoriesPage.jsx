@@ -1,7 +1,22 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Glasses, Sun, Zap, Sparkles, Flower2, Snowflake, Leaf } from 'lucide-react';
 
 const CategoriesPage = () => {
+  // Icon components for categories
+  const categoryIcons = {
+    optical: <Glasses size={48} strokeWidth={1.5} />,
+    sun: <Sun size={48} strokeWidth={1.5} />,
+    sport: <Zap size={48} strokeWidth={1.5} />,
+    vintage: <Sparkles size={48} strokeWidth={1.5} />,
+  };
+
+  const seasonIcons = {
+    spring: <Flower2 size={32} strokeWidth={1.5} />,
+    summer: <Sun size={32} strokeWidth={1.5} />,
+    autumn: <Leaf size={32} strokeWidth={1.5} />,
+    winter: <Snowflake size={32} strokeWidth={1.5} />,
+  };
   
 
   const categories = [
@@ -37,28 +52,24 @@ const CategoriesPage = () => {
       slug: 'spring',
       description: 'Fresh and light colors',
       gradient: 'from-pink-400 to-green-400',
-      emoji: '🌸',
     },
     {
       name: 'Summer',
       slug: 'summer',
       description: 'Maximum sun protection',
       gradient: 'from-yellow-400 to-red-400',
-      emoji: '☀️',
     },
     {
       name: 'Autumn',
       slug: 'autumn',
       description: 'Warm and elegant tones',
       gradient: 'from-orange-600 to-amber-700',
-      emoji: '🍂',
     },
     {
       name: 'Winter',
       slug: 'winter',
       description: 'Sophisticated styles',
       gradient: 'from-blue-600 to-cyan-400',
-      emoji: '❄️',
     },
   ];
 
@@ -125,12 +136,9 @@ const CategoriesPage = () => {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + 0.2, type: 'spring' }}
-                      className="text-6xl mb-4"
+                      className="mb-4 p-4 bg-white/20 backdrop-blur-sm rounded-full"
                     >
-                      {category.slug === 'optical' && '👓'}
-                      {category.slug === 'sun' && '🕶️'}
-                      {category.slug === 'sport' && '⚡'}
-                      {category.slug === 'vintage' && '✨'}
+                      {categoryIcons[category.slug]}
                     </motion.div>
                     
                     <h3 className="text-3xl font-bold mb-3">{category.name}</h3>
@@ -214,9 +222,9 @@ const CategoriesPage = () => {
                         repeat: Infinity,
                         ease: 'easeInOut',
                       }}
-                      className="text-7xl mb-6"
+                      className="mb-6 p-5 bg-white/20 backdrop-blur-sm rounded-full"
                     >
-                      {season.emoji}
+                      {seasonIcons[season.slug]}
                     </motion.div>
                     
                     <h3 className="text-4xl font-display font-bold mb-3">{season.name}</h3>
@@ -291,7 +299,7 @@ const CategoriesPage = () => {
               Need help choosing?
             </h2>
             <p className="text-xl mb-8 text-white/90">
-              Discover our entire luxury eyewear collection
+              Discover our entire premium eyewear collection
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
               <Link

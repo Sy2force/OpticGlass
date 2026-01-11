@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, Navigation, Search } from 'lucide-react';
+import { MapPin, Phone, Clock, Navigation, Search, Lightbulb } from 'lucide-react';
 
 const StoresPage = () => {
   
@@ -251,9 +251,10 @@ const StoresPage = () => {
                     Itinerary
                   </motion.button>
                 )}
-                <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
+                <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 flex items-center gap-3">
+                  <Lightbulb size={18} className="text-primary flex-shrink-0" />
                   <p className="text-primary font-medium text-sm">
-                    💡 Tip: Call before visiting to check product availability
+                    Tip: Call before visiting to check product availability
                   </p>
                 </div>
               </div>

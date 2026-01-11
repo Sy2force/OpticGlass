@@ -22,6 +22,7 @@ import AdminImagesPage from '@/pages/AdminImagesPage';
 import AdminOrdersManagement from '@/pages/AdminOrdersManagement';
 import AdminUsers from '@/pages/AdminUsers';
 import AdminProducts from '@/pages/AdminProducts';
+import AdminMessages from '@/pages/AdminMessages';
 import UserDashboard from '@/pages/UserDashboard';
 import RecommendationsPage from '@/pages/RecommendationsPage';
 import GiftCardPage from '@/pages/GiftCardPage';
@@ -34,6 +35,7 @@ import ContactPage from '@/pages/ContactPage';
 import AboutPage from '@/pages/AboutPage';
 import TryOnPage from '@/pages/TryOnPage';
 import ReviewsPage from '@/pages/ReviewsPage';
+import MessagesPage from '@/pages/MessagesPage';
 
 const AnimatedRoutes = () => {
   return (
@@ -79,14 +81,7 @@ const AnimatedRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/cart"
-        element={
-          <ProtectedRoute>
-            <CartPage />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/cart" element={<CartPage />} />
       <Route
         path="/checkout"
         element={
@@ -127,6 +122,14 @@ const AnimatedRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/messages"
+        element={
+          <ProtectedRoute>
+            <MessagesPage />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Routes Admin Protégées - Nested Routes */}
       <Route
@@ -143,6 +146,7 @@ const AnimatedRoutes = () => {
         <Route path="orders" element={<AdminOrdersManagement />} />
         <Route path="users" element={<AdminUsers />} />
         <Route path="products" element={<AdminProducts />} />
+        <Route path="messages" element={<AdminMessages />} />
       </Route>
       
       <Route path="*" element={<NotFoundPage />} />

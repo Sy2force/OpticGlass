@@ -9,7 +9,10 @@ import {
   LogOut, 
   Search, 
   Bell,
-  Image as ImageIcon
+  Image as ImageIcon,
+  MessageCircle,
+  Home,
+  Eye
 } from 'lucide-react';
 import { useAuth } from '@/app/providers/AuthContext';
 
@@ -28,8 +31,13 @@ const AdminLayout = () => {
     { path: '/admin/orders', label: 'Orders', icon: ShoppingCart },
     { path: '/admin/products', label: 'Products', icon: Package },
     { path: '/admin/users', label: 'Users', icon: Users },
+    { path: '/admin/messages', label: 'Messages', icon: MessageCircle },
     { path: '/admin/images', label: 'Images', icon: ImageIcon },
     { path: '/admin/analytics', label: 'Analytics', icon: TrendingUp },
+  ];
+
+  const quickLinks = [
+    { path: '/', label: 'View Site', icon: Eye },
   ];
 
   return (
@@ -61,9 +69,22 @@ const AdminLayout = () => {
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 border-t border-white/10 space-y-2">
+          {quickLinks.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/60 hover:text-white hover:bg-white/5 transition-colors"
+            >
+              <item.icon size={20} />
+              {item.label}
+            </Link>
+          ))}
           <button 
-            onClick={logout}
+            onClick={() => {
+              logout();
+              window.location.href = '/';
+            }}
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-colors"
           >
             <LogOut size={20} />

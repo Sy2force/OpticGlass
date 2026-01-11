@@ -8,8 +8,8 @@ const ReviewsPage = () => {
       name: "Sophie L.",
       rating: 5,
       date: "2 days ago",
-      text: "Exceptional service! I ordered my Ray-Ban Aviators and received them within 48 hours. The packaging was luxurious and the glasses are 100% authentic. Highly recommend!",
-      product: "Ray-Ban Aviator Classic"
+      text: "Exceptional service! I ordered my Soléra Aviators and received them within 48 hours. The packaging was elegant and the glasses are 100% authentic. Highly recommend!",
+      product: "Soléra Aviator"
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ const ReviewsPage = () => {
       rating: 5,
       date: "1 week ago",
       text: "The virtual try-on feature is a game changer. I was hesitant to buy online but it helped me pick the perfect frame for my face shape. Great experience.",
-      product: "Tom Ford Snowdon"
+      product: "Equinox Classic"
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ const ReviewsPage = () => {
       rating: 4,
       date: "2 weeks ago",
       text: "Beautiful glasses, exactly as described. Customer support was very helpful when I had a question about the size. Will definitely buy again.",
-      product: "Gucci Oversized Square"
+      product: "Aurélia Oversized"
     },
     {
       id: 4,
@@ -33,23 +33,23 @@ const ReviewsPage = () => {
       rating: 5,
       date: "3 weeks ago",
       text: "Premium quality from start to finish. The unboxing experience felt special. The glasses are comfortable and stylish.",
-      product: "Persol 714 Steve McQueen"
+      product: "Artis Master"
     },
     {
       id: 5,
       name: "Emma S.",
       rating: 5,
       date: "1 month ago",
-      text: "I love my new Dior sunglasses! They arrived quickly and in perfect condition. Optic Glass is now my go-to for eyewear.",
-      product: "Dior So Real"
+      text: "I love my new Lumina sunglasses! They arrived quickly and in perfect condition. Optic Glass is now my go-to for eyewear.",
+      product: "Lumina So Chic"
     },
     {
       id: 6,
       name: "Antoine B.",
       rating: 4,
       date: "1 month ago",
-      text: "Wide selection of brands and models. Prices are competitive for luxury items. Fast shipping to Lyon.",
-      product: "Oakley Holbrook"
+      text: "Wide selection of brands and models. Prices are competitive for premium items. Fast shipping to Lyon.",
+      product: "Zenith Sport"
     }
   ];
 

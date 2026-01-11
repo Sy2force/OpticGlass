@@ -42,14 +42,14 @@ export const getPopularBrands = async (limit = 10) => {
 };
 
 /**
- * Récupère les marques de luxe
+ * Récupère les marques premium
  */
-export const getLuxuryBrands = async () => {
+export const getPremiumBrands = async () => {
   try {
-    const response = await api.get('/products/brands?category=luxury');
+    const response = await api.get('/products/brands?category=premium');
     return response.data;
   } catch (error) {
-    console.error('Erreur récupération marques luxe:', error);
+    console.error('Erreur récupération marques premium:', error);
     throw error;
   }
 };
@@ -126,7 +126,7 @@ export default {
   getBrands,
   getBrandById,
   getPopularBrands,
-  getLuxuryBrands,
+  getPremiumBrands,
   getBrandProducts,
   searchBrands,
   createBrand,

@@ -29,13 +29,13 @@ export const CartProvider = ({ children }) => {
         const response = await api.get('/cart');
         setCart(response.data.data || []);
       } catch (err) {
-        console.error('Erreur chargement panier:', err);
+        console.error('Error loading cart:', err);
         // Fallback sur localStorage
         try {
           const localCart = JSON.parse(localStorage.getItem('cart') || '[]');
           setCart(localCart);
         } catch (e) {
-          console.error('Erreur lecture panier local:', e);
+          console.error('Error reading local cart:', e);
           setCart([]);
         }
       } finally {
@@ -72,8 +72,8 @@ export const CartProvider = ({ children }) => {
         });
         await loadCart();
       } catch (err) {
-        console.error('Erreur ajout panier:', err);
-        setError('Erreur lors de l\'ajout au panier');
+        console.error('Error adding to cart:', err);
+        setError('Error adding to cart');
       } finally {
         setLoading(false);
       }
@@ -95,7 +95,7 @@ export const CartProvider = ({ children }) => {
         setCart(localCart);
         window.dispatchEvent(new Event('cartUpdated'));
       } catch (e) {
-        console.error('Erreur ajout panier local:', e);
+        console.error('Error adding to local cart:', e);
       }
     }
   }, [isAuthenticated, loadCart]);
@@ -109,7 +109,7 @@ export const CartProvider = ({ children }) => {
         await api.put(`/cart/${item._id || item.productId}`, { quantity: newQuantity });
         await loadCart();
       } catch (err) {
-        console.error('Erreur mise à jour quantité:', err);
+        console.error('Error updating quantity:', err);
       }
     } else {
       const localCart = [...cart];
@@ -127,7 +127,7 @@ export const CartProvider = ({ children }) => {
         await api.delete(`/cart/${item._id || item.productId}`);
         await loadCart();
       } catch (err) {
-        console.error('Erreur suppression panier:', err);
+        console.error('Error removing from cart:', err);
       }
     } else {
       const localCart = cart.filter((_, i) => i !== index);
@@ -143,7 +143,7 @@ export const CartProvider = ({ children }) => {
         await api.delete('/cart/clear');
         setCart([]);
       } catch (err) {
-        console.error('Erreur vidage panier:', err);
+        console.error('Error clearing cart:', err);
       }
     } else {
       localStorage.removeItem('cart');

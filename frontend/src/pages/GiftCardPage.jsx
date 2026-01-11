@@ -43,7 +43,7 @@ const GiftCardPage = () => {
 
     setLoading(true);
     try {
-      // Simulate network request
+      // Process gift card request
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       const giftCardProduct = {
@@ -72,7 +72,7 @@ const GiftCardPage = () => {
         });
       }, 3000);
     } catch (error) {
-      console.error("Erreur lors de l'ajout au panier", error);
+      console.error('Error adding to cart', error);
     } finally {
       setLoading(false);
     }

@@ -20,7 +20,7 @@ export const FavoritesProvider = ({ children }) => {
         const localFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
         setFavorites(localFavorites);
       } catch (err) {
-        console.error('Erreur lecture favoris locaux:', err);
+        console.error('Error reading local favorites:', err);
         setFavorites([]);
       }
     }
@@ -34,8 +34,8 @@ export const FavoritesProvider = ({ children }) => {
       const response = await api.get('/favorites');
       setFavorites(response.data.data || []);
     } catch (err) {
-      console.error('Erreur chargement favoris:', err);
-      setError('Erreur lors du chargement des favoris');
+      console.error('Error loading favorites:', err);
+      setError('Error loading favorites');
     } finally {
       setLoading(false);
     }
@@ -50,8 +50,8 @@ export const FavoritesProvider = ({ children }) => {
         await api.post('/favorites', { productId });
         await loadFavorites();
       } catch (err) {
-        console.error('Erreur ajout favori:', err);
-        setError('Erreur lors de l\'ajout aux favoris');
+        console.error('Error adding favorite:', err);
+        setError('Error adding to favorites');
       } finally {
         setLoading(false);
       }
@@ -65,7 +65,7 @@ export const FavoritesProvider = ({ children }) => {
           setFavorites(localFavorites);
         }
       } catch (err) {
-        console.error('Erreur ajout favori local:', err);
+        console.error('Error adding local favorite:', err);
       }
     }
   }, [isAuthenticated, loadFavorites]);
@@ -77,8 +77,8 @@ export const FavoritesProvider = ({ children }) => {
         await api.delete(`/favorites/${productId}`);
         setFavorites((prev) => prev.filter((fav) => fav._id !== productId));
       } catch (err) {
-        console.error('Erreur suppression favori:', err);
-        setError('Erreur lors de la suppression du favori');
+        console.error('Error removing favorite:', err);
+        setError('Error removing favorite');
       } finally {
         setLoading(false);
       }
@@ -91,7 +91,7 @@ export const FavoritesProvider = ({ children }) => {
         localStorage.setItem('favorites', JSON.stringify(filtered));
         setFavorites(filtered);
       } catch (err) {
-        console.error('Erreur suppression favori local:', err);
+        console.error('Error removing local favorite:', err);
       }
     }
   }, [isAuthenticated]);
@@ -119,7 +119,7 @@ export const FavoritesProvider = ({ children }) => {
         await api.delete('/favorites/clear');
         setFavorites([]);
       } catch (err) {
-        console.error('Erreur suppression favoris:', err);
+        console.error('Error clearing favorites:', err);
       }
     } else {
       localStorage.removeItem('favorites');

@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand Colors - Apple-inspired luxury
+        // Primary Brand Colors - Apple-inspired premium
         primary: {
           DEFAULT: '#C4151C',
           50: '#FEF2F2',
@@ -90,13 +90,13 @@ export default {
       },
       // Premium Shadows
       boxShadow: {
-        'luxury': '0 10px 40px rgba(0, 0, 0, 0.3)',
-        'luxury-lg': '0 20px 60px rgba(0, 0, 0, 0.4)',
-        'luxury-xl': '0 30px 80px rgba(0, 0, 0, 0.5)',
+        'premium': '0 10px 40px rgba(0, 0, 0, 0.3)',
+        'premium-lg': '0 20px 60px rgba(0, 0, 0, 0.4)',
+        'premium-xl': '0 30px 80px rgba(0, 0, 0, 0.5)',
         'gold': '0 10px 40px rgba(201, 162, 39, 0.3)',
         'red': '0 10px 40px rgba(196, 21, 28, 0.3)',
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-        'inner-luxury': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.3)',
+        'inner-premium': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.3)',
       },
       // Premium Animations
       animation: {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Package, CreditCard, RefreshCw, Shield, Truck, HelpCircle } from 'lucide-react';
+import { ChevronDown, Package, CreditCard, RefreshCw, Shield, Truck, HelpCircle, Mail, Phone, Clock } from 'lucide-react';
 
 const FAQPage = () => {
   
@@ -221,8 +221,10 @@ const FAQPage = () => {
               Live Chat
             </motion.button>
           </div>
-          <p className="text-gray-400 text-sm mt-6">
-            📧 support@opticglass.com | 📞 +33 1 23 45 67 89 | ⏰ Mon-Sun 9am-8pm
+          <p className="text-gray-400 text-sm mt-6 flex items-center justify-center gap-4 flex-wrap">
+            <span className="flex items-center gap-1"><Mail size={14} /> support@opticglass.com</span>
+            <span className="flex items-center gap-1"><Phone size={14} /> +33 1 23 45 67 89</span>
+            <span className="flex items-center gap-1"><Clock size={14} /> Mon-Sun 9am-8pm</span>
           </p>
         </motion.div>
       </div>

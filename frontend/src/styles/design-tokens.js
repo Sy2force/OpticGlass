@@ -1,9 +1,9 @@
-// Design Tokens - Optic Glass Luxury E-commerce
-// Apple-inspired luxury design system
+// Design Tokens - Optic Glass Premium E-commerce
+// Apple-inspired premium design system
 
 export const colors = {
-  // Primary Luxury Palette
-  luxury: {
+  // Primary Premium Palette
+  premium: {
     gold: '#c9a227',
     goldLight: '#d4af37',
     goldDark: '#b8941f',
@@ -28,15 +28,15 @@ export const colors = {
   
   // Brand Colors (for product cards)
   brands: {
-    rayban: { from: '#FCD34D', to: '#FDE68A' },
-    gucci: { from: '#FCA5A5', to: '#FECACA' },
-    prada: { from: '#E5E7EB', to: '#F3F4F6' },
-    tomford: { from: '#FDE047', to: '#FEF08A' },
-    dior: { from: '#FBCFE8', to: '#FCE7F3' },
-    oakley: { from: '#BFDBFE', to: '#DBEAFE' },
-    versace: { from: '#FEF3C7', to: '#FEF9C3' },
-    carrera: { from: '#FED7AA', to: '#FFEDD5' },
-    persol: { from: '#FED7AA', to: '#FFEDD5' },
+    solera: { from: '#FCD34D', to: '#FDE68A' },
+    aurelia: { from: '#FCA5A5', to: '#FECACA' },
+    vespera: { from: '#E5E7EB', to: '#F3F4F6' },
+    equinox: { from: '#FDE047', to: '#FEF08A' },
+    lumina: { from: '#FBCFE8', to: '#FCE7F3' },
+    zenith: { from: '#BFDBFE', to: '#DBEAFE' },
+    orion: { from: '#FEF3C7', to: '#FEF9C3' },
+    apex: { from: '#FED7AA', to: '#FFEDD5' },
+    artis: { from: '#FED7AA', to: '#FFEDD5' },
   },
   
   // Status Colors
@@ -153,9 +153,9 @@ export const zIndex = {
 export const components = {
   button: {
     primary: {
-      bg: `linear-gradient(to right, ${colors.luxury.gold}, ${colors.luxury.goldLight})`,
+      bg: `linear-gradient(to right, ${colors.premium.gold}, ${colors.premium.goldLight})`,
       text: colors.neutral.black,
-      hover: colors.luxury.goldLight,
+      hover: colors.premium.goldLight,
     },
     secondary: {
       bg: colors.neutral.black,
@@ -163,9 +163,9 @@ export const components = {
       hover: colors.neutral.charcoal,
     },
     outline: {
-      border: colors.luxury.gold,
-      text: colors.luxury.gold,
-      hover: colors.luxury.gold,
+      border: colors.premium.gold,
+      text: colors.premium.gold,
+      hover: colors.premium.gold,
     },
   },
   
@@ -174,13 +174,13 @@ export const components = {
     border: '#E5E7EB',
     shadow: shadows.md,
     hoverShadow: shadows.xl,
-    hoverBorder: colors.luxury.gold,
+    hoverBorder: colors.premium.gold,
   },
   
   input: {
     bg: colors.neutral.white,
     border: '#D1D5DB',
-    focus: colors.luxury.gold,
+    focus: colors.premium.gold,
     text: colors.neutral.black,
   },
   
@@ -188,7 +188,7 @@ export const components = {
     bg: `${colors.neutral.black}95`,
     glassBg: `${colors.neutral.black}40`,
     text: colors.neutral.white,
-    activeText: colors.luxury.gold,
+    activeText: colors.premium.gold,
   },
 };
 

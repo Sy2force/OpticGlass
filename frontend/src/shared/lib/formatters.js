@@ -42,7 +42,7 @@ export const formatDate = (date, options = {}) => {
     ...options,
   };
 
-  return new Date(date).toLocaleDateString('fr-FR', defaultOptions);
+  return new Date(date).toLocaleDateString('en-US', defaultOptions);
 };
 
 /**
@@ -50,7 +50,7 @@ export const formatDate = (date, options = {}) => {
  */
 export const formatDateShort = (date) => {
   if (!date) return '';
-  return new Date(date).toLocaleDateString('fr-FR');
+  return new Date(date).toLocaleDateString('en-US');
 };
 
 /**
@@ -70,13 +70,13 @@ export const formatRelativeDate = (date) => {
   const diffMonths = Math.floor(diffDays / 30);
   const diffYears = Math.floor(diffDays / 365);
 
-  if (diffSecs < 60) return "À l'instant";
-  if (diffMins < 60) return `Il y a ${diffMins} minute${diffMins > 1 ? 's' : ''}`;
-  if (diffHours < 24) return `Il y a ${diffHours} heure${diffHours > 1 ? 's' : ''}`;
-  if (diffDays < 7) return `Il y a ${diffDays} jour${diffDays > 1 ? 's' : ''}`;
-  if (diffWeeks < 4) return `Il y a ${diffWeeks} semaine${diffWeeks > 1 ? 's' : ''}`;
-  if (diffMonths < 12) return `Il y a ${diffMonths} mois`;
-  return `Il y a ${diffYears} an${diffYears > 1 ? 's' : ''}`;
+  if (diffSecs < 60) return 'Just now';
+  if (diffMins < 60) return `${diffMins} minute${diffMins > 1 ? 's' : ''} ago`;
+  if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+  if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+  if (diffWeeks < 4) return `${diffWeeks} week${diffWeeks > 1 ? 's' : ''} ago`;
+  if (diffMonths < 12) return `${diffMonths} month${diffMonths > 1 ? 's' : ''} ago`;
+  return `${diffYears} year${diffYears > 1 ? 's' : ''} ago`;
 };
 
 /**
@@ -84,7 +84,7 @@ export const formatRelativeDate = (date) => {
  */
 export const formatTime = (date) => {
   if (!date) return '';
-  return new Date(date).toLocaleTimeString('fr-FR', {
+  return new Date(date).toLocaleTimeString('en-US', {
     hour: '2-digit',
     minute: '2-digit',
   });

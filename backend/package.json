@@ -1,7 +1,7 @@
 {
   "name": "optic-glass-backend",
   "version": "1.0.0",
-  "description": "Backend API pour Optic Glass - E-commerce de lunettes de luxe",
+  "description": "Backend API pour Optic Glass - E-commerce de lunettes premium",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
   "keywords": [
     "ecommerce",
     "glasses",
-    "luxury",
+    "premium",
     "api"
   ],
   "author": "Optic Glass",

@@ -4,26 +4,26 @@ import { ChevronRight } from 'lucide-react';
 import brands from '@/shared/data/brands';
 
 const BrandSlider = () => {
-  // Filter les brands avec logo
+  // Filter brands with logo
   const brandsWithLogo = brands.filter(b => b.logo);
   
-  // Diviser en deux rangées
+  // Split into two rows
   const halfLength = Math.ceil(brandsWithLogo.length / 2);
   const firstRow = brandsWithLogo.slice(0, halfLength);
   const secondRow = brandsWithLogo.slice(halfLength);
   
-  // Dupliquer pour défilement infini fluide
+  // Duplicate for smooth infinite scroll
   const duplicatedFirstRow = [...firstRow, ...firstRow, ...firstRow];
   const duplicatedSecondRow = [...secondRow, ...secondRow, ...secondRow];
 
   return (
     <section className="relative w-full overflow-hidden py-20 bg-[#0a0a0a]">
-      {/* Lignes décoratives */}
+      {/* Decorative lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a227]/20 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c9a227]/20 to-transparent" />
 
       <div className="relative z-10">
-        {/* Header Luxury */}
+        {/* Header Premium */}
         <div className="max-w-7xl mx-auto px-4 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -33,22 +33,22 @@ const BrandSlider = () => {
           >
             <span className="inline-flex items-center gap-3 text-[#c9a227] text-xs tracking-[0.3em] uppercase mb-6">
               <span className="w-12 h-px bg-[#c9a227]" />
-              Partners d'Excellence
+              Partners of Excellence
               <span className="w-12 h-px bg-[#c9a227]" />
             </span>
             
             <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
-              Nos <span className="bg-gradient-to-r from-[#c9a227] to-[#d4af37] bg-clip-text text-transparent">Maisons</span>
+              Our <span className="bg-gradient-to-r from-[#c9a227] to-[#d4af37] bg-clip-text text-transparent">Houses</span>
             </h2>
             <p className="text-white/40 text-lg font-light">
-              {brands.length} maisons prestigieuses
+              {brands.length} prestigious houses
             </p>
           </motion.div>
         </div>
 
-        {/* Logo Slider - Deux rangées */}
+        {/* Logo Slider - Two rows */}
         <div className="space-y-8">
-          {/* Première rangée - vers la gauche */}
+          {/* First row - to the left */}
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
@@ -70,7 +70,7 @@ const BrandSlider = () => {
             </div>
           </div>
 
-          {/* Deuxième rangée */}
+          {/* Second row */}
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
@@ -93,7 +93,7 @@ const BrandSlider = () => {
           </div>
         </div>
 
-        {/* CTA Luxury */}
+        {/* CTA Premium */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -104,7 +104,7 @@ const BrandSlider = () => {
             to="/brands"
             className="inline-flex items-center gap-3 px-10 py-4 border border-[#c9a227] text-[#c9a227] text-xs tracking-[0.15em] uppercase hover:bg-[#c9a227] hover:text-black transition-all duration-500"
           >
-            Découvrir nos Maisons
+            Discover our Houses
             <ChevronRight size={16} />
           </Link>
         </motion.div>

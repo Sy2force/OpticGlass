@@ -13,29 +13,29 @@ const SeasonalCarousel = () => {
     {
       season: 'spring',
       image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80',
-      title: 'Collection Printemps 2026',
-      subtitle: 'Fraîcheur & Élégance',
+      title: 'Spring Collection 2026',
+      subtitle: 'Freshness & Elegance',
       color: '#FF6B9D',
     },
     {
       season: 'summer',
       image: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200&q=80',
-      title: 'Collection Été 2026',
-      subtitle: 'Soleil & Protection',
+      title: 'Summer Collection 2026',
+      subtitle: 'Sun & Protection',
       color: '#FFD700',
     },
     {
       season: 'autumn',
       image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80',
-      title: 'Collection Automne 2026',
-      subtitle: 'Chaleur & Sophistication',
+      title: 'Autumn Collection 2026',
+      subtitle: 'Warmth & Sophistication',
       color: '#D2691E',
     },
     {
       season: 'winter',
       image: 'https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80',
-      title: 'Collection Hiver 2026',
-      subtitle: 'Luxe & Raffinement',
+      title: 'Winter Collection 2026',
+      subtitle: 'Prestige & Refinement',
       color: '#4169E1',
     },
   ];
@@ -119,10 +119,10 @@ const SeasonalCarousel = () => {
                 className="flex gap-4"
               >
                 <button className="px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg">
-                  Découvrir
+                  Discover
                 </button>
                 <button className="px-8 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg">
-                  Voir la collection
+                  View Collection
                 </button>
               </motion.div>
             </motion.div>

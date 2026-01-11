@@ -12,20 +12,20 @@ const MessageBox = () => {
   useEffect(() => {
     if (isAuthenticated) {
       loadMessages();
-      // Écouter les nouveaux messages du chat
+      // Listen for new chat messages
       window.addEventListener('newChatMessage', handleNewMessage);
       return () => window.removeEventListener('newChatMessage', handleNewMessage);
     }
   }, [isAuthenticated]);
 
   const loadMessages = () => {
-    // Charger les messages depuis localStorage
+    // Load messages from localStorage
     try {
       const savedMessages = JSON.parse(localStorage.getItem(`messages_${user?.email}`) || '[]');
       setMessages(savedMessages);
       setUnreadCount(savedMessages.filter(m => !m.read).length);
     } catch (e) {
-      console.error('Erreur chargement messages:', e);
+      console.error('Error loading messages:', e);
       setMessages([]);
       setUnreadCount(0);
     }
@@ -35,8 +35,8 @@ const MessageBox = () => {
     const newMessage = {
       id: Date.now(),
       type: 'chat',
-      subject: 'Nouveau message du support',
-      content: event.detail.message || 'Vous avez reçu une réponse à votre demande',
+      subject: 'New message from support',
+      content: event.detail.message || 'You received a response to your request',
       timestamp: new Date().toISOString(),
       read: false,
       from: 'Support Optic Glass',
@@ -72,10 +72,10 @@ const MessageBox = () => {
     const hours = Math.floor(diff / 3600000);
     const days = Math.floor(diff / 86400000);
 
-    if (minutes < 1) return 'À l\'instant';
-    if (minutes < 60) return `Il y a ${minutes} min`;
-    if (hours < 24) return `Il y a ${hours}h`;
-    return `Il y a ${days}j`;
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes} min ago`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${days}d ago`;
   };
 
   if (!isAuthenticated) return null;
@@ -99,7 +99,7 @@ const MessageBox = () => {
         )}
       </button>
 
-      {/* Boîte de messagerie */}
+      {/* Message box */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -127,7 +127,7 @@ const MessageBox = () => {
                   <div>
                     <h3 className="font-bold text-lg">Messages</h3>
                     <p className="text-xs opacity-80">
-                      {unreadCount} non lu{unreadCount > 1 ? 's' : ''}
+                      {unreadCount} unread
                     </p>
                   </div>
                 </div>
@@ -144,9 +144,9 @@ const MessageBox = () => {
                 {messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-gray-400 p-8">
                     <Mail size={48} className="mb-4 opacity-50" />
-                    <p className="text-center">Aucun message pour le moment</p>
+                    <p className="text-center">No messages yet</p>
                     <p className="text-sm text-center mt-2">
-                      Les réponses du support apparaîtront ici
+                      Support responses will appear here
                     </p>
                   </div>
                 ) : (
@@ -202,7 +202,7 @@ const MessageBox = () => {
                                 }}
                                 className="text-xs text-red-500 hover:text-red-700 transition"
                               >
-                                Supprimer
+                                Delete
                               </button>
                             </div>
                           </div>
@@ -225,7 +225,7 @@ const MessageBox = () => {
                   className="w-full py-2 text-sm text-[#c9a227] hover:text-[#d4af37] font-medium transition"
                   disabled={unreadCount === 0}
                 >
-                  Tout marquer comme lu
+                  Mark all as read
                 </button>
               </div>
             </motion.div>

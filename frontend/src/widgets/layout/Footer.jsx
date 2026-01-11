@@ -89,9 +89,14 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-white/5 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-white/30 text-xs tracking-wide">
-              © 2026 Optic Glass. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-white/30 text-xs tracking-wide mb-2">
+                © 2026 Optic Glass. All rights reserved.
+              </p>
+              <p className="text-white/20 text-[10px] max-w-md">
+                This is an independent platform. All product names are fictional and visuals are generated without use of registered trademarks or logos. Demo project.
+              </p>
+            </div>
             <div className="flex gap-8 text-xs">
               <a href="#" className="text-white/30 hover:text-[#c9a227] transition-colors tracking-wide">Terms & Conditions</a>
               <a href="#" className="text-white/30 hover:text-[#c9a227] transition-colors tracking-wide">Privacy Policy</a>

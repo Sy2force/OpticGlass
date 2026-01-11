@@ -9,7 +9,7 @@ export const PRODUCT_CATEGORIES = {
   SOLEIL: 'soleil',
   SPORT: 'sport',
   VINTAGE: 'vintage',
-  LUXE: 'luxe',
+  PREMIUM: 'premium',
 };
 
 export const CATEGORY_LABELS = {
@@ -17,7 +17,7 @@ export const CATEGORY_LABELS = {
   soleil: 'Lunettes de soleil',
   sport: 'Sport',
   vintage: 'Vintage',
-  luxe: 'Collection Luxe',
+  premium: 'Collection Premium',
 };
 
 // Genres
@@ -44,7 +44,7 @@ export const FRAME_SHAPES = {
   AVIATEUR: 'aviateur',
   PAPILLON: 'papillon',
   CAT_EYE: 'cat-eye',
-  WAYFARER: 'wayfarer',
+  WAYFARER: 'classic-square',
 };
 
 export const FRAME_SHAPE_LABELS = {
@@ -55,7 +55,7 @@ export const FRAME_SHAPE_LABELS = {
   aviateur: 'Aviateur',
   papillon: 'Papillon',
   'cat-eye': 'Cat Eye',
-  wayfarer: 'Wayfarer',
+  'classic-square': 'Classic Square',
 };
 
 // Matériaux
@@ -132,10 +132,10 @@ export const SEASONS = {
 };
 
 export const SEASON_LABELS = {
-  spring: 'Printemps',
-  summer: 'Été',
-  autumn: 'Automne',
-  winter: 'Hiver',
+  spring: 'Spring',
+  summer: 'Summer',
+  autumn: 'Autumn',
+  winter: 'Winter',
 };
 
 export const SEASON_COLORS = {
@@ -158,16 +158,19 @@ export const SEASON_COLORS = {
     primary: '#4169E1',
     secondary: '#E0E0E0',
     accent: '#1E90FF',
+    title: 'Winter Offer',
+    message: '-25% on the premium collection',
+    code: 'WINTER25',
   },
 };
 
 // Price
 export const PRICE_RANGES = [
-  { id: '0-500', label: 'Moins de 500 ₪', min: 0, max: 500 },
+  { id: '0-500', label: 'Under 500 ₪', min: 0, max: 500 },
   { id: '500-1000', label: '500 - 1000 ₪', min: 500, max: 1000 },
   { id: '1000-2000', label: '1000 - 2000 ₪', min: 1000, max: 2000 },
   { id: '2000-5000', label: '2000 - 5000 ₪', min: 2000, max: 5000 },
-  { id: '5000+', label: 'Plus de 5000 ₪', min: 5000, max: Infinity },
+  { id: '5000+', label: 'Over 5000 ₪', min: 5000, max: Infinity },
 ];
 
 // Pagination
@@ -176,43 +179,43 @@ export const PAGE_SIZE_OPTIONS = [12, 24, 48];
 
 // Tri
 export const SORT_OPTIONS = [
-  { id: 'newest', label: 'Nouveautés' },
-  { id: 'price-asc', label: 'Prix croissant' },
-  { id: 'price-desc', label: 'Prix décroissant' },
-  { id: 'name-asc', label: 'Nom A-Z' },
-  { id: 'name-desc', label: 'Nom Z-A' },
-  { id: 'popular', label: 'Populaires' },
+  { id: 'newest', label: 'New Arrivals' },
+  { id: 'price-asc', label: 'Price: Low to High' },
+  { id: 'price-desc', label: 'Price: High to Low' },
+  { id: 'name-asc', label: 'Name A-Z' },
+  { id: 'name-desc', label: 'Name Z-A' },
+  { id: 'popular', label: 'Popular' },
 ];
 
 // Messages
 export const MESSAGES = {
   AUTH: {
-    LOGIN_SUCCESS: 'Connexion réussie !',
-    LOGIN_ERROR: 'Email ou mot de passe incorrect',
-    REGISTER_SUCCESS: 'Inscription réussie !',
-    REGISTER_ERROR: "Erreur lors de l'inscription",
-    LOGOUT_SUCCESS: 'Déconnexion réussie',
-    SESSION_EXPIRED: 'Session expirée. Veuillez vous reconnecter.',
+    LOGIN_SUCCESS: 'Login successful!',
+    LOGIN_ERROR: 'Invalid email or password',
+    REGISTER_SUCCESS: 'Registration successful!',
+    REGISTER_ERROR: 'Error during registration',
+    LOGOUT_SUCCESS: 'Logout successful',
+    SESSION_EXPIRED: 'Session expired. Please log in again.',
   },
   CART: {
-    ADDED: 'Produit ajouté au panier',
-    REMOVED: 'Produit retiré du panier',
-    UPDATED: 'Panier mis à jour',
-    EMPTY: 'Votre panier est vide',
+    ADDED: 'Product added to cart',
+    REMOVED: 'Product removed from cart',
+    UPDATED: 'Cart updated',
+    EMPTY: 'Your cart is empty',
   },
   FAVORITES: {
-    ADDED: 'Ajouté aux favoris',
-    REMOVED: 'Retiré des favoris',
-    EMPTY: "Vous n'avez pas encore de favoris",
+    ADDED: 'Added to favorites',
+    REMOVED: 'Removed from favorites',
+    EMPTY: 'You have no favorites yet',
   },
   ORDER: {
-    SUCCESS: 'Commande passée avec succès !',
-    ERROR: 'Erreur lors de la commande',
+    SUCCESS: 'Order placed successfully!',
+    ERROR: 'Error placing order',
   },
   ERROR: {
-    GENERIC: 'Une erreur est survenue. Veuillez réessayer.',
-    NETWORK: 'Erreur de connexion. Vérifiez votre connexion internet.',
-    SERVER: 'Erreur serveur. Veuillez réessayer plus tard.',
+    GENERIC: 'An error occurred. Please try again.',
+    NETWORK: 'Connection error. Check your internet connection.',
+    SERVER: 'Server error. Please try again later.',
   },
 };
 

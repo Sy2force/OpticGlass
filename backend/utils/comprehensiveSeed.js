@@ -5,7 +5,7 @@ import User from '../models/User.js';
 import Recommendation from '../models/Recommendation.js';
 import Brand from '../models/Brand.js';
 import { brandsData } from '../data/brandsData.js';
-import { allProducts } from '../data/products/index.js';
+import { products as allProducts } from '../data/products.js';
 
 dotenv.config();
 
@@ -29,17 +29,17 @@ const recommendationsData = [
     isActive: true
   },
   {
-    title: 'Nouveautés de la Semaine : Tom Ford & Gucci',
-    description: 'Les dernières collections des maisons de luxe viennent d\'arriver. Découvrez les modèles exclusifs Tom Ford et Gucci disponibles dès maintenant.',
+    title: 'Nouveautés de la Semaine : Aurélia & Soléra',
+    description: 'Les dernières collections des maisons de prestige viennent d\'arriver. Découvrez les modèles exclusifs Aurélia et Soléra disponibles dès maintenant.',
     category: 'nouveauté',
     imageUrl: '/images/recommendations/new-arrivals.jpg',
-    tags: ['nouveauté', 'tom ford', 'gucci', 'luxe'],
+    tags: ['nouveauté', 'aurélia', 'soléra', 'premium'],
     priority: 10,
     isActive: true
   },
   {
     title: 'Aviateurs : Le Grand Retour d\'un Classique',
-    description: 'Les lunettes aviateur reviennent en force avec des designs modernisés. Ray-Ban, Persol et Tom Ford revisitent ce grand classique.',
+    description: 'Les lunettes aviateur reviennent en force avec des designs modernisés. Soléra, Artis et Equinox revisitent ce grand classique.',
     category: 'tendance',
     imageUrl: '/images/recommendations/aviators-trend.jpg',
     tags: ['aviateur', 'classique', 'tendance', 'intemporel'],
@@ -47,29 +47,29 @@ const recommendationsData = [
     isActive: true
   },
   {
-    title: 'Sport & Style : Les Meilleures Lunettes Oakley',
-    description: 'Performance et esthétique ne font qu\'un avec la nouvelle collection Oakley. Technologie Prizm et designs audacieux pour les sportifs exigeants.',
+    title: 'Sport & Style : Les Meilleures Lunettes Zenith',
+    description: 'Performance et esthétique ne font qu\'un avec la nouvelle collection Zenith. Technologie de pointe et designs audacieux pour les sportifs exigeants.',
     category: 'tendance',
     imageUrl: '/images/recommendations/oakley-sport.jpg',
-    tags: ['sport', 'oakley', 'performance', 'prizm'],
+    tags: ['sport', 'zenith', 'performance', 'tech'],
     priority: 7,
     isActive: true
   },
   {
     title: 'Lunettes Vintage : L\'Élégance Rétro',
-    description: 'Le vintage est plus que jamais d\'actualité. Persol, Ray-Ban Clubmaster et modèles ronds : voyagez dans le temps avec style.',
+    description: 'Le vintage est plus que jamais d\'actualité. Artis, Soléra Browline et modèles ronds : voyagez dans le temps avec style.',
     category: 'style',
     imageUrl: '/images/recommendations/vintage-style.jpg',
-    tags: ['vintage', 'rétro', 'persol', 'années 60'],
+    tags: ['vintage', 'rétro', 'artis', 'années 60'],
     priority: 6,
     isActive: true
   },
   {
-    title: 'Luxe Italien : Prada, Gucci & Versace',
+    title: 'Élégance Italienne : Vespera, Aurélia & Romano',
     description: 'L\'excellence italienne à l\'honneur. Découvrez les créations des plus grandes maisons milanaises et romaines.',
     category: 'tendance',
     imageUrl: '/images/recommendations/italian-luxury.jpg',
-    tags: ['luxe', 'italien', 'prada', 'gucci', 'versace'],
+    tags: ['premium', 'italien', 'vespera', 'aurélia', 'romano'],
     priority: 9,
     isActive: true
   },
@@ -92,11 +92,11 @@ const recommendationsData = [
     isActive: true
   },
   {
-    title: 'Chanel & Dior : L\'Élégance Parisienne',
+    title: 'Céleste & Lumina : L\'Élégance Parisienne',
     description: 'Le chic à la française incarné par les deux plus grandes maisons parisiennes. Découvrez leurs dernières créations haute couture.',
     category: 'tendance',
     imageUrl: '/images/recommendations/french-elegance.jpg',
-    tags: ['chanel', 'dior', 'paris', 'haute couture'],
+    tags: ['céleste', 'lumina', 'paris', 'haute couture'],
     priority: 9,
     isActive: true
   }

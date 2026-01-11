@@ -36,8 +36,8 @@ const RecommendationsPage = () => {
     fetchRecommendations();
   }, [selectedCategory]);
 
-  // Mock data for recommendations
-  const mockRecommendations = [
+  // Sample recommendations data
+  const sampleRecommendations = [
     {
       _id: '1',
       title: 'Oversize glasses dominate 2024',
@@ -60,11 +60,11 @@ const RecommendationsPage = () => {
     },
     {
       _id: '3',
-      title: 'New: Ray-Ban Stories 2024',
-      description: 'The new Ray-Ban smart glasses arrive with revolutionary features. Discover our full review.',
+      title: 'New: Lumina Stories 2026',
+      description: 'The new Lumina smart glasses arrive with revolutionary features. Discover our full review.',
       category: 'news',
       imageUrl: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600',
-      tags: ['ray-ban', 'connected', 'innovation'],
+      tags: ['lumina', 'connected', 'innovation'],
       priority: 8,
       isActive: true,
     },
@@ -90,11 +90,11 @@ const RecommendationsPage = () => {
     },
     {
       _id: '6',
-      title: 'Gucci x Optic Glass: exclusive collection',
-      description: 'Exclusively at Optic Glass, discover the new Gucci collection with unique and refined models.',
+      title: 'Elyria x Optic Glass: exclusive collection',
+      description: 'Exclusively at Optic Glass, discover the new Elyria collection with unique and refined models.',
       category: 'news',
       imageUrl: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=600',
-      tags: ['gucci', 'exclusive', 'luxury'],
+      tags: ['elyria', 'exclusive', 'premium'],
       priority: 5,
       isActive: true,
     },
@@ -111,18 +111,18 @@ const RecommendationsPage = () => {
       if (response.data.data && response.data.data.length > 0) {
         setRecommendations(response.data.data);
       } else {
-        // Utiliser les données mock
+        // Use sample data
         const filtered = selectedCategory === 'all' 
-          ? mockRecommendations 
-          : mockRecommendations.filter(r => r.category === selectedCategory);
+          ? sampleRecommendations 
+          : sampleRecommendations.filter(r => r.category === selectedCategory);
         setRecommendations(filtered);
       }
     } catch (error) {
-      console.error('Erreur lors du chargement des recommandations:', error);
-      // Utiliser les données mock en cas d'erreur
+      console.error('Error loading recommendations:', error);
+      // Use sample data on error
       const filtered = selectedCategory === 'all' 
-        ? mockRecommendations 
-        : mockRecommendations.filter(r => r.category === selectedCategory);
+        ? sampleRecommendations 
+        : sampleRecommendations.filter(r => r.category === selectedCategory);
       setRecommendations(filtered);
     } finally {
       setLoading(false);

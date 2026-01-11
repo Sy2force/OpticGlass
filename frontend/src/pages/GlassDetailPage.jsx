@@ -109,9 +109,28 @@ const GlassDetailPage = () => {
   };
 
   const handleAddToCart = () => {
-    // Implement cart logic here
-    console.log('Added to cart:', { product, quantity, selectedColor });
-    // In a real app, this would dispatch to a context or Redux store
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingIndex = cart.findIndex(item => item.productId === product._id && item.color === selectedColor);
+    
+    if (existingIndex >= 0) {
+      cart[existingIndex].quantity += quantity;
+    } else {
+      cart.push({
+        productId: product._id,
+        name: product.name,
+        brand: product.brand,
+        price: product.price,
+        image: product.images?.[0] || '',
+        quantity: quantity,
+        color: selectedColor || product.colors?.[0] || '',
+      });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    window.dispatchEvent(new Event('cartUpdated'));
+    
+    // Visual feedback
+    alert(`${product.name} added to cart!`);
   };
 
   // 4. Conditional Rendering

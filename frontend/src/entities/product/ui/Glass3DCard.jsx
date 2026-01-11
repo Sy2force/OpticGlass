@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { Heart, ShoppingCart, Eye, Check } from 'lucide-react';
+import { Heart, ShoppingCart, Eye, Check, Sun } from 'lucide-react';
 import { useState } from 'react';
 
 const Glass3DCard = ({ product, onAddToFavorites, isFavorite }) => {
@@ -61,40 +61,44 @@ const Glass3DCard = ({ product, onAddToFavorites, isFavorite }) => {
       <Link to={`/glasses/${product._id}`}>
         <div className="relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-[#c9a227]">
           {/* Image Container */}
-          <div className="relative aspect-square overflow-hidden bg-white">
+          <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100">
             {/* Image or Fallback */}
-            {product.images && product.images.length > 0 ? (
+            {!imageError && product.images && product.images.length > 0 ? (
                <img 
                  src={product.images[0]} 
                  alt={product.name}
-                 className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 onError={() => setImageError(true)}
+                 onLoad={() => setImageError(false)}
                />
-            ) : product.image ? (
+            ) : !imageError && product.image ? (
                 <img 
                  src={product.image} 
                  alt={product.name}
-                 className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 onError={() => setImageError(true)}
+                 onLoad={() => setImageError(false)}
                />
             ) : (
                 <>
                 {/* Gradient background based on brand as fallback */}
                 <div className={`absolute inset-0 ${
-                product.brand === 'Ray-Ban' ? 'bg-gradient-to-br from-amber-100 to-yellow-200' :
-                product.brand === 'Gucci' ? 'bg-gradient-to-br from-red-100 to-pink-200' :
-                product.brand === 'Prada' ? 'bg-gradient-to-br from-gray-100 to-slate-200' :
-                product.brand === 'Tom Ford' ? 'bg-gradient-to-br from-amber-200 to-orange-200' :
-                product.brand === 'Dior' ? 'bg-gradient-to-br from-pink-100 to-rose-200' :
-                product.brand === 'Oakley' ? 'bg-gradient-to-br from-blue-100 to-cyan-200' :
-                product.brand === 'Versace' ? 'bg-gradient-to-br from-yellow-100 to-amber-200' :
-                product.brand === 'Carrera' ? 'bg-gradient-to-br from-red-100 to-orange-200' :
-                product.brand === 'Persol' ? 'bg-gradient-to-br from-orange-100 to-amber-200' :
+                product.brand === 'Soléra' ? 'bg-gradient-to-br from-amber-100 to-yellow-200' :
+                product.brand === 'Aurélia' ? 'bg-gradient-to-br from-red-100 to-pink-200' :
+                product.brand === 'Vespera' ? 'bg-gradient-to-br from-gray-100 to-slate-200' :
+                product.brand === 'Equinox' ? 'bg-gradient-to-br from-amber-200 to-orange-200' :
+                product.brand === 'Lumina' ? 'bg-gradient-to-br from-pink-100 to-rose-200' :
+                product.brand === 'Zenith' ? 'bg-gradient-to-br from-blue-100 to-cyan-200' :
+                product.brand === 'Orion' ? 'bg-gradient-to-br from-yellow-100 to-amber-200' :
+                product.brand === 'Apex' ? 'bg-gradient-to-br from-red-100 to-orange-200' :
+                product.brand === 'Artis' ? 'bg-gradient-to-br from-orange-100 to-amber-200' :
                 'bg-gradient-to-br from-gray-100 to-gray-200'
                 }`} />
                 
                 {/* Stylized glasses icon */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                <div className="text-7xl mb-3 opacity-80 group-hover:scale-110 transition-transform duration-500">
-                    🕶️
+                <div className="mb-3 opacity-80 group-hover:scale-110 transition-transform duration-500 p-4 bg-white/10 rounded-full">
+                    <Sun size={56} className="text-[#c9a227]" />
                 </div>
                 <div className="text-center">
                     <p className="text-sm font-bold text-gray-700 mb-1">{product.brand}</p>

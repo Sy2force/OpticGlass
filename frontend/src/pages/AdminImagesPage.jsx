@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { products as localProducts } from '../shared/data/products'; // Fallback
-import { Upload, Check, Image as ImageIcon, RefreshCw } from 'lucide-react';
+import { Upload, Check, Image as ImageIcon, RefreshCw, Camera } from 'lucide-react';
 import api from '@/shared/api/api';
 
 const AdminImagesPage = () => {
@@ -82,7 +82,7 @@ const AdminImagesPage = () => {
     } catch (error) {
       console.error('Upload error:', error);
       setUploadStatus(prev => ({ ...prev, [product._id]: 'error' }));
-      alert('❌ Erreur lors de l\'upload: ' + (error.response?.data?.message || error.message));
+      alert('Upload error: ' + (error.response?.data?.message || error.message));
     }
   };
 
@@ -103,19 +103,19 @@ const AdminImagesPage = () => {
       {/* Header */}
       <div className="bg-[#111] border border-white/10 rounded-xl p-6 mb-6">
         <div className="flex justify-between items-center mb-2">
-          <h1 className="text-3xl font-bold text-white">
-            📸 Gestion des Images Produits
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+            <Camera size={28} className="text-[#c9a227]" /> Product Images Management
           </h1>
           <button 
             onClick={fetchProducts}
             className="p-2 bg-white/5 rounded-lg hover:bg-white/10 text-white transition-colors"
-            title="Rafraîchir la liste"
+            title="Refresh list"
           >
             <RefreshCw size={20} />
           </button>
         </div>
         <p className="text-white/60">
-          Uploadez les images manquantes pour vos produits. Les images sont stockées sur le serveur.
+          Upload missing images for your products. Images are stored on the server.
         </p>
         
         {/* Stats */}
@@ -123,7 +123,7 @@ const AdminImagesPage = () => {
           <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-green-400 font-medium">Avec Images</p>
+                <p className="text-sm text-green-400 font-medium">With Images</p>
                 <p className="text-2xl font-bold text-green-500">
                   {products.length - productsNeedingImages.length}
                 </p>
@@ -135,7 +135,7 @@ const AdminImagesPage = () => {
           <div className="bg-orange-500/10 border border-orange-500/20 rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-orange-400 font-medium">Sans Images</p>
+                <p className="text-sm text-orange-400 font-medium">Without Images</p>
                 <p className="text-2xl font-bold text-orange-500">
                   {productsNeedingImages.length}
                 </p>
@@ -147,7 +147,7 @@ const AdminImagesPage = () => {
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-blue-400 font-medium">Total Produits</p>
+                <p className="text-sm text-blue-400 font-medium">Total Products</p>
                 <p className="text-2xl font-bold text-blue-500">
                   {products.length}
                 </p>
@@ -162,7 +162,7 @@ const AdminImagesPage = () => {
       <div className="bg-[#111] border border-white/10 rounded-xl overflow-hidden">
         <div className="px-6 py-4 border-b border-white/10 bg-white/5">
           <h2 className="text-xl font-bold text-white">
-            Produits nécessitant une image ({productsNeedingImages.length})
+            Products needing images ({productsNeedingImages.length})
           </h2>
         </div>
         
@@ -170,10 +170,10 @@ const AdminImagesPage = () => {
           <div className="p-12 text-center">
             <Check className="mx-auto mb-4 text-green-500" size={48} />
             <h3 className="text-xl font-bold text-white mb-2">
-              🎉 Toutes les images sont uploadées !
+              All images uploaded successfully!
             </h3>
             <p className="text-white/60">
-              Tous vos produits ont maintenant des images.
+              All your products now have images.
             </p>
           </div>
         ) : (

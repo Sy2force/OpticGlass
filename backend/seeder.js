@@ -26,28 +26,29 @@ const importData = async () => {
     await Product.deleteMany();
     await User.deleteMany();
 
-    const createdUsers = await User.insertMany([
-      {
-        firstName: 'Admin',
-        lastName: 'User',
-        email: 'shayaco@gmail.com',
-        password: 'Qwerty2121@', 
-        role: 'admin',
-      },
-      {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'user@example.com',
-        password: 'password123',
-        role: 'user',
-      },
-    ]);
+    // Create users one by one to trigger password hashing
+    const adminUser = await User.create({
+      firstName: 'Admin',
+      lastName: 'User',
+      email: 'admin@opticglass.com',
+      password: 'Admin123!', 
+      role: 'admin',
+    });
 
-    const adminUser = createdUsers[0]._id;
+    const regularUser = await User.create({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'user@example.com',
+      password: 'User123!',
+      role: 'user',
+    });
+
+    console.log('✅ Admin créé: admin@opticglass.com / Admin123!');
+    console.log('✅ User créé: user@example.com / User123!');
 
     // S'assurer que les produits ont l'utilisateur admin associé
     const sampleProducts = products.map((product) => {
-      return { ...product, user: adminUser };
+      return { ...product, user: adminUser._id };
     });
 
     await Product.insertMany(sampleProducts);

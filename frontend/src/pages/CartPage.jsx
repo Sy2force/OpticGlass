@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@/app/providers/ThemeContext';
 import { 
   Trash2, 
   Plus, 
@@ -11,20 +12,38 @@ import {
   CreditCard,
   Tag,
   ChevronRight,
-  Gift
+  Gift,
+  Heart,
+  RotateCcw,
+  Package,
+  Clock,
+  CheckCircle,
+  Glasses,
+  X,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 
 const CartPage = () => {
-  
+  const { isDarkMode } = useTheme();
   const [cart, setCart] = useState([]);
   const [promoCode, setPromoCode] = useState('');
   const [promoApplied, setPromoApplied] = useState(false);
   const [promoDiscount, setPromoDiscount] = useState(0);
+  const [promoError, setPromoError] = useState('');
+  const [showPromoSuccess, setShowPromoSuccess] = useState(false);
+  const [removingItem, setRemovingItem] = useState(null);
   const navigate = useNavigate();
+
+  const promoCodes = {
+    'optic10': { discount: 0.1, label: '10% off' },
+    'welcome20': { discount: 0.2, label: '20% off' },
+    'vip30': { discount: 0.3, label: '30% VIP discount' },
+    'freeship': { discount: 0, freeShipping: true, label: 'Free Express Shipping' }
+  };
 
   useEffect(() => {
     loadCart();
-    
     const handleCartUpdate = () => loadCart();
     window.addEventListener('cartUpdated', handleCartUpdate);
     return () => window.removeEventListener('cartUpdated', handleCartUpdate);
@@ -36,7 +55,7 @@ const CartPage = () => {
   };
 
   const updateQuantity = (index, newQuantity) => {
-    if (newQuantity < 1) return;
+    if (newQuantity < 1 || newQuantity > 10) return;
     const updatedCart = [...cart];
     updatedCart[index].quantity = newQuantity;
     setCart(updatedCart);
@@ -45,41 +64,61 @@ const CartPage = () => {
   };
 
   const removeItem = (index) => {
-    const updatedCart = cart.filter((_, i) => i !== index);
-    setCart(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    window.dispatchEvent(new Event('cartUpdated'));
+    setRemovingItem(index);
+    setTimeout(() => {
+      const updatedCart = cart.filter((_, i) => i !== index);
+      setCart(updatedCart);
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      window.dispatchEvent(new Event('cartUpdated'));
+      setRemovingItem(null);
+    }, 300);
+  };
+
+  const moveToWishlist = (index) => {
+    const item = cart[index];
+    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    if (!wishlist.find(w => w.productId === item.productId)) {
+      wishlist.push(item);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    }
+    removeItem(index);
   };
 
   const clearCart = () => {
-    setCart([]);
-    localStorage.setItem('cart', JSON.stringify([]));
-    window.dispatchEvent(new Event('cartUpdated'));
+    if (window.confirm('Are you sure you want to clear your cart?')) {
+      setCart([]);
+      localStorage.setItem('cart', JSON.stringify([]));
+      window.dispatchEvent(new Event('cartUpdated'));
+    }
   };
 
-  const getSubtotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
-
-  const getTotalItems = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
-  };
-
-  const getTotalPrice = () => {
-    const subtotal = getSubtotal();
-    return subtotal - promoDiscount;
-  };
+  const getSubtotal = () => cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  const getTotalItems = () => cart.reduce((total, item) => total + item.quantity, 0);
+  const getShipping = () => getSubtotal() >= 500 ? 0 : 25;
+  const getTax = () => Math.round(getSubtotal() * 0.17);
+  const getTotalPrice = () => getSubtotal() - promoDiscount + getShipping();
 
   const applySaleCode = () => {
-    if (promoCode.toLowerCase() === 'optic10') {
-      setPromoDiscount(Math.round(getSubtotal() * 0.1));
+    setPromoError('');
+    const code = promoCode.toLowerCase().trim();
+    
+    if (promoCodes[code]) {
+      const promo = promoCodes[code];
+      if (promo.discount > 0) {
+        setPromoDiscount(Math.round(getSubtotal() * promo.discount));
+      }
       setPromoApplied(true);
-    } else if (promoCode.toLowerCase() === 'welcome20') {
-      setPromoDiscount(Math.round(getSubtotal() * 0.2));
-      setPromoApplied(true);
+      setShowPromoSuccess(true);
+      setTimeout(() => setShowPromoSuccess(false), 3000);
     } else {
-      alert('Invalid promo code');
+      setPromoError('Invalid promo code. Try OPTIC10, WELCOME20 or VIP30');
     }
+  };
+
+  const removePromo = () => {
+    setPromoApplied(false);
+    setPromoDiscount(0);
+    setPromoCode('');
   };
 
   const handleCheckout = () => {
@@ -88,247 +127,458 @@ const CartPage = () => {
     }
   };
 
+  const getSavings = () => {
+    return cart.reduce((total, item) => {
+      const originalPrice = item.originalPrice || item.price;
+      return total + (originalPrice - item.price) * item.quantity;
+    }, 0) + promoDiscount;
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white py-12">
-        <div className="max-w-7xl mx-auto px-4">
+    <div className={`min-h-screen transition-colors duration-500 selection:bg-[#c9a227] selection:text-black ${
+      isDarkMode 
+        ? 'bg-[#0a0a0a] text-white' 
+        : 'bg-gradient-to-b from-stone-100 via-stone-50 to-stone-100 text-gray-900'
+    }`}>
+      {/* Hero Header - Style cohérent avec les autres pages */}
+      <div className="relative h-[40vh] overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30" />
+          <div className={`absolute inset-0 ${
+            isDarkMode 
+              ? 'bg-gradient-to-b from-black/40 via-black/60 to-[#0a0a0a]' 
+              : 'bg-gradient-to-b from-stone-800/60 via-stone-700/50 to-stone-100'
+          }`} />
+        </div>
+        
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center gap-4"
+            transition={{ duration: 0.8 }}
           >
-            <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
-              <ShoppingBag size={32} />
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#c9a227]" />
+              <span className="text-[#c9a227] uppercase tracking-[0.3em] text-xs font-medium">Your Selection</span>
+              <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#c9a227]" />
             </div>
-            <div>
-              <h1 className="text-4xl font-bold">'cart'</h1>
-              <p className="text-gray-400 mt-1">
-                {getTotalItems()} 'articles'
-              </p>
-            </div>
+            <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">
+              Shopping <span className="font-serif italic text-[#c9a227]">Cart</span>
+            </h1>
+            <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+              {cart.length === 0 
+                ? 'Your cart is waiting to be filled with premium eyewear'
+                : `${getTotalItems()} ${getTotalItems() === 1 ? 'item' : 'items'} ready for checkout`
+              }
+            </p>
+            {cart.length > 0 && (
+              <div className="mt-8 inline-flex items-center gap-4 px-6 py-3 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+                <span className="text-white/60">Total:</span>
+                <span className="text-2xl font-bold text-[#c9a227]">{getTotalPrice().toLocaleString()} ₪</span>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-6 pb-24">
         {cart.length === 0 ? (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl shadow-xl p-12 text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center py-20"
           >
-            <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <ShoppingBag size={40} className="text-gray-300" />
+            <div className={`w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-10 border ${
+              isDarkMode 
+                ? 'bg-gradient-to-br from-white/5 to-white/10 border-white/10' 
+                : 'bg-gradient-to-br from-amber-100 to-amber-200 border-amber-300'
+            }`}>
+              <ShoppingBag size={56} className={isDarkMode ? 'text-white/30' : 'text-amber-400'} />
             </div>
-            <h2 className="text-2xl font-bold mb-2">'cartEmpty'</h2>
-            <p className="text-gray-600 mb-8 max-w-md mx-auto">
-              'discoverCollectionText'
+            
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-4">
+              Your Cart is <span className="font-serif italic text-[#c9a227]">Empty</span>
+            </h2>
+            
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto my-6" />
+            
+            <p className={`mb-12 max-w-lg mx-auto text-lg font-light leading-relaxed ${isDarkMode ? 'text-white/50' : 'text-gray-600'}`}>
+              Discover our exclusive collection of premium eyewear crafted for those who appreciate refined elegance.
             </p>
-            <Link
-              to="/glasses"
-              className="inline-block px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition shadow-lg"
-            >
-              'discoverCollection'
-            </Link>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/glasses"
+                className="px-8 py-4 bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-black font-medium tracking-wider uppercase text-sm hover:shadow-[0_0_30px_rgba(201,162,39,0.4)] transition-all duration-300"
+              >
+                Explore Collection
+              </Link>
+              <Link
+                to="/sunglasses"
+                className={`px-8 py-4 border font-medium tracking-wider uppercase text-sm transition-all duration-300 ${
+                  isDarkMode 
+                    ? 'border-white/20 text-white hover:bg-white/5 hover:border-white/40' 
+                    : 'border-gray-300 text-gray-700 hover:bg-gray-100 hover:border-gray-400'
+                }`}
+              >
+                View Sunglasses
+              </Link>
+            </div>
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Liste des articles */}
-            <div className="lg:col-span-2 space-y-4">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-bold">'articles' ({getTotalItems()})</h2>
+            {/* Cart Items */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Header */}
+              <div className={`flex items-center justify-between pb-6 border-b ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                <div>
+                  <h2 className="text-2xl font-light tracking-tight">
+                    Your <span className="font-serif italic text-[#c9a227]">Items</span>
+                  </h2>
+                  <p className={`text-sm mt-1 ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{getTotalItems()} {getTotalItems() === 1 ? 'product' : 'products'} selected</p>
+                </div>
                 <button
                   onClick={clearCart}
-                  className="text-sm text-red-600 hover:text-red-700 transition"
+                  className={`text-sm hover:text-red-400 transition flex items-center gap-2 px-4 py-2 border rounded-lg hover:border-red-400/50 ${
+                    isDarkMode ? 'text-white/40 border-white/10' : 'text-gray-500 border-gray-200'
+                  }`}
                 >
-                  Vider le panier
+                  <Trash2 size={14} />
+                  Clear All
                 </button>
               </div>
 
-              {cart.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6"
-                >
-                  <Link to={`/glasses/${item.productId}`} className="flex-shrink-0">
-                    <div className="w-full sm:w-28 h-40 sm:h-28 bg-gradient-to-br from-gray-100 to-gray-50 rounded-xl overflow-hidden">
-                      {item.image ? (
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-4xl">👓</span>
-                        </div>
-                      )}
-                    </div>
-                  </Link>
-
-                  <div className="flex-1">
-                    <div className="flex justify-between">
-                      <div>
-                        <p className="text-sm text-gray-500 uppercase tracking-wide">{item.brand}</p>
-                        <Link to={`/glasses/${item.productId}`}>
-                          <h3 className="font-bold text-lg hover:text-amber-600 transition">{item.name}</h3>
-                        </Link>
-                        <div className="flex flex-wrap gap-2 mt-2">
-                          {item.color && (
-                            <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
-                              'color': {item.color}
-                            </span>
+              {/* Items List */}
+              <AnimatePresence>
+                {cart.map((item, index) => (
+                  <motion.div
+                    key={`${item.productId}-${index}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: removingItem === index ? 0 : 1, 
+                      y: 0,
+                      x: removingItem === index ? -100 : 0,
+                      scale: removingItem === index ? 0.9 : 1
+                    }}
+                    exit={{ opacity: 0, x: -100 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className={`rounded-2xl border overflow-hidden transition-all group ${
+                      isDarkMode 
+                        ? 'bg-gradient-to-br from-[#1a1a1a] to-[#111] border-white/10 hover:border-[#c9a227]/30' 
+                        : 'bg-white border-gray-200 hover:border-[#c9a227]/50 shadow-lg'
+                    }`}
+                  >
+                    <div className="p-6 flex flex-col md:flex-row gap-6">
+                      {/* Image */}
+                      <Link to={`/glasses/${item.productId}`} className="flex-shrink-0">
+                        <div className="w-full md:w-36 h-36 bg-white rounded-xl overflow-hidden relative group-hover:shadow-lg transition-shadow">
+                          {item.image ? (
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                              <Glasses size={48} className="text-gray-400" />
+                            </div>
                           )}
-                          {item.size && (
-                            <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
-                              'size': {item.size}
-                            </span>
-                          )}
-                          {item.lens && (
-                            <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
-                              Lens : {item.lens}
+                          {item.discount > 0 && (
+                            <span className="absolute top-2 left-2 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-lg">
+                              -{item.discount}%
                             </span>
                           )}
                         </div>
-                      </div>
-                      <button
-                        onClick={() => removeItem(index)}
-                        className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition h-fit"
-                      >
-                        <Trash2 size={18} />
-                      </button>
-                    </div>
+                      </Link>
 
-                    <div className="flex items-center justify-between mt-4">
-                      <div className="flex items-center gap-3 bg-gray-100 rounded-xl p-1">
-                        <button
-                          onClick={() => updateQuantity(index, item.quantity - 1)}
-                          className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm hover:bg-gray-50 transition"
-                        >
-                          <Minus size={14} />
-                        </button>
-                        <span className="w-8 text-center font-bold">{item.quantity}</span>
-                        <button
-                          onClick={() => updateQuantity(index, item.quantity + 1)}
-                          className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm hover:bg-gray-50 transition"
-                        >
-                          <Plus size={14} />
-                        </button>
-                      </div>
-                      <p className="text-xl font-bold">{item.price * item.quantity} ₪</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                      {/* Details */}
+                      <div className="flex-1 flex flex-col justify-between">
+                        <div>
+                          <div className="flex justify-between items-start">
+                            <div>
+                              <p className="text-[#c9a227] text-sm font-semibold uppercase tracking-wider">{item.brand}</p>
+                              <Link to={`/glasses/${item.productId}`}>
+                                <h3 className={`text-xl font-bold hover:text-[#c9a227] transition mt-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.name}</h3>
+                              </Link>
+                            </div>
+                            <div className="flex gap-2">
+                              <button
+                                onClick={() => moveToWishlist(index)}
+                                className={`p-2 hover:text-pink-400 hover:bg-pink-500/10 rounded-lg transition ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`}
+                                title="Move to Wishlist"
+                              >
+                                <Heart size={18} />
+                              </button>
+                              <button
+                                onClick={() => removeItem(index)}
+                                className={`p-2 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`}
+                                title="Remove"
+                              >
+                                <Trash2 size={18} />
+                              </button>
+                            </div>
+                          </div>
+                          
+                          {/* Attributes */}
+                          <div className="flex flex-wrap gap-2 mt-3">
+                            {item.color && (
+                              <span className={`text-xs px-3 py-1.5 rounded-full border ${
+                                isDarkMode ? 'bg-white/5 text-white/70 border-white/10' : 'bg-gray-100 text-gray-600 border-gray-200'
+                              }`}>
+                                Color: {item.color}
+                              </span>
+                            )}
+                            {item.size && (
+                              <span className={`text-xs px-3 py-1.5 rounded-full border ${
+                                isDarkMode ? 'bg-white/5 text-white/70 border-white/10' : 'bg-gray-100 text-gray-600 border-gray-200'
+                              }`}>
+                                Size: {item.size}
+                              </span>
+                            )}
+                            {item.category && (
+                              <span className="text-xs px-3 py-1.5 bg-[#c9a227]/10 text-[#c9a227] rounded-full border border-[#c9a227]/20">
+                                {item.category}
+                              </span>
+                            )}
+                          </div>
+                        </div>
 
-              {/* Avantages */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                <div className="bg-white rounded-xl p-4 text-center shadow">
-                  <Truck size={24} className="mx-auto mb-2 text-amber-500" />
-                  <p className="text-sm font-medium">'freeLivraison'</p>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-center shadow">
-                  <Shield size={24} className="mx-auto mb-2 text-amber-500" />
-                  <p className="text-sm font-medium">'warranty'</p>
-                </div>
-                <div className="bg-white rounded-xl p-4 text-center shadow">
-                  <CreditCard size={24} className="mx-auto mb-2 text-amber-500" />
-                  <p className="text-sm font-medium">'securePayment'</p>
-                </div>
+                        {/* Price & Quantity */}
+                        <div className={`flex items-center justify-between mt-4 pt-4 border-t ${isDarkMode ? 'border-white/5' : 'border-gray-100'}`}>
+                          <div className={`flex items-center gap-1 rounded-xl p-1 ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`}>
+                            <button
+                              onClick={() => updateQuantity(index, item.quantity - 1)}
+                              disabled={item.quantity <= 1}
+                              className={`w-10 h-10 flex items-center justify-center rounded-lg transition disabled:opacity-30 disabled:cursor-not-allowed ${
+                                isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white hover:bg-gray-50 shadow-sm'
+                              }`}
+                            >
+                              <Minus size={16} className={isDarkMode ? 'text-white' : 'text-gray-700'} />
+                            </button>
+                            <span className={`w-12 text-center font-bold text-lg ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{item.quantity}</span>
+                            <button
+                              onClick={() => updateQuantity(index, item.quantity + 1)}
+                              disabled={item.quantity >= 10}
+                              className={`w-10 h-10 flex items-center justify-center rounded-lg transition disabled:opacity-30 disabled:cursor-not-allowed ${
+                                isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white hover:bg-gray-50 shadow-sm'
+                              }`}
+                            >
+                              <Plus size={16} className={isDarkMode ? 'text-white' : 'text-gray-700'} />
+                            </button>
+                          </div>
+                          
+                          <div className="text-right">
+                            {item.originalPrice && item.originalPrice > item.price && (
+                              <p className={`text-sm line-through ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`}>{item.originalPrice * item.quantity} ₪</p>
+                            )}
+                            <p className={`text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{(item.price * item.quantity).toLocaleString()} ₪</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+
+              {/* Features */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                {[
+                  { icon: Truck, title: 'Free Shipping', desc: 'Orders over 500₪' },
+                  { icon: RotateCcw, title: '30-Day Returns', desc: 'Easy returns' },
+                  { icon: Shield, title: '2-Year Warranty', desc: 'Full coverage' },
+                  { icon: Package, title: 'Secure Packaging', desc: 'Premium box' },
+                ].map((feature, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className={`rounded-xl p-4 text-center border transition ${
+                      isDarkMode 
+                        ? 'bg-white/5 border-white/5 hover:border-[#c9a227]/20' 
+                        : 'bg-white border-gray-200 hover:border-[#c9a227]/50 shadow-sm'
+                    }`}
+                  >
+                    <feature.icon size={24} className="mx-auto mb-2 text-[#c9a227]" />
+                    <p className={`text-sm font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{feature.title}</p>
+                    <p className={`text-xs mt-1 ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>{feature.desc}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
 
-            {/* Summary */}
+            {/* Order Summary */}
             <div className="lg:col-span-1">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white rounded-2xl shadow-xl p-6 sticky top-24"
+                className={`rounded-2xl border p-6 sticky top-24 ${
+                  isDarkMode 
+                    ? 'bg-gradient-to-br from-[#1a1a1a] to-[#111] border-white/10' 
+                    : 'bg-white border-gray-200 shadow-xl'
+                }`}
               >
-                <h2 className="text-2xl font-bold mb-6">'orderSummary'</h2>
-
-                {/* Promo code */}
                 <div className="mb-6">
-                  <label className="text-sm font-medium text-gray-700 mb-2 block">
-                    'promoCode'
+                  <h2 className="text-2xl font-light tracking-tight">
+                    Order <span className="font-serif italic text-[#c9a227]">Summary</span>
+                  </h2>
+                  <div className="w-16 h-px bg-gradient-to-r from-[#c9a227] to-transparent mt-4" />
+                </div>
+
+                {/* Promo Code */}
+                <div className="mb-6">
+                  <label className={`text-sm font-medium mb-2 block ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    Promo Code
                   </label>
-                  <div className="flex gap-2">
-                    <div className="relative flex-1">
-                      <Tag size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
-                      <input
-                        type="text"
-                        value={promoCode}
-                        onChange={(e) => setPromoCode(e.target.value)}
-                        placeholder='promoCode'
-                        disabled={promoApplied}
-                        className="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent disabled:bg-gray-100"
-                      />
+                  {promoApplied ? (
+                    <div className="flex items-center justify-between p-3 bg-green-500/10 border border-green-500/30 rounded-xl">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle size={18} className="text-green-400" />
+                        <span className="text-green-400 font-medium">{promoCode.toUpperCase()}</span>
+                      </div>
+                      <button onClick={removePromo} className="text-white/40 hover:text-white">
+                        <X size={18} />
+                      </button>
                     </div>
-                    <button
-                      onClick={applySaleCode}
-                      disabled={promoApplied || !promoCode}
-                      className="px-4 py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  ) : (
+                    <div className="flex gap-2">
+                      <div className="relative flex-1">
+                        <Tag size={16} className={`absolute left-3 top-1/2 -translate-y-1/2 ${isDarkMode ? 'text-white/40' : 'text-gray-400'}`} />
+                        <input
+                          type="text"
+                          value={promoCode}
+                          onChange={(e) => {
+                            setPromoCode(e.target.value);
+                            setPromoError('');
+                          }}
+                          placeholder="Enter code"
+                          className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:border-[#c9a227] transition ${
+                            isDarkMode 
+                              ? 'bg-white/5 border-white/10 text-white placeholder-white/40' 
+                              : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-400'
+                          }`}
+                        />
+                      </div>
+                      <button
+                        onClick={applySaleCode}
+                        disabled={!promoCode}
+                        className="px-4 py-3 bg-[#c9a227] text-black font-bold rounded-xl hover:bg-[#b8912a] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  )}
+                  {promoError && (
+                    <p className="text-red-400 text-sm mt-2">{promoError}</p>
+                  )}
+                  {showPromoSuccess && (
+                    <motion.p 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-green-400 text-sm mt-2 flex items-center gap-1"
                     >
-                      'apply'
-                    </button>
-                  </div>
-                  {promoApplied && (
-                    <p className="text-green-600 text-sm mt-2 flex items-center gap-1">
                       <Gift size={14} />
-                      Discount : -{promoDiscount} ₪
+                      Promo code applied successfully!
+                    </motion.p>
+                  )}
+                </div>
+
+                {/* Price Breakdown */}
+                <div className="space-y-3 mb-6">
+                  <div className={`flex justify-between ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    <span>Subtotal ({getTotalItems()} items)</span>
+                    <span>{getSubtotal().toLocaleString()} ₪</span>
+                  </div>
+                  
+                  {promoApplied && promoDiscount > 0 && (
+                    <div className="flex justify-between text-green-500">
+                      <span>Discount</span>
+                      <span>-{promoDiscount.toLocaleString()} ₪</span>
+                    </div>
+                  )}
+                  
+                  <div className={`flex justify-between ${isDarkMode ? 'text-white/60' : 'text-gray-600'}`}>
+                    <span>Shipping</span>
+                    {getShipping() === 0 ? (
+                      <span className="text-green-500 font-medium">Free</span>
+                    ) : (
+                      <span>{getShipping()} ₪</span>
+                    )}
+                  </div>
+                  
+                  {getShipping() > 0 && (
+                    <p className={`text-xs p-2 rounded-lg ${isDarkMode ? 'text-white/40 bg-white/5' : 'text-gray-500 bg-gray-100'}`}>
+                      Add {(500 - getSubtotal()).toLocaleString()} ₪ more for free shipping
                     </p>
                   )}
-                </div>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-gray-600">
-                    <span>Subtotal ({getTotalItems()} items)</span>
-                    <span>{getSubtotal()} ₪</span>
-                  </div>
-                  {promoApplied && (
-                    <div className="flex justify-between text-green-600">
-                      <span>Discount</span>
-                      <span>-{promoDiscount} ₪</span>
+                  
+                  <div className={`border-t pt-4 flex justify-between ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                    <span className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Total</span>
+                    <div className="text-right">
+                      <span className="text-2xl font-bold text-[#c9a227]">{getTotalPrice().toLocaleString()} ₪</span>
+                      <p className={`text-xs ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>VAT included</p>
                     </div>
-                  )}
-                  <div className="flex justify-between text-gray-600">
-                    <span>Shipping</span>
-                    <span className="text-green-600 font-medium">Free</span>
-                  </div>
-                  <div className="border-t pt-4 flex justify-between">
-                    <span className="text-xl font-bold">Total</span>
-                    <span className="text-2xl font-bold">{getTotalPrice()} ₪</span>
                   </div>
                 </div>
 
+                {/* Savings */}
+                {getSavings() > 0 && (
+                  <div className="mb-6 p-3 bg-green-500/10 border border-green-500/20 rounded-xl">
+                    <p className="text-green-400 text-sm font-medium flex items-center gap-2">
+                      <Sparkles size={16} />
+                      You're saving {getSavings().toLocaleString()} ₪ on this order!
+                    </p>
+                  </div>
+                )}
+
+                {/* Checkout Button */}
                 <button
                   onClick={handleCheckout}
-                  className="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-amber-700 transition shadow-lg flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-gradient-to-r from-[#c9a227] to-amber-600 text-black font-bold rounded-xl hover:shadow-lg hover:shadow-[#c9a227]/30 transition-all flex items-center justify-center gap-2 text-lg"
                 >
-                  Checkout
-                  <ChevronRight size={20} />
+                  Proceed to Checkout
+                  <ChevronRight size={22} />
                 </button>
 
                 <Link
                   to="/glasses"
-                  className="block text-center mt-4 text-gray-600 hover:text-black transition"
+                  className={`block text-center mt-4 transition ${isDarkMode ? 'text-white/60 hover:text-white' : 'text-gray-500 hover:text-gray-900'}`}
                 >
                   Continue Shopping
                 </Link>
 
-                {/* Trust badges */}
-                <div className="mt-6 pt-6 border-t">
-                  <div className="flex items-center justify-center gap-4 text-gray-400">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-6 opacity-50" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 opacity-50" />
+                {/* Trust Badges */}
+                <div className={`mt-6 pt-6 border-t ${isDarkMode ? 'border-white/10' : 'border-gray-200'}`}>
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                      <span className="text-blue-600 font-bold text-xs">VISA</span>
+                    </div>
+                    <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                      <span className="text-red-500 font-bold text-xs">MC</span>
+                    </div>
+                    <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                      <span className="text-blue-500 font-bold text-xs">AMEX</span>
+                    </div>
+                    <div className="w-12 h-8 bg-white rounded flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-xs">BIT</span>
+                    </div>
                   </div>
-                  <p className="text-xs text-center text-gray-400 mt-3">
-                    Secure Payment
-                  </p>
+                  <div className={`flex items-center justify-center gap-2 text-xs ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>
+                    <Shield size={14} />
+                    <span>Secure SSL Encrypted Payment</span>
+                  </div>
+                </div>
+
+                {/* Delivery Estimate */}
+                <div className={`mt-4 p-3 rounded-xl border ${isDarkMode ? 'bg-white/5 border-white/5' : 'bg-gray-50 border-gray-200'}`}>
+                  <div className="flex items-center gap-3">
+                    <Clock size={18} className="text-[#c9a227]" />
+                    <div>
+                      <p className={`text-sm font-medium ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Estimated Delivery</p>
+                      <p className={`text-xs ${isDarkMode ? 'text-white/40' : 'text-gray-500'}`}>3-5 business days</p>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>

@@ -25,7 +25,7 @@ const api = axios.create({
 // Intercepteur de requête - Ajoute le token JWT
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -41,13 +41,18 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Erreur 401 - Non autorisé
+    // Erreur 401 - Non autorisé (seulement si on avait un token)
     if (error.response?.status === 401) {
-      console.warn('🔒 Session expirée. Redirection vers la page de connexion...');
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      window.location.href = '/auth';
-      return Promise.reject(new Error('Session expirée. Veuillez vous reconnecter.'));
+      const hadToken = localStorage.getItem('token') || sessionStorage.getItem('token');
+      if (hadToken) {
+        console.warn('🔒 Session expirée. Redirection vers la page de connexion...');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
+        window.location.href = '/auth';
+      }
+      return Promise.reject(new Error('Non autorisé'));
     }
 
     // Erreur réseau - API non disponible

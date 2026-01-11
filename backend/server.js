@@ -19,6 +19,7 @@ import contactRoutes from './routes/contact.routes.js';
 import ordersRoutes from './routes/orders.routes.js';
 import brandsRoutes from './routes/brands.routes.js';
 import uploadRoutes from './routes/upload.routes.js';
+import messageRoutes from './routes/message.routes.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -63,7 +64,7 @@ app.use(
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: process.env.NODE_ENV === 'development' ? 1000 : 100,
   message: 'Trop de requêtes, veuillez réessayer plus tard.',
 });
 
@@ -92,6 +93,7 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/orders', ordersRoutes);
 app.use('/api/brands', brandsRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/admin/messages', messageRoutes);
 
 // Servir le dossier uploads comme statique
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

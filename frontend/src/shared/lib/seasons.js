@@ -71,44 +71,44 @@ export const getCurrentSeasonInfo = () => {
 export const getSeasonTheme = (season) => {
   const themes = {
     spring: {
-      title: 'Collection Printemps',
-      subtitle: 'Fraîcheur et légèreté',
-      description: 'Découvrez notre collection printanière avec des montures légères et des couleurs pastel.',
+      title: 'Spring Collection',
+      subtitle: 'Fresh and Light',
+      description: 'Discover our spring collection with lightweight frames and pastel colors.',
       heroImage: '/assets/images/seasons/spring-hero.jpg',
       backgroundGradient: 'from-pink-100 via-green-50 to-blue-100',
       accentColor: 'text-pink-500',
       buttonColor: 'bg-pink-500 hover:bg-pink-600',
-      keywords: ['léger', 'pastel', 'floral', 'transparent'],
+      keywords: ['light', 'pastel', 'floral', 'transparent'],
     },
     summer: {
-      title: 'Collection Été',
-      subtitle: 'Soleil et protection',
-      description: 'Protégez vos yeux avec style grâce à notre collection estivale de lunettes de soleil.',
+      title: 'Summer Collection',
+      subtitle: 'Sun and Protection',
+      description: 'Protect your eyes in style with our summer sunglasses collection.',
       heroImage: '/assets/images/seasons/summer-hero.jpg',
       backgroundGradient: 'from-yellow-100 via-orange-50 to-cyan-100',
       accentColor: 'text-orange-500',
       buttonColor: 'bg-orange-500 hover:bg-orange-600',
-      keywords: ['soleil', 'plage', 'sport', 'polarisé'],
+      keywords: ['sun', 'beach', 'sport', 'polarized'],
     },
     autumn: {
-      title: 'Collection Automne',
-      subtitle: 'Élégance et chaleur',
-      description: 'Des tons chauds et des matériaux nobles pour une rentrée stylée.',
+      title: 'Autumn Collection',
+      subtitle: 'Elegance and Warmth',
+      description: 'Warm tones and noble materials for a stylish season.',
       heroImage: '/assets/images/seasons/autumn-hero.jpg',
       backgroundGradient: 'from-orange-100 via-amber-50 to-brown-100',
       accentColor: 'text-amber-600',
       buttonColor: 'bg-amber-600 hover:bg-amber-700',
-      keywords: ['écaille', 'bois', 'marron', 'vintage'],
+      keywords: ['tortoise', 'wood', 'brown', 'vintage'],
     },
     winter: {
-      title: 'Collection Hiver',
-      subtitle: 'Luxe et sophistication',
-      description: 'Des montures premium pour affronter l\'hiver avec élégance.',
+      title: 'Winter Collection',
+      subtitle: 'Prestige and Sophistication',
+      description: 'Premium frames to face winter with elegance.',
       heroImage: '/assets/images/seasons/winter-hero.jpg',
       backgroundGradient: 'from-blue-100 via-gray-50 to-indigo-100',
       accentColor: 'text-blue-600',
       buttonColor: 'bg-blue-600 hover:bg-blue-700',
-      keywords: ['luxe', 'métal', 'argent', 'noir'],
+      keywords: ['premium', 'metal', 'silver', 'black'],
     },
   };
 
@@ -166,23 +166,23 @@ export const getSeasonalSaleMessage = () => {
   
   const messages = {
     spring: {
-      title: '🌸 Offre Printemps',
-      message: '-20% sur la collection printanière',
+      title: 'Spring Offer',
+      message: '-20% on the spring collection',
       code: 'SPRING20',
     },
     summer: {
-      title: '☀️ Soldes d\'été',
-      message: 'Jusqu\'à -30% sur les lunettes de soleil',
+      title: 'Summer Sale',
+      message: 'Up to -30% on sunglasses',
       code: 'SUMMER30',
     },
     autumn: {
-      title: '🍂 Rentrée en beauté',
-      message: '-15% sur les lunettes de vue',
+      title: 'Autumn Collection',
+      message: '-15% on optical frames',
       code: 'AUTUMN15',
     },
     winter: {
-      title: '❄️ Offre Hiver',
-      message: '-25% sur la collection luxe',
+      title: 'Winter Offer',
+      message: '-25% on the premium collection',
       code: 'WINTER25',
     },
   };
@@ -200,7 +200,7 @@ export const getSeasonalCategories = () => {
     spring: ['vue', 'transparent', 'pastel'],
     summer: ['soleil', 'sport', 'polarise'],
     autumn: ['vue', 'vintage', 'ecaille'],
-    winter: ['luxe', 'métal', 'premium'],
+    winter: ['chic', 'métal', 'premium'],
   };
 
   return categories[season] || categories.spring;

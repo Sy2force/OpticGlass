@@ -1,52 +1,53 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Heart, User, Menu, X, Sun, Moon } from 'lucide-react';
-import { useState, useEffect, useCallback } from 'react';
+import { ShoppingCart, Heart, User, Menu, X, Sun, Moon, Package, MapPin, CreditCard, Settings, LogOut, Shield, LayoutDashboard, Mail } from 'lucide-react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useAuth } from '@/app/providers/AuthContext';
 import { useTheme } from '@/app/providers/ThemeContext';
+import { useFavorites } from '@/app/providers/FavoritesContext';
+import { useCart } from '@/app/providers/CartContext';
 import MessageBox from '@/widgets/chat/MessageBox';
+import Logo from '@/shared/ui/Logo';
 
 const Navbar = () => {
   const { isAuthenticated, isAdmin, user, logout } = useAuth();
   const { isDarkMode, toggleDarkMode } = useTheme();
+  const { getFavoritesCount } = useFavorites();
+  const { getCartCount } = useCart();
   
   const location = useLocation();
-  const [cartCount, setCartCount] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const userMenuRef = useRef(null);
 
-  const updateCartCount = useCallback(() => {
-    try {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      if (Array.isArray(cart)) {
-        const total = cart.reduce((sum, item) => sum + (item?.quantity || 0), 0);
-        setCartCount(total);
-      } else {
-        setCartCount(0);
-      }
-    } catch {
-      setCartCount(0);
-    }
-  }, []);
+  // Get real counts from contexts
+  const cartCount = getCartCount();
+  const favoritesCount = getFavoritesCount();
 
   useEffect(() => {
-    updateCartCount();
-    const handleCartUpdate = () => updateCartCount();
-    window.addEventListener('storage', handleCartUpdate);
-    window.addEventListener('cartUpdated', handleCartUpdate);
-    
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     
     return () => {
-      window.removeEventListener('storage', handleCartUpdate);
-      window.removeEventListener('cartUpdated', handleCartUpdate);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [updateCartCount]);
+  }, []);
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsUserMenuOpen(false);
   }, [location.pathname]);
+
+  // Close user menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const navLinks = [
     { to: '/glasses', label: 'Collection' },
@@ -73,10 +74,19 @@ const Navbar = () => {
       
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="group flex items-center gap-1">
+          <Link to="/" className="group flex items-center gap-3">
+            {/* Logo Icon */}
+            <div className={`transition-all duration-300 ${
+              location.pathname === '/' && !isScrolled 
+                ? 'drop-shadow-[0_0_10px_rgba(201,162,39,0.6)]' 
+                : ''
+            }`}>
+              <Logo size={44} />
+            </div>
+            
             {location.pathname === '/' && !isScrolled ? (
-              // Design 3D luxe compact sur landing page
-              <>
+              // Design 3D premium compact sur landing page
+              <div className="flex items-center gap-1">
                 <span className="text-2xl font-light tracking-[0.2em] text-white"
                 style={{
                   textShadow: '1px 1px 0px rgba(0,0,0,0.3), 2px 2px 0px rgba(0,0,0,0.2), 3px 3px 4px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.3)',
@@ -87,13 +97,13 @@ const Navbar = () => {
                   textShadow: '0 0 15px rgba(201,162,39,0.9), 0 0 30px rgba(201,162,39,0.6), 0 0 45px rgba(201,162,39,0.3)',
                   filter: 'drop-shadow(0 0 12px rgba(201,162,39,0.9))'
                 }}>GLASS</span>
-              </>
+              </div>
             ) : (
               // Design normal sur autres pages
-              <>
+              <div className="flex items-center gap-1">
                 <span className="text-2xl font-extralight tracking-[0.2em] text-white">OPTIC</span>
                 <span className="text-2xl font-light tracking-[0.2em] bg-gradient-to-r from-[#c9a227] to-[#d4af37] bg-clip-text text-transparent">GLASS</span>
-              </>
+              </div>
             )}
           </Link>
 
@@ -116,17 +126,21 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            {/* Button Theme */}
+            {/* Button Theme - Premium Design */}
             <button
               onClick={toggleDarkMode}
-              className={`p-2 rounded-lg transition-all duration-300 ${
-                location.pathname === '/' && !isScrolled
-                  ? 'bg-white/10 border border-white/20 text-white hover:bg-[#c9a227] hover:text-black hover:border-[#c9a227]'
-                  : 'bg-white/5 border border-white/10 text-white/70 hover:bg-[#c9a227] hover:text-black hover:border-[#c9a227]'
+              className={`relative p-2 rounded-lg transition-all duration-300 group border ${
+                isDarkMode
+                  ? 'bg-white/5 border-white/10 text-[#c9a227] hover:bg-white/10 hover:border-[#c9a227]/30'
+                  : 'bg-[#0a0a0a]/5 border-[#0a0a0a]/10 text-[#c9a227] hover:bg-[#0a0a0a]/10 hover:border-[#c9a227]/30'
               }`}
-              title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
+              title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {isDarkMode ? (
+                <Sun size={18} className="group-hover:rotate-90 transition-transform duration-300" />
+              ) : (
+                <Moon size={18} className="group-hover:-rotate-12 transition-transform duration-300" />
+              )}
             </button>
 
             {isAuthenticated ? (
@@ -136,13 +150,18 @@ const Navbar = () => {
                 
                 <Link
                   to="/favorites"
-                  className={`p-2 transition-colors duration-300 ${
+                  className={`p-2 relative transition-colors duration-300 ${
                     location.pathname === '/' && !isScrolled
                       ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] hover:text-[#c9a227]'
                       : 'text-white/70 hover:text-[#c9a227]'
                   }`}
                 >
                   <Heart size={20} />
+                  {favoritesCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-[#c9a227] text-black text-[10px] w-4 h-4 flex items-center justify-center font-bold rounded-full shadow-lg">
+                      {favoritesCount}
+                    </span>
+                  )}
                 </Link>
 
                 <Link
@@ -161,46 +180,94 @@ const Navbar = () => {
                   )}
                 </Link>
 
-                <div className="relative group">
-                  <button className={`p-2 transition-colors duration-300 ${
-                    location.pathname === '/' && !isScrolled
-                      ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] hover:text-[#c9a227]'
-                      : 'text-white/70 hover:text-[#c9a227]'
-                  }`}>
+                <div className="relative" ref={userMenuRef}>
+                  <button 
+                    onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                    className={`p-2 transition-colors duration-300 ${
+                      location.pathname === '/' && !isScrolled
+                        ? 'text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] hover:text-[#c9a227]'
+                        : 'text-white/70 hover:text-[#c9a227]'
+                    } ${isUserMenuOpen ? 'text-[#c9a227]' : ''}`}
+                  >
                     <User size={20} />
                   </button>
-                  <div className="absolute right-0 mt-2 w-56 bg-[#0a0a0a] border border-white/10 shadow-2xl py-2 hidden group-hover:block">
-                    <div className="px-4 py-3 border-b border-white/10">
-                      <p className="text-white font-light text-sm tracking-wide">{user?.name || 'User'}</p>
-                      <p className="text-white/40 text-xs">{user?.email}</p>
+                  
+                  {isUserMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-64 bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden">
+                      {/* User Info Header */}
+                      <div className="px-4 py-3 border-b border-white/10 bg-white/5">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#c9a227] to-amber-600 flex items-center justify-center text-black font-semibold text-sm">
+                            {user?.firstName?.[0]}{user?.lastName?.[0]}
+                          </div>
+                          <div>
+                            <p className="text-white font-medium text-sm">{user?.firstName} {user?.lastName}</p>
+                            <p className="text-white/40 text-xs">{user?.email}</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Menu Items */}
+                      <div className="py-2">
+                        <Link to="/user/dashboard" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <LayoutDashboard size={16} />
+                          My Dashboard
+                        </Link>
+                        <Link to="/orders" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <Package size={16} />
+                          My Orders
+                        </Link>
+                        <Link to="/messages" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <Mail size={16} />
+                          My Messages
+                        </Link>
+                        <Link to="/favorites" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <Heart size={16} />
+                          My Favorites
+                        </Link>
+                        <Link to="/profile?tab=profile" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <User size={16} />
+                          Profile Settings
+                        </Link>
+                        <Link to="/profile?tab=addresses" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <MapPin size={16} />
+                          My Addresses
+                        </Link>
+                        <Link to="/profile?tab=payments" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <CreditCard size={16} />
+                          Payment Methods
+                        </Link>
+                        <Link to="/profile?tab=settings" className="flex items-center gap-3 px-4 py-2.5 text-white/70 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
+                          <Settings size={16} />
+                          Settings
+                        </Link>
+                      </div>
+                      
+                      {/* Admin Link */}
+                      {isAdmin && (
+                        <div className="border-t border-white/10 py-2">
+                          <Link to="/admin" className="flex items-center gap-3 px-4 py-2.5 text-[#c9a227] hover:bg-[#c9a227]/10 transition-colors text-sm">
+                            <Shield size={16} />
+                            Administration
+                          </Link>
+                        </div>
+                      )}
+                      
+                      {/* Logout */}
+                      <div className="border-t border-white/10 py-2">
+                        <button
+                          onClick={() => {
+                            logout();
+                            window.location.href = '/';
+                          }}
+                          className="w-full flex items-center gap-3 px-4 py-2.5 text-red-500 hover:bg-red-500/10 transition-colors text-sm"
+                        >
+                          <LogOut size={16} />
+                          Sign Out
+                        </button>
+                      </div>
                     </div>
-                    <Link to="/user/dashboard" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      My Dashboard
-                    </Link>
-                    <Link to="/profile" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      My Profile
-                    </Link>
-                    <Link to="/orders" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      My Orders
-                    </Link>
-                    <Link to="/favorites" className="block px-4 py-2 text-white/60 hover:text-[#c9a227] hover:bg-white/5 transition-colors text-sm">
-                      My Favorites
-                    </Link>
-                    {isAdmin && (
-                      <Link to="/admin" className="block px-4 py-2 text-[#c9a227] hover:bg-[#c9a227]/10 transition-colors border-t border-white/10 mt-2 text-sm">
-                        Administration
-                      </Link>
-                    )}
-                    <button
-                      onClick={() => {
-                        logout();
-                        window.location.href = '/';
-                      }}
-                      className="w-full text-left block px-4 py-2 text-red-500 hover:bg-red-500/10 transition-colors border-t border-white/10 mt-2 text-sm"
-                    >
-                      Sign Out
-                    </button>
-                  </div>
+                  )}
                 </div>
               </>
             ) : (

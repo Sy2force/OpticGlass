@@ -1,287 +1,1752 @@
 export const products = [
-  // Ray-Ban - Complete Collection
   {
-    name: 'Aviator RB3025',
-    brand: 'Ray-Ban',
-    category: 'sunglasses',
-    season: 'summer',
-    price: 890,
-    originalPrice: 1100,
-    description: 'The iconic Ray-Ban Aviator sunglasses created in 1937 for US Air Force pilots. G-15 mineral glass lenses and gold metal frame.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/805289602057__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Frost Spectrum Elegance",
+    "brand": "Orion",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 172,
+    "originalPrice": 378,
+    "description": "Le modèle Radia Glance incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-01.jpg"
     ],
-    colors: ['gold', 'silver', 'black'],
-    frameShape: 'aviator',
-    material: 'metal',
-    gender: 'unisex',
-    stock: 50,
-    rating: 4.8,
-    reviewsCount: 245,
-    isBestseller: true,
+    "colors": [
+      "Transparent Cristal",
+      "Vert Forêt"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 11,
+    "rating": "4.6",
+    "reviewsCount": 121,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_1_mk8gm0kj"
   },
   {
-    name: 'Wayfarer RB2140',
-    brand: 'Ray-Ban',
-    category: 'sunglasses',
-    season: 'summer',
-    price: 750,
-    description: 'The Original Wayfarer model created in 1956. Black acetate frame with green G-15 lenses. Pop culture icon.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/805289126577__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Arctic Ray Glam",
+    "brand": "Lumina",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 329,
+    "originalPrice": 241,
+    "description": "Le modèle Aéria Look incarne l'élégance moderne. Avec sa monture Bleu Océan de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-02.jpg"
     ],
-    colors: ['black', 'tortoise'],
-    frameShape: 'square',
-    material: 'acetate',
-    gender: 'unisex',
-    stock: 45,
-    rating: 4.7,
-    reviewsCount: 189,
-    isBestseller: true,
+    "colors": [
+      "Bleu Océan",
+      "Vert Forêt"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 23,
+    "rating": "4.6",
+    "reviewsCount": 166,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_2_mk8gm0kj"
   },
   {
-    name: 'Clubmaster RB3016',
-    brand: 'Ray-Ban',
-    category: 'sunglasses',
-    season: 'spring',
-    price: 820,
-    description: 'The Clubmaster inspired by the 50s. Unique combination of acetate and metal with G-15 lenses.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/805289653653__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Coral Glow Frame",
+    "brand": "Soléra",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 131,
+    "originalPrice": 189,
+    "description": "Le modèle Aether Sight incarne l'élégance moderne. Avec sa monture Rose Poudré de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-03.jpg"
     ],
-    colors: ['black/gold', 'tortoise/gold'],
-    frameShape: 'browline',
-    material: 'acetate/metal',
-    gender: 'unisex',
-    stock: 60,
-    rating: 4.9,
-    reviewsCount: 312,
-    isBestseller: true,
+    "colors": [
+      "Rose Poudré",
+      "Noir Minuit"
+    ],
+    "frameShape": "oversized",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 14,
+    "rating": "4.3",
+    "reviewsCount": 205,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_3_mk8gm0kj"
   },
   {
-    name: 'Round Metal RB3447',
-    brand: 'Ray-Ban',
-    category: 'sunglasses',
-    season: 'autumn',
-    price: 720,
-    description: 'Vintage round metal frame inspired by John Lennon style. Timeless retro design.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/805289439899__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Ice Shine Sport",
+    "brand": "Ethereal",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 287,
+    "originalPrice": 208,
+    "description": "Le modèle Polaris Vista incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-04.jpg"
     ],
-    colors: ['gold', 'silver', 'gunmetal'],
-    frameShape: 'round',
-    material: 'metal',
-    gender: 'unisex',
-    stock: 35,
-    rating: 4.6,
-    reviewsCount: 156,
+    "colors": [
+      "Transparent Cristal",
+      "Noir Minuit"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 42,
+    "rating": "4.8",
+    "reviewsCount": 105,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_4_mk8gm0kj"
   },
   {
-    name: 'Erika RB4171',
-    brand: 'Ray-Ban',
-    category: 'sunglasses',
-    season: 'spring',
-    price: 680,
-    description: 'Feminine design with oversize round frame. Rubberized finish for optimal comfort.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/805289742463__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Sunset Spark Clear",
+    "brand": "Sportif",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 236,
+    "originalPrice": 174,
+    "description": "Le modèle Mira Guard incarne l'élégance moderne. Avec sa monture Or Solaire de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-05.jpg"
     ],
-    colors: ['matte black', 'havana', 'burgundy'],
-    frameShape: 'round',
-    material: 'nylon',
-    gender: 'women',
-    stock: 40,
-    rating: 4.8,
-    reviewsCount: 92,
+    "colors": [
+      "Or Solaire",
+      "Rose Poudré"
+    ],
+    "frameShape": "round",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 20,
+    "rating": "4.5",
+    "reviewsCount": 167,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_5_mk8gm0kj"
   },
   {
-    name: 'DiorSoReal',
-    brand: 'Dior',
-    category: 'sunglasses',
-    season: 'spring',
-    price: 1680,
-    description: 'Avant-garde design with metal bridge and mirrored lenses. Fashion icon.',
-    images: [
-      'https://media.dior.com/img/en_us/sku/couture/SOREAL_RMR1I_tu?imwidth=460',
+    "name": "Polar Flash Style",
+    "brand": "Nova",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 125,
+    "originalPrice": 244,
+    "description": "Le modèle Altair Lens incarne l'élégance moderne. Avec sa monture Noir Minuit de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-06.jpg"
     ],
-    colors: ['rose gold', 'silver'],
-    frameShape: 'round',
-    material: 'metal',
-    gender: 'women',
-    stock: 15,
-    rating: 4.9,
-    reviewsCount: 134,
-    isNewArrival: true,
-    isBestseller: true,
+    "colors": [
+      "Noir Minuit",
+      "Rose Poudré"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 51,
+    "rating": "4.7",
+    "reviewsCount": 174,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_6_mk8gm0kj"
   },
   {
-    name: 'Medusa Biggie',
-    brand: 'Versace',
-    category: 'sunglasses',
-    season: 'summer',
-    price: 1350,
-    description: 'Oversize glasses with golden Medusa head. Italian glamour.',
-    images: [
-      'https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw12345678/images/original/90_O4361-O40187_ONUL_20_BiggieSunglasses-Sunglasses-versace-online-store_0_0.jpg',
+    "name": "Breeze Beam Grace",
+    "brand": "Equinox",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 335,
+    "originalPrice": 362,
+    "description": "Le modèle Sirius Look incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-07.jpg"
     ],
-    colors: ['black/gold', 'white/gold'],
-    frameShape: 'butterfly',
-    material: 'acetate',
-    gender: 'women',
-    stock: 25,
-    rating: 4.7,
-    reviewsCount: 67,
+    "colors": [
+      "Argent Lunaire",
+      "Écaille Tortue"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 35,
+    "rating": "5.0",
+    "reviewsCount": 202,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_7_mk8gm0kj"
   },
   {
-    name: 'Champion Racing',
-    brand: 'Carrera',
-    category: 'sport',
-    season: 'summer',
-    price: 680,
-    description: 'Inspired by the automotive world. Sporty design and optimal protection.',
-    images: [
-      'https://www.carreraworld.com/images/products/202105/202105_0DL5_H9_00.jpg',
+    "name": "Coastal Light Optic",
+    "brand": "Apex",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 334,
+    "originalPrice": 344,
+    "description": "Le modèle Ion Core incarne l'élégance moderne. Avec sa monture Rose Poudré de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-08.jpg"
     ],
-    colors: ['matte black', 'red'],
-    frameShape: 'aviator',
-    material: 'metal',
-    gender: 'men',
-    stock: 30,
-    rating: 4.5,
-    reviewsCount: 112,
+    "colors": [
+      "Rose Poudré",
+      "Or Solaire"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 48,
+    "rating": "4.5",
+    "reviewsCount": 43,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_8_mk8gm0kj"
   },
   {
-    name: 'PO0714 Steve McQueen',
-    brand: 'Persol',
-    category: 'sunglasses',
-    season: 'autumn',
-    price: 890,
-    description: 'The iconic folding model worn by Steve McQueen. Patented Meflecto hinge.',
-    images: [
-      'https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO0714SM__24_S3/0PO0714SM__24_S3_fr.png',
+    "name": "Frost Shade View",
+    "brand": "Roma",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 242,
+    "originalPrice": 289,
+    "description": "Le modèle Vesta Air incarne l'élégance moderne. Avec sa monture Brun Terre de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-09.jpg"
     ],
-    colors: ['havana', 'black'],
-    frameShape: 'round',
-    material: 'acetate',
-    gender: 'unisex',
-    stock: 20,
-    rating: 4.9,
-    reviewsCount: 203,
-    isBestseller: true,
+    "colors": [
+      "Brun Terre",
+      "Or Solaire"
+    ],
+    "frameShape": "rectangular",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 44,
+    "rating": "4.1",
+    "reviewsCount": 120,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_9_mk8gm0kj"
   },
   {
-    name: 'Holbrook',
-    brand: 'Oakley',
-    category: 'sport',
-    season: 'summer',
-    price: 580,
-    description: 'Lifestyle design with Prizm technology. Perfect for active daily life.',
-    images: [
-      'https://assets.oakley.com/is/image/Oakley/888392238126__STD__shad__qt.png?impolicy=OO_product_page_preview',
+    "name": "Arctic Tint Look",
+    "brand": "Vespera",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 132,
+    "originalPrice": 212,
+    "description": "Le modèle Radia Aspect incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-10.jpg"
     ],
-    colors: ['matte black', 'olive'],
-    frameShape: 'square',
-    material: 'O-Matter',
-    gender: 'men',
-    stock: 50,
-    rating: 4.6,
-    reviewsCount: 178,
+    "colors": [
+      "Noir Minuit",
+      "Bleu Océan"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 29,
+    "rating": "4.2",
+    "reviewsCount": 73,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_10_mk8gm0kj"
   },
   {
-    name: 'Round Metal',
-    brand: 'Ray-Ban',
-    category: 'optical',
-    season: 'winter',
-    price: 720,
-    description: 'Vintage round metal frame. Timeless retro style.',
-    images: [
-      'https://images.ray-ban.com/is/image/RayBan/8053672357004__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2',
+    "name": "Snow Hue Max",
+    "brand": "Heritage",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 281,
+    "originalPrice": 337,
+    "description": "Le modèle Ventus Glance incarne l'élégance moderne. Avec sa monture Bleu Océan de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-11.jpg"
     ],
-    colors: ['gold', 'silver', 'bronze'],
-    frameShape: 'round',
-    material: 'metal',
-    gender: 'unisex',
-    stock: 40,
-    rating: 4.7,
-    reviewsCount: 156,
-    isNewArrival: true,
+    "colors": [
+      "Bleu Océan",
+      "Vert Forêt"
+    ],
+    "frameShape": "browline",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 17,
+    "rating": "4.1",
+    "reviewsCount": 36,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_11_mk8gm0kj"
   },
   {
-    name: 'Cat Eye Vintage',
-    brand: 'Celine',
-    category: 'vintage',
-    season: 'autumn',
-    price: 1280,
-    description: 'Elegant cat-eye glasses. Parisian femininity and timeless chic.',
-    images: [
-      'https://www.celine.com/content/dam/celine/images/large/4S019CPLB.38NO_1_L.jpg',
+    "name": "Tropic Tone Aura",
+    "brand": "Lumina",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 341,
+    "originalPrice": 179,
+    "description": "Le modèle Terra Frame incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-12.jpg"
     ],
-    colors: ['black', 'burgundy'],
-    frameShape: 'cat-eye',
-    material: 'acetate',
-    gender: 'women',
-    stock: 12,
-    rating: 4.8,
-    reviewsCount: 89,
+    "colors": [
+      "Gris Ardoise",
+      "Écaille Tortue"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 11,
+    "rating": "5.0",
+    "reviewsCount": 132,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_12_mk8gm0kj"
   },
-  { name: 'Clubmaster Classic', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 820, description: 'The iconic Clubmaster with its distinctive browline frame.', images: ['https://images.ray-ban.com/is/image/RayBan/805289653653__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['black/gold', 'tortoise/gold'], frameShape: 'browline', material: 'acetate/metal', gender: 'unisex', stock: 55, rating: 4.8, reviewsCount: 312 },
-  { name: 'New Wayfarer', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 780, description: 'Modernized version of the classic Wayfarer, smaller and lighter.', images: ['https://images.ray-ban.com/is/image/RayBan/805289048527__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['matte black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', stock: 48, rating: 4.7, reviewsCount: 267 },
-  { name: 'Erika Metal', brand: 'Ray-Ban', category: 'sunglasses', season: 'spring', price: 690, description: 'Oversize round design with elegant metal bridge.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672565393__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold', 'silver', 'gunmetal'], frameShape: 'round', material: 'metal', gender: 'women', stock: 32, rating: 4.6, reviewsCount: 189, isNewArrival: true },
-  { name: 'Justin Classic', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 650, description: 'Modern rectangular style with rubberized finish.', images: ['https://images.ray-ban.com/is/image/RayBan/805289526575__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['matte black', 'matte havana'], frameShape: 'rectangular', material: 'nylon', gender: 'men', stock: 65, rating: 4.5, reviewsCount: 234 },
-  { name: 'Hexagonal Flat', brand: 'Ray-Ban', category: 'sunglasses', season: 'autumn', price: 850, description: 'Unique hexagonal shape with flat lenses.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672611649__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold', 'silver'], frameShape: 'hexagonal', material: 'metal', gender: 'unisex', stock: 28, rating: 4.8, reviewsCount: 145 },
-  { name: 'Aviator Gradient', brand: 'Ray-Ban', category: 'sunglasses', season: 'summer', price: 920, description: 'Classic Aviator with elegant gradient lenses.', images: ['https://images.ray-ban.com/is/image/RayBan/805289305033__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['gold/blue', 'silver/gray'], frameShape: 'aviator', material: 'metal', gender: 'unisex', stock: 42, rating: 4.9, reviewsCount: 456, isBestseller: true },
-  { name: 'RB5154 Optical', brand: 'Ray-Ban', category: 'optical', season: 'winter', price: 580, description: 'Clubmaster optical frame for an intellectual look.', images: ['https://images.ray-ban.com/is/image/RayBan/8053672195736__STD__shad__qt.png?impolicy=RB_Product&width=800&bgc=%23f2f2f2'], colors: ['black/gold', 'tortoise/silver'], frameShape: 'browline', material: 'acetate/metal', gender: 'unisex', stock: 38, rating: 4.7, reviewsCount: 178 },
-  { name: 'GG0396S', brand: 'Gucci', category: 'sunglasses', season: 'spring', price: 1580, description: 'Oversize glasses with gold GG logo on temples.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1541436905/563276_J0740_1012_001_100_0000_Light-Metal-round-sunglasses.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'women', stock: 10, rating: 4.9, reviewsCount: 89, isNewArrival: true },
-  { name: 'GG0061S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1350, description: 'Luxurious aviator style with gold details.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1476118826/450587_J0740_1112_001_100_0000_Light-Round-frame-metal-sunglasses.jpg'], colors: ['gold/green', 'gold/brown'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 15, rating: 4.8, reviewsCount: 67 },
-  { name: 'GG0516S', brand: 'Gucci', category: 'sunglasses', season: 'autumn', price: 1680, description: 'Glamorous cat-eye with Swarovski crystals.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1550595604/584365_J0740_1012_001_100_0000_Light-Rectangular-frame-sunglasses.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 8, rating: 4.9, reviewsCount: 112, isBestseller: true },
-  { name: 'GG0341O', brand: 'Gucci', category: 'optical', season: 'winter', price: 980, description: 'Rectangular optical frame with web stripe.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1528218006/550262_J0740_1056_001_100_0000_Light-Rectangular-optical-frame.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', stock: 22, rating: 4.7, reviewsCount: 78 },
-  { name: 'GG0225S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1420, description: 'Oversize rounds with gold metal details.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1515776405/500263_J0740_1091_001_100_0000_Light-Round-frame-sunglasses.jpg'], colors: ['black/gold', 'havana/gold'], frameShape: 'round', material: 'acetate', gender: 'women', stock: 18, rating: 4.8, reviewsCount: 95 },
-  { name: 'GG0062S', brand: 'Gucci', category: 'sunglasses', season: 'spring', price: 1290, description: 'Pilot style with double metal bridge.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1476118833/450588_J0740_2312_001_100_0000_Light-Aviator-metal-sunglasses.jpg'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'unisex', stock: 25, rating: 4.6, reviewsCount: 54 },
-  { name: 'GG0584O', brand: 'Gucci', category: 'optical', season: 'autumn', price: 890, description: 'Vintage round frame with GG logo.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1570726804/600673_J0740_1012_001_100_0000_Light-Square-optical-frame.jpg'], colors: ['black', 'tortoise'], frameShape: 'round', material: 'acetate', gender: 'unisex', stock: 30, rating: 4.7, reviewsCount: 67 },
-  { name: 'GG0435S', brand: 'Gucci', category: 'sunglasses', season: 'summer', price: 1550, description: 'Sporty mask with elastic band.', images: ['https://media.gucci.com/style/DarkGray_Center_0_0_800x800/1544115605/563353_J0740_1012_001_100_0000_Light-Square-frame-sunglasses.jpg'], colors: ['black', 'white'], frameShape: 'mask', material: 'nylon', gender: 'unisex', stock: 12, rating: 4.5, reviewsCount: 34, isNewArrival: true },
-  { name: 'PR 01OS', brand: 'Prada', category: 'sunglasses', season: 'summer', price: 1380, description: 'Oversize baroque with sculpted details.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR01O/2AU1E0/0PR01O_2AU1E0_C_055_SLF.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'women', stock: 16, rating: 4.9, reviewsCount: 123, isBestseller: true },
-  { name: 'PR 17WS', brand: 'Prada', category: 'sunglasses', season: 'spring', price: 1250, description: 'Modern and bold geometric style.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR17W/1AB5S0/0PR17W_1AB5S0_C_049_SLF.jpg'], colors: ['black', 'white'], frameShape: 'geometric', material: 'acetate', gender: 'women', stock: 20, rating: 4.8, reviewsCount: 89 },
-  { name: 'PR 56VS', brand: 'Prada', category: 'sunglasses', season: 'summer', price: 1150, description: 'Minimalist aviator with double bridge.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672922130__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 22, rating: 4.7, reviewsCount: 78 },
-  { name: 'PR 08YV', brand: 'Prada', category: 'optical', season: 'autumn', price: 780, description: 'Elegant rectangular optical frame.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR08Y/1AB1O1/0PR08Y_1AB1O1_C_051_SLF.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', stock: 35, rating: 4.6, reviewsCount: 56 },
-  { name: 'PR 14WS', brand: 'Prada', category: 'sunglasses', season: 'winter', price: 1320, description: 'Sophisticated cat-eye with triangle logo.', images: ['https://www.prada.com/content/dam/pradabkg_products/0/0PR/0PR14W/1AB5S0/0PR14W_1AB5S0_C_052_SLF.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 14, rating: 4.8, reviewsCount: 92, isNewArrival: true },
-  { name: 'PS 01TS', brand: 'Prada', category: 'sport', season: 'summer', price: 980, description: 'Linea Rossa sport with mirrored lenses.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672852233__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['matte black', 'blue'], frameShape: 'sport', material: 'nylon', gender: 'men', stock: 28, rating: 4.7, reviewsCount: 145 },
-  { name: 'PS 05VS', brand: 'Prada', category: 'sport', season: 'summer', price: 890, description: 'Running style with non-slip grip.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8056597155632__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['black', 'red'], frameShape: 'sport', material: 'nylon', gender: 'unisex', stock: 32, rating: 4.5, reviewsCount: 67 },
-  { name: 'DiorSoStellaire1', brand: 'Dior', category: 'sunglasses', season: 'spring', price: 1750, description: 'Futuristic design with geometric lenses.', images: ['https://media.dior.com/img/en_us/sku/couture/SOSTELAIR1_8071I_tu?imwidth=460'], colors: ['black', 'rose gold'], frameShape: 'geometric', material: 'metal', gender: 'women', stock: 8, rating: 4.9, reviewsCount: 156, isBestseller: true },
-  { name: 'DiorBlackSuit', brand: 'Dior', category: 'sunglasses', season: 'autumn', price: 1450, description: 'Masculine aviator style with CD details.', images: ['https://media.dior.com/img/en_us/sku/couture/SUITRIR_10A0_tu?imwidth=460'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 12, rating: 4.8, reviewsCount: 89 },
-  { name: 'DiorSignature', brand: 'Dior', category: 'optical', season: 'winter', price: 980, description: 'Optical frame with CD logo on temples.', images: ['https://media.dior.com/img/en_us/sku/couture/DSIGNO1_10A0_tu?imwidth=460'], colors: ['black', 'tortoise'], frameShape: 'rectangular', material: 'acetate', gender: 'women', stock: 18, rating: 4.7, reviewsCount: 78 },
-  { name: 'DiorMidnight', brand: 'Dior', category: 'sunglasses', season: 'summer', price: 1580, description: 'Dramatic cat-eye with crystals.', images: ['https://media.dior.com/img/en_us/sku/couture/DMNGS1IXR_10A0_tu?imwidth=460'], colors: ['black', 'midnight blue'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 6, rating: 4.9, reviewsCount: 112, isNewArrival: true },
-  { name: 'DiorEssential', brand: 'Dior', category: 'sunglasses', season: 'spring', price: 1350, description: 'Oversize rounds with fine frame.', images: ['https://media.dior.com/img/en_us/sku/couture/ESTLA2UR_10A0_tu?imwidth=460'], colors: ['gold', 'silver'], frameShape: 'round', material: 'metal', gender: 'women', stock: 10, rating: 4.8, reviewsCount: 95 },
-  { name: 'DiorClub', brand: 'Dior', category: 'sunglasses', season: 'summer', price: 1680, description: 'Sporty mask with logo band.', images: ['https://media.dior.com/img/en_us/sku/couture/CLUBM1UXT_31B8_tu?imwidth=460'], colors: ['black', 'white'], frameShape: 'mask', material: 'nylon', gender: 'unisex', stock: 15, rating: 4.6, reviewsCount: 67 },
-  { name: 'FT0237 Snowdon', brand: 'Tom Ford', category: 'sunglasses', season: 'autumn', price: 1150, description: 'The model worn by James Bond in Spectre.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0237/FT0237_05B_F/Tom-Ford-Snowdon-Sunglasses'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', stock: 25, rating: 4.9, reviewsCount: 234, isBestseller: true },
-  { name: 'FT0058 Cary', brand: 'Tom Ford', category: 'sunglasses', season: 'summer', price: 980, description: 'Retro style with the iconic T.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0058/FT0058_01A_F/Tom-Ford-Cary-Sunglasses'], colors: ['shiny black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', stock: 30, rating: 4.8, reviewsCount: 178 },
-  { name: 'FT0009 Whitney', brand: 'Tom Ford', category: 'sunglasses', season: 'spring', price: 1080, description: 'Glamorous oversize for women.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0009/FT0009_01B_F/Tom-Ford-Whitney-Sunglasses'], colors: ['black', 'burgundy'], frameShape: 'square', material: 'acetate', gender: 'women', stock: 20, rating: 4.9, reviewsCount: 156 },
-  { name: 'FT5178', brand: 'Tom Ford', category: 'optical', season: 'winter', price: 780, description: 'Classic rectangular optical frame.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT5178/FT5178_001_F/Tom-Ford-Soft-Square-Optical-Frame'], colors: ['black', 'dark havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', stock: 40, rating: 4.7, reviewsCount: 89 },
-  { name: 'FT0821 Gerrard', brand: 'Tom Ford', category: 'sunglasses', season: 'summer', price: 1250, description: 'Modern aviator with double bridge.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0821/FT0821_28A_F/Tom-Ford-Gerrard-Sunglasses'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 15, rating: 4.8, reviewsCount: 112, isNewArrival: true },
-  { name: 'FT0871 Gia', brand: 'Tom Ford', category: 'sunglasses', season: 'autumn', price: 1180, description: 'Sophisticated and feminine cat-eye.', images: ['https://images.tomford.com/images/t_large/e_sharpen:60/f_auto,q_auto/v1/assets/TFO/FT0871/FT0871_01B_F/Tom-Ford-Gia-Sunglasses'], colors: ['black', 'champagne'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 18, rating: 4.9, reviewsCount: 78 },
-  { name: 'VE4361', brand: 'Versace', category: 'sunglasses', season: 'summer', price: 1280, description: 'Oversize with golden Medusa.', images: ['https://www.versace.com/dw/image/v2/BGWN_PRD/on/demandware.static/-/Sites-ver-master-catalog/default/dw12345678/images/original/90_O4361-O40187_ONUL_20_BiggieSunglasses-Sunglasses-versace-online-store_0_0.jpg'], colors: ['black/gold', 'white/gold'], frameShape: 'square', material: 'acetate', gender: 'women', stock: 12, rating: 4.8, reviewsCount: 145, isBestseller: true },
-  { name: 'VE2150Q', brand: 'Versace', category: 'sunglasses', season: 'spring', price: 1150, description: 'Aviator with Greek details.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672186789__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 25, rating: 4.7, reviewsCount: 89 },
-  { name: 'VE4394', brand: 'Versace', category: 'sunglasses', season: 'summer', price: 1380, description: 'Glamorous cat-eye with crystals.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8056597223782__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 14, rating: 4.9, reviewsCount: 112, isNewArrival: true },
-  { name: 'VE3264B', brand: 'Versace', category: 'optical', season: 'autumn', price: 780, description: 'Optical frame with Medusa logo.', images: ['https://www.ezcontacts.com/data/specs/582326-582327/582327_1.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'unisex', stock: 35, rating: 4.6, reviewsCount: 67 },
-  { name: 'Radar EV Path', brand: 'Oakley', category: 'sport', season: 'summer', price: 780, description: 'Ultimate performance with Prizm technology.', images: ['https://assets.oakley.com/is/image/Oakley/888392101789__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'white'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', stock: 50, rating: 4.9, reviewsCount: 345, isBestseller: true },
-  { name: 'Sutro', brand: 'Oakley', category: 'sport', season: 'summer', price: 650, description: 'Lifestyle style with large screen.', images: ['https://assets.oakley.com/is/image/Oakley/888392404770__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'olive'], frameShape: 'mask', material: 'O-Matter', gender: 'unisex', stock: 45, rating: 4.8, reviewsCount: 234 },
-  { name: 'Jawbreaker', brand: 'Oakley', category: 'sport', season: 'summer', price: 890, description: 'Designed for professional cycling.', images: ['https://assets.oakley.com/is/image/Oakley/888392105121__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['black', 'red'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', stock: 30, rating: 4.9, reviewsCount: 189, isNewArrival: true },
-  { name: 'Frogskins', brand: 'Oakley', category: 'sunglasses', season: 'summer', price: 520, description: 'Retro style from the 80s.', images: ['https://assets.oakley.com/is/image/Oakley/888392243687__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['matte black', 'crystal'], frameShape: 'square', material: 'O-Matter', gender: 'unisex', stock: 60, rating: 4.7, reviewsCount: 267 },
-  { name: 'Flight Jacket', brand: 'Oakley', category: 'sport', season: 'spring', price: 720, description: 'Advancer ventilation for trail running.', images: ['https://assets.oakley.com/is/image/Oakley/888392342317__STD__shad__qt.png?impolicy=OO_product_page_preview'], colors: ['black', 'blue'], frameShape: 'sport', material: 'O-Matter', gender: 'unisex', stock: 40, rating: 4.8, reviewsCount: 156 },
-  { name: 'Carrera 1001/S', brand: 'Carrera', category: 'sunglasses', season: 'summer', price: 580, description: 'Racing aviator with double bridge.', images: ['https://www.carreraworld.com/images/products/2016597/2016597_080S_9O_00.jpg'], colors: ['matte black', 'gold'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 35, rating: 4.7, reviewsCount: 145, isBestseller: true },
-  { name: 'Carrera 5003', brand: 'Carrera', category: 'sunglasses', season: 'summer', price: 450, description: 'Vintage style inspired by the 70s.', images: ['https://m.media-amazon.com/images/I/51+66+66+L._AC_UL1500_.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', stock: 45, rating: 4.6, reviewsCount: 112 },
-  { name: 'Carrera 8035/S', brand: 'Carrera', category: 'sport', season: 'summer', price: 520, description: 'Lightweight sport with polarized lenses.', images: ['https://www.carreraworld.com/images/products/202722/202722_003_AO_00.jpg'], colors: ['matte black', 'blue'], frameShape: 'sport', material: 'nylon', gender: 'men', stock: 50, rating: 4.5, reviewsCount: 89 },
-  { name: 'PO3019S', brand: 'Persol', category: 'sunglasses', season: 'autumn', price: 780, description: 'Typewriter Edition with Meflecto hinge.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO3019S__96_56/0PO3019S__96_56_fr.png'], colors: ['havana', 'black'], frameShape: 'square', material: 'acetate', gender: 'unisex', stock: 20, rating: 4.9, reviewsCount: 178, isBestseller: true },
-  { name: 'PO0649', brand: 'Persol', category: 'sunglasses', season: 'summer', price: 720, description: 'The iconic model since 1957.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/sun/0PO0649__24_31/0PO0649__24_31_fr.png'], colors: ['havana', 'black'], frameShape: 'aviator', material: 'acetate', gender: 'unisex', stock: 30, rating: 4.8, reviewsCount: 234 },
-  { name: 'PO3152V', brand: 'Persol', category: 'optical', season: 'winter', price: 580, description: 'Elegant rectangular optical frame.', images: ['https://www.persol.com/wcsstore/PersolSAS/images/opt/0PO3152V__9014/0PO3152V__9014_fr.png'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', stock: 25, rating: 4.7, reviewsCount: 89 },
-  { name: 'CH5414', brand: 'Chanel', category: 'sunglasses', season: 'spring', price: 1850, description: 'Oversize with pearl CC logo.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-black-beige-acetate-acetate-packshot-default-a71371x08101s0114-8848366534686.jpg'], colors: ['black', 'white'], frameShape: 'square', material: 'acetate', gender: 'women', stock: 8, rating: 4.9, reviewsCount: 156, isBestseller: true },
-  { name: 'CH4244', brand: 'Chanel', category: 'sunglasses', season: 'summer', price: 1650, description: 'Pilot with gold chain.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-silver-metal-calfskin-glass-pearls-metal-calfskin-glass-pearls-packshot-default-a71292x06081l2412-8848365453342.jpg'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'women', stock: 12, rating: 4.8, reviewsCount: 112 },
-  { name: 'CH5408', brand: 'Chanel', category: 'sunglasses', season: 'autumn', price: 1780, description: 'Cat-eye with signature quilting.', images: ['https://www.chanel.com/images/q_auto,f_auto,fl_lossy,dpr_auto/w_1920/square-sunglasses-black-acetate-acetate-packshot-default-a71355x02569s0116-8848366141470.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 6, rating: 4.9, reviewsCount: 89, isNewArrival: true },
-  { name: 'AR8090', brand: 'Armani', category: 'sunglasses', season: 'summer', price: 680, description: 'Classic Italian style.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672613131__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['matte black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'men', stock: 40, rating: 4.7, reviewsCount: 145 },
-  { name: 'AR6048', brand: 'Armani', category: 'sunglasses', season: 'spring', price: 580, description: 'Elegant minimalist aviator.', images: ['https://www.sunglasshut.com/is/image/Luxottica/8053672706321__STD__shad__qt.png?impolicy=SGH_bgc&width=1000&bgcolor=%23f6f6f6'], colors: ['gold', 'silver'], frameShape: 'aviator', material: 'metal', gender: 'men', stock: 35, rating: 4.6, reviewsCount: 89 },
-  { name: 'AR7125', brand: 'Armani', category: 'optical', season: 'winter', price: 450, description: 'Sober rectangular optical frame.', images: ['https://www.ezcontacts.com/data/specs/464565-464573/464573_1.jpg'], colors: ['black', 'havana'], frameShape: 'rectangular', material: 'acetate', gender: 'men', stock: 30, rating: 4.5, reviewsCount: 67 },
-  { name: 'SL 1', brand: 'Saint Laurent', category: 'sunglasses', season: 'summer', price: 1250, description: 'Iconic rock\'n\'roll mask.', images: ['https://www.ysl.com/624407Y99011000/624407Y99011000_A1.jpg'], colors: ['black', 'havana'], frameShape: 'mask', material: 'acetate', gender: 'unisex', stock: 15, rating: 4.9, reviewsCount: 178, isBestseller: true },
-  { name: 'SL 181 Lor', brand: 'Saint Laurent', category: 'sunglasses', season: 'autumn', price: 980, description: 'Dramatic and glamorous cat-eye.', images: ['https://www.ysl.com/534852Y99011000/534852Y99011000_A1.jpg'], colors: ['black', 'burgundy'], frameShape: 'cat-eye', material: 'acetate', gender: 'women', stock: 12, rating: 4.8, reviewsCount: 112 },
-  { name: 'SL 28', brand: 'Saint Laurent', category: 'sunglasses', season: 'spring', price: 850, description: 'Classic square with YSL logo.', images: ['https://www.ysl.com/419691Y99011000/419691Y99011000_A1.jpg'], colors: ['black', 'havana'], frameShape: 'square', material: 'acetate', gender: 'unisex', stock: 18, rating: 4.7, reviewsCount: 89 }
+  {
+    "name": "Crystal Blend Clear",
+    "brand": "Céleste",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 164,
+    "originalPrice": 228,
+    "description": "Le modèle Aéria Shade incarne l'élégance moderne. Avec sa monture Or Solaire de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-13.jpg"
+    ],
+    "colors": [
+      "Or Solaire",
+      "Noir Minuit"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 54,
+    "rating": "4.1",
+    "reviewsCount": 68,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_13_mk8gm0kj"
+  },
+  {
+    "name": "Wave Mix Style",
+    "brand": "Heritage",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 259,
+    "originalPrice": 170,
+    "description": "Le modèle Orion Clear incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-14.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Bleu Océan"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 31,
+    "rating": "4.9",
+    "reviewsCount": 134,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_14_mk8gm0kj"
+  },
+  {
+    "name": "Breeze Fusion Vision",
+    "brand": "Sportif",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 248,
+    "originalPrice": 348,
+    "description": "Le modèle Sirius Clear incarne l'élégance moderne. Avec sa monture Vert Forêt de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-15.jpg"
+    ],
+    "colors": [
+      "Vert Forêt",
+      "Rose Poudré"
+    ],
+    "frameShape": "round",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 41,
+    "rating": "4.9",
+    "reviewsCount": 10,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_15_mk8gm0kj"
+  },
+  {
+    "name": "Alpine Core Optic",
+    "brand": "Heritage",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 170,
+    "originalPrice": 292,
+    "description": "Le modèle Quartz Max incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-16.jpg"
+    ],
+    "colors": [
+      "Gris Ardoise",
+      "Brun Terre"
+    ],
+    "frameShape": "rectangular",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 22,
+    "rating": "4.2",
+    "reviewsCount": 114,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_16_mk8gm0kj"
+  },
+  {
+    "name": "Frost Pure View",
+    "brand": "Nova",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 294,
+    "originalPrice": 359,
+    "description": "Le modèle Ventus Shade incarne l'élégance moderne. Avec sa monture Brun Terre de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-17.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Argent Lunaire"
+    ],
+    "frameShape": "rectangular",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 24,
+    "rating": "4.8",
+    "reviewsCount": 183,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_17_mk8gm0kj"
+  },
+  {
+    "name": "Arctic True Look",
+    "brand": "Ethereal",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 182,
+    "originalPrice": 336,
+    "description": "Le modèle Sirius Prime incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-18.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Brun Terre"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 44,
+    "rating": "4.9",
+    "reviewsCount": 178,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_18_mk8gm0kj"
+  },
+  {
+    "name": "Snow Real Frame",
+    "brand": "London",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 251,
+    "originalPrice": 399,
+    "description": "Le modèle Altair Max incarne l'élégance moderne. Avec sa monture Rose Poudré de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-19.jpg"
+    ],
+    "colors": [
+      "Rose Poudré",
+      "Noir Minuit"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 7,
+    "rating": "4.5",
+    "reviewsCount": 95,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_19_mk8gm0kj"
+  },
+  {
+    "name": "Ice Vista Aura",
+    "brand": "Artis",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 166,
+    "originalPrice": 192,
+    "description": "Le modèle Aéria View incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-20.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Or Solaire"
+    ],
+    "frameShape": "oversized",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 37,
+    "rating": "4.0",
+    "reviewsCount": 150,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_20_mk8gm0kj"
+  },
+  {
+    "name": "Sunset Horizon Clear",
+    "brand": "Céleste",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 299,
+    "originalPrice": 178,
+    "description": "Le modèle Prisma Core incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-21.jpg"
+    ],
+    "colors": [
+      "Gris Ardoise",
+      "Rose Poudré"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 23,
+    "rating": "4.8",
+    "reviewsCount": 62,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_21_mk8gm0kj"
+  },
+  {
+    "name": "Polar Clarity Style",
+    "brand": "Rossi",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 265,
+    "originalPrice": 280,
+    "description": "Le modèle Aether Shade incarne l'élégance moderne. Avec sa monture Brun Terre de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-22.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Écaille Tortue"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 33,
+    "rating": "5.0",
+    "reviewsCount": 184,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_22_mk8gm0kj"
+  },
+  {
+    "name": "Nordic Focus Vision",
+    "brand": "Baron",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 349,
+    "originalPrice": 250,
+    "description": "Le modèle Nova Soft incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-23.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Transparent Cristal"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 9,
+    "rating": "4.5",
+    "reviewsCount": 129,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_23_mk8gm0kj"
+  },
+  {
+    "name": "Coastal Prism Edge",
+    "brand": "Roma",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 230,
+    "originalPrice": 332,
+    "description": "Le modèle Chronos Air incarne l'élégance moderne. Avec sa monture Noir Minuit de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-24.jpg"
+    ],
+    "colors": [
+      "Noir Minuit",
+      "Or Solaire"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 33,
+    "rating": "4.7",
+    "reviewsCount": 128,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_24_mk8gm0kj"
+  },
+  {
+    "name": "Sun Spectrum View",
+    "brand": "London",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 151,
+    "originalPrice": 397,
+    "description": "Le modèle Terra Vista incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-25.jpg"
+    ],
+    "colors": [
+      "Noir Minuit",
+      "Transparent Cristal"
+    ],
+    "frameShape": "browline",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 27,
+    "rating": "4.6",
+    "reviewsCount": 37,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_25_mk8gm0kj"
+  },
+  {
+    "name": "Beach Ray Prime",
+    "brand": "Soléra",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 141,
+    "originalPrice": 322,
+    "description": "Le modèle Aether Flash incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-26.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Bleu Océan"
+    ],
+    "frameShape": "browline",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 10,
+    "rating": "4.4",
+    "reviewsCount": 151,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_26_mk8gm0kj"
+  },
+  {
+    "name": "Coral Glow Max",
+    "brand": "Aurélia",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 261,
+    "originalPrice": 302,
+    "description": "Le modèle Ventus Guard incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-27.jpg"
+    ],
+    "colors": [
+      "Gris Ardoise",
+      "Brun Terre"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Acetate",
+    "gender": "men",
+    "stock": 5,
+    "rating": "4.5",
+    "reviewsCount": 125,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_27_mk8gm0kj"
+  },
+  {
+    "name": "Tropic Shine Lens",
+    "brand": "Artis",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 166,
+    "originalPrice": 275,
+    "description": "Le modèle Altair Scope incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-28.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Noir Minuit"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 38,
+    "rating": "4.5",
+    "reviewsCount": 115,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_28_mk8gm0kj"
+  },
+  {
+    "name": "Sunset Spark Classic",
+    "brand": "Romano",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 129,
+    "originalPrice": 182,
+    "description": "Le modèle Vesta Prime incarne l'élégance moderne. Avec sa monture Noir Minuit de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-29.jpg"
+    ],
+    "colors": [
+      "Noir Minuit",
+      "Vert Forêt"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "men",
+    "stock": 34,
+    "rating": "4.1",
+    "reviewsCount": 198,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_29_mk8gm0kj"
+  },
+  {
+    "name": "Wave Flash Chic",
+    "brand": "Céleste",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 192,
+    "originalPrice": 236,
+    "description": "Le modèle Soléra Tint incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-30.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Noir Minuit"
+    ],
+    "frameShape": "rectangular",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 28,
+    "rating": "4.1",
+    "reviewsCount": 69,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_30_mk8gm0kj"
+  },
+  {
+    "name": "Breeze Beam Grace",
+    "brand": "Artis",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 340,
+    "originalPrice": 241,
+    "description": "Le modèle Eclipse Lens incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-31.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Argent Lunaire"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 39,
+    "rating": "4.2",
+    "reviewsCount": 123,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_31_mk8gm0kj"
+  },
+  {
+    "name": "Alpine Light Optic",
+    "brand": "Céleste",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 142,
+    "originalPrice": 223,
+    "description": "Le modèle Aether Lens incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-32.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Transparent Cristal"
+    ],
+    "frameShape": "geometric",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 36,
+    "rating": "4.2",
+    "reviewsCount": 180,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_32_mk8gm0kj"
+  },
+  {
+    "name": "Sun Shade Force",
+    "brand": "Heritage",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 269,
+    "originalPrice": 259,
+    "description": "Le modèle Quartz Sight incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-33.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Or Solaire"
+    ],
+    "frameShape": "oversized",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 24,
+    "rating": "4.1",
+    "reviewsCount": 120,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_33_mk8gm0kj"
+  },
+  {
+    "name": "Beach Tint Look",
+    "brand": "Apex",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 282,
+    "originalPrice": 300,
+    "description": "Le modèle Ventus Glow incarne l'élégance moderne. Avec sa monture Rose Poudré de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-34.jpg"
+    ],
+    "colors": [
+      "Rose Poudré",
+      "Gris Ardoise"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 33,
+    "rating": "4.2",
+    "reviewsCount": 37,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_34_mk8gm0kj"
+  },
+  {
+    "name": "Coral Hue Frame",
+    "brand": "Orion",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 307,
+    "originalPrice": 185,
+    "description": "Le modèle Apex Sight incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-35.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Vert Forêt"
+    ],
+    "frameShape": "round",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 51,
+    "rating": "4.6",
+    "reviewsCount": 56,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_35_mk8gm0kj"
+  },
+  {
+    "name": "Tropic Tone Lens",
+    "brand": "Artis",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 303,
+    "originalPrice": 245,
+    "description": "Le modèle Apex Max incarne l'élégance moderne. Avec sa monture Bleu Océan de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-36.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Or Solaire"
+    ],
+    "frameShape": "geometric",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 17,
+    "rating": "4.6",
+    "reviewsCount": 174,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_36_mk8gm0kj"
+  },
+  {
+    "name": "Crystal Blend Clear",
+    "brand": "Soléra",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 130,
+    "originalPrice": 388,
+    "description": "Le modèle Radia Frame incarne l'élégance moderne. Avec sa monture Bleu Océan de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-37.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Brun Terre"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 34,
+    "rating": "4.4",
+    "reviewsCount": 167,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_37_mk8gm0kj"
+  },
+  {
+    "name": "Polar Mix Pro",
+    "brand": "Heritage",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 347,
+    "originalPrice": 200,
+    "description": "Le modèle Ventus Prime incarne l'élégance moderne. Avec sa monture Bleu Océan de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-38.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Gris Ardoise"
+    ],
+    "frameShape": "aviator",
+    "material": "Acetate",
+    "gender": "men",
+    "stock": 47,
+    "rating": "4.5",
+    "reviewsCount": 56,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_38_mk8gm0kj"
+  },
+  {
+    "name": "Breeze Fusion Vision",
+    "brand": "Baron",
+    "category": "sunglasses",
+    "season": "summer",
+    "price": 280,
+    "originalPrice": 180,
+    "description": "Le modèle Vesta Tint incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-39.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Brun Terre"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 30,
+    "rating": "4.9",
+    "reviewsCount": 25,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_39_mk8gm0kj"
+  },
+  {
+    "name": "Alpine Core Optic",
+    "brand": "Sportif",
+    "category": "sunglasses",
+    "season": "winter",
+    "price": 211,
+    "originalPrice": 309,
+    "description": "Le modèle Nova Frame incarne l'élégance moderne. Avec sa monture Rose Poudré de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/sun-40.jpg"
+    ],
+    "colors": [
+      "Rose Poudré",
+      "Noir Minuit"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 27,
+    "rating": "4.3",
+    "reviewsCount": 147,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_40_mk8gm0kj"
+  },
+  {
+    "name": "Frost Pure Elegance",
+    "brand": "Orion",
+    "category": "optical",
+    "season": "winter",
+    "price": 295,
+    "originalPrice": 229,
+    "description": "Le modèle Radia Edge incarne l'élégance moderne. Avec sa monture Bleu Océan de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-11.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Écaille Tortue"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "women",
+    "stock": 24,
+    "rating": "5.0",
+    "reviewsCount": 44,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_41_mk8gm0kj"
+  },
+  {
+    "name": "Beach True Look",
+    "brand": "Nova",
+    "category": "optical",
+    "season": "summer",
+    "price": 178,
+    "originalPrice": 206,
+    "description": "Le modèle Spectra Max incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-12.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Gris Ardoise"
+    ],
+    "frameShape": "aviator",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 25,
+    "rating": "4.4",
+    "reviewsCount": 111,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_42_mk8gm0kj"
+  },
+  {
+    "name": "Coral Real Frame",
+    "brand": "Royale",
+    "category": "optical",
+    "season": "summer",
+    "price": 185,
+    "originalPrice": 219,
+    "description": "Le modèle Chronos Look incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-13.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Argent Lunaire"
+    ],
+    "frameShape": "browline",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 26,
+    "rating": "4.4",
+    "reviewsCount": 88,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_43_mk8gm0kj"
+  },
+  {
+    "name": "Tropic Vista Lens",
+    "brand": "Ethereal",
+    "category": "optical",
+    "season": "summer",
+    "price": 136,
+    "originalPrice": 226,
+    "description": "Le modèle Flux Guard incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-14.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Argent Lunaire"
+    ],
+    "frameShape": "round",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 5,
+    "rating": "4.8",
+    "reviewsCount": 138,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_44_mk8gm0kj"
+  },
+  {
+    "name": "Sunset Horizon Clear",
+    "brand": "Lumina",
+    "category": "optical",
+    "season": "summer",
+    "price": 137,
+    "originalPrice": 255,
+    "description": "Le modèle Radia Scene incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-15.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Or Solaire"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 43,
+    "rating": "4.6",
+    "reviewsCount": 143,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_45_mk8gm0kj"
+  },
+  {
+    "name": "Wave Clarity Style",
+    "brand": "Apex",
+    "category": "optical",
+    "season": "summer",
+    "price": 240,
+    "originalPrice": 220,
+    "description": "Le modèle Radia Guard incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-16.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Brun Terre"
+    ],
+    "frameShape": "rectangular",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 14,
+    "rating": "4.3",
+    "reviewsCount": 11,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_46_mk8gm0kj"
+  },
+  {
+    "name": "Breeze Focus Vision",
+    "brand": "Heritage",
+    "category": "optical",
+    "season": "summer",
+    "price": 254,
+    "originalPrice": 394,
+    "description": "Le modèle Orion Glow incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-17.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Bleu Océan"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 13,
+    "rating": "4.5",
+    "reviewsCount": 199,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_47_mk8gm0kj"
+  },
+  {
+    "name": "Coastal Prism Luxe",
+    "brand": "Heritage",
+    "category": "optical",
+    "season": "summer",
+    "price": 325,
+    "originalPrice": 195,
+    "description": "Le modèle Radia Flash incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-18.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Transparent Cristal"
+    ],
+    "frameShape": "oversized",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 12,
+    "rating": "4.8",
+    "reviewsCount": 65,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_48_mk8gm0kj"
+  },
+  {
+    "name": "Sun Spectrum View",
+    "brand": "Heritage",
+    "category": "optical",
+    "season": "summer",
+    "price": 207,
+    "originalPrice": 400,
+    "description": "Le modèle Ventus Aspect incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-19.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Gris Ardoise"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 41,
+    "rating": "4.6",
+    "reviewsCount": 179,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_49_mk8gm0kj"
+  },
+  {
+    "name": "Beach Ray Look",
+    "brand": "Sportif",
+    "category": "optical",
+    "season": "summer",
+    "price": 120,
+    "originalPrice": 234,
+    "description": "Le modèle Lumen Tint incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-20.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Noir Minuit"
+    ],
+    "frameShape": "square",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 40,
+    "rating": "4.0",
+    "reviewsCount": 141,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_50_mk8gm0kj"
+  },
+  {
+    "name": "Snow Glow Frame",
+    "brand": "Heritage",
+    "category": "optical",
+    "season": "winter",
+    "price": 166,
+    "originalPrice": 226,
+    "description": "Le modèle Apex Ray incarne l'élégance moderne. Avec sa monture Or Solaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-21.jpg"
+    ],
+    "colors": [
+      "Or Solaire",
+      "Gris Ardoise"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 22,
+    "rating": "4.9",
+    "reviewsCount": 85,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_51_mk8gm0kj"
+  },
+  {
+    "name": "Tropic Shine Lens",
+    "brand": "Heritage",
+    "category": "optical",
+    "season": "summer",
+    "price": 124,
+    "originalPrice": 398,
+    "description": "Le modèle Stratus Vista incarne l'élégance moderne. Avec sa monture Or Solaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-22.jpg"
+    ],
+    "colors": [
+      "Or Solaire",
+      "Rose Poudré"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 24,
+    "rating": "4.9",
+    "reviewsCount": 192,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_52_mk8gm0kj"
+  },
+  {
+    "name": "Sunset Spark Clear",
+    "brand": "Nova",
+    "category": "optical",
+    "season": "summer",
+    "price": 239,
+    "originalPrice": 388,
+    "description": "Le modèle Vesta Vision incarne l'élégance moderne. Avec sa monture Rose Poudré de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-23.jpg"
+    ],
+    "colors": [
+      "Rose Poudré",
+      "Vert Forêt"
+    ],
+    "frameShape": "oversized",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 32,
+    "rating": "4.3",
+    "reviewsCount": 37,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "_id": "prod_53_mk8gm0kj"
+  },
+  {
+    "name": "Polar Flash Chic",
+    "brand": "Nova",
+    "category": "optical",
+    "season": "winter",
+    "price": 254,
+    "originalPrice": 386,
+    "description": "Le modèle Aéria Soft incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-24.jpg"
+    ],
+    "colors": [
+      "Noir Minuit",
+      "Gris Ardoise"
+    ],
+    "frameShape": "browline",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 20,
+    "rating": "4.1",
+    "reviewsCount": 183,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_54_mk8gm0kj"
+  },
+  {
+    "name": "Nordic Beam Grace",
+    "brand": "Soléra",
+    "category": "optical",
+    "season": "winter",
+    "price": 305,
+    "originalPrice": 333,
+    "description": "Le modèle Ventus Lite incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-25.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Bleu Océan"
+    ],
+    "frameShape": "rectangular",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 20,
+    "rating": "5.0",
+    "reviewsCount": 22,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_55_mk8gm0kj"
+  },
+  {
+    "name": "Alpine Light Optic",
+    "brand": "Aurélia",
+    "category": "optical",
+    "season": "winter",
+    "price": 320,
+    "originalPrice": 239,
+    "description": "Le modèle Mira Beam incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-26.jpg"
+    ],
+    "colors": [
+      "Transparent Cristal",
+      "Gris Ardoise"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 31,
+    "rating": "4.9",
+    "reviewsCount": 26,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_56_mk8gm0kj"
+  },
+  {
+    "name": "Sun Shade View",
+    "brand": "Orion",
+    "category": "optical",
+    "season": "summer",
+    "price": 134,
+    "originalPrice": 261,
+    "description": "Le modèle Lyra Spark incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-27.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Gris Ardoise"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 51,
+    "rating": "4.2",
+    "reviewsCount": 132,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "_id": "prod_57_mk8gm0kj"
+  },
+  {
+    "name": "Beach Tint Glam",
+    "brand": "Rossi",
+    "category": "optical",
+    "season": "summer",
+    "price": 334,
+    "originalPrice": 245,
+    "description": "Le modèle Prisma Soft incarne l'élégance moderne. Avec sa monture Rose Poudré de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-28.jpg"
+    ],
+    "colors": [
+      "Rose Poudré",
+      "Transparent Cristal"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 8,
+    "rating": "5.0",
+    "reviewsCount": 29,
+    "isBestseller": false,
+    "isNewArrival": true,
+    "_id": "prod_58_mk8gm0kj"
+  },
+  {
+    "name": "Snow Hue Frame",
+    "brand": "Aurélia",
+    "category": "optical",
+    "season": "winter",
+    "price": 282,
+    "originalPrice": 346,
+    "description": "Le modèle Eclipse Look incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-29.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Rose Poudré"
+    ],
+    "frameShape": "browline",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 26,
+    "rating": "4.1",
+    "reviewsCount": 40,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_59_mk8gm0kj"
+  },
+  {
+    "name": "Ice Tone Lens",
+    "brand": "London",
+    "category": "optical",
+    "season": "winter",
+    "price": 131,
+    "originalPrice": 256,
+    "description": "Le modèle Luna Focus incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-30.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Argent Lunaire"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 12,
+    "rating": "4.0",
+    "reviewsCount": 208,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_60_mk8gm0kj"
+  },
+  {
+    "name": "Crystal Blend Clear",
+    "brand": "Lumina",
+    "category": "optical",
+    "season": "winter",
+    "price": 317,
+    "originalPrice": 179,
+    "description": "Le modèle Soléra Look incarne l'élégance moderne. Avec sa monture Vert Forêt de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-01.jpg"
+    ],
+    "colors": [
+      "Vert Forêt",
+      "Écaille Tortue"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Metal",
+    "gender": "unisex",
+    "stock": 32,
+    "rating": "4.6",
+    "reviewsCount": 19,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_61_mk8gm0kj"
+  },
+  {
+    "name": "Polar Mix Style",
+    "brand": "Artis",
+    "category": "optical",
+    "season": "winter",
+    "price": 319,
+    "originalPrice": 334,
+    "description": "Le modèle Helios Shine incarne l'élégance moderne. Avec sa monture Bleu Océan de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-02.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Argent Lunaire"
+    ],
+    "frameShape": "oversized",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 52,
+    "rating": "4.2",
+    "reviewsCount": 139,
+    "isBestseller": true,
+    "isNewArrival": true,
+    "_id": "prod_62_mk8gm0kj"
+  },
+  {
+    "name": "Breeze Fusion Grace",
+    "brand": "Zenith",
+    "category": "optical",
+    "season": "summer",
+    "price": 322,
+    "originalPrice": 363,
+    "description": "Le modèle Apex View incarne l'élégance moderne. Avec sa monture Bleu Océan de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-03.jpg"
+    ],
+    "colors": [
+      "Bleu Océan",
+      "Vert Forêt"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 20,
+    "rating": "4.7",
+    "reviewsCount": 128,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_63_mk8gm0kk"
+  },
+  {
+    "name": "Alpine Core Luxe",
+    "brand": "Nova",
+    "category": "optical",
+    "season": "winter",
+    "price": 224,
+    "originalPrice": 280,
+    "description": "Le modèle Cirrus Beam incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-04.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Bleu Océan"
+    ],
+    "frameShape": "round",
+    "material": "Metal",
+    "gender": "women",
+    "stock": 15,
+    "rating": "4.8",
+    "reviewsCount": 101,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_64_mk8gm0kk"
+  },
+  {
+    "name": "Sun Pure View",
+    "brand": "Aurélia",
+    "category": "optical",
+    "season": "summer",
+    "price": 191,
+    "originalPrice": 372,
+    "description": "Le modèle Luna Lite incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-05.jpg"
+    ],
+    "colors": [
+      "Écaille Tortue",
+      "Bleu Océan"
+    ],
+    "frameShape": "geometric",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 28,
+    "rating": "4.9",
+    "reviewsCount": 16,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_65_mk8gm0kk"
+  },
+  {
+    "name": "Beach True Look",
+    "brand": "Aurélia",
+    "category": "optical",
+    "season": "summer",
+    "price": 188,
+    "originalPrice": 391,
+    "description": "Le modèle Eclipse Shield incarne l'élégance moderne. Avec sa monture Brun Terre de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-06.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Vert Forêt"
+    ],
+    "frameShape": "oversized",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 20,
+    "rating": "4.0",
+    "reviewsCount": 132,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_66_mk8gm0kk"
+  },
+  {
+    "name": "Coral Real Max",
+    "brand": "Rossi",
+    "category": "optical",
+    "season": "summer",
+    "price": 309,
+    "originalPrice": 321,
+    "description": "Le modèle Flux Lens incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-07.jpg"
+    ],
+    "colors": [
+      "Argent Lunaire",
+      "Vert Forêt"
+    ],
+    "frameShape": "aviator",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 28,
+    "rating": "4.9",
+    "reviewsCount": 43,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_67_mk8gm0kk"
+  },
+  {
+    "name": "Tropic Vista Sport",
+    "brand": "Artis",
+    "category": "optical",
+    "season": "summer",
+    "price": 274,
+    "originalPrice": 367,
+    "description": "Le modèle Luna Lens incarne l'élégance moderne. Avec sa monture Vert Forêt de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-08.jpg"
+    ],
+    "colors": [
+      "Vert Forêt",
+      "Noir Minuit"
+    ],
+    "frameShape": "square",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 38,
+    "rating": "4.4",
+    "reviewsCount": 157,
+    "isBestseller": true,
+    "isNewArrival": false,
+    "_id": "prod_68_mk8gm0kk"
+  },
+  {
+    "name": "Crystal Horizon Clear",
+    "brand": "Vespera",
+    "category": "optical",
+    "season": "winter",
+    "price": 125,
+    "originalPrice": 267,
+    "description": "Le modèle Ventus Beam incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-09.jpg"
+    ],
+    "colors": [
+      "Gris Ardoise",
+      "Bleu Océan"
+    ],
+    "frameShape": "aviator",
+    "material": "Acetate",
+    "gender": "unisex",
+    "stock": 49,
+    "rating": "4.3",
+    "reviewsCount": 65,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_69_mk8gm0kk"
+  },
+  {
+    "name": "Wave Clarity Pro",
+    "brand": "Equinox",
+    "category": "optical",
+    "season": "summer",
+    "price": 260,
+    "originalPrice": 181,
+    "description": "Le modèle Quartz Look incarne l'élégance moderne. Avec sa monture Brun Terre de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
+    "images": [
+      "/images/products/optical-10.jpg"
+    ],
+    "colors": [
+      "Brun Terre",
+      "Argent Lunaire"
+    ],
+    "frameShape": "cat-eye",
+    "material": "Metal",
+    "gender": "men",
+    "stock": 14,
+    "rating": "4.0",
+    "reviewsCount": 57,
+    "isBestseller": false,
+    "isNewArrival": false,
+    "_id": "prod_70_mk8gm0kk"
+  }
 ];
-
-export default products;

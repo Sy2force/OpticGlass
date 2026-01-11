@@ -30,7 +30,7 @@ const BrandDetailPage = () => {
         setProducts(response.data.data);
       }
     } catch (error) {
-      console.error('Erreur chargement produits marque:', error);
+      console.error('Error loading brand products:', error);
     } finally {
       setLoading(false);
     }

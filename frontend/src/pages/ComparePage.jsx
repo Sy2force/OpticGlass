@@ -21,7 +21,7 @@ const ComparePage = () => {
         setAllProducts(response.data.data);
       }
     } catch (error) {
-      console.error('Erreur chargement produits:', error);
+      console.error('Error loading products:', error);
     }
   };
 

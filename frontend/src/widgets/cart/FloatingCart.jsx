@@ -36,7 +36,7 @@ const FloatingCart = () => {
         setItemCount(0);
       }
     } catch (error) {
-      console.error('Erreur chargement panier:', error);
+      console.error('Error loading cart:', error);
       setCartItems([]);
       setItemCount(0);
     }
@@ -126,7 +126,7 @@ const FloatingCart = () => {
                 {cartItems.length === 0 ? (
                   <div className="text-center py-12">
                     <ShoppingCart size={64} className="mx-auto text-gray-600 mb-4" />
-                    <p className="text-gray-400 text-lg">Votre panier est vide</p>
+                    <p className="text-gray-400 text-lg">Your cart is empty</p>
                     <Link to="/glasses">
                       <motion.button
                         whileHover={{ scale: 1.05 }}
@@ -134,7 +134,7 @@ const FloatingCart = () => {
                         onClick={() => setIsOpen(false)}
                         className="mt-4 bg-primary hover:bg-[#d4af37] text-white px-6 py-3 rounded-lg font-medium transition-colors"
                       >
-                        Découvrir nos lunettes
+                        Discover our glasses
                       </motion.button>
                     </Link>
                   </div>
@@ -207,7 +207,7 @@ const FloatingCart = () => {
                       whileTap={{ scale: 0.98 }}
                       className="w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-lg font-medium transition-colors mb-2"
                     >
-                      Voir le panier
+                      View cart
                     </motion.button>
                   </Link>
 
@@ -217,7 +217,7 @@ const FloatingCart = () => {
                       whileTap={{ scale: 0.98 }}
                       className="w-full bg-primary hover:bg-[#d4af37] text-white py-3 rounded-lg font-medium transition-colors shadow-lg shadow-primary/50"
                     >
-                      Commander
+                      Checkout
                     </motion.button>
                   </Link>
                 </div>

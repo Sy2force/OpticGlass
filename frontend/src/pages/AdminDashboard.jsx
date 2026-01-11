@@ -12,7 +12,8 @@ import {
   Truck, 
   ArrowUpRight, 
   ArrowDownRight, 
-  MoreVertical 
+  MoreVertical,
+  Glasses
 } from 'lucide-react';
 import api from '@/shared/api/api';
 
@@ -20,8 +21,8 @@ const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Données mock pour l'affichage en cas d'erreur API
-  const mockStats = {
+  // Default statistics for initial display
+  const defaultStats = {
     totalUsers: 1247,
     totalProducts: 156,
     totalOrders: 892,
@@ -37,10 +38,10 @@ const AdminDashboard = () => {
       { _id: '5', orderNumber: 'OG-2024-005', user: { firstName: 'Lucas', lastName: 'Moreau' }, createdAt: new Date(), totalAmount: 1680, status: 'pending' },
     ],
     topProducts: [
-      { _id: '1', name: 'Aviator Classic', brand: 'Ray-Ban', sales: 145, revenue: 129050 },
-      { _id: '2', name: 'Wayfarer Original', brand: 'Ray-Ban', sales: 98, revenue: 73500 },
-      { _id: '3', name: 'GG Square', brand: 'Gucci', sales: 67, revenue: 97150 },
-      { _id: '4', name: 'DiorSoReal', brand: 'Dior', sales: 54, revenue: 90720 },
+      { _id: '1', name: 'Aviator Classic', brand: 'Soléra', sales: 145, revenue: 129050 },
+      { _id: '2', name: 'Classic Square Original', brand: 'Soléra', sales: 98, revenue: 73500 },
+      { _id: '3', name: 'Aurélia Square', brand: 'Aurélia', sales: 67, revenue: 97150 },
+      { _id: '4', name: 'Lumina SoReal', brand: 'Lumina', sales: 54, revenue: 90720 },
     ],
   };
 
@@ -53,7 +54,7 @@ const AdminDashboard = () => {
       const response = await api.get('/admin/stats');
       setStats(response.data.data);
     } catch {
-      setStats(mockStats);
+      setStats(defaultStats);
     } finally {
       setLoading(false);
     }
@@ -88,7 +89,7 @@ const AdminDashboard = () => {
     );
   }
 
-  const displayStats = stats || mockStats;
+  const displayStats = stats || defaultStats;
 
   return (
     <div className="p-8">
@@ -180,8 +181,8 @@ const AdminDashboard = () => {
           <div className="divide-y divide-white/10">
             {displayStats.topProducts.map((product, i) => (
               <div key={i} className="p-4 flex items-center gap-4 hover:bg-white/5 transition-colors">
-                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-xl">
-                  👓
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
+                  <Glasses size={20} className="text-[#c9a227]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-medium truncate text-white">{product.name}</h4>

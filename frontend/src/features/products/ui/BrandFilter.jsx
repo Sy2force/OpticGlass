@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
+import { Search } from 'lucide-react';
 import brands from '@/shared/data/brands';
 
 const BrandFilter = ({ selectedBrand, onBrandSelect }) => {
   return (
     <div className="mb-8">
-      <h3 className="text-xl font-semibold mb-4">Filtrer par marque</h3>
+      <h3 className="text-xl font-semibold mb-4">Filter by Brand</h3>
       
       <div className="flex flex-wrap gap-3">
-        {/* Bouton "Toutes les marques" */}
+        {/* All Brands Button */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -21,7 +22,7 @@ const BrandFilter = ({ selectedBrand, onBrandSelect }) => {
           Toutes les marques
         </motion.button>
 
-        {/* Boutons des marques */}
+        {/* Brand Buttons */}
         {brands.slice(0, 20).map((brand) => (
           <motion.button
             key={brand.slug}
@@ -30,8 +31,8 @@ const BrandFilter = ({ selectedBrand, onBrandSelect }) => {
             onClick={() => onBrandSelect(brand.name)}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               selectedBrand === brand.name
-                ? 'bg-gradient-to-r from-luxury-gold to-gold text-white shadow-gold'
-                : 'bg-white text-gray-700 border border-gray-300 hover:border-luxury-gold'
+                ? 'bg-gradient-to-r from-[#c9a227] to-[#d4af37] text-white shadow-lg'
+                : 'bg-white text-gray-700 border border-gray-300 hover:border-[#c9a227]'
             }`}
           >
             {brand.name}
@@ -45,13 +46,13 @@ const BrandFilter = ({ selectedBrand, onBrandSelect }) => {
           animate={{ opacity: 1, y: 0 }}
           className="mt-4 p-3 bg-apple-blue/10 border border-apple-blue rounded-lg"
         >
-          <p className="text-sm">
-            🔍 Filtré par : <strong>{selectedBrand}</strong>
+          <p className="text-sm flex items-center gap-2">
+            <Search size={14} /> Filtered by: <strong>{selectedBrand}</strong>
             <button
               onClick={() => onBrandSelect(null)}
               className="ml-3 text-ferrari underline hover:no-underline"
             >
-              Réinitialiser
+              Reset
             </button>
           </p>
         </motion.div>

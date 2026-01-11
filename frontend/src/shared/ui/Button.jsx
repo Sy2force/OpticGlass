@@ -10,7 +10,7 @@ import { cn } from '@/shared/lib/cn';
  */
 
 const variants = {
-  primary: 'bg-primary hover:bg-primary-600 text-white shadow-luxury hover:shadow-luxury-lg active:scale-95',
+  primary: 'bg-primary hover:bg-primary-600 text-white shadow-premium hover:shadow-premium-lg active:scale-95',
   secondary: 'bg-dark-800 hover:bg-dark-700 text-white shadow-lg active:scale-95',
   outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white active:scale-95',
   ghost: 'text-dark-700 hover:bg-dark-100 hover:text-dark-900 active:scale-95',

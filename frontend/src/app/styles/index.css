@@ -92,16 +92,16 @@
 }
 
 @layer components {
-  /* Luxury Gold color */
-  .bg-luxury-gold {
+  /* Premium Gold color */
+  .bg-premium-gold {
     background-color: #D4AF37;
   }
   
-  .text-luxury-gold {
+  .text-premium-gold {
     color: #D4AF37;
   }
   
-  .border-luxury-gold {
+  .border-premium-gold {
     border-color: #D4AF37;
   }
 

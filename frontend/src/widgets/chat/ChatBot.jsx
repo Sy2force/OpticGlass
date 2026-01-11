@@ -19,7 +19,7 @@ import {
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState('fr');
+  const [language, setLanguage] = useState('en');
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [currentStep, setCurrentStep] = useState('menu');
@@ -50,11 +50,11 @@ const ChatBot = () => {
 
   const getWelcomeMessage = () => {
     const greetings = {
-      fr: "Bonjour ! 👋 Je suis l'assistant virtuel d'Optic Glass. Comment puis-je vous aider aujourd'hui ?",
-      en: "Hello! 👋 I'm the Optic Glass virtual assistant. How can I help you today?",
-      he: "שלום! 👋 אני העוזר הווירטואלי של Optic Glass. איך אוכל לעזור לך היום?"
+      fr: "Bonjour ! Je suis l'assistant virtuel d'Optic Glass. Comment puis-je vous aider aujourd'hui ?",
+      en: "Hello! I'm the Optic Glass virtual assistant. How can I help you today?",
+      he: "שלום! אני העוזר הווירטואלי של Optic Glass. איך אוכל לעזור לך היום?"
     };
-    return greetings[language] || greetings.fr;
+    return greetings[language] || greetings.en;
   };
 
   const menuOptions = {
@@ -125,16 +125,31 @@ const ChatBot = () => {
 
   const timeSlots = ['09:00', '10:00', '11:00', '12:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
 
+  // Save important messages to the Messages page
+  const saveToMessagesPage = (type, subject, content, details = null) => {
+    const userEmail = localStorage.getItem('userEmail') || 'guest';
+    const existingMessages = JSON.parse(localStorage.getItem(`user_messages_${userEmail}`) || '[]');
+    
+    const newMessage = {
+      id: Date.now(),
+      type,
+      subject,
+      content,
+      details,
+      timestamp: new Date().toISOString(),
+      read: false,
+      from: 'Optic Glass'
+    };
+    
+    const updatedMessages = [newMessage, ...existingMessages];
+    localStorage.setItem(`user_messages_${userEmail}`, JSON.stringify(updatedMessages));
+    
+    // Dispatch event to update Messages page if open
+    window.dispatchEvent(new CustomEvent('newUserMessage', { detail: newMessage }));
+  };
+
   const addBotMessage = (text, options = null) => {
     setMessages(prev => [...prev, { type: 'bot', text, options, timestamp: new Date() }]);
-    
-    // Envoyer une notification à la boîte de messagerie
-    if (typeof window !== 'undefined') {
-      const event = new CustomEvent('newChatMessage', {
-        detail: { message: text }
-      });
-      window.dispatchEvent(event);
-    }
   };
 
   const addUserMessage = (text) => {
@@ -180,10 +195,10 @@ const ChatBot = () => {
         setCurrentStep('contact');
         setTimeout(() => {
           const contactInfo = language === 'he' 
-            ? '📞 טלפון: +33 1 23 45 67 89\n📧 אימייל: contact@opticglass.com\n📍 כתובת: 123 שאנז אליזה, פריז\n\nשעות פעילות:\nשני-שבת: 9:00-19:00'
+            ? '• Phone: +33 1 23 45 67 89\n• Email: contact@opticglass.com\n• Address: 123 Champs-Élysées, Paris\n\nOpening hours:\nMon-Sat: 9:00-19:00'
             : language === 'en'
-            ? '📞 Phone: +33 1 23 45 67 89\n📧 Email: contact@opticglass.com\n📍 Address: 123 Champs-Élysées, Paris\n\nOpening hours:\nMon-Sat: 9am-7pm'
-            : '📞 Phone : +33 1 23 45 67 89\n📧 Email : contact@opticglass.com\n📍 Address : 123 Champs-Élysées, Paris\n\nHours :\nLun-Sam : 9h-19h';
+            ? '• Phone: +33 1 23 45 67 89\n• Email: contact@opticglass.com\n• Address: 123 Champs-Élysées, Paris\n\nOpening hours:\nMon-Sat: 9am-7pm'
+            : '• Phone : +33 1 23 45 67 89\n• Email : contact@opticglass.com\n• Address : 123 Champs-Élysées, Paris\n\nHours :\nLun-Sam : 9h-19h';
           addBotMessage(contactInfo);
           setTimeout(() => {
             addBotMessage(
@@ -241,39 +256,52 @@ const ChatBot = () => {
   const handleOrderCheck = (orderNum) => {
     addUserMessage(orderNum);
     
-    // Simulate order check
-    const mockOrders = {
+    // Order status lookup
+    const orderDatabase = {
       'OG-2024-001': { status: 'shipped', anda: '2 jours' },
       'OG-2024-002': { status: 'delivered', anda: null },
       'OG-2024-003': { status: 'processing', anda: '5 jours' },
     };
 
     setTimeout(() => {
-      const order = mockOrders[orderNum.toUpperCase()];
+      const order = orderDatabase[orderNum.toUpperCase()];
       if (order) {
         const statusMessages = {
           fr: {
-            shipped: `📦 Votre commande ${orderNum} est en cours de livraison !\n🚚 Livraison estimée : ${order.anda}\n\nVous recevrez un SMS à la livraison.`,
-            delivered: `✅ Votre commande ${orderNum} a été livrée !\n\nMerci pour votre confiance.`,
-            processing: `⏳ Votre commande ${orderNum} est en préparation.\n📅 Expédition prévue dans ${order.anda}.`,
+            shipped: `[Shipped] Your order ${orderNum} is on its way!\nEstimated delivery: ${order.anda}\n\nYou will receive an SMS upon delivery.`,
+            delivered: `[Delivered] Your order ${orderNum} has been delivered!\n\nThank you for your trust.`,
+            processing: `[Processing] Your order ${orderNum} is being prepared.\nExpected shipping in ${order.anda}.`,
           },
           en: {
-            shipped: `📦 Your order ${orderNum} is on its way!\n🚚 Estimated delivery: ${order.anda}\n\nYou will receive an SMS upon delivery.`,
-            delivered: `✅ Your order ${orderNum} has been delivered!\n\nThank you for your trust.`,
-            processing: `⏳ Your order ${orderNum} is being prepared.\n📅 Expected shipping in ${order.anda}.`,
+            shipped: `[Shipped] Your order ${orderNum} is on its way!\nEstimated delivery: ${order.anda}\n\nYou will receive an SMS upon delivery.`,
+            delivered: `[Delivered] Your order ${orderNum} has been delivered!\n\nThank you for your trust.`,
+            processing: `[Processing] Your order ${orderNum} is being prepared.\nExpected shipping in ${order.anda}.`,
           },
           he: {
-            shipped: `📦 ההזמנה שלך ${orderNum} בדרך!\n🚚 משלוח משוער: ${order.anda}\n\nתקבל SMS עם המשלוח.`,
-            delivered: `✅ ההזמנה שלך ${orderNum} נמסרה!\n\nתודה על האמון.`,
-            processing: `⏳ ההזמנה שלך ${orderNum} בהכנה.\n📅 משלוח צפוי בעוד ${order.anda}.`,
+            shipped: `[Shipped] Your order ${orderNum} is on its way!\nEstimated delivery: ${order.anda}\n\nYou will receive an SMS upon delivery.`,
+            delivered: `[Delivered] Your order ${orderNum} has been delivered!\n\nThank you for your trust.`,
+            processing: `[Processing] Your order ${orderNum} is being prepared.\nExpected shipping in ${order.anda}.`,
           },
         };
-        addBotMessage((statusMessages[language] || statusMessages.fr)[order.status]);
+        const statusMessage = (statusMessages[language] || statusMessages.en)[order.status];
+        addBotMessage(statusMessage);
+        
+        // Save order status to Messages page
+        saveToMessagesPage(
+          'order',
+          `Order ${orderNum} - ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}`,
+          statusMessage.replace(/\[.*?\]\s*/, ''),
+          {
+            'Order Number': orderNum,
+            'Status': order.status.charAt(0).toUpperCase() + order.status.slice(1),
+            'Estimated Delivery': order.anda
+          }
+        );
       } else {
         addBotMessage(
-          language === 'he' ? `❌ לא נמצאה הזמנה עם המספר ${orderNum}. אנא בדוק את המספר ונסה שוב.` :
-          language === 'en' ? `❌ No order found with number ${orderNum}. Please check the number and try again.` :
-          `❌ Aucune commande trouvée avec le numéro ${orderNum}. Veuillez vérifier le numéro et réessayer.`
+          language === 'he' ? `[Not Found] No order found with number ${orderNum}. Please check the number and try again.` :
+          language === 'en' ? `[Not Found] No order found with number ${orderNum}. Please check the number and try again.` :
+          `[Not Found] Aucune commande trouvée avec le numéro ${orderNum}. Veuillez vérifier le numéro et réessayer.`
         );
       }
       setTimeout(() => {
@@ -343,10 +371,10 @@ const ChatBot = () => {
         setCurrentStep('appointment-confirm');
         setTimeout(() => {
           const confirmMsg = language === 'he' 
-            ? `✅ סיכום התור שלך:\n\n📋 שירות: ${appointmentData.service}\n📅 תאריך: ${appointmentData.date}\n🕐 שעה: ${appointmentData.time}\n👤 שם: ${appointmentData.name}\n📧 אימייל: ${appointmentData.email}\n📱 טלפון: ${value}\n\nהאם לאשר את התור?`
+            ? `[Appointment Summary]\n\n• Service: ${appointmentData.service}\n• Date: ${appointmentData.date}\n• Time: ${appointmentData.time}\n• Name: ${appointmentData.name}\n• Email: ${appointmentData.email}\n• Phone: ${value}\n\nConfirm this appointment?`
             : language === 'en'
-            ? `✅ Your appointment summary:\n\n📋 Service: ${appointmentData.service}\n📅 Date: ${appointmentData.date}\n🕐 Time: ${appointmentData.time}\n👤 Name: ${appointmentData.name}\n📧 Email: ${appointmentData.email}\n📱 Phone: ${value}\n\nConfirm this appointment?`
-            : `✅ Résumé de votre rendez-vous :\n\n📋 Service : ${appointmentData.service}\n📅 Date : ${appointmentData.date}\n🕐 Heure : ${appointmentData.time}\n👤 Nom : ${appointmentData.name}\n📧 Email : ${appointmentData.email}\n📱 Téléphone : ${value}\n\nConfirmer ce rendez-vous ?`;
+            ? `[Appointment Summary]\n\n• Service: ${appointmentData.service}\n• Date: ${appointmentData.date}\n• Time: ${appointmentData.time}\n• Name: ${appointmentData.name}\n• Email: ${appointmentData.email}\n• Phone: ${value}\n\nConfirm this appointment?`
+            : `[Résumé du rendez-vous]\n\n• Service : ${appointmentData.service}\n• Date : ${appointmentData.date}\n• Heure : ${appointmentData.time}\n• Nom : ${appointmentData.name}\n• Email : ${appointmentData.email}\n• Téléphone : ${value}\n\nConfirmer ce rendez-vous ?`;
           addBotMessage(confirmMsg);
         }, 500);
         break;
@@ -365,13 +393,31 @@ const ChatBot = () => {
 
   const handleConfirmAppointment = (confirmed) => {
     if (confirmed) {
-      addUserMessage(language === 'he' ? 'כן, אשר' : language === 'en' ? 'Oui, confirm' : 'Oui, confirmer');
+      addUserMessage(language === 'he' ? 'כן, אשר' : language === 'en' ? 'Yes, confirm' : 'Oui, confirmer');
       setTimeout(() => {
-        addBotMessage(
-          language === 'he' ? '🎉 מעולה! התור שלך אושר!\n\nתקבל אימייל אישור בקרוב.\n\nתודה שבחרת ב-Optic Glass!' :
-          language === 'en' ? '🎉 Excellent! Your appointment is confirmed!\n\nYou will receive a confirmation email shortly.\n\nThank you for choosing Optic Glass!' :
-          '🎉 Parfait ! Votre rendez-vous est confirmé !\n\nVous recevrez un email de confirmation sous peu.\n\nMerci d\'avoir choisi Optic Glass !'
+        const confirmMessage = language === 'he' 
+          ? '[Confirmed] Excellent! Your appointment is confirmed!\n\nYou will receive a confirmation email shortly.\n\nThank you for choosing Optic Glass!' 
+          : language === 'en' 
+          ? '[Confirmed] Excellent! Your appointment is confirmed!\n\nYou will receive a confirmation email shortly.\n\nThank you for choosing Optic Glass!' 
+          : '[Confirmé] Parfait ! Votre rendez-vous est confirmé !\n\nVous recevrez un email de confirmation sous peu.\n\nMerci d\'avoir choisi Optic Glass !';
+        
+        addBotMessage(confirmMessage);
+        
+        // Save appointment confirmation to Messages page
+        saveToMessagesPage(
+          'appointment',
+          'Appointment Confirmed',
+          `Your appointment at Optic Glass has been confirmed.\n\nYou will receive a confirmation email shortly.\n\nThank you for choosing Optic Glass!`,
+          {
+            'Service': appointmentData.service,
+            'Date': appointmentData.date,
+            'Time': appointmentData.time,
+            'Name': appointmentData.name,
+            'Email': appointmentData.email,
+            'Phone': appointmentData.phone
+          }
         );
+        
         setAppointmentData({ name: '', email: '', phone: '', date: '', time: '', service: '' });
         setTimeout(() => {
           addBotMessage(

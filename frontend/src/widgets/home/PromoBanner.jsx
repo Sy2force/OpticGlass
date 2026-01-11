@@ -3,10 +3,10 @@ import { Tag, Truck, Gift, Sparkles } from 'lucide-react';
 
 const PromoBanner = () => {
   const promos = [
-    { icon: <Tag size={16} />, text: '-20% sur votre première commande avec le code WELCOME20' },
-    { icon: <Truck size={16} />, text: 'Livraison gratuite dès 100€ d\'achat' },
-    { icon: <Gift size={16} />, text: 'Un étui luxe offert pour toute commande' },
-    { icon: <Sparkles size={16} />, text: 'Nouvelle collection Printemps 2026 disponible' },
+    { icon: <Tag size={16} />, text: '-20% on your first order with code WELCOME20' },
+    { icon: <Truck size={16} />, text: 'Free shipping on orders over €100' },
+    { icon: <Gift size={16} />, text: 'Free premium case with every order' },
+    { icon: <Sparkles size={16} />, text: 'New Spring 2026 collection available' },
   ];
 
   return (

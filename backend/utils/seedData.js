@@ -2,8 +2,10 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import Product from '../models/Product.js';
 import User from '../models/User.js';
+import Brand from '../models/Brand.js';
 import connectDB from '../config/db.js';
 import { products } from '../data/products.js';
+import { brandsData } from '../data/brandsData.js';
 
 dotenv.config();
 
@@ -14,6 +16,7 @@ const seedDatabase = async () => {
     console.log('🗑️  Suppression des données existantes...');
     await Product.deleteMany();
     await User.deleteMany();
+    await Brand.deleteMany();
 
     console.log('👤 Création utilisateur admin...');
     const admin = await User.create({
@@ -33,11 +36,15 @@ const seedDatabase = async () => {
       role: 'user'
     });
 
+    console.log(`🏷️  Création de ${brandsData.length} marques...`);
+    await Brand.insertMany(brandsData);
+
     console.log(`👓 Création de ${products.length} produits...`);
     await Product.insertMany(products);
 
     console.log('✅ Base de données initialisée avec succès!');
     console.log(`📊 ${products.length} produits créés`);
+    console.log(`🏷️  ${brandsData.length} marques créées`);
     console.log(`👥 2 utilisateurs créés`);
     console.log(`\n🔐 Identifiants admin:`);
     console.log(`   Email: admin@opticglass.com`);

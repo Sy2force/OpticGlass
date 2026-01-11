@@ -3,14 +3,25 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Filter, X, Sun, Sparkles, Shield, Eye, Zap, Award, Crown, Diamond, 
-  Star, ChevronRight, Grid3x3, LayoutGrid, Check 
+  Star, ChevronRight, Grid3x3, LayoutGrid, Check, Plane, Square, Circle, Glasses
 } from 'lucide-react';
 import api from '@/shared/api/api';
 import Glass3DCard from '@/entities/product/ui/Glass3DCard';
-import { products as mockProducts } from '@/shared/data/products';
+import { products as localProducts } from '@/shared/data/products';
+import { useTheme } from '@/app/providers/ThemeContext';
+
+// Icon mapping for categories
+const categoryIconMap = {
+  plane: Plane,
+  square: Square,
+  zap: Zap,
+  sparkles: Sparkles,
+  crown: Crown,
+  circle: Circle,
+};
 
 const SunglassesPage = () => {
-  
+  const { isDarkMode } = useTheme();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -30,22 +41,22 @@ const SunglassesPage = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [selectedCollection, setSelectedCollection] = useState('all');
 
-  const brands = ['Ray-Ban', 'Oakley', 'Gucci', 'Prada', 'Tom Ford', 'Dior', 'Versace', 'Carrera', 'Persol', 'Polaroid'];
-  const colors = ['Noir', 'Marron', 'Or', 'Argent', 'Bleu', 'Vert', 'Rouge', 'Rose'];
+  const brands = ['Solera', 'Zenith', 'Aurelia', 'Vespera', 'Equinox', 'Lumina', 'Orion', 'Apex', 'Artis', 'Nova'];
+  const colors = ['Black', 'Brown', 'Gold', 'Silver', 'Blue', 'Green', 'Red', 'Pink'];
   const genders = ['Men', 'Women', 'Unisex'];
   
   const sunglassCategories = [
-    { id: 'aviator', name: 'Aviator', icon: '✈️', desc: 'Iconic & timeless style' },
-    { id: 'wayfarer', name: 'Wayfarer', icon: '🕶️', desc: 'Classic & versatile' },
-    { id: 'sport', name: 'Sport', icon: '⚡', desc: 'Performance & protection' },
-    { id: 'vintage', name: 'Vintage', icon: '✨', desc: 'Retro & elegant' },
-    { id: 'oversized', name: 'Oversized', icon: '👑', desc: 'Glamorous & sophisticated' },
-    { id: 'round', name: 'Round', icon: '⭕', desc: 'Bohemian & trendy' },
+    { id: 'aviator', name: 'Aviator', icon: 'plane', desc: 'Iconic & timeless style' },
+    { id: 'classic-square', name: 'Classic Square', icon: 'square', desc: 'Classic & versatile' },
+    { id: 'sport', name: 'Sport', icon: 'zap', desc: 'Performance & protection' },
+    { id: 'vintage', name: 'Vintage', icon: 'sparkles', desc: 'Retro & elegant' },
+    { id: 'oversized', name: 'Oversized', icon: 'crown', desc: 'Glamorous & sophisticated' },
+    { id: 'round', name: 'Round', icon: 'circle', desc: 'Bohemian & trendy' },
   ];
   
   const specialCollections = [
     { id: 'summer2026', name: 'Summer 2026', color: 'from-orange-500 to-red-600', badge: 'New' },
-    { id: 'luxury', name: 'Luxury Collection', color: 'from-[#c9a227] to-[#d4af37]', badge: 'Prestige' },
+    { id: 'premium', name: 'Prestige Collection', color: 'from-[#c9a227] to-[#d4af37]', badge: 'Prestige' },
     { id: 'sport', name: 'Sport Elite Collection', color: 'from-green-500 to-emerald-600', badge: 'Performance' },
   ];
   
@@ -73,7 +84,7 @@ const SunglassesPage = () => {
         // Patch images if missing
         const patchedProducts = response.data.data.map(p => {
             if (!p.images || p.images.length === 0) {
-                const localMatch = mockProducts.find(lp => 
+                const localMatch = localProducts.find(lp => 
                     lp._id === p._id || lp.name.toLowerCase() === p.name.toLowerCase()
                 );
                 if (localMatch && localMatch.images) {
@@ -85,10 +96,10 @@ const SunglassesPage = () => {
         setProducts(patchedProducts);
         setTotalPages(response.data.pagination?.pages || 1);
       } else {
-        // Utiliser les données enrichies de lunettes de soleil
-        let sunglasses = mockProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
+        // Use enriched sunglasses data
+        let sunglasses = localProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
         
-        // Filtrer par collection si sélectionnée
+        // Filter by collection if selected
         if (selectedCollection !== 'all') {
           sunglasses = sunglasses.filter(p => p.collection === selectedCollection);
         }
@@ -97,15 +108,15 @@ const SunglassesPage = () => {
         setTotalPages(1);
       }
     } catch (error) {
-      console.error('Erreur chargement produits:', error);
-      let filtered = mockProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
+      console.error('Error loading products:', error);
+      let filtered = localProducts.filter(p => p.category === 'sunglasses' || p.category === 'soleil');
       
-      // Filtrer par collection
+      // Filter by collection
       if (selectedCollection !== 'all') {
         filtered = filtered.filter(p => p.collection === selectedCollection);
       }
       
-      // Appliquer les filtres
+      // Apply filters
       if (filters.brand) filtered = filtered.filter(p => p.brand === filters.brand);
       if (filters.gender) filtered = filtered.filter(p => p.gender === filters.gender);
       if (filters.category) filtered = filtered.filter(p => p.subcategory === filters.category);
@@ -146,74 +157,103 @@ const SunglassesPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
-      {/* Hero Section Luxe */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mt-20">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-[#0a0a0a]' : 'bg-gradient-to-b from-gray-50 to-white'}`}>
+      {/* Hero Section - Premium Design */}
+      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center scale-105"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=2000&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-900/10 to-black/50" />
+        {/* Premium Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90" />
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto"
+          className="relative z-10 text-center text-white px-4 max-w-5xl"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: 'spring' }}
-            className="inline-flex items-center gap-2 px-6 py-2 bg-red-600/90 backdrop-blur-sm border border-red-500/50 rounded-full mb-6"
+          {/* Golden Line Top */}
+          <motion.div 
+            initial={{ width: 0 }}
+            animate={{ width: '120px' }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto mb-6"
+          />
+          
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-4"
           >
-            <Sun className="w-5 h-5" />
-            <span className="font-bold text-sm tracking-wider uppercase">Sunglasses Collection 2026</span>
-          </motion.div>
+            Summer Collection 2026
+          </motion.p>
           
-          <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-4">
-            <span className="text-white">Luxury</span><br/>
-            <span className="bg-gradient-to-r from-[#d4af37] via-[#c9a227] to-[#d4af37] bg-clip-text text-transparent font-bold">Sunglasses</span>
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8 font-light">
+          {/* Main Title */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-5xl md:text-7xl font-serif mb-6"
+          >
+            Premium <span className="italic text-[#c9a227]">Sunglasses</span>
+          </motion.h1>
+          
+          {/* Subtitle */}
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-8"
+          >
             UV400 Protection & Unmatched Style - Discover our exclusive collections
-          </p>
+          </motion.p>
           
+          {/* Golden Line Bottom */}
+          <motion.div 
+            initial={{ width: 0 }}
+            animate={{ width: '80px' }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+            className="h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto mb-8"
+          />
+          
+          {/* Features */}
           <div className="flex flex-wrap gap-4 justify-center">
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
               <Shield className="w-4 h-4 text-[#c9a227]" />
-              <span className="text-sm">UV400 Protection</span>
+              <span className="text-sm text-white/80">UV400 Protection</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
               <Eye className="w-4 h-4 text-[#c9a227]" />
-              <span className="text-sm">Polarized Lenses</span>
+              <span className="text-sm text-white/80">Polarized Lenses</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
               <Award className="w-4 h-4 text-[#c9a227]" />
-              <span className="text-sm">2-Year Warranty</span>
+              <span className="text-sm text-white/80">2-Year Warranty</span>
             </div>
           </div>
         </motion.div>
       </section>
       
-      {/* Collections Spéciales */}
-      <section className="py-12 px-4 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a]">
+      {/* Special Collections */}
+      <section className={`py-16 px-4 ${isDarkMode ? 'bg-[#111]' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-600/10 border border-red-600/30 rounded-full text-red-600 text-xs tracking-wider uppercase mb-4">
-              <Crown className="w-4 h-4" />
-              Exclusive Collections
-            </span>
-            <h2 className="text-3xl font-light text-white mb-2">Our Premium Collections</h2>
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto" />
+            <p className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-4">Exclusive Collections</p>
+            <h2 className={`text-3xl md:text-4xl font-serif mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Our Premium <span className="italic text-[#c9a227]">Collections</span>
+            </h2>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto" />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -225,37 +265,39 @@ const SunglassesPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setSelectedCollection(collection.id)}
-                className={`relative p-6 rounded-lg border-2 transition-all duration-300 ${
+                className={`relative p-6 rounded-lg border transition-all duration-300 ${
                   selectedCollection === collection.id
                     ? 'border-[#c9a227] bg-[#c9a227]/10'
-                    : 'border-white/10 bg-[#1a1a1a] hover:border-red-600/50'
+                    : isDarkMode 
+                      ? 'border-white/10 bg-[#1a1a1a] hover:border-[#c9a227]/50' 
+                      : 'border-gray-200 bg-white hover:border-[#c9a227]/50'
                 }`}
               >
-                <div className={`absolute top-3 right-3 px-2 py-1 bg-gradient-to-r ${collection.color} text-white text-[10px] font-bold rounded-full`}>
+                <div className="absolute top-3 right-3 px-2 py-1 bg-[#c9a227] text-black text-[10px] font-bold tracking-wider uppercase">
                   {collection.badge}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{collection.name}</h3>
-                <div className={`w-12 h-1 bg-gradient-to-r ${collection.color} rounded-full`} />
+                <h3 className={`text-lg font-serif mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{collection.name}</h3>
+                <div className="w-12 h-px bg-[#c9a227]" />
               </motion.button>
             ))}
           </div>
         </div>
       </section>
       
-      {/* Catégories de Styles */}
-      <section className="py-12 px-4 bg-[#f5f5f0]">
+      {/* Style Categories */}
+      <section className={`py-16 px-4 ${isDarkMode ? 'bg-[#0a0a0a]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-12"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-full text-xs tracking-wider uppercase mb-3">
-              Styles
-            </span>
-            <h2 className="text-3xl font-light text-[#1a1a1a] mb-2">Explore by Style</h2>
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto" />
+            <p className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-4">Find Your Style</p>
+            <h2 className={`text-3xl md:text-4xl font-serif mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Explore by <span className="italic text-[#c9a227]">Style</span>
+            </h2>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto" />
           </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -267,40 +309,49 @@ const SunglassesPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
                 onClick={() => setFilters({ ...filters, category: cat.id })}
-                className={`p-6 bg-white rounded-lg border-2 transition-all duration-300 hover:border-red-600/50 hover:shadow-lg ${
-                  filters.category === cat.id ? 'border-[#c9a227] shadow-lg' : 'border-gray-200'
+                className={`p-6 rounded-lg border transition-all duration-300 hover:border-[#c9a227]/50 ${
+                  filters.category === cat.id 
+                    ? 'border-[#c9a227] bg-[#c9a227]/10' 
+                    : isDarkMode 
+                      ? 'border-white/10 bg-[#111]' 
+                      : 'border-gray-200 bg-gray-50'
                 }`}
               >
-                <div className="text-4xl mb-3">{cat.icon}</div>
-                <h3 className="font-bold text-sm text-[#1a1a1a] mb-1">{cat.name}</h3>
-                <p className="text-xs text-gray-500">{cat.desc}</p>
+                {(() => {
+                  const IconComponent = categoryIconMap[cat.icon];
+                  return IconComponent ? <IconComponent size={28} className="mb-3 text-[#c9a227]" /> : null;
+                })()}
+                <h3 className={`font-serif text-sm mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{cat.name}</h3>
+                <p className={`text-xs ${isDarkMode ? 'text-white/50' : 'text-gray-500'}`}>{cat.desc}</p>
               </motion.button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Filtres Avancés & Produits */}
-      <section className="bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] py-12">
+      {/* Advanced Filters & Products */}
+      <section className={`py-16 ${isDarkMode ? 'bg-[#111]' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4">
           {/* Header avec vue mode */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
             <div>
-              <h2 className="text-2xl font-light text-white mb-1">Sunglasses Catalog</h2>
-              <p className="text-white/60 text-sm">{products.length} products available</p>
+              <h2 className={`text-2xl font-serif mb-1 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Sunglasses <span className="italic text-[#c9a227]">Catalog</span>
+              </h2>
+              <p className={`text-sm ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>{products.length} products available</p>
             </div>
             
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1 bg-white/5 rounded-lg p-1">
+              <div className={`flex items-center gap-1 ${isDarkMode ? 'bg-white/5' : 'bg-gray-200'} rounded-lg p-1`}>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-[#c9a227] text-black' : 'text-white/60 hover:text-white'}`}
+                  className={`p-2 rounded-md transition-all ${viewMode === 'grid' ? 'bg-[#c9a227] text-black' : isDarkMode ? 'text-white/60 hover:text-white' : 'text-gray-500 hover:text-gray-700'}`}
                 >
                   <Grid3x3 size={18} />
                 </button>
                 <button
                   onClick={() => setViewMode('large')}
-                  className={`p-2 rounded-md transition-all ${viewMode === 'large' ? 'bg-[#c9a227] text-black' : 'text-white/60 hover:text-white'}`}
+                  className={`p-2 rounded-md transition-all ${viewMode === 'large' ? 'bg-[#c9a227] text-black' : isDarkMode ? 'text-white/60 hover:text-white' : 'text-gray-500 hover:text-gray-700'}`}
                 >
                   <LayoutGrid size={18} />
                 </button>
@@ -308,7 +359,11 @@ const SunglassesPage = () => {
               
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 text-white rounded-lg hover:bg-white/20 transition-all"
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                  isDarkMode 
+                    ? 'bg-white/10 border border-white/20 text-white hover:bg-white/20' 
+                    : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+                }`}
               >
                 <Filter size={18} />
                 <span className="hidden sm:inline">Filters</span>
@@ -316,7 +371,7 @@ const SunglassesPage = () => {
             </div>
           </div>
           
-          {/* Filtres Avancés */}
+          {/* Advanced Filters */}
           <AnimatePresence>
             {showFilters && (
               <motion.div
@@ -325,12 +380,12 @@ const SunglassesPage = () => {
                 exit={{ height: 0, opacity: 0 }}
                 className="overflow-hidden mb-8"
               >
-                <div className="bg-[#1a1a1a] border border-white/10 rounded-lg p-6">
+                <div className={`${isDarkMode ? 'bg-[#1a1a1a] border border-white/10' : 'bg-white border border-gray-200'} rounded-lg p-6`}>
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-white">Advanced Filters</h3>
+                    <h3 className={`text-lg font-serif ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Advanced Filters</h3>
                     <button
                       onClick={resetFilters}
-                      className="text-sm text-red-500 hover:text-red-400 transition flex items-center gap-1"
+                      className="text-sm text-[#c9a227] hover:text-[#d4af37] transition flex items-center gap-1"
                     >
                       <X size={16} />
                       Reset
@@ -340,32 +395,40 @@ const SunglassesPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {/* Brand */}
                     <div>
-                      <label className="block text-sm font-medium text-white/80 mb-2">Brand</label>
+                      <label className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-white/70' : 'text-gray-700'}`}>Brand</label>
                       <select
                         name="brand"
                         value={filters.brand}
                         onChange={handleFilterChange}
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 text-white rounded-lg focus:ring-2 focus:ring-[#c9a227] focus:border-transparent"
+                        className={`w-full px-3 py-2 rounded-lg focus:ring-2 focus:ring-[#c9a227] focus:border-transparent ${
+                          isDarkMode 
+                            ? 'bg-white/5 border border-white/10 text-white' 
+                            : 'bg-gray-50 border border-gray-200 text-gray-900'
+                        }`}
                       >
-                        <option value="">All Brands</option>
+                        <option value="" className={isDarkMode ? 'bg-[#1a1a1a]' : ''}>All Brands</option>
                         {brands.map((brand) => (
-                          <option key={brand} value={brand} className="bg-[#1a1a1a]">{brand}</option>
+                          <option key={brand} value={brand} className={isDarkMode ? 'bg-[#1a1a1a]' : ''}>{brand}</option>
                         ))}
                       </select>
                     </div>
 
                     {/* Gender */}
                     <div>
-                      <label className="block text-sm font-medium text-white/80 mb-2">Gender</label>
+                      <label className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-white/70' : 'text-gray-700'}`}>Gender</label>
                       <select
                         name="gender"
                         value={filters.gender}
                         onChange={handleFilterChange}
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 text-white rounded-lg focus:ring-2 focus:ring-[#c9a227] focus:border-transparent"
+                        className={`w-full px-3 py-2 rounded-lg focus:ring-2 focus:ring-[#c9a227] focus:border-transparent ${
+                          isDarkMode 
+                            ? 'bg-white/5 border border-white/10 text-white' 
+                            : 'bg-gray-50 border border-gray-200 text-gray-900'
+                        }`}
                       >
-                        <option value="">All</option>
+                        <option value="" className={isDarkMode ? 'bg-[#1a1a1a]' : ''}>All</option>
                         {genders.map((gender) => (
-                          <option key={gender} value={gender} className="bg-[#1a1a1a]">{gender}</option>
+                          <option key={gender} value={gender} className={isDarkMode ? 'bg-[#1a1a1a]' : ''}>{gender}</option>
                         ))}
                       </select>
                     </div>
@@ -545,27 +608,30 @@ const SunglassesPage = () => {
         </div>
       </section>
       
-      {/* Section Avantages Luxe */}
-      <section className="py-16 px-4 bg-[#0a0a0a]">
+      {/* Section Avantages Premium */}
+      <section className={`py-20 px-4 ${isDarkMode ? 'bg-[#0a0a0a]' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl font-light text-white mb-2">Why Choose Our Sunglasses</h2>
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-red-600 to-transparent mx-auto" />
+            <p className="text-[#c9a227] text-sm tracking-[0.3em] uppercase mb-4">Why Choose Us</p>
+            <h2 className={`text-3xl md:text-4xl font-serif mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              Premium <span className="italic text-[#c9a227]">Benefits</span>
+            </h2>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#c9a227] to-transparent mx-auto" />
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: <Shield size={32} />, title: 'UV400 Protection', desc: '100% UVA and UVB ray blocking for optimal protection' },
-              { icon: <Eye size={32} />, title: 'Polarized Lenses', desc: 'Glare reduction and contrast enhancement for maximum visual comfort' },
-              { icon: <Diamond size={32} />, title: 'Premium Materials', desc: 'Italian acetate, Japanese titanium and noble materials for exceptional durability' },
-              { icon: <Award size={32} />, title: '2-Year Warranty', desc: 'Premium after-sales service and extended manufacturer warranty' },
-              { icon: <Star size={32} />, title: 'Exclusive Design', desc: 'Limited collections and collaborations with the greatest luxury houses' },
-              { icon: <Zap size={32} />, title: 'Express Delivery', desc: 'Free delivery within 48h with luxury packaging and personalized tracking' },
+              { icon: <Shield size={28} />, title: 'UV400 Protection', desc: '100% UVA and UVB ray blocking for optimal protection' },
+              { icon: <Eye size={28} />, title: 'Polarized Lenses', desc: 'Glare reduction and contrast enhancement for maximum visual comfort' },
+              { icon: <Diamond size={28} />, title: 'Premium Materials', desc: 'Italian acetate, Japanese titanium and noble materials for exceptional durability' },
+              { icon: <Award size={28} />, title: '2-Year Warranty', desc: 'Premium after-sales service and extended manufacturer warranty' },
+              { icon: <Star size={28} />, title: 'Exclusive Design', desc: 'Limited collections and collaborations with the greatest fashion houses' },
+              { icon: <Zap size={28} />, title: 'Express Delivery', desc: 'Free delivery within 48h with premium packaging and personalized tracking' },
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -573,11 +639,13 @@ const SunglassesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-[#1a1a1a] border border-white/10 rounded-lg p-6 hover:border-red-600/50 transition-all duration-300"
+                className={`${isDarkMode ? 'bg-[#111] border border-white/10' : 'bg-gray-50 border border-gray-200'} rounded-lg p-6 hover:border-[#c9a227]/50 transition-all duration-300`}
               >
-                <div className="text-[#c9a227] mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-white/60 text-sm font-light leading-relaxed">{feature.desc}</p>
+                <div className="w-12 h-12 bg-[#c9a227]/10 rounded-full flex items-center justify-center mb-4">
+                  <div className="text-[#c9a227]">{feature.icon}</div>
+                </div>
+                <h3 className={`text-lg font-serif mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{feature.title}</h3>
+                <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-gray-500'}`}>{feature.desc}</p>
               </motion.div>
             ))}
           </div>
