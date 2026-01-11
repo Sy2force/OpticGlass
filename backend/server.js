@@ -36,7 +36,7 @@ app.use(helmet({
   crossOriginResourcePolicy: false, // Important pour servir les images
 }));
 
-// Logger HTTP Morgan - Exigence HackerU
+// HTTP Logger
 app.use(morgan('dev'));
 
 app.use(
@@ -44,6 +44,7 @@ app.use(
     origin: (origin, callback) => {
       const allowed = [
         process.env.FRONTEND_URL,
+        process.env.CORS_ORIGIN,
         'http://localhost:5173',
         'http://localhost:3006'
       ].filter(Boolean);
@@ -51,12 +52,12 @@ app.use(
       if (!origin) return callback(null, true);
       if (allowed.includes(origin)) return callback(null, true);
       
-      // Allow Vercel preview deployments
-      if (origin && origin.match(/^https:\/\/.*\.vercel\.app$/)) {
+      // Allow Render and Vercel deployments
+      if (origin && (origin.match(/^https:\/\/.*\.onrender\.com$/) || origin.match(/^https:\/\/.*\.vercel\.app$/))) {
         return callback(null, true);
       }
       
-      return callback(new Error(`CORS blocked for origin: ${origin}`));
+      return callback(null, true); // Allow all in production for now
     },
     credentials: true,
   })
