@@ -1,11 +1,11 @@
 export const products = [
   {
-    "name": "Frost Spectrum Elegance",
+    "name": "Aviator Classic",
     "brand": "Orion",
     "category": "sunglasses",
     "season": "winter",
-    "price": 172,
-    "originalPrice": 378,
+    "price": 739,
+    "originalPrice": 1054,
     "description": "Le modèle Radia Glance incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-01.jpg"
@@ -25,12 +25,12 @@ export const products = [
     "_id": "prod_1_mk8gm0kj"
   },
   {
-    "name": "Arctic Ray Glam",
+    "name": "Wayfarer Original",
     "brand": "Lumina",
     "category": "sunglasses",
     "season": "winter",
-    "price": 329,
-    "originalPrice": 241,
+    "price": 763,
+    "originalPrice": 947,
     "description": "Le modèle Aéria Look incarne l'élégance moderne. Avec sa monture Bleu Océan de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-02.jpg"
@@ -50,12 +50,12 @@ export const products = [
     "_id": "prod_2_mk8gm0kj"
   },
   {
-    "name": "Coral Glow Frame",
+    "name": "Clubmaster Sun",
     "brand": "Soléra",
     "category": "sunglasses",
     "season": "summer",
-    "price": 131,
-    "originalPrice": 189,
+    "price": 1106,
+    "originalPrice": 1436,
     "description": "Le modèle Aether Sight incarne l'élégance moderne. Avec sa monture Rose Poudré de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-03.jpg"
@@ -75,12 +75,12 @@ export const products = [
     "_id": "prod_3_mk8gm0kj"
   },
   {
-    "name": "Ice Shine Sport",
+    "name": "Round Metal",
     "brand": "Ethereal",
     "category": "sunglasses",
     "season": "winter",
-    "price": 287,
-    "originalPrice": 208,
+    "price": 1195,
+    "originalPrice": 1372,
     "description": "Le modèle Polaris Vista incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-04.jpg"
@@ -100,12 +100,12 @@ export const products = [
     "_id": "prod_4_mk8gm0kj"
   },
   {
-    "name": "Sunset Spark Clear",
+    "name": "Erika",
     "brand": "Sportif",
     "category": "sunglasses",
     "season": "summer",
-    "price": 236,
-    "originalPrice": 174,
+    "price": 1068,
+    "originalPrice": 1480,
     "description": "Le modèle Mira Guard incarne l'élégance moderne. Avec sa monture Or Solaire de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-05.jpg"
@@ -125,12 +125,12 @@ export const products = [
     "_id": "prod_5_mk8gm0kj"
   },
   {
-    "name": "Polar Flash Style",
+    "name": "Justin",
     "brand": "Nova",
     "category": "sunglasses",
     "season": "winter",
-    "price": 125,
-    "originalPrice": 244,
+    "price": 615,
+    "originalPrice": 832,
     "description": "Le modèle Altair Lens incarne l'élégance moderne. Avec sa monture Noir Minuit de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-06.jpg"
@@ -150,12 +150,12 @@ export const products = [
     "_id": "prod_6_mk8gm0kj"
   },
   {
-    "name": "Breeze Beam Grace",
+    "name": "Chris",
     "brand": "Equinox",
     "category": "sunglasses",
     "season": "summer",
-    "price": 335,
-    "originalPrice": 362,
+    "price": 783,
+    "originalPrice": 1148,
     "description": "Le modèle Sirius Look incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-07.jpg"
@@ -175,12 +175,12 @@ export const products = [
     "_id": "prod_7_mk8gm0kj"
   },
   {
-    "name": "Coastal Light Optic",
+    "name": "Blaze",
     "brand": "Apex",
     "category": "sunglasses",
     "season": "summer",
-    "price": 334,
-    "originalPrice": 344,
+    "price": 724,
+    "originalPrice": 949,
     "description": "Le modèle Ion Core incarne l'élégance moderne. Avec sa monture Rose Poudré de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-08.jpg"
@@ -200,12 +200,12 @@ export const products = [
     "_id": "prod_8_mk8gm0kj"
   },
   {
-    "name": "Frost Shade View",
+    "name": "Hexagonal",
     "brand": "Roma",
     "category": "sunglasses",
     "season": "winter",
-    "price": 242,
-    "originalPrice": 289,
+    "price": 821,
+    "originalPrice": 1098,
     "description": "Le modèle Vesta Air incarne l'élégance moderne. Avec sa monture Brun Terre de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-09.jpg"
@@ -225,12 +225,12 @@ export const products = [
     "_id": "prod_9_mk8gm0kj"
   },
   {
-    "name": "Arctic Tint Look",
+    "name": "Octagonal",
     "brand": "Vespera",
     "category": "sunglasses",
     "season": "winter",
-    "price": 132,
-    "originalPrice": 212,
+    "price": 708,
+    "originalPrice": 1142,
     "description": "Le modèle Radia Aspect incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-10.jpg"
@@ -250,12 +250,12 @@ export const products = [
     "_id": "prod_10_mk8gm0kj"
   },
   {
-    "name": "Snow Hue Max",
+    "name": "State Street",
     "brand": "Heritage",
     "category": "sunglasses",
     "season": "winter",
-    "price": 281,
-    "originalPrice": 337,
+    "price": 488,
+    "originalPrice": 901,
     "description": "Le modèle Ventus Glance incarne l'élégance moderne. Avec sa monture Bleu Océan de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-11.jpg"
@@ -275,12 +275,12 @@ export const products = [
     "_id": "prod_11_mk8gm0kj"
   },
   {
-    "name": "Tropic Tone Aura",
+    "name": "Meteor",
     "brand": "Lumina",
     "category": "sunglasses",
     "season": "summer",
-    "price": 341,
-    "originalPrice": 179,
+    "price": 633,
+    "originalPrice": 790,
     "description": "Le modèle Terra Frame incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-12.jpg"
@@ -300,12 +300,12 @@ export const products = [
     "_id": "prod_12_mk8gm0kj"
   },
   {
-    "name": "Crystal Blend Clear",
+    "name": "Nina",
     "brand": "Céleste",
     "category": "sunglasses",
     "season": "winter",
-    "price": 164,
-    "originalPrice": 228,
+    "price": 1061,
+    "originalPrice": 1329,
     "description": "Le modèle Aéria Shade incarne l'élégance moderne. Avec sa monture Or Solaire de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-13.jpg"
@@ -325,12 +325,12 @@ export const products = [
     "_id": "prod_13_mk8gm0kj"
   },
   {
-    "name": "Wave Mix Style",
+    "name": "Jackie Ohh",
     "brand": "Heritage",
     "category": "sunglasses",
     "season": "summer",
-    "price": 259,
-    "originalPrice": 170,
+    "price": 934,
+    "originalPrice": 1382,
     "description": "Le modèle Orion Clear incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-14.jpg"
@@ -350,12 +350,12 @@ export const products = [
     "_id": "prod_14_mk8gm0kj"
   },
   {
-    "name": "Breeze Fusion Vision",
+    "name": "Gatsby",
     "brand": "Sportif",
     "category": "sunglasses",
     "season": "summer",
-    "price": 248,
-    "originalPrice": 348,
+    "price": 649,
+    "originalPrice": 993,
     "description": "Le modèle Sirius Clear incarne l'élégance moderne. Avec sa monture Vert Forêt de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-15.jpg"
@@ -375,12 +375,12 @@ export const products = [
     "_id": "prod_15_mk8gm0kj"
   },
   {
-    "name": "Alpine Core Optic",
+    "name": "Caravan",
     "brand": "Heritage",
     "category": "sunglasses",
     "season": "winter",
-    "price": 170,
-    "originalPrice": 292,
+    "price": 924,
+    "originalPrice": 1362,
     "description": "Le modèle Quartz Max incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-16.jpg"
@@ -400,12 +400,12 @@ export const products = [
     "_id": "prod_16_mk8gm0kj"
   },
   {
-    "name": "Frost Pure View",
+    "name": "Shooter",
     "brand": "Nova",
     "category": "sunglasses",
     "season": "winter",
-    "price": 294,
-    "originalPrice": 359,
+    "price": 1072,
+    "originalPrice": 1515,
     "description": "Le modèle Ventus Shade incarne l'élégance moderne. Avec sa monture Brun Terre de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-17.jpg"
@@ -425,12 +425,12 @@ export const products = [
     "_id": "prod_17_mk8gm0kj"
   },
   {
-    "name": "Arctic True Look",
+    "name": "Olympian",
     "brand": "Ethereal",
     "category": "sunglasses",
     "season": "winter",
-    "price": 182,
-    "originalPrice": 336,
+    "price": 1018,
+    "originalPrice": 1209,
     "description": "Le modèle Sirius Prime incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-18.jpg"
@@ -450,12 +450,12 @@ export const products = [
     "_id": "prod_18_mk8gm0kj"
   },
   {
-    "name": "Snow Real Frame",
+    "name": "Wings",
     "brand": "London",
     "category": "sunglasses",
     "season": "winter",
-    "price": 251,
-    "originalPrice": 399,
+    "price": 970,
+    "originalPrice": 1211,
     "description": "Le modèle Altair Max incarne l'élégance moderne. Avec sa monture Rose Poudré de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-19.jpg"
@@ -475,12 +475,12 @@ export const products = [
     "_id": "prod_19_mk8gm0kj"
   },
   {
-    "name": "Ice Vista Aura",
+    "name": "Ferrari",
     "brand": "Artis",
     "category": "sunglasses",
     "season": "winter",
-    "price": 166,
-    "originalPrice": 192,
+    "price": 558,
+    "originalPrice": 972,
     "description": "Le modèle Aéria View incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-20.jpg"
@@ -500,12 +500,12 @@ export const products = [
     "_id": "prod_20_mk8gm0kj"
   },
   {
-    "name": "Sunset Horizon Clear",
+    "name": "Predator",
     "brand": "Céleste",
     "category": "sunglasses",
     "season": "summer",
-    "price": 299,
-    "originalPrice": 178,
+    "price": 975,
+    "originalPrice": 1232,
     "description": "Le modèle Prisma Core incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-21.jpg"
@@ -525,12 +525,12 @@ export const products = [
     "_id": "prod_21_mk8gm0kj"
   },
   {
-    "name": "Polar Clarity Style",
+    "name": "Square Classic",
     "brand": "Rossi",
     "category": "sunglasses",
     "season": "winter",
-    "price": 265,
-    "originalPrice": 280,
+    "price": 1078,
+    "originalPrice": 1453,
     "description": "Le modèle Aether Shade incarne l'élégance moderne. Avec sa monture Brun Terre de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-22.jpg"
@@ -550,12 +550,12 @@ export const products = [
     "_id": "prod_22_mk8gm0kj"
   },
   {
-    "name": "Nordic Focus Vision",
+    "name": "Pilot",
     "brand": "Baron",
     "category": "sunglasses",
     "season": "winter",
-    "price": 349,
-    "originalPrice": 250,
+    "price": 830,
+    "originalPrice": 1277,
     "description": "Le modèle Nova Soft incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-23.jpg"
@@ -575,12 +575,12 @@ export const products = [
     "_id": "prod_23_mk8gm0kj"
   },
   {
-    "name": "Coastal Prism Edge",
+    "name": "Navigator",
     "brand": "Roma",
     "category": "sunglasses",
     "season": "summer",
-    "price": 230,
-    "originalPrice": 332,
+    "price": 637,
+    "originalPrice": 925,
     "description": "Le modèle Chronos Air incarne l'élégance moderne. Avec sa monture Noir Minuit de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-24.jpg"
@@ -600,12 +600,12 @@ export const products = [
     "_id": "prod_24_mk8gm0kj"
   },
   {
-    "name": "Sun Spectrum View",
+    "name": "Cockpit",
     "brand": "London",
     "category": "sunglasses",
     "season": "summer",
-    "price": 151,
-    "originalPrice": 397,
+    "price": 568,
+    "originalPrice": 840,
     "description": "Le modèle Terra Vista incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-25.jpg"
@@ -625,12 +625,12 @@ export const products = [
     "_id": "prod_25_mk8gm0kj"
   },
   {
-    "name": "Beach Ray Prime",
+    "name": "General",
     "brand": "Soléra",
     "category": "sunglasses",
     "season": "summer",
-    "price": 141,
-    "originalPrice": 322,
+    "price": 528,
+    "originalPrice": 751,
     "description": "Le modèle Aether Flash incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-26.jpg"
@@ -650,12 +650,12 @@ export const products = [
     "_id": "prod_26_mk8gm0kj"
   },
   {
-    "name": "Coral Glow Max",
+    "name": "Marshal",
     "brand": "Aurélia",
     "category": "sunglasses",
     "season": "summer",
-    "price": 261,
-    "originalPrice": 302,
+    "price": 1170,
+    "originalPrice": 1511,
     "description": "Le modèle Ventus Guard incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-27.jpg"
@@ -675,12 +675,12 @@ export const products = [
     "_id": "prod_27_mk8gm0kj"
   },
   {
-    "name": "Tropic Shine Lens",
+    "name": "Signet",
     "brand": "Artis",
     "category": "sunglasses",
     "season": "summer",
-    "price": 166,
-    "originalPrice": 275,
+    "price": 931,
+    "originalPrice": 1324,
     "description": "Le modèle Altair Scope incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-28.jpg"
@@ -700,12 +700,12 @@ export const products = [
     "_id": "prod_28_mk8gm0kj"
   },
   {
-    "name": "Sunset Spark Classic",
+    "name": "Nomad",
     "brand": "Romano",
     "category": "sunglasses",
     "season": "summer",
-    "price": 129,
-    "originalPrice": 182,
+    "price": 746,
+    "originalPrice": 982,
     "description": "Le modèle Vesta Prime incarne l'élégance moderne. Avec sa monture Noir Minuit de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-29.jpg"
@@ -725,12 +725,12 @@ export const products = [
     "_id": "prod_29_mk8gm0kj"
   },
   {
-    "name": "Wave Flash Chic",
+    "name": "Drifter",
     "brand": "Céleste",
     "category": "sunglasses",
     "season": "summer",
-    "price": 192,
-    "originalPrice": 236,
+    "price": 663,
+    "originalPrice": 938,
     "description": "Le modèle Soléra Tint incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-30.jpg"
@@ -750,12 +750,12 @@ export const products = [
     "_id": "prod_30_mk8gm0kj"
   },
   {
-    "name": "Breeze Beam Grace",
+    "name": "Vagabond",
     "brand": "Artis",
     "category": "sunglasses",
     "season": "summer",
-    "price": 340,
-    "originalPrice": 241,
+    "price": 892,
+    "originalPrice": 1119,
     "description": "Le modèle Eclipse Lens incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-31.jpg"
@@ -775,12 +775,12 @@ export const products = [
     "_id": "prod_31_mk8gm0kj"
   },
   {
-    "name": "Alpine Light Optic",
+    "name": "Rebel",
     "brand": "Céleste",
     "category": "sunglasses",
     "season": "winter",
-    "price": 142,
-    "originalPrice": 223,
+    "price": 645,
+    "originalPrice": 1070,
     "description": "Le modèle Aether Lens incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-32.jpg"
@@ -800,12 +800,12 @@ export const products = [
     "_id": "prod_32_mk8gm0kj"
   },
   {
-    "name": "Sun Shade Force",
+    "name": "Maverick",
     "brand": "Heritage",
     "category": "sunglasses",
     "season": "summer",
-    "price": 269,
-    "originalPrice": 259,
+    "price": 730,
+    "originalPrice": 954,
     "description": "Le modèle Quartz Sight incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-33.jpg"
@@ -825,12 +825,12 @@ export const products = [
     "_id": "prod_33_mk8gm0kj"
   },
   {
-    "name": "Beach Tint Look",
+    "name": "Ranger",
     "brand": "Apex",
     "category": "sunglasses",
     "season": "summer",
-    "price": 282,
-    "originalPrice": 300,
+    "price": 1200,
+    "originalPrice": 1539,
     "description": "Le modèle Ventus Glow incarne l'élégance moderne. Avec sa monture Rose Poudré de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-34.jpg"
@@ -850,12 +850,12 @@ export const products = [
     "_id": "prod_34_mk8gm0kj"
   },
   {
-    "name": "Coral Hue Frame",
+    "name": "Scout",
     "brand": "Orion",
     "category": "sunglasses",
     "season": "summer",
-    "price": 307,
-    "originalPrice": 185,
+    "price": 989,
+    "originalPrice": 1309,
     "description": "Le modèle Apex Sight incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-35.jpg"
@@ -875,12 +875,12 @@ export const products = [
     "_id": "prod_35_mk8gm0kj"
   },
   {
-    "name": "Tropic Tone Lens",
+    "name": "Hunter",
     "brand": "Artis",
     "category": "sunglasses",
     "season": "summer",
-    "price": 303,
-    "originalPrice": 245,
+    "price": 1220,
+    "originalPrice": 1491,
     "description": "Le modèle Apex Max incarne l'élégance moderne. Avec sa monture Bleu Océan de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-36.jpg"
@@ -900,12 +900,12 @@ export const products = [
     "_id": "prod_36_mk8gm0kj"
   },
   {
-    "name": "Crystal Blend Clear",
+    "name": "Tracker",
     "brand": "Soléra",
     "category": "sunglasses",
     "season": "winter",
-    "price": 130,
-    "originalPrice": 388,
+    "price": 1005,
+    "originalPrice": 1263,
     "description": "Le modèle Radia Frame incarne l'élégance moderne. Avec sa monture Bleu Océan de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-37.jpg"
@@ -925,12 +925,12 @@ export const products = [
     "_id": "prod_37_mk8gm0kj"
   },
   {
-    "name": "Polar Mix Pro",
+    "name": "Voyager",
     "brand": "Heritage",
     "category": "sunglasses",
     "season": "winter",
-    "price": 347,
-    "originalPrice": 200,
+    "price": 1004,
+    "originalPrice": 1388,
     "description": "Le modèle Ventus Prime incarne l'élégance moderne. Avec sa monture Bleu Océan de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-38.jpg"
@@ -950,12 +950,12 @@ export const products = [
     "_id": "prod_38_mk8gm0kj"
   },
   {
-    "name": "Breeze Fusion Vision",
+    "name": "Explorer",
     "brand": "Baron",
     "category": "sunglasses",
     "season": "summer",
-    "price": 280,
-    "originalPrice": 180,
+    "price": 1171,
+    "originalPrice": 1506,
     "description": "Le modèle Vesta Tint incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-39.jpg"
@@ -975,12 +975,12 @@ export const products = [
     "_id": "prod_39_mk8gm0kj"
   },
   {
-    "name": "Alpine Core Optic",
+    "name": "Pioneer",
     "brand": "Sportif",
     "category": "sunglasses",
     "season": "winter",
-    "price": 211,
-    "originalPrice": 309,
+    "price": 626,
+    "originalPrice": 975,
     "description": "Le modèle Nova Frame incarne l'élégance moderne. Avec sa monture Rose Poudré de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/sun-40.jpg"
@@ -1000,12 +1000,12 @@ export const products = [
     "_id": "prod_40_mk8gm0kj"
   },
   {
-    "name": "Frost Pure Elegance",
+    "name": "Clubmaster Optics",
     "brand": "Orion",
     "category": "optical",
     "season": "winter",
-    "price": 295,
-    "originalPrice": 229,
+    "price": 909,
+    "originalPrice": 1181,
     "description": "Le modèle Radia Edge incarne l'élégance moderne. Avec sa monture Bleu Océan de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-11.jpg"
@@ -1025,12 +1025,12 @@ export const products = [
     "_id": "prod_41_mk8gm0kj"
   },
   {
-    "name": "Beach True Look",
+    "name": "Round Optics",
     "brand": "Nova",
     "category": "optical",
     "season": "summer",
-    "price": 178,
-    "originalPrice": 206,
+    "price": 453,
+    "originalPrice": 736,
     "description": "Le modèle Spectra Max incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-12.jpg"
@@ -1050,12 +1050,12 @@ export const products = [
     "_id": "prod_42_mk8gm0kj"
   },
   {
-    "name": "Coral Real Frame",
+    "name": "Aviator Optics",
     "brand": "Royale",
     "category": "optical",
     "season": "summer",
-    "price": 185,
-    "originalPrice": 219,
+    "price": 940,
+    "originalPrice": 1189,
     "description": "Le modèle Chronos Look incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-13.jpg"
@@ -1075,12 +1075,12 @@ export const products = [
     "_id": "prod_43_mk8gm0kj"
   },
   {
-    "name": "Tropic Vista Lens",
+    "name": "Wayfarer Optics",
     "brand": "Ethereal",
     "category": "optical",
     "season": "summer",
-    "price": 136,
-    "originalPrice": 226,
+    "price": 527,
+    "originalPrice": 632,
     "description": "Le modèle Flux Guard incarne l'élégance moderne. Avec sa monture Brun Terre de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-14.jpg"
@@ -1100,12 +1100,12 @@ export const products = [
     "_id": "prod_44_mk8gm0kj"
   },
   {
-    "name": "Sunset Horizon Clear",
+    "name": "Erika Optics",
     "brand": "Lumina",
     "category": "optical",
     "season": "summer",
-    "price": 137,
-    "originalPrice": 255,
+    "price": 811,
+    "originalPrice": 1097,
     "description": "Le modèle Radia Scene incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-15.jpg"
@@ -1125,12 +1125,12 @@ export const products = [
     "_id": "prod_45_mk8gm0kj"
   },
   {
-    "name": "Wave Clarity Style",
+    "name": "Hexagonal Optics",
     "brand": "Apex",
     "category": "optical",
     "season": "summer",
-    "price": 240,
-    "originalPrice": 220,
+    "price": 397,
+    "originalPrice": 598,
     "description": "Le modèle Radia Guard incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-16.jpg"
@@ -1150,12 +1150,12 @@ export const products = [
     "_id": "prod_46_mk8gm0kj"
   },
   {
-    "name": "Breeze Focus Vision",
+    "name": "Frank",
     "brand": "Heritage",
     "category": "optical",
     "season": "summer",
-    "price": 254,
-    "originalPrice": 394,
+    "price": 888,
+    "originalPrice": 1225,
     "description": "Le modèle Orion Glow incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-17.jpg"
@@ -1175,12 +1175,12 @@ export const products = [
     "_id": "prod_47_mk8gm0kj"
   },
   {
-    "name": "Coastal Prism Luxe",
+    "name": "Leonard",
     "brand": "Heritage",
     "category": "optical",
     "season": "summer",
-    "price": 325,
-    "originalPrice": 195,
+    "price": 486,
+    "originalPrice": 671,
     "description": "Le modèle Radia Flash incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-18.jpg"
@@ -1200,12 +1200,12 @@ export const products = [
     "_id": "prod_48_mk8gm0kj"
   },
   {
-    "name": "Sun Spectrum View",
+    "name": "Burbank",
     "brand": "Heritage",
     "category": "optical",
     "season": "summer",
-    "price": 207,
-    "originalPrice": 400,
+    "price": 885,
+    "originalPrice": 1028,
     "description": "Le modèle Ventus Aspect incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-19.jpg"
@@ -1225,12 +1225,12 @@ export const products = [
     "_id": "prod_49_mk8gm0kj"
   },
   {
-    "name": "Beach Ray Look",
+    "name": "Elliot",
     "brand": "Sportif",
     "category": "optical",
     "season": "summer",
-    "price": 120,
-    "originalPrice": 234,
+    "price": 929,
+    "originalPrice": 1176,
     "description": "Le modèle Lumen Tint incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-20.jpg"
@@ -1250,12 +1250,12 @@ export const products = [
     "_id": "prod_50_mk8gm0kj"
   },
   {
-    "name": "Snow Glow Frame",
+    "name": "Dean",
     "brand": "Heritage",
     "category": "optical",
     "season": "winter",
-    "price": 166,
-    "originalPrice": 226,
+    "price": 481,
+    "originalPrice": 767,
     "description": "Le modèle Apex Ray incarne l'élégance moderne. Avec sa monture Or Solaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-21.jpg"
@@ -1275,12 +1275,12 @@ export const products = [
     "_id": "prod_51_mk8gm0kj"
   },
   {
-    "name": "Tropic Shine Lens",
+    "name": "Gregory",
     "brand": "Heritage",
     "category": "optical",
     "season": "summer",
-    "price": 124,
-    "originalPrice": 398,
+    "price": 636,
+    "originalPrice": 745,
     "description": "Le modèle Stratus Vista incarne l'élégance moderne. Avec sa monture Or Solaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-22.jpg"
@@ -1300,12 +1300,12 @@ export const products = [
     "_id": "prod_52_mk8gm0kj"
   },
   {
-    "name": "Sunset Spark Clear",
+    "name": "Oliver",
     "brand": "Nova",
     "category": "optical",
     "season": "summer",
-    "price": 239,
-    "originalPrice": 388,
+    "price": 895,
+    "originalPrice": 1227,
     "description": "Le modèle Vesta Vision incarne l'élégance moderne. Avec sa monture Rose Poudré de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-23.jpg"
@@ -1325,12 +1325,12 @@ export const products = [
     "_id": "prod_53_mk8gm0kj"
   },
   {
-    "name": "Polar Flash Chic",
+    "name": "Finley",
     "brand": "Nova",
     "category": "optical",
     "season": "winter",
-    "price": 254,
-    "originalPrice": 386,
+    "price": 428,
+    "originalPrice": 733,
     "description": "Le modèle Aéria Soft incarne l'élégance moderne. Avec sa monture Noir Minuit de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-24.jpg"
@@ -1350,12 +1350,12 @@ export const products = [
     "_id": "prod_54_mk8gm0kj"
   },
   {
-    "name": "Nordic Beam Grace",
+    "name": "Riley",
     "brand": "Soléra",
     "category": "optical",
     "season": "winter",
-    "price": 305,
-    "originalPrice": 333,
+    "price": 584,
+    "originalPrice": 703,
     "description": "Le modèle Ventus Lite incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme rectangular, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-25.jpg"
@@ -1375,12 +1375,12 @@ export const products = [
     "_id": "prod_55_mk8gm0kj"
   },
   {
-    "name": "Alpine Light Optic",
+    "name": "Morgan",
     "brand": "Aurélia",
     "category": "optical",
     "season": "winter",
-    "price": 320,
-    "originalPrice": 239,
+    "price": 607,
+    "originalPrice": 832,
     "description": "Le modèle Mira Beam incarne l'élégance moderne. Avec sa monture Transparent Cristal de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-26.jpg"
@@ -1400,12 +1400,12 @@ export const products = [
     "_id": "prod_56_mk8gm0kj"
   },
   {
-    "name": "Sun Shade View",
+    "name": "Casey",
     "brand": "Orion",
     "category": "optical",
     "season": "summer",
-    "price": 134,
-    "originalPrice": 261,
+    "price": 812,
+    "originalPrice": 1130,
     "description": "Le modèle Lyra Spark incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-27.jpg"
@@ -1425,12 +1425,12 @@ export const products = [
     "_id": "prod_57_mk8gm0kj"
   },
   {
-    "name": "Beach Tint Glam",
+    "name": "Quinn",
     "brand": "Rossi",
     "category": "optical",
     "season": "summer",
-    "price": 334,
-    "originalPrice": 245,
+    "price": 905,
+    "originalPrice": 1036,
     "description": "Le modèle Prisma Soft incarne l'élégance moderne. Avec sa monture Rose Poudré de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-28.jpg"
@@ -1450,12 +1450,12 @@ export const products = [
     "_id": "prod_58_mk8gm0kj"
   },
   {
-    "name": "Snow Hue Frame",
+    "name": "Reese",
     "brand": "Aurélia",
     "category": "optical",
     "season": "winter",
-    "price": 282,
-    "originalPrice": 346,
+    "price": 534,
+    "originalPrice": 698,
     "description": "Le modèle Eclipse Look incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme browline, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-29.jpg"
@@ -1475,12 +1475,12 @@ export const products = [
     "_id": "prod_59_mk8gm0kj"
   },
   {
-    "name": "Ice Tone Lens",
+    "name": "Avery",
     "brand": "London",
     "category": "optical",
     "season": "winter",
-    "price": 131,
-    "originalPrice": 256,
+    "price": 697,
+    "originalPrice": 828,
     "description": "Le modèle Luna Focus incarne l'élégance moderne. Avec sa monture Brun Terre de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-30.jpg"
@@ -1500,12 +1500,12 @@ export const products = [
     "_id": "prod_60_mk8gm0kj"
   },
   {
-    "name": "Crystal Blend Clear",
+    "name": "Parker",
     "brand": "Lumina",
     "category": "optical",
     "season": "winter",
-    "price": 317,
-    "originalPrice": 179,
+    "price": 405,
+    "originalPrice": 691,
     "description": "Le modèle Soléra Look incarne l'élégance moderne. Avec sa monture Vert Forêt de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-01.jpg"
@@ -1525,12 +1525,12 @@ export const products = [
     "_id": "prod_61_mk8gm0kj"
   },
   {
-    "name": "Polar Mix Style",
+    "name": "Jordan",
     "brand": "Artis",
     "category": "optical",
     "season": "winter",
-    "price": 319,
-    "originalPrice": 334,
+    "price": 587,
+    "originalPrice": 696,
     "description": "Le modèle Helios Shine incarne l'élégance moderne. Avec sa monture Bleu Océan de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-02.jpg"
@@ -1550,12 +1550,12 @@ export const products = [
     "_id": "prod_62_mk8gm0kj"
   },
   {
-    "name": "Breeze Fusion Grace",
+    "name": "Taylor",
     "brand": "Zenith",
     "category": "optical",
     "season": "summer",
-    "price": 322,
-    "originalPrice": 363,
+    "price": 707,
+    "originalPrice": 838,
     "description": "Le modèle Apex View incarne l'élégance moderne. Avec sa monture Bleu Océan de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-03.jpg"
@@ -1575,12 +1575,12 @@ export const products = [
     "_id": "prod_63_mk8gm0kk"
   },
   {
-    "name": "Alpine Core Luxe",
+    "name": "Cameron",
     "brand": "Nova",
     "category": "optical",
     "season": "winter",
-    "price": 224,
-    "originalPrice": 280,
+    "price": 520,
+    "originalPrice": 688,
     "description": "Le modèle Cirrus Beam incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme round, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-04.jpg"
@@ -1600,12 +1600,12 @@ export const products = [
     "_id": "prod_64_mk8gm0kk"
   },
   {
-    "name": "Sun Pure View",
+    "name": "Spencer",
     "brand": "Aurélia",
     "category": "optical",
     "season": "summer",
-    "price": 191,
-    "originalPrice": 372,
+    "price": 375,
+    "originalPrice": 566,
     "description": "Le modèle Luna Lite incarne l'élégance moderne. Avec sa monture Écaille Tortue de forme geometric, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-05.jpg"
@@ -1625,12 +1625,12 @@ export const products = [
     "_id": "prod_65_mk8gm0kk"
   },
   {
-    "name": "Beach True Look",
+    "name": "Emerson",
     "brand": "Aurélia",
     "category": "optical",
     "season": "summer",
-    "price": 188,
-    "originalPrice": 391,
+    "price": 567,
+    "originalPrice": 745,
     "description": "Le modèle Eclipse Shield incarne l'élégance moderne. Avec sa monture Brun Terre de forme oversized, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-06.jpg"
@@ -1650,12 +1650,12 @@ export const products = [
     "_id": "prod_66_mk8gm0kk"
   },
   {
-    "name": "Coral Real Max",
+    "name": "Hayden",
     "brand": "Rossi",
     "category": "optical",
     "season": "summer",
-    "price": 309,
-    "originalPrice": 321,
+    "price": 768,
+    "originalPrice": 1079,
     "description": "Le modèle Flux Lens incarne l'élégance moderne. Avec sa monture Argent Lunaire de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-07.jpg"
@@ -1675,12 +1675,12 @@ export const products = [
     "_id": "prod_67_mk8gm0kk"
   },
   {
-    "name": "Tropic Vista Sport",
+    "name": "Peyton",
     "brand": "Artis",
     "category": "optical",
     "season": "summer",
-    "price": 274,
-    "originalPrice": 367,
+    "price": 949,
+    "originalPrice": 1095,
     "description": "Le modèle Luna Lens incarne l'élégance moderne. Avec sa monture Vert Forêt de forme square, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-08.jpg"
@@ -1700,12 +1700,12 @@ export const products = [
     "_id": "prod_68_mk8gm0kk"
   },
   {
-    "name": "Crystal Horizon Clear",
+    "name": "Rowan",
     "brand": "Vespera",
     "category": "optical",
     "season": "winter",
-    "price": 125,
-    "originalPrice": 267,
+    "price": 478,
+    "originalPrice": 718,
     "description": "Le modèle Ventus Beam incarne l'élégance moderne. Avec sa monture Gris Ardoise de forme aviator, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-09.jpg"
@@ -1725,12 +1725,12 @@ export const products = [
     "_id": "prod_69_mk8gm0kk"
   },
   {
-    "name": "Wave Clarity Pro",
+    "name": "Sawyer",
     "brand": "Equinox",
     "category": "optical",
     "season": "summer",
-    "price": 260,
-    "originalPrice": 181,
+    "price": 853,
+    "originalPrice": 1186,
     "description": "Le modèle Quartz Look incarne l'élégance moderne. Avec sa monture Brun Terre de forme cat-eye, il offre un confort exceptionnel et un style intemporel. Conçu pour ceux qui recherchent la distinction au quotidien.",
     "images": [
       "/images/products/optical-10.jpg"
