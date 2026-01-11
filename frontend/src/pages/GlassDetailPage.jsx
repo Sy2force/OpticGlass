@@ -273,9 +273,9 @@ const GlassDetailPage = () => {
               </div>
 
               <div className="flex items-end gap-3 mb-8">
-                <span className="text-3xl font-bold text-white">{discountedPrice} €</span>
+                <span className="text-3xl font-bold text-white">{discountedPrice} ₪</span>
                 {product.discount > 0 && (
-                  <span className="text-lg text-white/40 line-through mb-1.5">{product.price} €</span>
+                  <span className="text-lg text-white/40 line-through mb-1.5">{product.price} ₪</span>
                 )}
               </div>
             </div>

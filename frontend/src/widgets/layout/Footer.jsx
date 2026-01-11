@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 mb-16">
           <div className="bg-[#0a0a0a] p-6 text-center">
             <p className="text-white/70 text-sm font-light">Free Shipping</p>
-            <p className="text-white/30 text-xs mt-1">Orders over €100</p>
+            <p className="text-white/30 text-xs mt-1">Orders over ₪100</p>
           </div>
           <div className="bg-[#0a0a0a] p-6 text-center">
             <p className="text-white/70 text-sm font-light">Secure Payment</p>

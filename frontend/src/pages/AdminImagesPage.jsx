@@ -198,7 +198,7 @@ const AdminImagesPage = () => {
                       <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
                         <span className="capitalize">Cat: {product.category}</span>
                         <span>•</span>
-                        <span className="text-[#c9a227] font-bold">{product.price} €</span>
+                        <span className="text-[#c9a227] font-bold">{product.price} ₪</span>
                       </div>
                       
                       <p className="text-xs text-white/30 mt-2 font-mono">

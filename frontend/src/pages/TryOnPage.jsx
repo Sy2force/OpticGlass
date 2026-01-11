@@ -375,7 +375,7 @@ const TryOnPage = () => {
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-white/50 uppercase tracking-wide mb-1">{glasses.brand}</p>
                     <h3 className="font-bold truncate group-hover:text-[#c9a227] transition-colors">{glasses.name}</h3>
-                    <p className="text-[#c9a227] font-medium mt-1">{glasses.price} €</p>
+                    <p className="text-[#c9a227] font-medium mt-1">{glasses.price} ₪</p>
                   </div>
                   {selectedGlasses?._id === glasses._id && (
                     <div className="w-8 h-8 bg-[#c9a227] rounded-full flex items-center justify-center flex-shrink-0">

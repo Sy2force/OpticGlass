@@ -102,14 +102,14 @@ const ChatBot = () => {
   const faqItems = {
     fr: [
       { q: 'Quels sont vos horaires ?', a: 'Nous sommes ouverts du lundi au samedi de 9h à 19h.' },
-      { q: 'Livraison gratuite ?', a: 'Oui, la livraison est gratuite pour toute commande supérieure à 100€.' },
+      { q: 'Livraison gratuite ?', a: 'Oui, la livraison est gratuite pour toute commande supérieure à 100₪.' },
       { q: 'Garantie des produits ?', a: 'Tous nos produits sont garantis 2 ans.' },
       { q: 'Retours possibles ?', a: 'Vous avez 30 jours pour retourner un produit non satisfaisant.' },
       { q: 'Modes de paiement ?', a: 'Nous acceptons CB, PayPal, et paiement en 3x sans frais.' },
     ],
     en: [
       { q: 'What are your hours?', a: 'We are open Monday to Saturday from 9am to 7pm.' },
-      { q: 'Free shipping?', a: 'Yes, shipping is free for orders over €100.' },
+      { q: 'Free shipping?', a: 'Yes, shipping is free for orders over ₪100.' },
       { q: 'Product warranty?', a: 'All our products come with a 2-year warranty.' },
       { q: 'Returns possible?', a: 'You have 30 days to return an unsatisfactory product.' },
       { q: 'Payment methods?', a: 'We accept credit cards, PayPal, and 3x interest-free payments.' },

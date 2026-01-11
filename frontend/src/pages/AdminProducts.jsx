@@ -301,7 +301,7 @@ const AdminProducts = () => {
                     <p className="text-white/40 text-xs font-bold tracking-wider uppercase">{product.brand}</p>
                     <h3 className="text-white font-bold truncate pr-4">{product.name}</h3>
                   </div>
-                  <span className="text-[#c9a227] font-bold">{product.price} €</span>
+                  <span className="text-[#c9a227] font-bold">{product.price} ₪</span>
                 </div>
                 
                 <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/5">
@@ -435,7 +435,7 @@ const AdminProducts = () => {
                   {/* Pricing */}
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-white/70">Price (€) *</label>
+                      <label className="text-sm font-medium text-white/70">Price (₪) *</label>
                       <input
                         type="number"
                         name="price"
@@ -450,7 +450,7 @@ const AdminProducts = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-white/70">Original Price (€)</label>
+                      <label className="text-sm font-medium text-white/70">Original Price (₪)</label>
                       <input
                         type="number"
                         name="originalPrice"

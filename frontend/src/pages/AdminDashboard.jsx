@@ -99,7 +99,7 @@ const AdminDashboard = () => {
           { label: 'Users', value: displayStats.totalUsers, growth: displayStats.userGrowth, icon: Users },
           { label: 'Products', value: displayStats.totalProducts, sub: 'In stock', icon: Package },
           { label: 'Orders', value: displayStats.totalOrders, growth: displayStats.orderGrowth, icon: ShoppingCart },
-          { label: 'Revenue', value: `${displayStats.totalRevenue.toLocaleString()} €`, growth: displayStats.revenueGrowth, icon: TrendingUp },
+          { label: 'Revenue', value: `${displayStats.totalRevenue.toLocaleString()} ₪`, growth: displayStats.revenueGrowth, icon: TrendingUp },
         ].map((stat, i) => (
           <motion.div
             key={i}
@@ -154,7 +154,7 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4">
                       <div className="font-medium text-white">{order.user.firstName} {order.user.lastName}</div>
                     </td>
-                    <td className="px-6 py-4 font-bold text-white">{order.totalAmount} €</td>
+                    <td className="px-6 py-4 font-bold text-white">{order.totalAmount} ₪</td>
                     <td className="px-6 py-4">
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(order.status)}`}>
                         {getStatusIcon(order.status)}
@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                   <p className="text-sm text-white/50">{product.brand}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-[#c9a227]">{product.revenue.toLocaleString()} €</p>
+                  <p className="font-bold text-[#c9a227]">{product.revenue.toLocaleString()} ₪</p>
                   <p className="text-xs text-white/40">{product.sales} sales</p>
                 </div>
               </div>

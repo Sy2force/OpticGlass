@@ -31,7 +31,7 @@ const GiftCardPage = () => {
       newErrors.recipientEmail = 'Invalid recipient email';
     }
     if (!formData.amount || formData.amount < 10) {
-      newErrors.amount = 'Minimum amount: €10';
+      newErrors.amount = 'Minimum amount: ₪10';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -139,7 +139,7 @@ const GiftCardPage = () => {
                             </div>
                             <div className="text-right">
                                 <p className="text-white/40 text-xs uppercase tracking-wider mb-1">Amount</p>
-                                <p className="text-4xl font-bold text-[#c9a227]">{formData.amount} €</p>
+                                <p className="text-4xl font-bold text-[#c9a227]">{formData.amount} ₪</p>
                             </div>
                         </div>
                         
@@ -211,7 +211,7 @@ const GiftCardPage = () => {
                                         : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10 hover:border-white/20'
                                 }`}
                             >
-                                {amount} €
+                                {amount} ₪
                             </button>
                         ))}
                     </div>
@@ -225,7 +225,7 @@ const GiftCardPage = () => {
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#c9a227] transition-colors pl-10"
                             placeholder="Other amount"
                         />
-                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">€</span>
+                        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40">₪</span>
                     </div>
                     {errors.amount && <p className="text-red-500 text-sm mt-1">{errors.amount}</p>}
                 </div>
@@ -351,7 +351,7 @@ const GiftCardPage = () => {
                     ) : (
                         <>
                             <ShoppingBag className="w-5 h-5" />
-                            Add to Cart - {formData.amount} €
+                            Add to Cart - {formData.amount} ₪
                         </>
                     )}
                 </motion.button>

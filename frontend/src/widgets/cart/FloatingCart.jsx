@@ -160,7 +160,7 @@ const FloatingCart = () => {
                           </h3>
                           <p className="text-primary text-xs mb-2">{getItemBrand(item)}</p>
                           <p className="text-white font-bold">
-                            {(getItemPrice(item) * item.quantity).toFixed(2)}€
+                            {(getItemPrice(item) * item.quantity).toFixed(2)}₪
                           </p>
                         </div>
                       </div>
@@ -198,7 +198,7 @@ const FloatingCart = () => {
                 <div className="border-t border-white/10 p-6 space-y-4">
                   <div className="flex items-center justify-between text-lg">
                     <span className="text-gray-400">Total</span>
-                    <span className="text-white font-bold text-2xl">{getTotalPrice()}€</span>
+                    <span className="text-white font-bold text-2xl">{getTotalPrice()}₪</span>
                   </div>
 
                   <Link to="/cart" onClick={() => setIsOpen(false)}>

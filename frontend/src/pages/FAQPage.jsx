@@ -20,7 +20,7 @@ const FAQPage = () => {
     {
       category: 'shipping',
       question: 'What are the delivery times?',
-      answer: 'We deliver in 2-4 business days in France. For international orders, allow 5-10 business days. Shipping is free for all orders over €100.'
+      answer: 'We deliver in 2-4 business days in France. For international orders, allow 5-10 business days. Shipping is free for all orders over ₪100.'
     },
     {
       category: 'shipping',
@@ -45,7 +45,7 @@ const FAQPage = () => {
     {
       category: 'payment',
       question: 'Can I pay in installments?',
-      answer: 'Yes, for any purchase over €100, you can pay in 3 or 4 installments free of charge. This option is automatically proposed to you at checkout.'
+      answer: 'Yes, for any purchase over ₪100, you can pay in 3 or 4 installments free of charge. This option is automatically proposed to you at checkout.'
     },
     {
       category: 'returns',

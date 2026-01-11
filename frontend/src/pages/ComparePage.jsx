@@ -58,7 +58,7 @@ const ComparePage = () => {
 
   const features = [
     { key: 'brand', label: 'Brand' },
-    { key: 'price', label: 'Price', format: (v) => `${v}€` },
+    { key: 'price', label: 'Price', format: (v) => `${v}₪` },
     { key: 'category', label: 'Category' },
     { key: 'type', label: 'Type' },
     { key: 'gender', label: 'Gender' },
@@ -109,7 +109,7 @@ const ComparePage = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                    <p className="text-[#c9a227] font-bold text-2xl mb-4">{product.price}€</p>
+                    <p className="text-[#c9a227] font-bold text-2xl mb-4">{product.price}₪</p>
                     <button className="w-full bg-[#c9a227] hover:bg-[#d4af37] text-black py-3 rounded-lg font-bold transition-colors flex items-center justify-center gap-2">
                       <ShoppingCart size={20} />
                       Add to Cart
@@ -240,7 +240,7 @@ const ComparePage = () => {
                     <div className="flex-1">
                       <p className="text-[#c9a227] text-xs uppercase tracking-wider mb-1">{product.brand}</p>
                       <h3 className="font-bold mb-2">{product.name}</h3>
-                      <p className="font-bold">{product.price}€</p>
+                      <p className="font-bold">{product.price}₪</p>
                     </div>
                   </motion.div>
                 ))}
