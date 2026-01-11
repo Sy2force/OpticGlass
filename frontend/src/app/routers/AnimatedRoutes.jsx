@@ -64,7 +64,7 @@ const AnimatedRoutes = () => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/reviews" element={<ReviewsPage />} />
       
-      {/* Routes User Protégées */}
+      {/* Protected User Routes */}
       <Route
         path="/user/dashboard"
         element={
@@ -131,7 +131,7 @@ const AnimatedRoutes = () => {
         }
       />
 
-      {/* Routes Admin Protégées - Nested Routes */}
+      {/* Protected Admin Routes */}
       <Route
         path="/admin"
         element={

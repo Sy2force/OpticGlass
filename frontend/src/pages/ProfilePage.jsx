@@ -84,11 +84,11 @@ const ProfilePage = () => {
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     try {
-      // Note: In a real app, we would handle password change validation better
+      // Update user profile
       await api.put('/auth/profile', formData);
       alert('Profile updated successfully');
       setIsEditing(false);
-      // Forcer un rafraîchissement pour voir les nouvelles données ou utiliser une méthode de contexte
+      // Refresh to show updated data
       window.location.reload(); 
     } catch (error) {
       console.error('Error updating profile:', error);

@@ -1,28 +1,23 @@
 import axios from 'axios';
 
-// Configuration de l'URL de l'API
+// API URL setup
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3005/api';
 
-// ⚠️ Warning si l'URL de l'API n'est pas définie
+// Show warning if API URL is not set
 if (!import.meta.env.VITE_API_URL) {
-  console.warn(
-    '⚠️ VITE_API_URL n\'est pas définie dans .env. Utilisation de l\'URL par défaut:',
-    API_URL
-  );
+  console.warn('VITE_API_URL not set in .env, using default:', API_URL);
 }
 
-// URL de l'API configurée
-
-// Création de l'instance Axios
+// Create axios instance
 const api = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // Timeout de 10 secondes
+  timeout: 10000,
 });
 
-// Intercepteur de requête - Ajoute le token JWT
+// Add JWT token to requests
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
@@ -32,57 +27,53 @@ api.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.error('❌ Erreur lors de la préparation de la requête:', error);
+    console.error('Request error:', error);
     return Promise.reject(error);
   }
 );
 
-// Intercepteur de réponse - Gestion des erreurs
+// Handle response errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Erreur 401 - Non autorisé (seulement si on avait un token)
+    // 401 - Unauthorized
     if (error.response?.status === 401) {
       const hadToken = localStorage.getItem('token') || sessionStorage.getItem('token');
       if (hadToken) {
-        console.warn('🔒 Session expirée. Redirection vers la page de connexion...');
+        console.warn('Session expired, redirecting to login...');
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         sessionStorage.removeItem('token');
         sessionStorage.removeItem('user');
         window.location.href = '/auth';
       }
-      return Promise.reject(new Error('Non autorisé'));
+      return Promise.reject(new Error('Unauthorized'));
     }
 
-    // Erreur réseau - API non disponible
+    // Network error
     if (error.code === 'ECONNABORTED' || error.message === 'Network Error') {
-      console.error('🌐 Erreur réseau: Impossible de contacter l\'API');
+      console.error('Network error: Cannot reach API');
       return Promise.reject(
-        new Error(
-          'Impossible de contacter le serveur. Vérifiez votre connexion internet ou réessayez plus tard.'
-        )
+        new Error('Cannot reach server. Check your internet connection.')
       );
     }
 
     // Timeout
     if (error.code === 'ECONNABORTED') {
-      console.error('⏱️ Timeout: La requête a pris trop de temps');
-      return Promise.reject(
-        new Error('La requête a pris trop de temps. Veuillez réessayer.')
-      );
+      console.error('Request timeout');
+      return Promise.reject(new Error('Request timed out. Please try again.'));
     }
 
-    // Erreur 500 - Erreur serveur
+    // Server error
     if (error.response?.status >= 500) {
-      console.error('🔥 Erreur serveur:', error.response.status);
+      console.error('Server error:', error.response.status);
       return Promise.reject(
-        new Error('Erreur serveur. Veuillez réessayer plus tard.')
+        new Error('Server error. Please try again later.')
       );
     }
 
-    // Autres erreurs
-    console.error('❌ Erreur API:', error.response?.data?.message || error.message);
+    // Other errors
+    console.error('API error:', error.response?.data?.message || error.message);
     return Promise.reject(error);
   }
 );
